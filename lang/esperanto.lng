@@ -1,0 +1,128 @@
+##grflangid 0x05
+
+
+STR_GRF_NAME :Vakutrajno Set 1.0.1
+STR_GRF_DESCRIPTION :Meti maglevtrajnojn en vakutuboj por ebligi ekstremaj rapidecoj, sed ĉe tremalbonaĉa prezo. Gravega por tre futura ludado. Grafikoj de Emperor Jake, Voyager One, DJNekkid, Purno, Froix, Erato kaj Zephyris; programado de Emperor Jake kaj aliaj. (c) 2018, liberigita sur GPLv2 kaj pli alta.
+
+
+
+
+
+
+#trains
+
+STR_NAME_CHINESE_PROTO					:Fenglong FL1 Prototipo
+STR_NAME_CHINESE_INTERCITY				:Fenglong FL2
+STR_NAME_CHINESE_INTERNATIONAL			:Fenglong FL5 “Gepard”
+STR_NAME_CHINESE_INTERCONTINENTAL		:Fenglong FL8
+
+STR_NAME_HYPERLOOP_1				:Hipervojo Kapsulo
+
+STR_NAME_SWISSMETRO_1				:Swissmetro
+
+STR_NAME_CHIMAERA					:Siemens Chimaera
+
+STR_NAME_FRENCH_1					:Alstom Train-Sous-Vide 
+STR_NAME_FRENCH_2					:Alstom TSV Dupleks
+
+STR_NAME_JAPANESE_1					:JVAC Ŝinkūsen 1000
+STR_NAME_JAPANESE_2					:JVAC Ŝinkūsen 4000
+
+
+#cargo vactrains
+
+STR_NAME_CARGO_1					:Siemens TransCargo
+STR_NAME_CARGO_2					:Alstom TSV Fret
+STR_NAME_CARGO_3					:F-Trainz FT001
+STR_NAME_CARGO_4					:Juanlong “Silka Drako”
+
+
+# additional text - metric TODO ADD DIFFERENT UNITS mph and kW
+
+STR_TEXT_CHINESE_PROTO					:{BLACK}Ŝarĝrapideco: {GOLD}Malrapide {}{BLACK}Atmosphera Rapideco: {GOLD}200 km/h {}{BLACK}Nur povas esti kunligata kun sin.
+STR_TEXT_CHINESE_INTERCITY				:{BLACK}Ŝarĝrapideco: {GOLD}Rapide {}{BLACK}Atmosphera Rapideco: {GOLD}200 km/h {}{BLACK}Vagonpotenco: {GOLD}7,000 ĉp {}{BLACK}Vagonkapablo: {GOLD}80 Pasaĝero
+STR_TEXT_CHINESE_INTERNATIONAL			:{BLACK}Ŝarĝrapideco: {GOLD}Rapide {}{BLACK}Atmosphera Rapideco: {GOLD}200 km/h {}{BLACK}Vagonpotenco: {GOLD}7,000 ĉp {}{BLACK}Vagonkapablo: {GOLD}72 Pasaĝero
+STR_TEXT_CHINESE_INTERCONT				:{BLACK}Ŝarĝrapideco: {GOLD}Normale {}{BLACK}Atmosphera Rapideco: {GOLD}200 km/h {}{BLACK}Vagonpotenco: {GOLD}19,000 ĉp {}{BLACK}Vagonkapablo: {GOLD}105/110 Pasaĝero
+
+STR_TEXT_HYPERLOOP_1				:{BLACK}Ŝarĝrapideco: {GOLD}Normale {}{BLACK}Atmosphera Rapideco: {GOLD}120 km/h {}{BLACK}Ne povas esti kunligata kun iu ajn.
+
+STR_TEXT_SWISSMETRO_1				:{BLACK}Ŝarĝrapideco: {GOLD}Normale {}{BLACK}Atmosphera Rapideco: {GOLD}420 km/h {}{BLACK}Vagonpotenco: {GOLD}10,000 ĉp {}{BLACK}Vagonkapablo: {GOLD}56 Pasaĝero
+
+STR_TEXT_CHIMAERA					:{BLACK}Ŝarĝrapideco: {GOLD}Malrapide {}{BLACK}Atmosphera Rapideco: {GOLD}640 km/h {}{BLACK}Vagonpotenco: {GOLD}12,000 ĉp {}{BLACK}Vagonkapablo: {GOLD}40 Pasaĝero
+
+STR_TEXT_FRENCH_1					:{BLACK}Ŝarĝrapideco: {GOLD}Rapide {}{BLACK}Atmosphera Rapideco: {GOLD}450 km/h {}{BLACK}Vagonpotenco: {GOLD}9,000 ĉp {}{BLACK}Vagonkapablo: {GOLD}10/62 Pasaĝero
+STR_TEXT_FRENCH_2					:{BLACK}Ŝarĝrapideco: {GOLD}Rapide {}{BLACK}Atmosphera Rapideco: {GOLD}640 km/h {}{BLACK}Vagonpotenco: {GOLD}16,000 ĉp {}{BLACK}Vagonkapablo: {GOLD}120 Pasaĝero
+
+STR_TEXT_JAPANESE_1					:{BLACK}Ŝarĝrapideco: {GOLD}Normale {}{BLACK}Atmosphera Rapideco: {GOLD}500 km/h {}{BLACK}Vagonpotenco: {GOLD}7,000 ĉp {}{BLACK}Vagonkapablo: {GOLD}95 Pasaĝero
+STR_TEXT_JAPANESE_2					:{BLACK}Ŝarĝrapideco: {GOLD}Malrapide {}{BLACK}Atmosphera Rapideco: {GOLD}500 km/h {}{BLACK}Vagonpotenco: {GOLD}20,000 ĉp {}{BLACK}Vagonkapablo: {GOLD}185/190 Pasaĝero
+
+STR_TEXT_CARGO_1					:{BLACK}Atmosphera Rapideco: {GOLD}300 km/h
+STR_TEXT_CARGO_2					:{BLACK}Atmosphera Rapideco: {GOLD}450 km/h
+STR_TEXT_CARGO_3					:{BLACK}Atmosphera Rapideco: {GOLD}640 km/h
+STR_TEXT_CARGO_4					:{BLACK}Atmosphera Rapideco: {GOLD}750 km/h
+
+
+
+#wagons
+
+STR_NAME_POWERED_WAGON				:Vakutrajno Unuvagono (Potence)
+STR_NAME_UNPOWERED_WAGON			:Vakutrajno Unuvagono (Malpotence)
+STR_NAME_CARGO_WAGON				:Vakutrajno Universala Ŝarĝmodulo
+STR_NAME_EXPRESS_WAGON				:Vakutrajno Ekspresŝarĝvagono
+
+# general
+
+STR_NEW_ENGINE :Vakutrajno veturilo
+STR_AUTOREPLACE :Vakutrajno Veturiloj
+STR_BUILD_CAPTION :Nova Vakutrajno Veturiloj
+STR_TOOLBAR_CAPTION :Vakutubo Konstruado
+STR_VAC_RAIL :Vakutubo konstruado
+STR_VAC_NAME :Vakutubo Reloj
+
+# errors
+
+STR_ERROR_SELF_ONLY					:Nur povas esti kunligata kun sin.
+STR_ERROR_SINGLE_ONLY				:Ne povas esti kunligata kun iu ajn.
+STR_ERROR_MUWAG_ONLY				:Nur Unuvagonoj
+STR_ERROR_CARGO_ONLY				:Nur Ŝarĝvagonoj
+STR_ERROR_NO_WAGONS					:Ne povas kuligita kun vagonoj.
+
+#general params
+
+STR_PARAM_CARGO_ENGINES				:Ebligi Ŝarĝvakutrajnojn.
+STR_PARAM_CARGO_ENGINES_DESC		:Ebligi aŭ malebligi ŝarĝvakutrajnojn kiu nur povas neekspresa ŝargoj.
+
+STR_PARAM_CAPACITY					:Ŝanĝi Kapablon de Vakutrajnoj
+STR_PARAM_CAPACITY_DESC				:Permesas ŝanĝadon de la kapablon de vakutrajnoj (ekzemple por balanci kontraŭ aliaj).
+STR_PARAM_CAPACITY_LOW				:Malgranda
+STR_PARAM_CAPACITY_MED				:Normala
+STR_PARAM_CAPACITY_HIGH				:Granda
+
+#cost params
+
+STR_PARAM_RUNNING_COST                                          :Ŝanĝi Irkostojn
+STR_PARAM_RUNNING_COST_DESC                                     :Permesas ŝanĝadon de la irkostoj de vakutrajnoj (ekzemple por balanci kontraŭ aliaj).
+STR_PARAM_PURCHASE_COST                                         :Ŝangi Aĉetkostojn
+STR_PARAM_PURCHASE_COST_DESC                                    :Permesas ŝanĝadon de la aĉetkostoj de vakutrajnoj (ekzemple por balanci kontraŭ aliaj).
+STR_PARAM_RAIL_COST                                             :Ŝangi konstrukoston kaj malkonstrukoston de vakutubo.
+STR_PARAM_RAIL_COST_DESC                                        :Permesas ŝanĝadon de la konstrukosto kaj malkonstrukosto de vakutuboj.
+
+STR_PARAM_COST_AUTOMATICALLY                                    :aŭtomata (standardo)
+STR_PARAM_COST_BY256                                            :1 / 256
+STR_PARAM_COST_BY128                                            :1 / 128
+STR_PARAM_COST_BY64                                             :1 / 64
+STR_PARAM_COST_BY32                                             :1 / 32
+STR_PARAM_COST_BY16                                             :1 / 16
+STR_PARAM_COST_BY8                                              :1 / 8
+STR_PARAM_COST_BY4                                              :1 / 4
+STR_PARAM_COST_BY2                                              :1 / 2
+STR_PARAM_COST_NORMAL                                           :normala
+STR_PARAM_COST_TIMES2                                           :2x
+STR_PARAM_COST_TIMES4                                           :4x
+STR_PARAM_COST_TIMES8                                           :8x
+STR_PARAM_COST_TIMES16                                          :16x
+STR_PARAM_COST_TIMES32                                          :32x
+STR_PARAM_COST_TIMES64                                          :64x
+STR_PARAM_COST_TIMES128                                         :128x
+STR_PARAM_COST_TIMES256                                         :256x
+STR_PARAM_COST_TIMES512                                         :512x
