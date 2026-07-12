@@ -51,6 +51,8 @@ https://github.com/EmperorJake/vactrain
 
 Original Author: Jakob Karl (Emperor Jake) using elements of code by Terkhen, planetmaker, Transportman, FooBar and possibly others
 
+Includes code from the Vactrain Set Fork by Josh Barrass
+
 Artists:
 Tracks from FS_Maglev by Froix
 Vacuum tube overlay by Zephyris
@@ -64,7 +66,7 @@ Trains by Emperor Jake, Voyager One, Erato, DJ Nekkid
 ---------------
 
 The Vactrain Set
-(c) 2021 Emperor Jake and others
+(c) 2026 Emperor Jake and others
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by

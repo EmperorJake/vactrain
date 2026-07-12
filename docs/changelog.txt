@@ -5,3 +5,8 @@ Changelog
  
 1.1.3:
  - Added parameter to change when vactrain wagons become available
+
+
+2026-7-13
+
+ - Updated to version 2.0.0
