@@ -1,19 +1,17 @@
 /*
 This is a NewGRF which adds a Vacuum Tube Railtype, and some trains to go with it, to OpenTTD. 
 
-Code by Emperor Jake, using parts from code by Terkhen, planetmaker, Transportman, FooBar and possibly others
+Code by Emperor Jake, using parts from code by Terkhen, planetmaker, Transportman, FooBar, WORD559 and possibly others
 
-Forked by WORD559
-
-(c) 2018 Emperor Jake. Licensed under GPLv2+
+(c) 2026 Emperor Jake. Licensed under GPLv2+
 */
 
 grf {
- grfid: "\44\4A\59\03"; //tod omaybe change
+ grfid: "\4A\4B\59\01";
  name: string(STR_GRF_NAME);
  desc: string(STR_GRF_DESCRIPTION);
- version: 50;
- min_compatible_version: 40;
+ version: 100;
+ min_compatible_version: 100;
 
 //rail params here
  
@@ -137,6 +135,37 @@ grf {
    };
   }
  }
+ param {
+     param_maintenance_cost_mult {
+         type: int;
+         name: string(STR_PARAM_MAINTENANCE_COST);
+         desc: string(STR_PARAM_MAINTENANCE_COST_DESC);
+         min_value: 0;
+         max_value: 18;
+         def_value: 0;
+         names: {
+             0: string(STR_PARAM_COST_AUTOMATICALLY);
+             1: string(STR_PARAM_COST_BY256);
+             2: string(STR_PARAM_COST_BY128);
+             3: string(STR_PARAM_COST_BY64);
+             4: string(STR_PARAM_COST_BY32);
+             5: string(STR_PARAM_COST_BY16);
+             6: string(STR_PARAM_COST_BY8);
+             7: string(STR_PARAM_COST_BY4);
+             8: string(STR_PARAM_COST_BY2);
+             9: string(STR_PARAM_COST_NORMAL);
+             10: string(STR_PARAM_COST_TIMES2);
+             11: string(STR_PARAM_COST_TIMES4);
+             12: string(STR_PARAM_COST_TIMES8);
+             13: string(STR_PARAM_COST_TIMES16);
+             14: string(STR_PARAM_COST_TIMES32);
+             15: string(STR_PARAM_COST_TIMES64);
+             16: string(STR_PARAM_COST_TIMES128);
+             17: string(STR_PARAM_COST_TIMES256);
+             18: string(STR_PARAM_COST_TIMES512);
+         };
+     }
+ }
 }
 
 /*
@@ -186,6 +215,11 @@ PURCHASE_COST_MOD = (param_purchase_cost_mult == 0) ? 0 : param_purchase_cost_mu
  */
 
 RAIL_COST_MOD = (param_build_rail_cost_mult == 0) ? 0 : param_build_rail_cost_mult - 9;
+
+
+//Param 4 Maintenance cost
+
+MAINTENANCE_COST_MOD = (param_maintenance_cost_mult == 0) ? 0 : param_maintenance_cost_mult - 9;
 
 /*
  * ********************************************
@@ -239,6 +273,7 @@ if (grf_future_status("\FB\FB\06\01") == 1) {
 param[30] = RUNNING_COST_MOD;
 param[31] = PURCHASE_COST_MOD;
 param[32] = RAIL_COST_MOD;
+param[33] = MAINTENANCE_COST_MOD;
 
 basecost {
  PR_RUNNING_TRAIN_STEAM: param[30] + 4;
@@ -246,6 +281,7 @@ basecost {
  PR_BUILD_VEHICLE_WAGON: param[31] + 8;
  PR_BUILD_RAIL: param[32];
  PR_CLEAR_RAIL: param[32];
+ PR_MAINTENANCE_RAIL: param[33];
 }
 
 //table things
@@ -262,6 +298,8 @@ cargotable {
 traininfo_y_offset = 2;
 train_width_32_px = 1;
 
+//deactivate
+deactivate("\44\4A\59\02");
 
 //NEW RAIL TEMPLATES
 //from Dutch Track Set

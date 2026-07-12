@@ -1,8 +1,8 @@
 ##grflangid 0x05
 
 
-STR_GRF_NAME :Vakutrajno Set 1.0.1
-STR_GRF_DESCRIPTION :Meti maglevtrajnojn en vakutuboj por ebligi ekstremaj rapidecoj, sed ĉe tremalbonaĉa prezo. Gravega por tre futura ludado. Grafikoj de Emperor Jake, Voyager One, DJNekkid, Purno, Froix, Erato kaj Zephyris; programado de Emperor Jake kaj aliaj. (c) 2018, liberigita sur GPLv2 kaj pli alta.
+STR_GRF_NAME :Vakutrajno Set {VERSION}
+STR_GRF_DESCRIPTION :Meti maglevtrajnojn en vakutuboj por ebligi ekstremaj rapidecoj, sed ĉe tremalbonaĉa prezo. Gravega por tre futura ludado. Grafikoj de Emperor Jake, Voyager One, DJNekkid, Purno, Froix, Erato kaj Zephyris; programado de Emperor Jake kaj aliaj, liberigita sur GPLv2 kaj pli alta.
 
 
 
