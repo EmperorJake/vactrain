@@ -20,16 +20,66 @@ A set which adds a Vacuum Tube railtype and accompanying trains to OpenTTD, enab
 
 Compatible with most popular trainsets as well as the default trainset.
 
-More description coming soon.
+
+
+The Vactrain Set is not compatible with any previous versions, outdated addons, or forks.
+These will be automatically disabled if detected:
+
+* Vactrain Set 1.0.1 or older
+* Vactrain Set Fork
+* Vacuum Vehicule [sic] Wagon and Train
+* Brianum Vacuum Monorail
 
 
 ----------------------
 2 Usage and Parameters
 ----------------------
 
-Adjustable costs for Track construction/destruction, Running cost and Purchase costs, and unlock date. These allow to adjust the difficulty to balance it with other GRFs or if you find it too easy to make money.
+There are 3 types of vactrain engine.
 
-More parameters coming soon.
+
+Multiple Units (MUs)
+Multiple units are separated into Passenger and Express Freight variants. When Passenger or Express Freight wagons are attached, the wagons boost the power of the train. The wagons also adapt themselves to match the appearance and capacity of the train, and running costs are adjusted accordingly.
+
+
+Cargo Engines
+These powerful engines are designed to haul cargo, but can also haul passenger wagons if needed. Wagons will not contribute power, so combine more cargo engines to increase acceleration.
+
+
+Universal engines
+These are general purpose engines for either passengers or cargo.
+
+
+
+Cost Parameters allow to adjust the difficulty to balance it with other GRFs or if you find it too easy to make money.
+They allow adjustment of:
+
+* Train Running cost
+* Train Purchase costs
+* Track Construction
+* Track Maintenance
+
+Introduction date parameters allow to adjust the timeline of vehicle releases.
+They allow adjustment of:
+
+* Engine introduction date
+* Wagon introduction date
+
+
+Future parameters:
+
+Vehicle capacity
+
+Loading Speed
+
+Maglev Track Compatibility
+
+Maglev Track Graphics
+
+Disable/enable single unit trains
+
+Disable/enable coupling restrictions
+
 
 
 ----------------------

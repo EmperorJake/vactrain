@@ -6,36 +6,43 @@ STR_GRF_NAME :Vactrain Set {VERSION}
 STR_GRF_DESCRIPTION :Vactrains travel in vacuum tubes to allow ludicrous speeds, but at an exorbitant price. An essential for far-future gameplay. Graphics by Emperor Jake, Voyager One, DJNekkid, Purno, Froix, Erato and Zephyris; code by Emperor Jake and others, released under GPLv2 and above.
 
 
+# badges
 
-
+STR_BADGE_POWER                           :Power
+STR_BADGE_POWER_VACTRAIN                  :Vactrain
+STR_BADGE_ROLE                            :Role
+STR_BADGE_ROLE_PAX                        :Passenger
+STR_BADGE_ROLE_EXP                        :Express Cargo
+STR_BADGE_ROLE_CARGO                      :Cargo
+STR_BADGE_ROLE_UNIV                       :Universal
 
 
 #trains
 
-STR_NAME_CHINESE_PROTO					:Fenglong FL1 Prototype
-STR_NAME_CHINESE_INTERCITY				:Fenglong FL2
-STR_NAME_CHINESE_INTERNATIONAL			:Fenglong FL5 “Gepard”
-STR_NAME_CHINESE_INTERCONTINENTAL		:Fenglong FL8
+STR_NAME_CHINESE_PROTO					:Swift
+STR_NAME_CHINESE_INTERCITY				:Swallow
+STR_NAME_CHINESE_INTERNATIONAL			:Cheetah
+STR_NAME_CHINESE_INTERCONTINENTAL		:Elephant
 
-STR_NAME_HYPERLOOP_1				:Hyperloop Pod
+STR_NAME_HYPERLOOP_1				:Elon's Folly
 
 STR_NAME_SWISSMETRO_1				:Swissmetro
 
-STR_NAME_CHIMAERA					:Siemens Chimaera
+STR_NAME_CHIMAERA					:Chimaera II
 
-STR_NAME_FRENCH_1					:Alstom Train-Sous-Vide 
-STR_NAME_FRENCH_2					:Alstom TSV Duplex
+STR_NAME_FRENCH_1					:TSV Train-Sous-Vide
+STR_NAME_FRENCH_2					:TSV Duplex
 
-STR_NAME_JAPANESE_1					:JVAC Shinkūsen 1000
-STR_NAME_JAPANESE_2					:JVAC Shinkūsen 4000
+STR_NAME_JAPANESE_1					:Shinkūsen
+STR_NAME_JAPANESE_2					:Shinkūsen Max
 
 
 #cargo vactrains
 
-STR_NAME_CARGO_1					:Siemens TransCargo
-STR_NAME_CARGO_2					:Alstom TSV Fret
-STR_NAME_CARGO_3					:F-Trainz FT001
-STR_NAME_CARGO_4					:Juanlong “Silk Dragon”
+STR_NAME_CARGO_1					:Coelacanth
+STR_NAME_CARGO_2					:Juggernaut
+STR_NAME_CARGO_3					:Capybara
+STR_NAME_CARGO_4					:Silk Dragon
 
 
 # additional text - metric TODO ADD DIFFERENT UNITS mph and kW
@@ -66,6 +73,9 @@ STR_TEXT_CARGO_4					:{BLACK}Atmospheric Speed: {GOLD}750 km/h
 
 #wagons
 
+STR_NAME_PAX_WAGON				    :Vactrain Passenger Coach
+STR_NAME_EXP_WAGON			        :Vactrain Express Van
+
 STR_NAME_POWERED_WAGON				:Vactrain Unit Wagon (Powered)
 STR_NAME_UNPOWERED_WAGON			:Vactrain Unit Wagon (Unpowered)
 STR_NAME_CARGO_WAGON				:Vactrain Universal Cargo Module
@@ -84,7 +94,7 @@ STR_VAC_NAME :Vacuum Tube Tracks
 
 STR_ERROR_SELF_ONLY					:May only attach to itself
 STR_ERROR_SINGLE_ONLY				:May not attach to anything
-STR_ERROR_MUWAG_ONLY				:Unit Wagons Only
+STR_ERROR_MUWAG_ONLY				:Passenger/Express Wagons Only
 STR_ERROR_CARGO_ONLY				:Cargo Wagons Only
 STR_ERROR_NO_WAGONS					:Wagons may not be attached
 
