@@ -23,7 +23,7 @@ grf {
    desc: string(STR_PARAM_STARTING_YEAR_DESC);
    min_value: 1800;
    max_value: 3000;
-   def_value: 2020;
+   def_value: 2025;
    }
   }
 
@@ -34,7 +34,7 @@ grf {
    desc: string(STR_PARAM_CARGO_YEAR_DESC);
    min_value: 1800;
    max_value: 3000;
-   def_value: 2028;
+   def_value: 2030;
    }
   }
  
@@ -135,37 +135,52 @@ grf {
    };
   }
  }
- param {
-     param_maintenance_cost_mult {
-         type: int;
-         name: string(STR_PARAM_MAINTENANCE_COST);
-         desc: string(STR_PARAM_MAINTENANCE_COST_DESC);
-         min_value: 0;
-         max_value: 18;
-         def_value: 0;
-         names: {
-             0: string(STR_PARAM_COST_AUTOMATICALLY);
-             1: string(STR_PARAM_COST_BY256);
-             2: string(STR_PARAM_COST_BY128);
-             3: string(STR_PARAM_COST_BY64);
-             4: string(STR_PARAM_COST_BY32);
-             5: string(STR_PARAM_COST_BY16);
-             6: string(STR_PARAM_COST_BY8);
-             7: string(STR_PARAM_COST_BY4);
-             8: string(STR_PARAM_COST_BY2);
-             9: string(STR_PARAM_COST_NORMAL);
-             10: string(STR_PARAM_COST_TIMES2);
-             11: string(STR_PARAM_COST_TIMES4);
-             12: string(STR_PARAM_COST_TIMES8);
-             13: string(STR_PARAM_COST_TIMES16);
-             14: string(STR_PARAM_COST_TIMES32);
-             15: string(STR_PARAM_COST_TIMES64);
-             16: string(STR_PARAM_COST_TIMES128);
-             17: string(STR_PARAM_COST_TIMES256);
-             18: string(STR_PARAM_COST_TIMES512);
-         };
-     }
- }
+    param {
+        param_maintenance_cost_mult {
+            type: int;
+            name: string(STR_PARAM_MAINTENANCE_COST);
+            desc: string(STR_PARAM_MAINTENANCE_COST_DESC);
+            min_value: 0;
+            max_value: 18;
+            def_value: 0;
+            names: {
+                0: string(STR_PARAM_COST_AUTOMATICALLY);
+                1: string(STR_PARAM_COST_BY256);
+                2: string(STR_PARAM_COST_BY128);
+                3: string(STR_PARAM_COST_BY64);
+                4: string(STR_PARAM_COST_BY32);
+                5: string(STR_PARAM_COST_BY16);
+                6: string(STR_PARAM_COST_BY8);
+                7: string(STR_PARAM_COST_BY4);
+                8: string(STR_PARAM_COST_BY2);
+                9: string(STR_PARAM_COST_NORMAL);
+                10: string(STR_PARAM_COST_TIMES2);
+                11: string(STR_PARAM_COST_TIMES4);
+                12: string(STR_PARAM_COST_TIMES8);
+                13: string(STR_PARAM_COST_TIMES16);
+                14: string(STR_PARAM_COST_TIMES32);
+                15: string(STR_PARAM_COST_TIMES64);
+                16: string(STR_PARAM_COST_TIMES128);
+                17: string(STR_PARAM_COST_TIMES256);
+                18: string(STR_PARAM_COST_TIMES512);
+            };
+        }
+    }
+    param {
+        param_loading_speed {
+            type: int;
+            name: string(STR_PARAM_LOADSPEED);
+            desc: string(STR_PARAM_LOADSPEED_DESC);
+            min_value: 0;
+            max_value: 2;
+            def_value: 1;
+            names: {
+                0: string(STR_PARAM_LOADSPEED_LOW);
+                1: string(STR_PARAM_LOADSPEED_MED);
+                2: string(STR_PARAM_LOADSPEED_HIGH);
+            };
+        }
+    }
 }
 
 /*
@@ -1025,39 +1040,14 @@ spriteset(spriteset_cargo_engine_4_purchase, "src/trains/cargo_engine_4.png") {
     template_purchase(1, 160)
 }
 
-//Cargo Wagons
-spriteset(spriteset_wagon_cargo_purchase, "src/trains/cargo_empty.png") {
-	template_purchase(1, 32)
+
+//new cargo wagons
+spriteset(spriteset_cargo_wagon_1, "src/trains/cargo_wagons.png") {
+    template_2cc_std(1, 1)
 }
 
-spriteset(spriteset_wagon_cargo_empty, "src/trains/cargo_empty.png") {
-	template_2cc_std(1, 1)
-}
 
-//goods containers
-spriteset(spriteset_wagon_container_1, "src/trains/cargo_containers.png") {
-	template_2cc_std(1, 1)
-}
 
-spriteset(spriteset_wagon_container_2, "src/trains/cargo_containers.png") {
-	template_2cc_std(1, 32)
-}
-
-spriteset(spriteset_wagon_container_3, "src/trains/cargo_containers.png") {
-	template_2cc_std(1, 64)
-}
-
-spriteset(spriteset_wagon_container_4, "src/trains/cargo_containers.png") {
-	template_2cc_std(1, 96)
-}
-
-spriteset(spriteset_wagon_mail, "src/trains/cargo_loads.png") {
-	template_2cc_std(1, 128)
-}
-
-spriteset(spriteset_wagon_coal, "src/trains/cargo_loads.png") {
-	template_2cc_std(1, 224)
-}
 
 
 //Attachment Rules
@@ -1095,6 +1085,15 @@ switch(FEAT_TRAINS, SELF, switch_can_attach_vehicle, vehicle_type_id) {
 //	192..194: switch_can_attach_unit_pax;
 //	196..198: switch_can_attach_unit_cargo;
 	CB_RESULT_ATTACH_ALLOW_IF_RAILTYPES;
+}
+
+
+//loading speed switch
+
+switch(FEAT_TRAINS, SELF, switch_loading_speed_mu, param_loading_speed) {
+    0: return 10;
+    1: return 50;
+    2: return 100;
 }
 
 
@@ -1275,7 +1274,7 @@ item (FEAT_TRAINS, hyperloop_1, 142) {
         power: 4000 hp;
         dual_headed: 0;
         engine_class: ENGINE_CLASS_MAGLEV;
-        cargo_capacity: 25;
+        cargo_capacity: 0;
         refittable_cargo_classes: bitmask(CC_PASSENGERS);
         weight: 12;
         loading_speed: 40; //med
@@ -1402,6 +1401,7 @@ item (FEAT_TRAINS, chinese_intercity, 170) {
         can_attach_wagon: switch_can_attach_vehicle;
         purchase: spriteset_chinese_intercity_purchase;
         default: spriteset_chinese_intercity_pax_head;
+        loading_speed: switch_loading_speed_mu;
     }
   
     livery_override(vactrain_wagon_pax) { // graphics for alternative look of passenger wagon when used with this engine
@@ -1455,7 +1455,8 @@ item (FEAT_TRAINS, chinese_intercity_mail, 270) {
         running_cost_factor: switch_chinese_intercity_cost;
         can_attach_wagon: switch_can_attach_vehicle;
         purchase: spriteset_chinese_intercity_mail_purchase;
-        spriteset_chinese_intercity_mail_head;
+        default: spriteset_chinese_intercity_mail_head;
+        loading_speed: switch_loading_speed_mu;
     }
 
     livery_override(vactrain_wagon_pax) { // graphics for alternative look of passenger wagon when used with this engine
@@ -1540,7 +1541,8 @@ item (FEAT_TRAINS, chinese_international, 172) {
         running_cost_factor: switch_chinese_international_cost;
         can_attach_wagon: switch_can_attach_vehicle;
         purchase: spriteset_chinese_international_purchase;
-        switch_chinese_international_cargo_head;
+        default: switch_chinese_international_cargo_head;
+        loading_speed: switch_loading_speed_mu;
     }
 
     livery_override(vactrain_wagon_pax) { // graphics for alternative look of passenger wagon when used with this engine
@@ -1596,7 +1598,8 @@ item (FEAT_TRAINS, chinese_international_mail, 272) {
         running_cost_factor: switch_chinese_international_cost;
         can_attach_wagon: switch_can_attach_vehicle;
         purchase: spriteset_chinese_international_mail_purchase;
-        switch_chinese_international_cargo_head;
+        default: switch_chinese_international_cargo_head;
+        loading_speed: switch_loading_speed_mu;
     }
 
     livery_override(vactrain_wagon_pax) { // graphics for alternative look of passenger wagon when used with this engine
@@ -1680,7 +1683,8 @@ item (FEAT_TRAINS, chinese_intercont, 174) {
         running_cost_factor: switch_chinese_intercont_cost;
         can_attach_wagon: switch_can_attach_vehicle;
         purchase: spriteset_chinese_intercont_purchase;
-        switch_chinese_intercont_cargo_head;
+        default: switch_chinese_intercont_cargo_head;
+        loading_speed: switch_loading_speed_mu;
         }
 
     livery_override(vactrain_wagon_pax) { // graphics for alternative look of passenger wagon when used with this engine
@@ -1736,7 +1740,8 @@ item (FEAT_TRAINS, chinese_intercont_mail, 274) {
         running_cost_factor: switch_chinese_intercont_cost;
         can_attach_wagon: switch_can_attach_vehicle;
         purchase: spriteset_chinese_intercont_mail_purchase;
-        switch_chinese_intercont_cargo_head;
+        default: switch_chinese_intercont_cargo_head;
+        loading_speed: switch_loading_speed_mu;
     }
 
     livery_override(vactrain_wagon_pax) { // graphics for alternative look of passenger wagon when used with this engine
@@ -1835,7 +1840,8 @@ item (FEAT_TRAINS, swissmetro_gen1, 152) {
         running_cost_factor: switch_swissmetro_1_cost;
         can_attach_wagon: switch_can_attach_vehicle;
         purchase: spriteset_swissmetro_purchase;
-        switch_swissmetro_1_reversed;
+        default: switch_swissmetro_1_reversed;
+        loading_speed: switch_loading_speed_mu;
     }
 
     livery_override(vactrain_wagon_pax) { // graphics for alternative look of passenger wagon when used with this engine
@@ -1889,7 +1895,8 @@ item (FEAT_TRAINS, swissmetro_gen1_mail, 252) {
         running_cost_factor: switch_swissmetro_1_cost;
         can_attach_wagon: switch_can_attach_vehicle;
         purchase: spriteset_swissmetro_mail_purchase;
-        switch_swissmetro_1_reversed;
+        default: switch_swissmetro_1_reversed;
+        loading_speed: switch_loading_speed_mu;
     }
 
     livery_override(vactrain_wagon_pax) { // graphics for alternative look of passenger wagon when used with this engine
@@ -1976,7 +1983,7 @@ item (FEAT_TRAINS, chimaera, 158) {
         running_cost_factor: switch_chimaera_cost;
         can_attach_wagon: switch_can_attach_vehicle;
         purchase: spriteset_chimaera_purchase;
-        switch_chimaera_reversed;
+        default: switch_chimaera_reversed;
     }
 
     livery_override(vactrain_wagon_pax) { // graphics for alternative look of passenger wagon when used with this engine
@@ -2118,7 +2125,8 @@ item (FEAT_TRAINS, tsv_1, 154) {
         running_cost_factor: switch_tsv_1_cost;
         can_attach_wagon: switch_can_attach_vehicle;
         purchase: spriteset_tsv_1_purchase;
-        switch_tsv_1_reversed;
+        default: switch_tsv_1_reversed;
+        loading_speed: switch_loading_speed_mu;
     }
 
     livery_override(vactrain_wagon_pax) { // graphics for alternative look of passenger wagon when used with this engine
@@ -2177,7 +2185,8 @@ item (FEAT_TRAINS, tsv_1_mail, 254) {
         running_cost_factor: switch_tsv_1_cost;
         can_attach_wagon: switch_can_attach_vehicle;
         purchase: spriteset_tsv_1_mail_purchase;
-        switch_tsv_1_reversed;
+        default: switch_tsv_1_reversed;
+        loading_speed: switch_loading_speed_mu;
     }
 
     livery_override(vactrain_wagon_pax) { // graphics for alternative look of passenger wagon when used with this engine
@@ -2262,7 +2271,8 @@ item (FEAT_TRAINS, tsv_duplex, 156) {
         running_cost_factor: switch_tsv_duplex_cost;
         can_attach_wagon: switch_can_attach_vehicle;
         purchase: spriteset_tsv_duplex_purchase;
-        switch_tsv_duplex_cargo_head;
+        default: switch_tsv_duplex_cargo_head;
+        loading_speed: switch_loading_speed_mu;
     }
 
     livery_override(vactrain_wagon_pax) { // graphics for alternative look of passenger wagon when used with this engine
@@ -2318,7 +2328,8 @@ item (FEAT_TRAINS, tsv_duplex_mail, 256) {
         running_cost_factor: switch_tsv_duplex_cost;
         can_attach_wagon: switch_can_attach_vehicle;
         purchase: spriteset_tsv_duplex_mail_purchase;
-        switch_tsv_duplex_cargo_head;
+        default: switch_tsv_duplex_cargo_head;
+        loading_speed: switch_loading_speed_mu;
     }
 
     livery_override(vactrain_wagon_pax) { // graphics for alternative look of passenger wagon when used with this engine
@@ -2405,7 +2416,8 @@ item (FEAT_TRAINS, shinkukan_1, 162) {
         running_cost_factor: switch_shinkukan_1_cost;
         can_attach_wagon: switch_can_attach_vehicle;
         purchase: spriteset_shinkukan_1_purchase;
-        switch_shinkukan_1_reversed;
+        default: switch_shinkukan_1_reversed;
+        loading_speed: switch_loading_speed_mu;
     }
 
     livery_override(vactrain_wagon_pax) { // graphics for alternative look of passenger wagon when used with this engine
@@ -2461,7 +2473,8 @@ item (FEAT_TRAINS, shinkukan_1_mail, 262) {
         running_cost_factor: switch_shinkukan_1_cost;
         can_attach_wagon: switch_can_attach_vehicle;
         purchase: spriteset_shinkukan_1_purchase;
-        switch_shinkukan_1_reversed;
+        default: switch_shinkukan_1_reversed;
+        loading_speed: switch_loading_speed_mu;
     }
 
     livery_override(vactrain_wagon_pax) { // graphics for alternative look of passenger wagon when used with this engine
@@ -2555,7 +2568,8 @@ item (FEAT_TRAINS, shinkukan_dd, 166) {
         running_cost_factor: switch_shinkukan_dd_cost;
         can_attach_wagon: switch_can_attach_vehicle;
         purchase: spriteset_shinkukan_dd_purchase;
-        switch_shinkukan_dd_cargo_head;
+        default: switch_shinkukan_dd_cargo_head;
+        loading_speed: switch_loading_speed_mu;
     }
 
     livery_override(vactrain_wagon_pax) { // graphics for alternative look of passenger wagon when used with this engine
@@ -2611,7 +2625,8 @@ item (FEAT_TRAINS, shinkukan_dd_mail, 266) {
         running_cost_factor: switch_shinkukan_dd_cost;
         can_attach_wagon: switch_can_attach_vehicle;
         purchase: spriteset_shinkukan_dd_mail_purchase;
-        switch_shinkukan_dd_cargo_head;
+        default: switch_shinkukan_dd_cargo_head;
+        loading_speed: switch_loading_speed_mu;
     }
 
     livery_override(vactrain_wagon_pax) { // graphics for alternative look of passenger wagon when used with this engine
@@ -2656,7 +2671,8 @@ item (FEAT_TRAINS, vactrain_wagon_pax, 192) {
     }
     graphics {
         purchase: spriteset_wagon_unpowered_purchase;
-        spriteset_wagon_unpowered_generic;
+        default: spriteset_wagon_unpowered_generic;
+        loading_speed: switch_loading_speed_mu;
     }
 }
 
@@ -2678,13 +2694,11 @@ item (FEAT_TRAINS, vactrain_wagon_exp, 194) {
     }
     graphics {
         purchase: spriteset_wagon_exp_purchase;
-        spriteset_wagon_exp_generic;
+        default: spriteset_wagon_exp_generic;
+        loading_speed: switch_loading_speed_mu;
     }
 }
 
-
-
-//Cargo Vactrains - TODO Put parameter here to disable cargo vactrains
 
 //Cargo vactrain 1st gen.
 
@@ -3007,89 +3021,31 @@ item (FEAT_TRAINS, cargo_engine_4, 188) {
 }
  
  
-//Cargo Wagon Switches
 
-spritegroup group_wagon_container_1 {
-	loaded: [spriteset_wagon_container_1];
-	loading: [spriteset_wagon_cargo_empty];
-}
-
-spritegroup group_wagon_container_2 {
-	loaded: [spriteset_wagon_container_2];
-	loading: [spriteset_wagon_cargo_empty];
-}
-
-spritegroup group_wagon_container_3 {
-	loaded: [spriteset_wagon_container_3];
-	loading: [spriteset_wagon_cargo_empty];
-}
-
-spritegroup group_wagon_container_4 {
-	loaded: [spriteset_wagon_container_4];
-	loading: [spriteset_wagon_cargo_empty];
-}
-
-random_switch (FEAT_TRAINS, SELF, random_wagon_cargo_container) {
- 2: group_wagon_container_1;
- 2: group_wagon_container_2;
- 2: group_wagon_container_3;
- 2: group_wagon_container_4;
-}
-
-
-random_switch (FEAT_TRAINS, SELF, random_wagon_cargo_empty) {
- 1: random_wagon_cargo_container;
- 1: spriteset_wagon_cargo_empty;
-}
-
-random_switch (FEAT_TRAINS, SELF, random_wagon_cargo_halffull) {
- 3: random_wagon_cargo_container;
- 1: spriteset_wagon_cargo_empty;
-}
-
-
-
- 
-//cargo wagon mega cargo switch TODO cargo graphics and stuff
-/*
-switch(FEAT_TRAINS, SELF, switch_wagon_cargo_selection, cargo_type_in_veh) {
-	LVST: switch_wagon_Gen5_Boxcar_Type1_Livestock_livery;
-	COAL: group_wagon_coal;
-	MAIL: group_wagon_mail;
-	GOOD: random_wagon_cargo_container;
-	random_wagon_cargo_empty;
-}
-*/
-
-//fullness switch
-switch(FEAT_TRAINS, SELF, switch_wagon_cargo_fullness, cargo_count) {
-	0: random_wagon_cargo_empty;
-	1..15: random_wagon_cargo_halffull;
-	random_wagon_cargo_container;
-}
 
 
 //Cargo wagon
 item (FEAT_TRAINS, vactrain_wagon_cargo, 196) {
  property {
-  sprite_id: SPRITE_ID_NEW_TRAIN;
-  misc_flags: bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_AUTOREFIT);
-  track_type: VACT;
-  name: string(STR_NAME_CARGO_WAGON);
-  climates_available: ALL_CLIMATES;
-  introduction_date: date(param_starting_year_cargo,1,1);
-  power: 0;
-  cargo_capacity: 30;
-  refittable_cargo_classes: ALL_NORMAL_CARGO_CLASSES;
-  non_refittable_cargo_classes: bitmask(CC_PASSENGERS);
-  weight: 1;
-  loading_speed: 30;
-  cost_factor: 25;
-  length: 6;
-  }
+    sprite_id: SPRITE_ID_NEW_TRAIN;
+    misc_flags: bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_AUTOREFIT);
+    track_type: VACT;
+    name: string(STR_NAME_CARGO_WAGON);
+    climates_available: ALL_CLIMATES;
+    introduction_date: date(param_starting_year_cargo,1,1);
+    power: 0;
+    cargo_capacity: 30;
+    refittable_cargo_classes: ALL_NORMAL_CARGO_CLASSES;
+    non_refittable_cargo_classes: bitmask(CC_PASSENGERS);
+    weight: 41;
+    loading_speed: 30;
+    cost_factor: 25;
+    length: 8;
+    }
   graphics {
-	purchase: spriteset_wagon_cargo_purchase;
-	default: switch_wagon_cargo_fullness;
-	cargo_capacity: 30;
+//	purchase: spriteset_wagon_cargo_purchase;
+	default: spriteset_cargo_wagon_1;
+	cargo_capacity: 60;
+    loading_speed: switch_loading_speed_mu;
   }
 }
