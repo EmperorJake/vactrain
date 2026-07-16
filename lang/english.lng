@@ -24,17 +24,17 @@ STR_NAME_CHINESE_INTERCITY				:Swallow
 STR_NAME_CHINESE_INTERNATIONAL			:Cheetah
 STR_NAME_CHINESE_INTERCONTINENTAL		:Elephant
 
-STR_NAME_HYPERLOOP_1				:Elon's Folly
+STR_NAME_HYPERLOOP_1				:Folly
 
-STR_NAME_SWISSMETRO_1				:Swissmetro
+STR_NAME_SWISSMETRO_1				:Crossley
 
-STR_NAME_CHIMAERA					:Chimaera II
+STR_NAME_CHIMAERA					:Hydra
 
-STR_NAME_FRENCH_1					:TSV Train-Sous-Vide
-STR_NAME_FRENCH_2					:TSV Duplex
+STR_NAME_FRENCH_1					:Tapeworm
+STR_NAME_FRENCH_2					:Pillbug
 
-STR_NAME_JAPANESE_1					:Shinkūsen
-STR_NAME_JAPANESE_2					:Shinkūsen Max
+STR_NAME_JAPANESE_1					:Spamcan
+STR_NAME_JAPANESE_2					:Rocketmax
 
 
 #cargo vactrains
@@ -42,7 +42,7 @@ STR_NAME_JAPANESE_2					:Shinkūsen Max
 STR_NAME_CARGO_1					:Coelacanth
 STR_NAME_CARGO_2					:Juggernaut
 STR_NAME_CARGO_3					:Capybara
-STR_NAME_CARGO_4					:Silk Dragon
+STR_NAME_CARGO_4					:Cyber Dragon
 
 
 # additional text - metric TODO ADD DIFFERENT UNITS mph and kW
@@ -73,35 +73,24 @@ STR_TEXT_CARGO_4					:{BLACK}Atmospheric Speed: {GOLD}750 km/h
 
 #wagons
 
-STR_NAME_PAX_WAGON				    :Vactrain Passenger Coach
-STR_NAME_EXP_WAGON			        :Vactrain Express Van
+STR_NAME_PAX_WAGON				    :Passenger Wagon
+STR_NAME_EXP_WAGON			        :Express Cargo Wagon
 
-STR_NAME_POWERED_WAGON				:Vactrain Unit Wagon (Powered)
-STR_NAME_UNPOWERED_WAGON			:Vactrain Unit Wagon (Unpowered)
-STR_NAME_CARGO_WAGON				:Vactrain Universal Cargo Module
-STR_NAME_EXPRESS_WAGON				:Vactrain Express Cargo Van
+STR_NAME_CARGO_WAGON				:Universal Cargo Wagon
+
 
 # general
 
 STR_NEW_ENGINE :Vactrain vehicle
 STR_AUTOREPLACE :Vactrain Vehicles
 STR_BUILD_CAPTION :New Vactrain Vehicles
-STR_TOOLBAR_CAPTION :Vacuum Tube Construction
-STR_VAC_RAIL :Vacuum Tube construction
-STR_VAC_NAME :Vacuum Tube Tracks
+STR_TOOLBAR_CAPTION :Vactrain Track Construction
+STR_VAC_RAIL :Vactrain Track construction
+STR_VAC_NAME :Vactrain Tracks
 
-# errors
-
-STR_ERROR_SELF_ONLY					:May only attach to itself
-STR_ERROR_SINGLE_ONLY				:May not attach to anything
-STR_ERROR_MUWAG_ONLY				:Passenger/Express Wagons Only
-STR_ERROR_CARGO_ONLY				:Cargo Wagons Only
-STR_ERROR_NO_WAGONS					:Wagons may not be attached
 
 #general params
 
-STR_PARAM_CARGO_ENGINES				:Enable Cargo Vactrains
-STR_PARAM_CARGO_ENGINES_DESC		:Enable or disable dedicated cargo vactrains which can carry non-express cargoes
 
 STR_PARAM_CAPACITY					:Change Vactrain Capacity
 STR_PARAM_CAPACITY_DESC				:Allows to change capacities of the vacuum tube trains (e.g, to balance it against others)
@@ -109,10 +98,17 @@ STR_PARAM_CAPACITY_LOW				:Conservative
 STR_PARAM_CAPACITY_MED				:Normal
 STR_PARAM_CAPACITY_HIGH				:Generous
 
-STR_PARAM_STARTING_YEAR             :Starting Year
-STR_PARAM_STARTING_YEAR_DESC        :Adjust year that first new vehicle becomes available in.
-STR_PARAM_WAGON_YEAR                :Wagon Unlock Year
-STR_PARAM_WAGON_YEAR_DESC           :Adjust year that first vactrain wagons become available in.
+
+STR_PARAM_LOADSPEED					:Change Vactrain Loading Speed
+STR_PARAM_LOADSPEED_DESC			:Allows to change loading speed of the vacuum tube trains (e.g, to balance it against others)
+STR_PARAM_LOADSPEED_LOW				:Conservative
+STR_PARAM_LOADSPEED_MED				:Normal
+STR_PARAM_LOADSPEED_HIGH			:Generous
+
+STR_PARAM_STARTING_YEAR             :Change Introduction Year (Express)
+STR_PARAM_STARTING_YEAR_DESC        :Adjust introduction year for passenger and express vactrains.
+STR_PARAM_CARGO_YEAR                :Change Introduction Year (Cargo)
+STR_PARAM_CARGO_YEAR_DESC           :Adjust introduction year for cargo vactrains.
 
 #cost params
 
