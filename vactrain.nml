@@ -28,10 +28,10 @@ grf {
   }
 
  param {
-  param_wagon_year {
+  param_starting_year_cargo {
    type: int;
-   name: string(STR_PARAM_WAGON_YEAR);
-   desc: string(STR_PARAM_WAGON_YEAR_DESC);
+   name: string(STR_PARAM_CARGO_YEAR);
+   desc: string(STR_PARAM_CARGO_YEAR_DESC);
    min_value: 1800;
    max_value: 3000;
    def_value: 2028;
@@ -1258,7 +1258,7 @@ switch (FEAT_TRAINS, SELF, switch_hyperloop_1_cost, current_railtype) {
 
 switch (FEAT_TRAINS, SELF, switch_hyperloop_1_speed, current_railtype) {
 	VACT: return 800;
-	MGLV: return 120;
+	MGLV: return 160;
 	CB_FAILED;
 }
 
@@ -1309,8 +1309,8 @@ switch (FEAT_TRAINS, SELF, switch_chinese_proto_cost, current_railtype) {
 }
 
 switch (FEAT_TRAINS, SELF, switch_chinese_proto_speed, current_railtype) {
-	VACT: return 1200;
-	MGLV: return 200;
+	VACT: return 1500;
+	MGLV: return 280;
 	CB_FAILED;
 }
 
@@ -1321,7 +1321,7 @@ item (FEAT_TRAINS, chinese_prototype, 146) {
         track_type: VACT;
         name: string(STR_NAME_CHINESE_PROTO);
         climates_available: ALL_CLIMATES;
-        introduction_date: date(param_starting_year+6,1,1);
+        introduction_date: date(param_starting_year+30,1,1);
         speed: 2400 km/h;
         //		tractive_effort_coefficient:    1;
         air_drag_coefficient: 0;
@@ -1355,8 +1355,8 @@ item (FEAT_TRAINS, chinese_prototype, 146) {
 
 //railtype speed switches
 switch (FEAT_TRAINS, SELF, switch_chinese_intercity_speed, current_railtype) {
-	VACT: return 1200;
-	MGLV: return 200;
+	VACT: return 800;
+	MGLV: return 160;
 	CB_FAILED;
 }
 
@@ -1377,7 +1377,7 @@ item (FEAT_TRAINS, chinese_intercity, 170) {
         track_type: VACT;
         name: string(STR_NAME_CHINESE_INTERCITY);
         climates_available: ALL_CLIMATES;
-        introduction_date: date(param_starting_year+11,1,1);
+        introduction_date: date(param_starting_year+15,1,1);
         speed: 1200 km/h;
         air_drag_coefficient: 0;
         power: 18000 hp;
@@ -1430,7 +1430,7 @@ item (FEAT_TRAINS, chinese_intercity_mail, 270) {
         track_type: VACT;
         name: string(STR_NAME_CHINESE_INTERCITY);
         climates_available: ALL_CLIMATES;
-        introduction_date: date(param_starting_year+11,1,1);
+        introduction_date: date(param_starting_year+15,1,1);
         speed: 1200 km/h;
         air_drag_coefficient: 0;
         power: 18000 hp;
@@ -1484,8 +1484,8 @@ item (FEAT_TRAINS, chinese_intercity_mail, 270) {
 
 //railtype speed switches
 switch (FEAT_TRAINS, SELF, switch_chinese_international_speed, current_railtype) {
-	VACT: return 4000;
-	MGLV: return 200;
+	VACT: return 3000;
+	MGLV: return 160;
 	CB_FAILED;
 }
 
@@ -1516,7 +1516,7 @@ item (FEAT_TRAINS, chinese_international, 172) {
         track_type: VACT;
         name: string(STR_NAME_CHINESE_INTERNATIONAL);
         climates_available: ALL_CLIMATES;
-        introduction_date: date(param_starting_year+34,1,1);
+        introduction_date: date(param_starting_year+45,1,1);
         speed: 4000 km/h;
         air_drag_coefficient: 0;
         power: 27000 hp;
@@ -1571,7 +1571,7 @@ item (FEAT_TRAINS, chinese_international_mail, 272) {
         track_type: VACT;
         name: string(STR_NAME_CHINESE_INTERNATIONAL);
         climates_available: ALL_CLIMATES;
-        introduction_date: date(param_starting_year+34,1,1);
+        introduction_date: date(param_starting_year+45,1,1);
         speed: 4000 km/h;
         air_drag_coefficient: 0;
         power: 27000 hp;
@@ -1624,8 +1624,8 @@ item (FEAT_TRAINS, chinese_international_mail, 272) {
 
 //railtype speed switches
 switch (FEAT_TRAINS, SELF, switch_chinese_intercont_speed, current_railtype) {
-	VACT: return 4000;
-	MGLV: return 200;
+	VACT: return 3000;
+	MGLV: return 160;
 	CB_FAILED;
 }
 
@@ -1656,7 +1656,7 @@ item (FEAT_TRAINS, chinese_intercont, 174) {
         track_type: VACT;
         name: string(STR_NAME_CHINESE_INTERCONTINENTAL);
         climates_available: ALL_CLIMATES;
-        introduction_date: date(param_starting_year+50,1,1);
+        introduction_date: date(param_starting_year+54,1,1);
         speed: 4000 km/h;
         air_drag_coefficient: 0;
         power: 39000 hp;
@@ -1711,7 +1711,7 @@ item (FEAT_TRAINS, chinese_intercont_mail, 274) {
         track_type: VACT;
         name: string(STR_NAME_CHINESE_INTERCONTINENTAL);
         climates_available: ALL_CLIMATES;
-        introduction_date: date(param_starting_year+50,1,1);
+        introduction_date: date(param_starting_year+54,1,1);
         speed: 4000 km/h;
         air_drag_coefficient: 0;
         power: 39000 hp;
@@ -1768,7 +1768,7 @@ item (FEAT_TRAINS, chinese_intercont_mail, 274) {
 
 //railtype switches
 switch (FEAT_TRAINS, SELF, switch_swissmetro_1_speed, current_railtype) {
-	VACT: return 900;
+	VACT: return 800;
 	MGLV: return 420;
 	CB_FAILED;
 }
@@ -1811,7 +1811,7 @@ item (FEAT_TRAINS, swissmetro_gen1, 152) {
         track_type: VACT;
         name: string(STR_NAME_SWISSMETRO_1);
         climates_available: ALL_CLIMATES;
-        introduction_date: date(param_starting_year,1,1);
+        introduction_date: date(param_starting_year+11,1,1);
         speed: 4100 km/h;
         air_drag_coefficient: 0;
         power: 14000 hp;
@@ -1864,7 +1864,7 @@ item (FEAT_TRAINS, swissmetro_gen1_mail, 252) {
         track_type: VACT;
         name: string(STR_NAME_SWISSMETRO_1);
         climates_available: ALL_CLIMATES;
-        introduction_date: date(param_starting_year,1,1);
+        introduction_date: date(param_starting_year+11,1,1);
         speed: 4100 km/h;
         air_drag_coefficient: 0;
         power: 14000 hp;
@@ -1920,8 +1920,8 @@ item (FEAT_TRAINS, swissmetro_gen1_mail, 252) {
 
 //railtype switches
 switch (FEAT_TRAINS, SELF, switch_chimaera_speed, current_railtype) {
-	VACT: return 4000;
-	MGLV: return 640;
+	VACT: return 3000;
+	MGLV: return 420;
 	CB_FAILED;
 }
 
@@ -1953,7 +1953,7 @@ item (FEAT_TRAINS, chimaera, 158) {
         track_type: VACT;
         name: string(STR_NAME_CHIMAERA);
         climates_available: ALL_CLIMATES;
-        introduction_date: date(param_starting_year+23,1,1);
+        introduction_date: date(param_starting_year+48,1,1);
         air_drag_coefficient: 0;
         power: 22000 hp;
         dual_headed: 1;
@@ -2007,8 +2007,8 @@ item (FEAT_TRAINS, chimaera, 158) {
 
 //railtype switches
 switch (FEAT_TRAINS, SELF, switch_tsv_1_speed, current_railtype) {
-	VACT: return 2000;
-	MGLV: return 450;
+	VACT: return 1500;
+	MGLV: return 280;
 	CB_FAILED;
 }
 
@@ -2093,7 +2093,7 @@ item (FEAT_TRAINS, tsv_1, 154) {
         track_type: VACT;
         name: string(STR_NAME_FRENCH_1);
         climates_available: ALL_CLIMATES;
-        introduction_date: date(param_starting_year+15,1,1);
+        introduction_date: date(param_starting_year+28,1,1);
         speed: 2000 km/h;
         air_drag_coefficient: 0;
         power: 9000 hp;
@@ -2151,7 +2151,7 @@ item (FEAT_TRAINS, tsv_1_mail, 254) {
         track_type: VACT;
         name: string(STR_NAME_FRENCH_1);
         climates_available: ALL_CLIMATES;
-        introduction_date: date(param_starting_year+15,1,1);
+        introduction_date: date(param_starting_year+28,1,1);
         speed: 2000 km/h;
         air_drag_coefficient: 0;
         power: 9000 hp;
@@ -2206,8 +2206,8 @@ item (FEAT_TRAINS, tsv_1_mail, 254) {
 
 //railtype switches
 switch (FEAT_TRAINS, SELF, switch_tsv_duplex_speed, current_railtype) {
-	VACT: return 2000;
-	MGLV: return 640;
+	VACT: return 1500;
+	MGLV: return 280;
 	CB_FAILED;
 }
 
@@ -2238,7 +2238,7 @@ item (FEAT_TRAINS, tsv_duplex, 156) {
         track_type: VACT;
         name: string(STR_NAME_FRENCH_2);
         climates_available: ALL_CLIMATES;
-        introduction_date: date(param_starting_year+30,1,1);
+        introduction_date: date(param_starting_year+42,1,1);
         speed: 2000 km/h;
         air_drag_coefficient: 0;
         power: 32000 hp;
@@ -2293,7 +2293,7 @@ item (FEAT_TRAINS, tsv_duplex_mail, 256) {
         track_type: VACT;
         name: string(STR_NAME_FRENCH_2);
         climates_available: ALL_CLIMATES;
-        introduction_date: date(param_starting_year+30,1,1);
+        introduction_date: date(param_starting_year+42,1,1);
         speed: 2000 km/h;
         air_drag_coefficient: 0;
         power: 32000 hp;
@@ -2348,8 +2348,8 @@ item (FEAT_TRAINS, tsv_duplex_mail, 256) {
 
 //railtype switches
 switch (FEAT_TRAINS, SELF, switch_shinkukan_1_speed, current_railtype) {
-	VACT: return 4000;
-	MGLV: return 500;
+	VACT: return 6000;
+	MGLV: return 640;
 	CB_FAILED;
 }
 
@@ -2381,7 +2381,7 @@ item (FEAT_TRAINS, shinkukan_1, 162) {
         track_type: VACT;
         name: string(STR_NAME_JAPANESE_1);
         climates_available: ALL_CLIMATES;
-        introduction_date: date(param_starting_year+39,1,1);
+        introduction_date: date(param_starting_year+61,1,1);
         speed: 4000 km/h;
         air_drag_coefficient: 0;
         power: 35000 hp;
@@ -2436,7 +2436,7 @@ item (FEAT_TRAINS, shinkukan_1_mail, 262) {
         track_type: VACT;
         name: string(STR_NAME_JAPANESE_1);
         climates_available: ALL_CLIMATES;
-        introduction_date: date(param_starting_year+39,1,1);
+        introduction_date: date(param_starting_year+61,1,1);
         speed: 4000 km/h;
         air_drag_coefficient: 0;
         power: 35000 hp;
@@ -2491,7 +2491,7 @@ item (FEAT_TRAINS, shinkukan_1_mail, 262) {
 //railtype switches
 switch (FEAT_TRAINS, SELF, switch_shinkukan_dd_speed, current_railtype) {
 	VACT: return 6000;
-	MGLV: return 500;
+	MGLV: return 640;
 	CB_FAILED;
 }
 
@@ -2531,7 +2531,7 @@ item (FEAT_TRAINS, shinkukan_dd, 166) {
         track_type: VACT;
         name: string(STR_NAME_JAPANESE_2);
         climates_available: ALL_CLIMATES;
-        introduction_date: date(param_starting_year+67,1,1);
+        introduction_date: date(param_starting_year+78,1,1);
         speed: 4000 km/h;
         air_drag_coefficient: 0;
         power: 42000 hp;
@@ -2586,7 +2586,7 @@ item (FEAT_TRAINS, shinkukan_dd_mail, 266) {
         track_type: VACT;
         name: string(STR_NAME_JAPANESE_2);
         climates_available: ALL_CLIMATES;
-        introduction_date: date(param_starting_year+67,1,1);
+        introduction_date: date(param_starting_year+78,1,1);
         speed: 4000 km/h;
         air_drag_coefficient: 0;
         power: 42000 hp;
@@ -2640,46 +2640,46 @@ item (FEAT_TRAINS, shinkukan_dd_mail, 266) {
 //Unit Wagons
 
 item (FEAT_TRAINS, vactrain_wagon_pax, 192) {
- property {
-  sprite_id: SPRITE_ID_NEW_TRAIN;
-  misc_flags: bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_AUTOREFIT);
-  track_type: VACT;
-  name: string(STR_NAME_PAX_WAGON);
-  climates_available: ALL_CLIMATES;
-  introduction_date: date(param_wagon_year,1,1);
-  power: 0;
-  cargo_capacity: 60;
-  refittable_cargo_classes: bitmask(CC_PASSENGERS);
-  weight: 50;
-  cost_factor: 85;
-  loading_speed: 20;
-  }
-  graphics {
-	purchase: spriteset_wagon_unpowered_purchase;
-	spriteset_wagon_unpowered_generic;
-  }
+    property {
+        sprite_id: SPRITE_ID_NEW_TRAIN;
+        misc_flags: bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_AUTOREFIT);
+        track_type: VACT;
+        name: string(STR_NAME_PAX_WAGON);
+        climates_available: ALL_CLIMATES;
+        introduction_date: date(param_starting_year,1,1);
+        power: 0;
+        cargo_capacity: 60;
+        refittable_cargo_classes: bitmask(CC_PASSENGERS);
+        weight: 50;
+        cost_factor: 85;
+        loading_speed: 20;
+    }
+    graphics {
+        purchase: spriteset_wagon_unpowered_purchase;
+        spriteset_wagon_unpowered_generic;
+    }
 }
 
 
 item (FEAT_TRAINS, vactrain_wagon_exp, 194) {
- property {
-  sprite_id: SPRITE_ID_NEW_TRAIN;
-  misc_flags: bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_AUTOREFIT);
-  track_type: VACT;
-  name: string(STR_NAME_EXP_WAGON);
-  climates_available: ALL_CLIMATES;
-  introduction_date: date(param_wagon_year,1,1);
-  power: 0;
-  cargo_capacity: 40;
-  refittable_cargo_classes: bitmask(CC_MAIL, CC_EXPRESS, CC_ARMOURED);
-  weight: 44;
-  loading_speed: 20;
-  cost_factor: 85;
-  }
-  graphics {
-	purchase: spriteset_wagon_exp_purchase;
-	spriteset_wagon_exp_generic;
-  }
+    property {
+        sprite_id: SPRITE_ID_NEW_TRAIN;
+        misc_flags: bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_AUTOREFIT);
+        track_type: VACT;
+        name: string(STR_NAME_EXP_WAGON);
+        climates_available: ALL_CLIMATES;
+        introduction_date: date(param_starting_year,1,1);
+        power: 0;
+        cargo_capacity: 40;
+        refittable_cargo_classes: bitmask(CC_MAIL, CC_EXPRESS, CC_ARMOURED);
+        weight: 44;
+        loading_speed: 20;
+        cost_factor: 85;
+    }
+    graphics {
+        purchase: spriteset_wagon_exp_purchase;
+        spriteset_wagon_exp_generic;
+    }
 }
 
 
@@ -2690,7 +2690,7 @@ item (FEAT_TRAINS, vactrain_wagon_exp, 194) {
 
 switch (FEAT_TRAINS, SELF, switch_cargo_engine_1_speed, current_railtype) {
 	VACT: return 800;
-	MGLV: return 300;
+	MGLV: return 160;
 	CB_FAILED;
 }
 
@@ -2721,7 +2721,7 @@ item (FEAT_TRAINS, cargo_engine_1, 182) {
         track_type: VACT;
         name: string(STR_NAME_CARGO_1);
         climates_available: ALL_CLIMATES;
-        introduction_date: date(param_starting_year+13,1,1);
+        introduction_date: date(param_starting_year_cargo,1,1);
         air_drag_coefficient: 0;
         power: 14000 hp;
         dual_headed: 0;
@@ -2770,8 +2770,8 @@ item (FEAT_TRAINS, cargo_engine_1, 182) {
 //2nd gen
 
 switch (FEAT_TRAINS, SELF, switch_cargo_engine_2_speed, current_railtype) {
-	VACT: return 1200;
-	MGLV: return 450;
+	VACT: return 1500;
+	MGLV: return 280;
 	CB_FAILED;
 }
 
@@ -2802,7 +2802,7 @@ item (FEAT_TRAINS, cargo_engine_2, 184) {
         track_type: VACT;
         name: string(STR_NAME_CARGO_2);
         climates_available: ALL_CLIMATES;
-        introduction_date: date(param_starting_year+33,1,1);
+        introduction_date: date(param_starting_year_cargo+30,1,1);
         air_drag_coefficient: 0;
         power: 28000 hp;
         dual_headed: 0;
@@ -2850,8 +2850,8 @@ item (FEAT_TRAINS, cargo_engine_2, 184) {
 //3rd gen
 
 switch (FEAT_TRAINS, SELF, switch_cargo_engine_3_speed, current_railtype) {
-	VACT: return 2000;
-	MGLV: return 640;
+	VACT: return 3000;
+	MGLV: return 420;
 	CB_FAILED;
 }
 
@@ -2882,7 +2882,7 @@ item (FEAT_TRAINS, cargo_engine_3, 186) {
         track_type: VACT;
         name: string(STR_NAME_CARGO_3);
         climates_available: ALL_CLIMATES;
-        introduction_date: date(param_starting_year+53,1,1);
+        introduction_date: date(param_starting_year_cargo+60,1,1);
         air_drag_coefficient: 0;
         power: 48000 hp;
         dual_headed: 0;
@@ -2930,8 +2930,8 @@ item (FEAT_TRAINS, cargo_engine_3, 186) {
 //4th gen
 
 switch (FEAT_TRAINS, SELF, switch_cargo_engine_4_speed, current_railtype) {
-	VACT: return 4000;
-	MGLV: return 750;
+	VACT: return 6000;
+	MGLV: return 640;
 	CB_FAILED;
 }
 
@@ -2962,7 +2962,7 @@ item (FEAT_TRAINS, cargo_engine_4, 188) {
         track_type: VACT;
         name: string(STR_NAME_CARGO_4);
         climates_available: ALL_CLIMATES;
-        introduction_date: date(param_starting_year+73,1,1);
+        introduction_date: date(param_starting_year_cargo+90,1,1);
         air_drag_coefficient: 0;
         power: 54000 hp;
         dual_headed: 0;
@@ -3077,7 +3077,7 @@ item (FEAT_TRAINS, vactrain_wagon_cargo, 196) {
   track_type: VACT;
   name: string(STR_NAME_CARGO_WAGON);
   climates_available: ALL_CLIMATES;
-  introduction_date: date(param_wagon_year,1,1);
+  introduction_date: date(param_starting_year_cargo,1,1);
   power: 0;
   cargo_capacity: 30;
   refittable_cargo_classes: ALL_NORMAL_CARGO_CLASSES;
