@@ -19,22 +19,22 @@ STR_BADGE_ROLE_UNIV                       :Universal
 
 #trains
 
-STR_NAME_CHINESE_PROTO					:Swift
-STR_NAME_CHINESE_INTERCITY				:Swallow
-STR_NAME_CHINESE_INTERNATIONAL			:Cheetah
-STR_NAME_CHINESE_INTERCONTINENTAL		:Elephant
+STR_NAME_SWIFT					:Swift
+STR_NAME_SWALLOW				:Swallow
+STR_NAME_CHEETAH    			:Cheetah
+STR_NAME_ELEPHANT       		:Elephant
 
-STR_NAME_HYPERLOOP_1				:Folly
+STR_NAME_FOLLY  				:Folly
 
-STR_NAME_SWISSMETRO_1				:Crossley
+STR_NAME_CROSSLEY				:Crossley
 
-STR_NAME_CHIMAERA					:Hydra
+STR_NAME_HYDRA					:Hydra
 
-STR_NAME_FRENCH_1					:Tapeworm
-STR_NAME_FRENCH_2					:Pillbug
+STR_NAME_TAPEWORM					:Tapeworm
+STR_NAME_PILLBUG					:Pillbug
 
-STR_NAME_JAPANESE_1					:Spamcan
-STR_NAME_JAPANESE_2					:Rocketmax
+STR_NAME_SPAMCAN					:Spamcan
+STR_NAME_ROCKETMAX					:Rocketmax
 
 
 #cargo vactrains
