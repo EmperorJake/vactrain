@@ -181,6 +181,21 @@ grf {
             };
         }
     }
+    param {
+        param_vehicle_capacity {
+            type: int;
+            name: string(STR_PARAM_CAPACITY);
+            desc: string(STR_PARAM_CAPACITY_DESC);
+            min_value: 0;
+            max_value: 2;
+            def_value: 1;
+            names: {
+                0: string(STR_PARAM_CAPACITY_LOW);
+                1: string(STR_PARAM_CAPACITY_MED);
+                2: string(STR_PARAM_CAPACITY_HIGH);
+            };
+        }
+    }
 }
 
 /*
@@ -1096,6 +1111,13 @@ switch(FEAT_TRAINS, SELF, switch_loading_speed_mu, param_loading_speed) {
     2: return 100;
 }
 
+//capacity switch
+switch(FEAT_TRAINS, SELF, switch_capacity_mu, param_vehicle_capacity) {
+    0: return 0.75;
+    1: return 1;
+    2: return 1.5;
+}
+
 
 
 //BADGES
@@ -1402,6 +1424,7 @@ item (FEAT_TRAINS, chinese_intercity, 170) {
         purchase: spriteset_chinese_intercity_purchase;
         default: spriteset_chinese_intercity_pax_head;
         loading_speed: switch_loading_speed_mu;
+
     }
   
     livery_override(vactrain_wagon_pax) { // graphics for alternative look of passenger wagon when used with this engine
