@@ -93,14 +93,14 @@ STR_VAC_NAME :Vactrain Tracks
 
 
 STR_PARAM_CAPACITY					:Change Vactrain Capacity
-STR_PARAM_CAPACITY_DESC				:Allows to change capacities of the vacuum tube trains (e.g, to balance it against others)
+STR_PARAM_CAPACITY_DESC				:Allows to change capacities of the vacuum tube trains
 STR_PARAM_CAPACITY_LOW				:Conservative
 STR_PARAM_CAPACITY_MED				:Normal
 STR_PARAM_CAPACITY_HIGH				:Generous
 
 
 STR_PARAM_LOADSPEED					:Change Vactrain Loading Speed
-STR_PARAM_LOADSPEED_DESC			:Allows to change loading speed of the vacuum tube trains (e.g, to balance it against others)
+STR_PARAM_LOADSPEED_DESC			:Allows to change loading speed of the vacuum tube trains
 STR_PARAM_LOADSPEED_LOW				:Conservative
 STR_PARAM_LOADSPEED_MED				:Normal
 STR_PARAM_LOADSPEED_HIGH			:Generous
@@ -110,16 +110,25 @@ STR_PARAM_STARTING_YEAR_DESC        :Adjust introduction year for passenger and 
 STR_PARAM_CARGO_YEAR                :Change Introduction Year (Cargo)
 STR_PARAM_CARGO_YEAR_DESC           :Adjust introduction year for cargo vactrains.
 
+STR_PARAM_MAGLEVGFX                 :Replace Maglev Track Graphics
+STR_PARAM_MAGLEVGFX_DESC            :Choose whether to replace the base maglev tracks with graphics that match the Vactrain tracks. Disable this to use baseset graphics or maglev tracks from another NewGRF.
+
+STR_PARAM_ALLOWMAGLEV               :Allow Maglev Trains on Vactrain Tracks
+STR_PARAM_ALLOWMAGLEV_DESC          :Choose whether to allow standard maglev trains to travel on vactrain tracks. This includes vanilla maglevs as well as compatible NewGRF maglevs.
+
+STR_PARAM_ALLOWVACTRAIN             :Allow Vactrains on Maglev Tracks
+STR_PARAM_ALLOWVACTRAIN_DESC        :Choose whether to allow vactrains to travel on standard maglev tracks.
+
 #cost params
 
 STR_PARAM_RUNNING_COST                                          :Adjust running costs
-STR_PARAM_RUNNING_COST_DESC                                     :Allows to adjust the running costs of the vacuum tube trains (e.g, to balance it against others)
+STR_PARAM_RUNNING_COST_DESC                                     :Allows to adjust the running costs of the vacuum tube trains
 STR_PARAM_PURCHASE_COST                                         :Adjust purchase costs
-STR_PARAM_PURCHASE_COST_DESC                                    :Allows to adjust the purchase costs of the vacuum tube trains (e.g, to balance it against others)
-STR_PARAM_RAIL_COST                                             :Adjust vacuum tube build / clear costs
-STR_PARAM_RAIL_COST_DESC                                        :Allows to adjust the build and clear cost costs of the vacuum tube.
-STR_PARAM_MAINTENANCE_COST                                      :Adjust vacuum tube maintenance costs
-STR_PARAM_MAINTENANCE_COST_DESC                                 :Allows to adjust the maintenance costs of the vacuum tube. Infrastructure maintenance must be enabled for this to take effect.
+STR_PARAM_PURCHASE_COST_DESC                                    :Allows to adjust the purchase costs of the vacuum tube trains
+STR_PARAM_RAIL_COST                                             :Adjust track construction costs
+STR_PARAM_RAIL_COST_DESC                                        :Allows to adjust the build and clear cost costs of the vacuum tube tracks.
+STR_PARAM_MAINTENANCE_COST                                      :Adjust track maintenance costs
+STR_PARAM_MAINTENANCE_COST_DESC                                 :Allows to adjust the maintenance costs of the vacuum tube tracks. Infrastructure maintenance must be enabled for this to take effect.
 
 STR_PARAM_COST_AUTOMATICALLY                                    :automatic (default)
 STR_PARAM_COST_BY256                                            :1 / 256
