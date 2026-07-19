@@ -35,6 +35,8 @@ These will be automatically disabled if detected:
 2 Usage and Parameters
 ----------------------
 
+---Vehicles---
+
 There are 3 types of vactrain engine.
 
 
@@ -49,7 +51,7 @@ These powerful engines are designed to haul cargo, but can also haul passenger w
 Universal engines
 These are general purpose engines for either passengers or cargo.
 
-
+---Parameters---
 
 Cost Parameters allow to adjust the difficulty to balance it with other GRFs or if you find it too easy to make money.
 They allow adjustment of:
@@ -66,19 +68,34 @@ They allow adjustment of:
 * Wagon introduction date
 
 
+Loading Speed
+Adjust the loading speeds of vactrain vehicles.
+
+
+
 Future parameters:
 
 Vehicle capacity
 
-Loading Speed
+Vehicle Speed
 
 Maglev Track Compatibility
 
 Maglev Track Graphics
 
-Disable/enable single unit trains
 
-Disable/enable coupling restrictions
+
+
+
+---Game Settings---
+
+Infrastructure Maintenance
+This is very expensive for vactrain tracks.
+
+
+When using JGRPP, it is highly recommended to enable "Realistic Braking" as well as "Limit Train Acceleration". This will make vactrains take much longer to accelerate and decelerate, making them less useful for short distances
+
+
 
 
 

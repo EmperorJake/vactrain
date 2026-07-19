@@ -343,7 +343,7 @@ basecost {
 //table things
 
 railtypetable {
- MGLV, VACT
+ MGLV, VACT, TCAS, TCAI, TBAI, LCAI, LBAS, TBAS
 }
 
 cargotable {
@@ -1344,8 +1344,8 @@ if (param_vactrain_allow) {
             toolbar_caption: string(STR_TOOLBAR_CAPTION);
             autoreplace_text: string(STR_AUTOREPLACE);
             new_engine_text: string(STR_NEW_ENGINE);
-            compatible_railtype_list: ["VACT", "MGLV"];
-            powered_railtype_list:      ["VACT", "MGLV"];
+            compatible_railtype_list: ["VACT", "MGLV", "TCAS", "TCAI", "TBAI", "LCAI", "LBAS", "TBAS"];
+            powered_railtype_list:      ["VACT", "MGLV", "TCAS", "TCAI", "TBAI", "LCAI", "LBAS", "TBAS"];
             railtype_flags: bitmask(RAILTYPE_FLAG_CATENARY, RAILTYPE_FLAG_NO_LEVEL_CROSSING);
             curve_speed_multiplier: 8;
             station_graphics: RAILTYPE_STATION_MONORAIL;
@@ -1360,12 +1360,13 @@ if (param_vactrain_allow) {
             tunnels: 			spriteset_vactrain_tunnel;
             bridge_surfaces: 	spriteset_vactrain_bridge;
             catenary_wire: 		spriteset_vactrain_tubes;
-            catenary_pylons: 	spriteset_vactrain_pylons; //new pylons
+            catenary_pylons: 	spriteset_vactrain_pylons;
             gui: 				spriteset_gui_opengfx;
             depots: 			depot_snow_switch;
         }
     }
 } else {
+
     item(FEAT_RAILTYPES) {
         property {
             label: "VACT";
@@ -1391,7 +1392,7 @@ if (param_vactrain_allow) {
             tunnels: 			spriteset_vactrain_tunnel;
             bridge_surfaces: 	spriteset_vactrain_bridge;
             catenary_wire: 		spriteset_vactrain_tubes;
-            catenary_pylons: 	spriteset_vactrain_pylons; //new pylons
+            catenary_pylons: 	spriteset_vactrain_pylons;
             gui: 				spriteset_gui_opengfx;
             depots: 			depot_snow_switch;
         }

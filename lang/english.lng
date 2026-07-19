@@ -81,7 +81,7 @@ STR_NAME_CARGO_WAGON				:Universal Cargo Wagon
 
 # general
 
-STR_NEW_ENGINE :Vactrain vehicle
+STR_NEW_ENGINE :Vactrain locomotive
 STR_AUTOREPLACE :Vactrain Vehicles
 STR_BUILD_CAPTION :New Vactrain Vehicles
 STR_TOOLBAR_CAPTION :Vactrain Track Construction
@@ -113,7 +113,7 @@ STR_PARAM_CARGO_YEAR_DESC           :Adjust introduction year for cargo vactrain
 STR_PARAM_MAGLEVGFX                 :Replace Maglev Track Graphics
 STR_PARAM_MAGLEVGFX_DESC            :Choose whether to replace the base maglev tracks with graphics that match the Vactrain tracks. Disable this to use baseset graphics or maglev tracks from another NewGRF.
 
-STR_PARAM_ALLOWMAGLEV               :Allow Maglev Trains on Vactrain Tracks
+STR_PARAM_ALLOWMAGLEV               :Allow Maglevs on Vactrain Tracks
 STR_PARAM_ALLOWMAGLEV_DESC          :Choose whether to allow standard maglev trains to travel on vactrain tracks. This includes vanilla maglevs as well as compatible NewGRF maglevs.
 
 STR_PARAM_ALLOWVACTRAIN             :Allow Vactrains on Maglev Tracks
