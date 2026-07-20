@@ -17,18 +17,20 @@ STR_BADGE_ROLE_CARGO                      :Cargo
 STR_BADGE_ROLE_UNIV                       :Universal
 
 
-#trains
+#locos
 
 STR_NAME_SWIFT					:Swift
-STR_NAME_SWALLOW				:Swallow
-STR_NAME_CHEETAH    			:Cheetah
-STR_NAME_ELEPHANT       		:Elephant
+STR_NAME_HYDRA					:Hydra
+STR_NAME_SCARAB  				:Scarab
+STR_NAME_COBRA  				:Cobra
 
-STR_NAME_FOLLY  				:Folly
+#multiple units
 
 STR_NAME_CROSSLEY				:Crossley
 
-STR_NAME_HYDRA					:Hydra
+STR_NAME_SWALLOW				:Swallow
+STR_NAME_CHEETAH    			:Cheetah
+STR_NAME_ELEPHANT       		:Elephant
 
 STR_NAME_TAPEWORM					:Tapeworm
 STR_NAME_PILLBUG					:Pillbug
@@ -37,7 +39,7 @@ STR_NAME_SPAMCAN					:Spamcan
 STR_NAME_ROCKETMAX					:Rocketmax
 
 
-#cargo vactrains
+#cargo locos
 
 STR_NAME_CARGO_1					:Coelacanth
 STR_NAME_CARGO_2					:Juggernaut
@@ -118,6 +120,9 @@ STR_PARAM_ALLOWMAGLEV_DESC          :Choose whether to allow standard maglev tra
 
 STR_PARAM_ALLOWVACTRAIN             :Allow Vactrains on Maglev Tracks
 STR_PARAM_ALLOWVACTRAIN_DESC        :Choose whether to allow vactrains to travel on standard maglev tracks.
+
+STR_PARAM_SPEED					    :Change Vactrain Maximum Speed
+STR_PARAM_SPEED_DESC		        :Allows to change top speed of the fastest generation of vactrains. Previous generations will be adjusted accordingly.
 
 #cost params
 
