@@ -11,7 +11,7 @@ grf {
  name: string(STR_GRF_NAME);
  desc: string(STR_GRF_DESCRIPTION);
  version: 100;
- min_compatible_version: 110;
+ min_compatible_version: 120;
 
 
  
@@ -36,7 +36,17 @@ grf {
             def_value: 2030;
         }
     }
- 
+    param {
+        param_vactrain_speed {
+            type: int;
+            name: string(STR_PARAM_SPEED);
+            desc: string(STR_PARAM_SPEED_DESC);
+            min_value: 1000;
+            max_value: 65535;
+            def_value: 2400;
+        }
+    }
+
  //cost parameters
  //courtesy of Terkhen
     param {
@@ -219,16 +229,7 @@ grf {
             def_value: 1;
         }
     }
-    param {
-        param_vactrain_speed {
-            type: int;
-            name: string(STR_PARAM_SPEED);
-            desc: string(STR_PARAM_SPEED_DESC);
-            min_value: 1000;
-            max_value: 65535;
-            def_value: 4000;
-        }
-    }
+
 }
 
 
@@ -1190,7 +1191,7 @@ switch(FEAT_TRAINS, SELF, switch_capacity_mu, param_vehicle_capacity) {
 //speed switches
 
 switch(FEAT_TRAINS, SELF, switch_vactrain_speed_gen1, max_speed) {
-    return 800;
+    return 800 + ((param_vactrain_speed - 800) / 8);
 }
 
 switch(FEAT_TRAINS, SELF, switch_vactrain_speed_gen2, max_speed) {
@@ -1503,7 +1504,7 @@ item (FEAT_TRAINS, scarab, 142) {
         track_type: VACT;
         name: string(STR_NAME_SCARAB);
         climates_available: ALL_CLIMATES;
-        introduction_date: date(param_starting_year+48,1,1);
+        introduction_date: date(param_starting_year+59,1,1);
         speed: 1000 km/h;
         air_drag_coefficient: 0;
         power: 4000 hp;
@@ -1695,7 +1696,7 @@ item (FEAT_TRAINS, cobra, 144) {
         track_type: VACT;
         name: string(STR_NAME_COBRA);
         climates_available: ALL_CLIMATES;
-        introduction_date: date(param_starting_year+67,1,1);
+        introduction_date: date(param_starting_year+88,1,1);
         speed: 2400 km/h;
         //		tractive_effort_coefficient:    1;
         air_drag_coefficient: 0;
