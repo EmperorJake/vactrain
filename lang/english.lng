@@ -47,30 +47,26 @@ STR_NAME_CARGO_3					:Capybara
 STR_NAME_CARGO_4					:Cyber Dragon
 
 
-# additional text - metric TODO ADD DIFFERENT UNITS mph and kW
 
-STR_TEXT_CHINESE_PROTO					:{BLACK}Loading Speed: {GOLD}Slow {}{BLACK}Atmospheric Speed: {GOLD}200 km/h {}{BLACK}May only attach to itself
-STR_TEXT_CHINESE_INTERCITY				:{BLACK}Loading Speed: {GOLD}Fast {}{BLACK}Atmospheric Speed: {GOLD}200 km/h {}{BLACK}Wagon Power: {GOLD}7,000 hp {}{BLACK}Wagon Capacity: {GOLD}80 Passengers
-STR_TEXT_CHINESE_INTERNATIONAL			:{BLACK}Loading Speed: {GOLD}Fast {}{BLACK}Atmospheric Speed: {GOLD}200 km/h {}{BLACK}Wagon Power: {GOLD}7,000 hp {}{BLACK}Wagon Capacity: {GOLD}72 Passengers
-STR_TEXT_CHINESE_INTERCONT				:{BLACK}Loading Speed: {GOLD}Medium {}{BLACK}Atmospheric Speed: {GOLD}200 km/h {}{BLACK}Wagon Power: {GOLD}19,000 hp {}{BLACK}Wagon Capacity: {GOLD}105/110 Passengers
+# new modular additional text (add mph?)
 
-STR_TEXT_HYPERLOOP_1				:{BLACK}Loading Speed: {GOLD}Medium {}{BLACK}Atmospheric Speed: {GOLD}120 km/h {}{BLACK}May not attach to anything
+STR_CONCAT_1                        :{STRING}
+STR_CONCAT_2                        :{STRING}{STRING}
+STR_CONCAT_3                        :{STRING}{STRING}{STRING}
+STR_CONCAT_4                        :{STRING}{STRING}{STRING}{STRING}
 
-STR_TEXT_SWISSMETRO_1				:{BLACK}Loading Speed: {GOLD}Medium {}{BLACK}Atmospheric Speed: {GOLD}420 km/h {}{BLACK}Wagon Power: {GOLD}10,000 hp {}{BLACK}Wagon Capacity: {GOLD}56 Passengers
 
-STR_TEXT_CHIMAERA					:{BLACK}Loading Speed: {GOLD}Slow {}{BLACK}Atmospheric Speed: {GOLD}640 km/h {}{BLACK}Wagon Power: {GOLD}12,000 hp {}{BLACK}Wagon Capacity: {GOLD}40 Passengers
+STR_DESC_AIRSPEED_160               :{BLACK}Atmospheric Speed: {GOLD}160 km/h{}
+STR_DESC_AIRSPEED_320               :{BLACK}Atmospheric Speed: {GOLD}320 km/h{}
+STR_DESC_AIRSPEED_480               :{BLACK}Atmospheric Speed: {GOLD}480 km/h{}
+STR_DESC_AIRSPEED_640               :{BLACK}Atmospheric Speed: {GOLD}640 km/h{}
+STR_DESC_AIRSPEED_800               :{BLACK}Atmospheric Speed: {GOLD}800 km/h{}
 
-STR_TEXT_FRENCH_1					:{BLACK}Loading Speed: {GOLD}Fast {}{BLACK}Atmospheric Speed: {GOLD}450 km/h {}{BLACK}Wagon Power: {GOLD}9,000 hp {}{BLACK}Wagon Capacity: {GOLD}10/62 Passengers
-STR_TEXT_FRENCH_2					:{BLACK}Loading Speed: {GOLD}Fast {}{BLACK}Atmospheric Speed: {GOLD}640 km/h {}{BLACK}Wagon Power: {GOLD}16,000 hp {}{BLACK}Wagon Capacity: {GOLD}120 Passengers
+#STR_DESC_WAGONCAP
 
-STR_TEXT_JAPANESE_1					:{BLACK}Loading Speed: {GOLD}Medium {}{BLACK}Atmospheric Speed: {GOLD}500 km/h {}{BLACK}Wagon Power: {GOLD}7,000 hp {}{BLACK}Wagon Capacity: {GOLD}95 Passengers
-STR_TEXT_JAPANESE_2					:{BLACK}Loading Speed: {GOLD}Slow {}{BLACK}Atmospheric Speed: {GOLD}500 km/h {}{BLACK}Wagon Power: {GOLD}20,000 hp {}{BLACK}Wagon Capacity: {GOLD}185/190 Passengers
+#STR_DESC_WAGONPOWER
 
-STR_TEXT_CARGO_1					:{BLACK}Atmospheric Speed: {GOLD}300 km/h
-STR_TEXT_CARGO_2					:{BLACK}Atmospheric Speed: {GOLD}450 km/h
-STR_TEXT_CARGO_3					:{BLACK}Atmospheric Speed: {GOLD}640 km/h
-STR_TEXT_CARGO_4					:{BLACK}Atmospheric Speed: {GOLD}750 km/h
-
+#STR_DESC_LOADSPEED
 
 
 #wagons

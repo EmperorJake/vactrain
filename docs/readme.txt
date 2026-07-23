@@ -61,29 +61,34 @@ They allow adjustment of:
 * Track Construction
 * Track Maintenance
 
-Introduction date parameters allow to adjust the timeline of vehicle releases.
-They allow adjustment of:
-
-* Engine introduction date
-* Wagon introduction date
+The introduction date parameter allows to adjust the timeline of vehicle releases.
+Engines will be released for approximately 100 years after the given year.
 
 
 Loading Speed
 Adjust the loading speeds of vactrain vehicles.
 
 
-
-Future parameters:
-
 Vehicle capacity
+Adjust the capacity of vactrain vehicles.
+
 
 Vehicle Speed
+Adjust the maximum speed of the fastest generation of vactrains. The maximum speed of the previous generations of vactrain will be adjusted proportionally.
 
-Maglev Track Compatibility
+The minimum is 1,000 km/h, which offers a subtle but noticeable speed curve over the fastest maglev trains. The default is 2,400 km/h because this offers a significant speed boost without becoming too difficult to attain and maintain.
 
-Maglev Track Graphics
+It is not recommended to set this to extremely high values, as it is nearly impossible for vactrains to reach speeds much over 10,000km/h.
 
 
+Allow Vactrains on Maglev Tracks
+By default, vactrains are allowed on normal maglev tracks, albeit at a significantly reduced top speed. Disable this to keep vactrains as their own separate railtype apart from maglev.
+
+Allow Maglevs on Vactrain Tracks
+By default, maglev trains are allowed on vactrain tracks. Disable this to prevent slow maglev trains from going on your vactrain lines, or for realism/roleplay purposes (maglevs are not airtight so the passengers would suffocate!)
+
+Replace Maglev Track Graphics
+By default, the Vactrain set replaces the vanilla maglev tracks to match the vactrain tracks. Disable this if you want to use the maglev tracks from the base set or another NewGRF that provides maglev tracks.
 
 
 
@@ -93,9 +98,9 @@ Infrastructure Maintenance
 This is very expensive for vactrain tracks.
 
 
-When using JGRPP, it is highly recommended to enable "Realistic Braking" as well as "Limit Train Acceleration". This will make vactrains take much longer to accelerate and decelerate, making them less useful for short distances
+When using JGRPP, it is highly recommended to enable "Realistic Braking" as well as "Limit Train Acceleration". This will cause vactrains to accelerate and brake gradually instead of near-instantly, which is more realistic but makes them less practical for short distance trips.
 
-
+When realistic braking is enabled, vactrains also need much greater gaps between them to allow for the required braking distance. This means that top speed has a significant impact on the capacity of a vactrain line.
 
 
 
@@ -103,7 +108,7 @@ When using JGRPP, it is highly recommended to enable "Realistic Braking" as well
 3 Building from source
 ----------------------
 
-Makefile hasn't been implemented yet, just compile the vactrain.nml
+Just compile the vactrain.nml
 
 3.1 Obtaining the source
 ------------------------
