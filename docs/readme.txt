@@ -31,17 +31,30 @@ These will be automatically disabled if detected:
 * Brianum Vacuum Monorail
 
 
+Known Bugs
+
+Dual-headed vehicles show incorrect capacity in the purchase window when the capacity parameter is set to something other than the default.
+
+
 ----------------------
 2 Usage and Parameters
 ----------------------
 
 ---Vehicles---
 
-There are 3 types of vactrain engine.
+
+The Vactrain Set has 16 train models, split into 4 generations. Each generation features a universal locomotive, a cargo locomotive, a low capacity MU and a high capacity MU.
+
+While the in-tube speed of each generation remains consistent, the atmospheric speed will vary based on model in order to encourage intersting gameplay choices.
+
+The atmospheric speed is the speed the train is able to travel outside of a vacuum tube (i.e. on regular maglev tracks). Some vactrains have a fast enough atmospheric speed to enable them to keep up with contemporary maglev trains. However, others suffer a severe speed penalty when leaving the vacuum tube, so choose carefully depending on your route.
+
 
 
 Multiple Units (MUs)
 Multiple units are separated into Passenger and Express Freight variants. When Passenger or Express Freight wagons are attached, the wagons boost the power of the train. The wagons also adapt themselves to match the appearance and capacity of the train, and running costs are adjusted accordingly.
+
+Cargo Wagons do not boost the power of MU trains, and will result in the trains being underpowered.
 
 
 Cargo Engines
@@ -49,7 +62,7 @@ These powerful engines are designed to haul cargo, but can also haul passenger w
 
 
 Universal engines
-These are general purpose engines for either passengers or cargo.
+These are general purpose engines for either passengers or cargo. Wagons will adapt to appearance and capacity, but will not contribute power.
 
 ---Parameters---
 
@@ -72,9 +85,14 @@ Adjust the loading speeds of vactrain vehicles.
 Vehicle capacity
 Adjust the capacity of vactrain vehicles.
 
+Conservative = 0.8x capacity
+Normal = 1x capacity
+Generous = 1.2x capacity
+
+
 
 Vehicle Speed
-Adjust the maximum speed of the fastest generation of vactrains. The maximum speed of the previous generations of vactrain will be adjusted proportionally.
+Adjust the maximum speed of the fastest generation of vactrains. The maximum speed of the previous generations of vactrain will be adjusted proportionally. This parameter does not affect the atmospheric speeds, which remain fixed.
 
 The minimum is 1,000 km/h, which offers a subtle but noticeable speed curve over the fastest maglev trains. The default is 2,400 km/h because this offers a significant speed boost without becoming too difficult to attain and maintain.
 
