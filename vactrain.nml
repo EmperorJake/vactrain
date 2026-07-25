@@ -10,8 +10,8 @@ grf {
  grfid: "\4A\4B\59\01";
  name: string(STR_GRF_NAME);
  desc: string(STR_GRF_DESCRIPTION);
- version: 130;
- min_compatible_version: 130;
+ version: 140;
+ min_compatible_version: 140;
 
 
  
@@ -1498,7 +1498,7 @@ switch (FEAT_TRAINS, SELF, switch_swift_speed, current_railtype) {
 }
 
 
-item (FEAT_TRAINS, swift, 146) {
+item (FEAT_TRAINS, swift, 132) {
     property {
         sprite_id: SPRITE_ID_NEW_TRAIN;
         misc_flags: bitmask(TRAIN_FLAG_2CC);
@@ -1578,7 +1578,7 @@ switch(FEAT_TRAINS, SELF, switch_hydra_reversed, var[0xC8]) {
 }
 
 //main item
-item (FEAT_TRAINS, hydra, 148) {
+item (FEAT_TRAINS, hydra, 134) {
     property {
         sprite_id: SPRITE_ID_NEW_TRAIN;
         misc_flags: bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_MU);
@@ -1660,7 +1660,7 @@ switch(FEAT_TRAINS, SELF, switch_scarab_reversed, var[0xC8]) {
     spriteset_scarab_front;
 }
 
-item (FEAT_TRAINS, scarab, 142) {
+item (FEAT_TRAINS, scarab, 136) {
     property {
         sprite_id: SPRITE_ID_NEW_TRAIN;
         misc_flags: bitmask(TRAIN_FLAG_2CC);
@@ -1726,7 +1726,7 @@ switch (FEAT_TRAINS, SELF, switch_cobra_speed, current_railtype) {
     CB_FAILED;
 }
 
-item (FEAT_TRAINS, cobra, 144) {
+item (FEAT_TRAINS, cobra, 138) {
     property {
         sprite_id: SPRITE_ID_NEW_TRAIN;
         misc_flags: bitmask(TRAIN_FLAG_2CC);
@@ -1959,7 +1959,7 @@ switch (FEAT_TRAINS, SELF, switch_swallow_cost, current_railtype) {
 }
 
 //main item
-item (FEAT_TRAINS, swallow, 170) {
+item (FEAT_TRAINS, swallow, 162) {
     property {
         sprite_id: SPRITE_ID_NEW_TRAIN;
         misc_flags: bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_MU, TRAIN_FLAG_AUTOREFIT);
@@ -2018,7 +2018,7 @@ item (FEAT_TRAINS, swallow, 170) {
     }
 }
 
-item (FEAT_TRAINS, swallow_mail, 270) {
+item (FEAT_TRAINS, swallow_mail, 262) {
     property {
         sprite_id: SPRITE_ID_NEW_TRAIN;
         misc_flags: bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_MU, TRAIN_FLAG_AUTOREFIT);
@@ -2041,7 +2041,7 @@ item (FEAT_TRAINS, swallow_mail, 270) {
         cost_factor: 90;
         running_cost_factor: 230;
         running_cost_base: RUNNING_COST_STEAM;
-        variant_group: 170;
+        variant_group: 162;
         extra_flags: bitmask(VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
         badges: ["power/vactrain", "role/express_freight"];
     }
@@ -2341,7 +2341,7 @@ switch (FEAT_TRAINS, SELF, switch_bison_cargo_head, cargo_classes) {
 }
 
 //main item
-item (FEAT_TRAINS, bison, 174) {
+item (FEAT_TRAINS, bison, 164) {
     property {
         sprite_id: SPRITE_ID_NEW_TRAIN;
         misc_flags: bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_MU);
@@ -2401,7 +2401,7 @@ item (FEAT_TRAINS, bison, 174) {
 
 }
 
-item (FEAT_TRAINS, bison_mail, 274) {
+item (FEAT_TRAINS, bison_mail, 264) {
     property {
         sprite_id: SPRITE_ID_NEW_TRAIN;
         misc_flags: bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_MU);
@@ -2424,7 +2424,7 @@ item (FEAT_TRAINS, bison_mail, 274) {
         cost_factor: 200;
         running_cost_factor: 240;
         running_cost_base: RUNNING_COST_STEAM;
-        variant_group: 174;
+        variant_group: 164;
         extra_flags: bitmask(VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
         badges: ["power/vactrain", "role/express_freight"];
     }
@@ -2503,7 +2503,7 @@ switch (FEAT_TRAINS, SELF, switch_cheetah_cargo_head, cargo_classes) {
 }
 
 //main item
-item (FEAT_TRAINS, cheetah, 172) {
+item (FEAT_TRAINS, cheetah, 156) {
     property {
         sprite_id: SPRITE_ID_NEW_TRAIN;
         misc_flags: bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_MU);
@@ -2564,7 +2564,7 @@ item (FEAT_TRAINS, cheetah, 172) {
 }
 
 //main item
-item (FEAT_TRAINS, cheetah_mail, 272) {
+item (FEAT_TRAINS, cheetah_mail, 256) {
     property {
         sprite_id: SPRITE_ID_NEW_TRAIN;
         misc_flags: bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_MU);
@@ -2587,7 +2587,7 @@ item (FEAT_TRAINS, cheetah_mail, 272) {
         cost_factor: 119;
         running_cost_factor: 230;
         running_cost_base: RUNNING_COST_STEAM;
-        variant_group: 172;
+        variant_group: 156;
         extra_flags: bitmask(VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
         badges: ["power/vactrain", "role/express_freight"];
     }
@@ -2662,7 +2662,7 @@ switch (FEAT_TRAINS, SELF, switch_pillbug_cargo_head, cargo_classes) {
 
 
 //main item
-item (FEAT_TRAINS, pillbug, 156) {
+item (FEAT_TRAINS, pillbug, 166) {
     property {
         sprite_id: SPRITE_ID_NEW_TRAIN;
         misc_flags: bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_MU);
@@ -2722,7 +2722,7 @@ item (FEAT_TRAINS, pillbug, 156) {
 
 }
 
-item (FEAT_TRAINS, pillbug_mail, 256) {
+item (FEAT_TRAINS, pillbug_mail, 266) {
     property {
         sprite_id: SPRITE_ID_NEW_TRAIN;
         misc_flags: bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_MU);
@@ -2745,7 +2745,7 @@ item (FEAT_TRAINS, pillbug_mail, 256) {
         cost_factor: 133;
         running_cost_factor: 240;
         running_cost_base: RUNNING_COST_STEAM;
-        variant_group: 156;
+        variant_group: 166;
         extra_flags: bitmask(VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
         badges: ["power/vactrain", "role/express_freight"];
     }
@@ -2815,7 +2815,7 @@ switch (FEAT_TRAINS, SELF, switch_spamcan_cargo, cargo_classes) {
 
 
 //main item
-item (FEAT_TRAINS, spamcan, 162) {
+item (FEAT_TRAINS, spamcan, 158) {
     property {
         sprite_id: SPRITE_ID_NEW_TRAIN;
         misc_flags: bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_MU);
@@ -2875,7 +2875,7 @@ item (FEAT_TRAINS, spamcan, 162) {
   
 }
 
-item (FEAT_TRAINS, spamcan_mail, 262) {
+item (FEAT_TRAINS, spamcan_mail, 258) {
     property {
         sprite_id: SPRITE_ID_NEW_TRAIN;
         misc_flags: bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_MU);
@@ -2898,7 +2898,7 @@ item (FEAT_TRAINS, spamcan_mail, 262) {
         cost_factor: 187;
         running_cost_factor: 240;
         running_cost_base: RUNNING_COST_STEAM;
-        variant_group: 162;
+        variant_group: 158;
         extra_flags: bitmask(VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
         badges: ["power/vactrain", "role/express_freight"];
     }
@@ -2982,7 +2982,7 @@ switch(FEAT_TRAINS, SELF, switch_rocketmax_reversed, var[0xC8]) {
 */
 
 //main item
-item (FEAT_TRAINS, rocketmax, 166) {
+item (FEAT_TRAINS, rocketmax, 168) {
     property {
         sprite_id: SPRITE_ID_NEW_TRAIN;
         misc_flags: bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_MU);
@@ -3042,7 +3042,7 @@ item (FEAT_TRAINS, rocketmax, 166) {
   
 }
 
-item (FEAT_TRAINS, rocketmax_mail, 266) {
+item (FEAT_TRAINS, rocketmax_mail, 268) {
     property {
         sprite_id: SPRITE_ID_NEW_TRAIN;
         misc_flags: bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_MU);
@@ -3065,7 +3065,7 @@ item (FEAT_TRAINS, rocketmax_mail, 266) {
         cost_factor: 249;
         running_cost_factor: 250;
         running_cost_base: RUNNING_COST_STEAM;
-        variant_group: 166;
+        variant_group: 168;
         extra_flags: bitmask(VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
         badges: ["power/vactrain", "role/express_freight"];
     }
@@ -3198,7 +3198,7 @@ switch (FEAT_TRAINS, SELF, switch_cargo_engine_1_position_front, position_in_con
 
 
 //main items
-item (FEAT_TRAINS, cargo_engine_1, 182) {
+item (FEAT_TRAINS, cargo_engine_1, 142) {
     property {
         sprite_id: SPRITE_ID_NEW_TRAIN;
         misc_flags: bitmask(TRAIN_FLAG_2CC);
@@ -3288,7 +3288,7 @@ switch (FEAT_TRAINS, SELF, switch_cargo_engine_2_position_front, position_in_con
 
 
 //main items
-item (FEAT_TRAINS, cargo_engine_2, 184) {
+item (FEAT_TRAINS, cargo_engine_2, 144) {
     property {
         sprite_id: SPRITE_ID_NEW_TRAIN;
         misc_flags: bitmask(TRAIN_FLAG_2CC);
@@ -3376,7 +3376,7 @@ switch (FEAT_TRAINS, SELF, switch_cargo_engine_3_position_front, position_in_con
 
 
 //main items
-item (FEAT_TRAINS, cargo_engine_3, 186) {
+item (FEAT_TRAINS, cargo_engine_3, 146) {
     property {
         sprite_id: SPRITE_ID_NEW_TRAIN;
         misc_flags: bitmask(TRAIN_FLAG_2CC);
@@ -3464,7 +3464,7 @@ switch (FEAT_TRAINS, SELF, switch_cargo_engine_4_position_front, position_in_con
 
 
 //main items
-item (FEAT_TRAINS, cargo_engine_4, 188) {
+item (FEAT_TRAINS, cargo_engine_4, 148) {
     property {
         sprite_id: SPRITE_ID_NEW_TRAIN;
         misc_flags: bitmask(TRAIN_FLAG_2CC);
