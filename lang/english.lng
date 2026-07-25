@@ -56,13 +56,9 @@ STR_CONCAT_3                        :{STRING}{STRING}{STRING}
 STR_CONCAT_4                        :{STRING}{STRING}{STRING}{STRING}
 
 
-STR_DESC_AIRSPEED_160               :{BLACK}Atmospheric Speed: {GOLD}160 km/h{}
-STR_DESC_AIRSPEED_320               :{BLACK}Atmospheric Speed: {GOLD}320 km/h{}
-STR_DESC_AIRSPEED_480               :{BLACK}Atmospheric Speed: {GOLD}480 km/h{}
-STR_DESC_AIRSPEED_640               :{BLACK}Atmospheric Speed: {GOLD}640 km/h{}
-STR_DESC_AIRSPEED_800               :{BLACK}Atmospheric Speed: {GOLD}800 km/h{}
+STR_DESC_AIRSPEED                   :{BLACK}Atmospheric Speed: {GOLD}{UNSIGNED_WORD} km/h{}
 
-#STR_DESC_WAGONCAP
+STR_DESC_WAGONCAP                   :{BLACK}Wagon Capacity: {GOLD}{UNSIGNED_WORD}{}
 
 #STR_DESC_WAGONPOWER
 

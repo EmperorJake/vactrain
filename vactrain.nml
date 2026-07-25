@@ -1171,12 +1171,34 @@ switch(FEAT_TRAINS, SELF, switch_loading_speed_mu, param_loading_speed) {
     2: return 100;
 }
 
+/*
+//capacity by cargo class switches
+switch (FEAT_TRAINS, SELF, switch_cargo_capacity_by_cargo_0, cargo_classes & bitmask(CC_PASSENGERS, CC_MAIL)) {
+    bitmask(CC_MAIL): return LOAD_TEMP(0);
+    bitmask(CC_PASSENGERS): return LOAD_TEMP(0);
+    return LOAD_TEMP(0) / 2;
+}
+
+switch (FEAT_TRAINS, SELF, switch_cargo_capacity_by_cargo_1, cargo_classes & bitmask(CC_PASSENGERS, CC_MAIL)) {
+    bitmask(CC_MAIL): return LOAD_TEMP(1);
+    bitmask(CC_PASSENGERS): return LOAD_TEMP(1);
+    return LOAD_TEMP(1) / 2;
+}
+
+switch (FEAT_TRAINS, SELF, switch_cargo_capacity_by_cargo_2, cargo_classes & bitmask(CC_PASSENGERS, CC_MAIL)) {
+    bitmask(CC_MAIL): return LOAD_TEMP(2);
+    bitmask(CC_PASSENGERS): return LOAD_TEMP(2);
+    return LOAD_TEMP(2) / 2;
+}
+
+
 //capacity switch
 switch(FEAT_TRAINS, SELF, switch_vehicle_capacity, param_vehicle_capacity) {
-    0: return (LOAD_TEMP(3) * LOAD_TEMP(0)) / 8;
-    1: return (LOAD_TEMP(3) * LOAD_TEMP(1)) / 8;
-    2: return (LOAD_TEMP(3) * LOAD_TEMP(2)) / 8;
+    0: return LOAD_TEMP(0);
+    1: return LOAD_TEMP(1);
+    2: return LOAD_TEMP(2);
 }
+*/
 
 //speed switches
 
@@ -1504,7 +1526,7 @@ item (FEAT_TRAINS, swift, 146) {
     }
     graphics { // graphics for engine
         additional_text:	string(STR_CONCAT_1,
-                                   string(STR_DESC_AIRSPEED_320),
+                                   string(STR_DESC_AIRSPEED, 320),
                                    );
         default: spriteset_swift;
         purchase: spriteset_swift_purchase;
@@ -1582,7 +1604,7 @@ item (FEAT_TRAINS, hydra, 148) {
     }
     graphics {
         additional_text:	string(STR_CONCAT_1,
-                                   string(STR_DESC_AIRSPEED_480),
+                                   string(STR_DESC_AIRSPEED, 480),
         );
         speed: switch_hydra_speed;
         running_cost_factor: switch_hydra_cost;
@@ -1667,7 +1689,7 @@ item (FEAT_TRAINS, scarab, 142) {
     }
     graphics { // graphics for engine
         additional_text:	string(STR_CONCAT_1,
-                                   string(STR_DESC_AIRSPEED_640),
+                                   string(STR_DESC_AIRSPEED, 640),
         );
         default: switch_scarab_reversed;
         purchase: spriteset_scarab_purchase;
@@ -1732,7 +1754,7 @@ item (FEAT_TRAINS, cobra, 144) {
     }
     graphics { // graphics for engine
         additional_text:	string(STR_CONCAT_1,
-                                   string(STR_DESC_AIRSPEED_800),
+                                   string(STR_DESC_AIRSPEED, 800),
         );
         default: spriteset_cobra;
         purchase: spriteset_cobra_purchase;
@@ -1747,6 +1769,13 @@ item (FEAT_TRAINS, cobra, 144) {
 //MULTIPLE UNITS
 
 //CROSSLEY
+
+switch (FEAT_TRAINS, SELF, switch_crossley_capacity, param_vehicle_capacity) {
+    0: return 43;
+    1: return 54;
+    2: return 65;
+}
+
 
 //railtype switches
 switch (FEAT_TRAINS, SELF, switch_crossley_speed, current_railtype) {
@@ -1778,18 +1807,6 @@ switch (FEAT_TRAINS, SELF, switch_crossley_rear_cargo, cargo_classes) {
     spriteset_crossley_mail_rear;
 }
 
-
-
-
-switch (FEAT_TRAINS, SELF, switch_crossley_capacity,
-    [
-        STORE_TEMP(43, 0),
-        STORE_TEMP(54, 1),
-        STORE_TEMP(65, 2),
-        STORE_TEMP(8,  3),
-    ]) {
-    return switch_vehicle_capacity();
-}
 
 //Dualheaded engines
 switch(FEAT_TRAINS, SELF, switch_crossley_reversed, var[0xC8]) {
@@ -1826,7 +1843,7 @@ item (FEAT_TRAINS, crossley, 152) {
     }
     graphics {
         additional_text:	string(STR_CONCAT_1,
-                                   string(STR_DESC_AIRSPEED_480),
+                                   string(STR_DESC_AIRSPEED, 480),
         );
         speed: switch_crossley_speed;
         running_cost_factor: switch_crossley_cost;
@@ -1886,7 +1903,7 @@ item (FEAT_TRAINS, crossley_mail, 252) {
     }
     graphics {
         additional_text:	string(STR_CONCAT_1,
-                                   string(STR_DESC_AIRSPEED_480),
+                                   string(STR_DESC_AIRSPEED, 480),
         );
         speed: switch_crossley_speed;
         running_cost_factor: switch_crossley_cost;
@@ -1920,6 +1937,13 @@ item (FEAT_TRAINS, crossley_mail, 252) {
 
 //SWALLOW
 
+
+switch (FEAT_TRAINS, SELF, switch_swallow_capacity, param_vehicle_capacity) {
+    0: return 56;
+    1: return 70;
+    2: return 84;
+}
+
 //railtype speed switches
 switch (FEAT_TRAINS, SELF, switch_swallow_speed, current_railtype) {
 	VACT: return switch_vactrain_speed_gen1;
@@ -1932,19 +1956,6 @@ switch (FEAT_TRAINS, SELF, switch_swallow_cost, current_railtype) {
 	MGLV: return 16;
 	CB_FAILED;
 }
-
-
-
-switch (FEAT_TRAINS, SELF, switch_swallow_capacity,
-    [
-        STORE_TEMP(56, 0),
-        STORE_TEMP(70, 1),
-        STORE_TEMP(84, 2),
-        STORE_TEMP(8,  3),
-    ]) {
-    return switch_vehicle_capacity();
-    }
-
 
 //main item
 item (FEAT_TRAINS, swallow, 170) {
@@ -1974,7 +1985,7 @@ item (FEAT_TRAINS, swallow, 170) {
     }
     graphics {
         additional_text:	string(STR_CONCAT_1,
-                                   string(STR_DESC_AIRSPEED_160),
+                                   string(STR_DESC_AIRSPEED, 160),
         );
         speed: switch_swallow_speed;
         running_cost_factor: switch_swallow_cost;
@@ -2034,7 +2045,7 @@ item (FEAT_TRAINS, swallow_mail, 270) {
     }
     graphics {
         additional_text:	string(STR_CONCAT_1,
-                                   string(STR_DESC_AIRSPEED_160),
+                                   string(STR_DESC_AIRSPEED, 160),
         );
         speed: switch_swallow_speed;
         running_cost_factor: switch_swallow_cost;
@@ -2195,7 +2206,7 @@ item (FEAT_TRAINS, tapeworm, 154) {
     }
     graphics {
         additional_text:	string(STR_CONCAT_1,
-                                   string(STR_DESC_AIRSPEED_320),
+                                   string(STR_DESC_AIRSPEED, 320),
         );
         speed: switch_tapeworm_speed;
         running_cost_factor: switch_tapeworm_cost;
@@ -2259,7 +2270,7 @@ item (FEAT_TRAINS, tapeworm_mail, 254) {
     }
     graphics {
         additional_text:	string(STR_CONCAT_1,
-                                   string(STR_DESC_AIRSPEED_320),
+                                   string(STR_DESC_AIRSPEED, 320),
         );
         speed: switch_tapeworm_speed;
         running_cost_factor: switch_tapeworm_cost;
@@ -2298,6 +2309,7 @@ switch (FEAT_TRAINS, SELF, switch_bison_capacity, param_vehicle_capacity) {
     1: return 95;
     2: return 114;
 }
+
 
 //railtype speed switches
 switch (FEAT_TRAINS, SELF, switch_bison_speed, current_railtype) {
@@ -2353,7 +2365,7 @@ item (FEAT_TRAINS, bison, 174) {
     }
     graphics {
         additional_text:	string(STR_CONCAT_1,
-                                   string(STR_DESC_AIRSPEED_160),
+                                   string(STR_DESC_AIRSPEED, 160)
         );
         speed: switch_bison_speed;
         running_cost_factor: switch_bison_cost;
@@ -2415,7 +2427,7 @@ item (FEAT_TRAINS, bison_mail, 274) {
     }
     graphics {
         additional_text:	string(STR_CONCAT_1,
-                                   string(STR_DESC_AIRSPEED_160),
+                                   string(STR_DESC_AIRSPEED, 160),
         );
         speed: switch_bison_speed;
         running_cost_factor: switch_bison_cost;
@@ -2515,7 +2527,7 @@ item (FEAT_TRAINS, cheetah, 172) {
     }
     graphics {
         additional_text:	string(STR_CONCAT_1,
-                                   string(STR_DESC_AIRSPEED_160),
+                                   string(STR_DESC_AIRSPEED, 160),
         );
         speed: switch_cheetah_speed;
         running_cost_factor: switch_cheetah_cost;
@@ -2577,7 +2589,7 @@ item (FEAT_TRAINS, cheetah_mail, 272) {
     }
     graphics {
         additional_text:	string(STR_CONCAT_1,
-                                   string(STR_DESC_AIRSPEED_160),
+                                   string(STR_DESC_AIRSPEED, 160),
         );
         speed: switch_cheetah_speed;
         running_cost_factor: switch_cheetah_cost;
@@ -2673,7 +2685,7 @@ item (FEAT_TRAINS, pillbug, 156) {
     }
     graphics {
         additional_text:	string(STR_CONCAT_1,
-                                   string(STR_DESC_AIRSPEED_320),
+                                   string(STR_DESC_AIRSPEED, 320),
         );
         speed: switch_pillbug_speed;
         running_cost_factor: switch_pillbug_cost;
@@ -2735,7 +2747,7 @@ item (FEAT_TRAINS, pillbug_mail, 256) {
     }
     graphics {
         additional_text:	string(STR_CONCAT_1,
-                                   string(STR_DESC_AIRSPEED_320),
+                                   string(STR_DESC_AIRSPEED, 320),
         );
         speed: switch_pillbug_speed;
         running_cost_factor: switch_pillbug_cost;
@@ -2826,7 +2838,7 @@ item (FEAT_TRAINS, spamcan, 162) {
     }
     graphics {
         additional_text:	string(STR_CONCAT_1,
-                                   string(STR_DESC_AIRSPEED_640),
+                                   string(STR_DESC_AIRSPEED, 640),
         );
         speed: switch_spamcan_speed;
         running_cost_factor: switch_spamcan_cost;
@@ -2888,7 +2900,7 @@ item (FEAT_TRAINS, spamcan_mail, 262) {
     }
     graphics {
         additional_text:	string(STR_CONCAT_1,
-                                   string(STR_DESC_AIRSPEED_640),
+                                   string(STR_DESC_AIRSPEED, 640),
         );
         speed: switch_spamcan_speed;
         running_cost_factor: switch_spamcan_cost;
@@ -2993,7 +3005,7 @@ item (FEAT_TRAINS, rocketmax, 166) {
     }
     graphics {
         additional_text:	string(STR_CONCAT_1,
-                                   string(STR_DESC_AIRSPEED_800),
+                                   string(STR_DESC_AIRSPEED, 800),
         );
         speed: switch_rocketmax_speed;
         running_cost_factor: switch_rocketmax_cost;
@@ -3055,7 +3067,7 @@ item (FEAT_TRAINS, rocketmax_mail, 266) {
     }
     graphics {
         additional_text:	string(STR_CONCAT_1,
-                                   string(STR_DESC_AIRSPEED_800),
+                                   string(STR_DESC_AIRSPEED, 800),
         );
         speed: switch_rocketmax_speed;
         running_cost_factor: switch_rocketmax_cost;
@@ -3207,7 +3219,7 @@ item (FEAT_TRAINS, cargo_engine_1, 182) {
     }
     graphics {
         additional_text:	string(STR_CONCAT_1,
-                                   string(STR_DESC_AIRSPEED_160),
+                                   string(STR_DESC_AIRSPEED, 160),
         );
         speed: switch_cargo_engine_1_speed;
         running_cost_factor: switch_cargo_engine_1_cost;
@@ -3297,7 +3309,7 @@ item (FEAT_TRAINS, cargo_engine_2, 184) {
     }
     graphics {
         additional_text:	string(STR_CONCAT_1,
-                                   string(STR_DESC_AIRSPEED_320),
+                                   string(STR_DESC_AIRSPEED, 320),
         );
         speed: switch_cargo_engine_2_speed;
         running_cost_factor: switch_cargo_engine_2_cost;
@@ -3385,7 +3397,7 @@ item (FEAT_TRAINS, cargo_engine_3, 186) {
     }
     graphics {
         additional_text:	string(STR_CONCAT_1,
-                                   string(STR_DESC_AIRSPEED_480),
+                                   string(STR_DESC_AIRSPEED, 480),
         );
         speed: switch_cargo_engine_3_speed;
         running_cost_factor: switch_cargo_engine_3_cost;
@@ -3473,7 +3485,7 @@ item (FEAT_TRAINS, cargo_engine_4, 188) {
     }
     graphics {
         additional_text:	string(STR_CONCAT_1,
-                                   string(STR_DESC_AIRSPEED_640),
+                                   string(STR_DESC_AIRSPEED, 640),
         );
         speed: switch_cargo_engine_4_speed;
         running_cost_factor: switch_cargo_engine_4_cost;
