@@ -1509,7 +1509,7 @@ item (FEAT_TRAINS, swift, 146) {
         speed: 2400 km/h;
         //		tractive_effort_coefficient:    1;
         air_drag_coefficient: 0;
-        power: 20000 hp;
+        power: 8000 hp;
         dual_headed: 0;
         engine_class: ENGINE_CLASS_MAGLEV;
         cargo_capacity: 0;
@@ -1587,7 +1587,7 @@ item (FEAT_TRAINS, hydra, 148) {
         climates_available: ALL_CLIMATES;
         introduction_date: date(param_starting_year+30,1,1);
         air_drag_coefficient: 0;
-        power: 24000 hp;
+        power: 19000 hp;
         dual_headed: 1;
         length: 6;
         engine_class: ENGINE_CLASS_MAGLEV;
@@ -1670,7 +1670,7 @@ item (FEAT_TRAINS, scarab, 142) {
         introduction_date: date(param_starting_year+55,1,1);
         speed: 1000 km/h;
         air_drag_coefficient: 0;
-        power: 38000 hp;
+        power: 30000 hp;
         dual_headed: 0;
         engine_class: ENGINE_CLASS_MAGLEV;
         cargo_capacity: 0;
@@ -1737,7 +1737,7 @@ item (FEAT_TRAINS, cobra, 144) {
         speed: 2400 km/h;
         //		tractive_effort_coefficient:    1;
         air_drag_coefficient: 0;
-        power: 50000 hp;
+        power: 41000 hp;
         dual_headed: 0;
         engine_class: ENGINE_CLASS_MAGLEV;
         cargo_capacity: 0;
@@ -1826,7 +1826,7 @@ item (FEAT_TRAINS, crossley, 152) {
         introduction_date: date(param_starting_year+0,1,1);
         speed: 4100 km/h;
         air_drag_coefficient: 0;
-        power: 14000 hp;
+        power: 8000 hp;
         dual_headed: 1;
         engine_class: ENGINE_CLASS_MAGLEV;
         cargo_capacity: 54;
@@ -1866,6 +1866,7 @@ item (FEAT_TRAINS, crossley, 152) {
     }
     livery_override(vactrain_wagon_exp) { // graphics for alternative look of passenger wagon when used with this engine
         loading_speed: 40;
+        power: 4000;
         weight: 38;
         running_cost_factor: 20;
         cargo_capacity: switch_crossley_capacity;
@@ -1884,7 +1885,7 @@ item (FEAT_TRAINS, crossley_mail, 252) {
         introduction_date: date(param_starting_year+0,1,1);
         speed: 4100 km/h;
         air_drag_coefficient: 0;
-        power: 14000 hp;
+        power: 8000 hp;
         dual_headed: 1;
         engine_class: ENGINE_CLASS_MAGLEV;
         cargo_capacity: 54;
@@ -1916,7 +1917,7 @@ item (FEAT_TRAINS, crossley_mail, 252) {
 
     livery_override(vactrain_wagon_pax) { // graphics for alternative look of passenger wagon when used with this engine
         loading_speed: 40;
-        power: 2000;
+        power: 4000;
         weight: 38;
         running_cost_factor: 40;
         cargo_capacity: switch_crossley_capacity;
@@ -1925,7 +1926,7 @@ item (FEAT_TRAINS, crossley_mail, 252) {
     }
     livery_override(vactrain_wagon_exp) { // graphics for alternative look of passenger wagon when used with this engine
         loading_speed: 40;
-        power: 2000;
+        power: 4000;
         weight: 38;
         running_cost_factor: 40;
         cargo_capacity: switch_crossley_capacity;
@@ -1939,9 +1940,9 @@ item (FEAT_TRAINS, crossley_mail, 252) {
 
 
 switch (FEAT_TRAINS, SELF, switch_swallow_capacity, param_vehicle_capacity) {
-    0: return 56;
-    1: return 70;
-    2: return 84;
+    0: return 64;
+    1: return 80;
+    2: return 96;
 }
 
 //railtype speed switches
@@ -1968,10 +1969,10 @@ item (FEAT_TRAINS, swallow, 170) {
         introduction_date: date(param_starting_year+10,1,1);
         speed: 1200 km/h;
         air_drag_coefficient: 0;
-        power: 18000 hp;
+        power: 9000 hp;
         dual_headed: 1;
         engine_class: ENGINE_CLASS_MAGLEV;
-        cargo_capacity: 70;
+        cargo_capacity: 80;
         loading_speed: 80;
         refittable_cargo_classes: bitmask(CC_PASSENGERS);
         weight: 50;
@@ -1999,7 +2000,7 @@ item (FEAT_TRAINS, swallow, 170) {
   
     livery_override(vactrain_wagon_pax) { // graphics for alternative look of passenger wagon when used with this engine
         loading_speed: 80;
-        power: 7000;
+        power: 4500;
         weight: 50;
         running_cost_factor: 80;
         cargo_capacity: switch_swallow_capacity;
@@ -2008,6 +2009,7 @@ item (FEAT_TRAINS, swallow, 170) {
     }
     livery_override(vactrain_wagon_exp) { // graphics for alternative look of passenger wagon when used with this engine
         loading_speed: 80;
+        power: 4500;
         weight: 40;
         running_cost_factor: 20;
         cargo_capacity: switch_swallow_capacity;
@@ -2026,10 +2028,10 @@ item (FEAT_TRAINS, swallow_mail, 270) {
         introduction_date: date(param_starting_year+10,1,1);
         speed: 1200 km/h;
         air_drag_coefficient: 0;
-        power: 18000 hp;
+        power: 9000 hp;
         dual_headed: 1;
         engine_class: ENGINE_CLASS_MAGLEV;
-        cargo_capacity: 70;
+        cargo_capacity: 80;
         loading_speed: 80;
         refittable_cargo_classes: bitmask(CC_MAIL, CC_EXPRESS, CC_ARMOURED);
         weight: 50;
@@ -2059,7 +2061,7 @@ item (FEAT_TRAINS, swallow_mail, 270) {
 
     livery_override(vactrain_wagon_pax) { // graphics for alternative look of passenger wagon when used with this engine
         loading_speed: 80;
-        power: 7000;
+        power: 4500;
         weight: 50;
         running_cost_factor: 80;
         cargo_capacity: switch_swallow_capacity;
@@ -2068,6 +2070,7 @@ item (FEAT_TRAINS, swallow_mail, 270) {
     }
     livery_override(vactrain_wagon_exp) { // graphics for alternative look of passenger wagon when used with this engine
         loading_speed: 80;
+        power: 4500;
         weight: 40;
         running_cost_factor: 20;
         cargo_capacity: switch_swallow_capacity;
@@ -2188,7 +2191,7 @@ item (FEAT_TRAINS, tapeworm, 154) {
         introduction_date: date(param_starting_year+25,1,1);
         speed: 2000 km/h;
         air_drag_coefficient: 0;
-        power: 9000 hp;
+        power: 12000 hp;
         dual_headed: 1;
         engine_class: ENGINE_CLASS_MAGLEV;
         cargo_capacity: 10;
@@ -2219,7 +2222,7 @@ item (FEAT_TRAINS, tapeworm, 154) {
 
     livery_override(vactrain_wagon_pax) { // graphics for alternative look of passenger wagon when used with this engine
         loading_speed: 80;
-        power: 4500;
+        power: 3000;
         weight: 32;
         running_cost_factor: 80;
         cargo_capacity: switch_tapeworm_wagoncap_end;
@@ -2228,7 +2231,7 @@ item (FEAT_TRAINS, tapeworm, 154) {
     }
     livery_override(vactrain_wagon_exp) { // graphics for alternative look of passenger wagon when used with this engine
         loading_speed: 80;
-        power: 4500;
+        power: 3000;
         weight: 28;
         running_cost_factor: 20;
         cargo_capacity: switch_tapeworm_wagoncap_end;
@@ -2250,7 +2253,7 @@ item (FEAT_TRAINS, tapeworm_mail, 254) {
         introduction_date: date(param_starting_year+25,1,1);
         speed: 2000 km/h;
         air_drag_coefficient: 0;
-        power: 9000 hp;
+        power: 12000 hp;
         dual_headed: 1;
         engine_class: ENGINE_CLASS_MAGLEV;
         cargo_capacity: 10;
@@ -2283,7 +2286,7 @@ item (FEAT_TRAINS, tapeworm_mail, 254) {
 
     livery_override(vactrain_wagon_pax) { // graphics for alternative look of passenger wagon when used with this engine
         loading_speed: 80;
-        power: 4500;
+        power: 3000;
         weight: 32;
         running_cost_factor: 80;
         cargo_capacity: switch_tapeworm_wagoncap_end;
@@ -2292,7 +2295,7 @@ item (FEAT_TRAINS, tapeworm_mail, 254) {
     }
     livery_override(vactrain_wagon_exp) { // graphics for alternative look of passenger wagon when used with this engine
         loading_speed: 80;
-        power: 4500;
+        power: 3000;
         weight: 28;
         running_cost_factor: 20;
         cargo_capacity: switch_tapeworm_wagoncap_end;
@@ -2348,7 +2351,7 @@ item (FEAT_TRAINS, bison, 174) {
         introduction_date: date(param_starting_year+35,1,1);
         speed: 4000 km/h;
         air_drag_coefficient: 0;
-        power: 39000 hp;
+        power: 16000 hp;
         dual_headed: 1;
         engine_class: ENGINE_CLASS_MAGLEV;
         cargo_capacity: 95;
@@ -2379,7 +2382,7 @@ item (FEAT_TRAINS, bison, 174) {
 
     livery_override(vactrain_wagon_pax) { // graphics for alternative look of passenger wagon when used with this engine
         loading_speed: 40;
-        power: 9500;
+        power: 8000;
         weight: 66;
         running_cost_factor: 90;
         cargo_capacity: switch_bison_capacity;
@@ -2388,7 +2391,7 @@ item (FEAT_TRAINS, bison, 174) {
     }
     livery_override(vactrain_wagon_exp) { // graphics for alternative look of passenger wagon when used with this engine
         loading_speed: 40;
-        power: 9500;
+        power: 8000;
         weight: 56;
         running_cost_factor: 20;
         cargo_capacity: switch_bison_capacity;
@@ -2408,7 +2411,7 @@ item (FEAT_TRAINS, bison_mail, 274) {
         introduction_date: date(param_starting_year+35,1,1);
         speed: 4000 km/h;
         air_drag_coefficient: 0;
-        power: 39000 hp;
+        power: 16000 hp;
         dual_headed: 1;
         engine_class: ENGINE_CLASS_MAGLEV;
         cargo_capacity: 95;
@@ -2441,7 +2444,7 @@ item (FEAT_TRAINS, bison_mail, 274) {
 
     livery_override(vactrain_wagon_pax) { // graphics for alternative look of passenger wagon when used with this engine
         loading_speed: 40;
-        power: 9500;
+        power: 8000;
         weight: 66;
         running_cost_factor: 90;
         cargo_capacity: switch_bison_capacity;
@@ -2450,7 +2453,7 @@ item (FEAT_TRAINS, bison_mail, 274) {
     }
     livery_override(vactrain_wagon_exp) { // graphics for alternative look of passenger wagon when used with this engine
         loading_speed: 40;
-        power: 9500;
+        power: 8000;
         weight: 56;
         running_cost_factor: 20;
         cargo_capacity: switch_bison_capacity;
@@ -2510,7 +2513,7 @@ item (FEAT_TRAINS, cheetah, 172) {
         introduction_date: date(param_starting_year+50,1,1);
         speed: 4000 km/h;
         air_drag_coefficient: 0;
-        power: 27000 hp;
+        power: 20000 hp;
         dual_headed: 1;
         engine_class: ENGINE_CLASS_MAGLEV;
         cargo_capacity: 72;
@@ -2541,7 +2544,7 @@ item (FEAT_TRAINS, cheetah, 172) {
 
     livery_override(vactrain_wagon_pax) { // graphics for alternative look of passenger wagon when used with this engine
         loading_speed: 80;
-        power: 7000;
+        power: 5000;
         weight: 52;
         running_cost_factor: 80;
         cargo_capacity: switch_cheetah_capacity;
@@ -2550,6 +2553,7 @@ item (FEAT_TRAINS, cheetah, 172) {
     }
     livery_override(vactrain_wagon_exp) { // graphics for alternative look of passenger wagon when used with this engine
         loading_speed: 80;
+        power: 5000;
         weight: 45;
         running_cost_factor: 20;
         cargo_capacity: switch_cheetah_capacity;
@@ -2570,7 +2574,7 @@ item (FEAT_TRAINS, cheetah_mail, 272) {
         introduction_date: date(param_starting_year+50,1,1);
         speed: 4000 km/h;
         air_drag_coefficient: 0;
-        power: 27000 hp;
+        power: 20000 hp;
         dual_headed: 1;
         engine_class: ENGINE_CLASS_MAGLEV;
         cargo_capacity: 72;
@@ -2603,7 +2607,7 @@ item (FEAT_TRAINS, cheetah_mail, 272) {
 
     livery_override(vactrain_wagon_pax) { // graphics for alternative look of passenger wagon when used with this engine
         loading_speed: 80;
-        power: 3500;
+        power: 5000;
         weight: 52;
         running_cost_factor: 80;
         cargo_capacity: switch_cheetah_capacity;
@@ -2612,7 +2616,7 @@ item (FEAT_TRAINS, cheetah_mail, 272) {
     }
     livery_override(vactrain_wagon_exp) { // graphics for alternative look of passenger wagon when used with this engine
         loading_speed: 80;
-        power: 3500;
+        power: 5000;
         weight: 45;
         running_cost_factor: 20;
         cargo_capacity: switch_cheetah_capacity;
@@ -2668,7 +2672,7 @@ item (FEAT_TRAINS, pillbug, 156) {
         introduction_date: date(param_starting_year+60,1,1);
         speed: 2000 km/h;
         air_drag_coefficient: 0;
-        power: 32000 hp;
+        power: 28000 hp;
         dual_headed: 1;
         engine_class: ENGINE_CLASS_MAGLEV;
         cargo_capacity: 110;
@@ -2699,7 +2703,7 @@ item (FEAT_TRAINS, pillbug, 156) {
 
     livery_override(vactrain_wagon_pax) { // graphics for alternative look of passenger wagon when used with this engine
         loading_speed: 80;
-        power: 8000;
+        power: 14000;
         weight: 62;
         running_cost_factor: 80;
         cargo_capacity: switch_pillbug_capacity;
@@ -2708,7 +2712,7 @@ item (FEAT_TRAINS, pillbug, 156) {
     }
     livery_override(vactrain_wagon_exp) { // graphics for alternative look of passenger wagon when used with this engine
         loading_speed: 80;
-        power: 8000;
+        power: 14000;
         weight: 58;
         running_cost_factor: 20;
         cargo_capacity: switch_pillbug_capacity;
@@ -2728,7 +2732,7 @@ item (FEAT_TRAINS, pillbug_mail, 256) {
         introduction_date: date(param_starting_year+60,1,1);
         speed: 2000 km/h;
         air_drag_coefficient: 0;
-        power: 32000 hp;
+        power: 28000 hp;
         dual_headed: 1;
         engine_class: ENGINE_CLASS_MAGLEV;
         cargo_capacity: 110;
@@ -2761,7 +2765,7 @@ item (FEAT_TRAINS, pillbug_mail, 256) {
 
     livery_override(vactrain_wagon_pax) { // graphics for alternative look of passenger wagon when used with this engine
         loading_speed: 80;
-        power: 8000;
+        power: 14000;
         weight: 62;
         running_cost_factor: 80;
         cargo_capacity: switch_pillbug_capacity;
@@ -2770,7 +2774,7 @@ item (FEAT_TRAINS, pillbug_mail, 256) {
     }
     livery_override(vactrain_wagon_exp) { // graphics for alternative look of passenger wagon when used with this engine
         loading_speed: 80;
-        power: 8000;
+        power: 14000;
         weight: 58;
         running_cost_factor: 20;
         cargo_capacity: switch_pillbug_capacity;
@@ -2784,9 +2788,9 @@ item (FEAT_TRAINS, pillbug_mail, 256) {
 //SPAMCAN
 
 switch (FEAT_TRAINS, SELF, switch_spamcan_capacity, param_vehicle_capacity) {
-    0: return 64;
-    1: return 80;
-    2: return 96;
+    0: return 67;
+    1: return 84;
+    2: return 100;
 }
 
 //railtype switches
@@ -2821,10 +2825,10 @@ item (FEAT_TRAINS, spamcan, 162) {
         introduction_date: date(param_starting_year+75,1,1);
         speed: 4000 km/h;
         air_drag_coefficient: 0;
-        power: 35000 hp;
+        power: 24000 hp;
         dual_headed: 1;
         engine_class: ENGINE_CLASS_MAGLEV;
-        cargo_capacity: 80;
+        cargo_capacity: 84;
         loading_speed: 40;
         refittable_cargo_classes: bitmask(CC_PASSENGERS);
         weight: 46;
@@ -2852,7 +2856,7 @@ item (FEAT_TRAINS, spamcan, 162) {
 
     livery_override(vactrain_wagon_pax) { // graphics for alternative look of passenger wagon when used with this engine
         loading_speed: 40;
-        power: 7500;
+        power: 12000;
         weight: 48;
         running_cost_factor: 80;
         cargo_capacity: switch_spamcan_capacity;
@@ -2861,7 +2865,7 @@ item (FEAT_TRAINS, spamcan, 162) {
     }
     livery_override(vactrain_wagon_exp) { // graphics for alternative look of passenger wagon when used with this engine
         loading_speed: 40;
-        power: 7500;
+        power: 12000;
         weight: 48;
         running_cost_factor: 20;
         cargo_capacity: switch_spamcan_capacity;
@@ -2881,10 +2885,10 @@ item (FEAT_TRAINS, spamcan_mail, 262) {
         introduction_date: date(param_starting_year+75,1,1);
         speed: 4000 km/h;
         air_drag_coefficient: 0;
-        power: 35000 hp;
+        power: 24000 hp;
         dual_headed: 1;
         engine_class: ENGINE_CLASS_MAGLEV;
-        cargo_capacity: 80;
+        cargo_capacity: 84;
         loading_speed: 40;
         refittable_cargo_classes: bitmask(CC_MAIL, CC_EXPRESS, CC_ARMOURED);
         weight: 46;
@@ -2914,7 +2918,7 @@ item (FEAT_TRAINS, spamcan_mail, 262) {
 
     livery_override(vactrain_wagon_pax) { // graphics for alternative look of passenger wagon when used with this engine
         loading_speed: 40;
-        power: 7500;
+        power: 12000;
         weight: 48;
         running_cost_factor: 80;
         cargo_capacity: switch_spamcan_capacity;
@@ -2923,7 +2927,7 @@ item (FEAT_TRAINS, spamcan_mail, 262) {
     }
     livery_override(vactrain_wagon_exp) { // graphics for alternative look of passenger wagon when used with this engine
         loading_speed: 40;
-        power: 7500;
+        power: 12000;
         weight: 48;
         running_cost_factor: 20;
         cargo_capacity: switch_spamcan_capacity;
@@ -2988,7 +2992,7 @@ item (FEAT_TRAINS, rocketmax, 166) {
         introduction_date: date(param_starting_year+85,1,1);
         speed: 4000 km/h;
         air_drag_coefficient: 0;
-        power: 42000 hp;
+        power: 30000 hp;
         dual_headed: 1;
         engine_class: ENGINE_CLASS_MAGLEV;
         cargo_capacity: 160;
@@ -3019,7 +3023,7 @@ item (FEAT_TRAINS, rocketmax, 166) {
 
     livery_override(vactrain_wagon_pax) { // graphics for alternative look of passenger wagon when used with this engine
         loading_speed: 20;
-        power: 13000;
+        power: 15000;
         weight: 70;
         running_cost_factor: 90;
         cargo_capacity: switch_rocketmax_capacity;
@@ -3028,7 +3032,7 @@ item (FEAT_TRAINS, rocketmax, 166) {
     }
     livery_override(vactrain_wagon_exp) { // graphics for alternative look of passenger wagon when used with this engine
         loading_speed: 20;
-        power: 13000;
+        power: 15000;
         weight: 60;
         running_cost_factor: 20;
         cargo_capacity: switch_rocketmax_capacity;
@@ -3048,7 +3052,7 @@ item (FEAT_TRAINS, rocketmax_mail, 266) {
         introduction_date: date(param_starting_year+85,1,1);
         speed: 4000 km/h;
         air_drag_coefficient: 0;
-        power: 42000 hp;
+        power: 30000 hp;
         dual_headed: 1;
         engine_class: ENGINE_CLASS_MAGLEV;
         cargo_capacity: 160;
@@ -3081,7 +3085,7 @@ item (FEAT_TRAINS, rocketmax_mail, 266) {
 
     livery_override(vactrain_wagon_pax) { // graphics for alternative look of passenger wagon when used with this engine
         loading_speed: 20;
-        power: 13000;
+        power: 15000;
         weight: 70;
         running_cost_factor: 90;
         cargo_capacity: switch_rocketmax_capacity;
@@ -3090,7 +3094,7 @@ item (FEAT_TRAINS, rocketmax_mail, 266) {
     }
     livery_override(vactrain_wagon_exp) { // graphics for alternative look of passenger wagon when used with this engine
         loading_speed: 20;
-        power: 13000;
+        power: 15000;
         weight: 60;
         running_cost_factor: 20;
         cargo_capacity: switch_rocketmax_capacity;
@@ -3203,7 +3207,7 @@ item (FEAT_TRAINS, cargo_engine_1, 182) {
         climates_available: ALL_CLIMATES;
         introduction_date: date(param_starting_year+15,1,1);
         air_drag_coefficient: 0;
-        power: 14000 hp;
+        power: 20000 hp;
         dual_headed: 0;
         length: 8;
         engine_class: ENGINE_CLASS_MAGLEV;
@@ -3293,7 +3297,7 @@ item (FEAT_TRAINS, cargo_engine_2, 184) {
         climates_available: ALL_CLIMATES;
         introduction_date: date(param_starting_year+40,1,1);
         air_drag_coefficient: 0;
-        power: 28000 hp;
+        power: 34000 hp;
         dual_headed: 0;
         length: 8;
         engine_class: ENGINE_CLASS_MAGLEV;
@@ -3469,7 +3473,7 @@ item (FEAT_TRAINS, cargo_engine_4, 188) {
         climates_available: ALL_CLIMATES;
         introduction_date: date(param_starting_year+90,1,1);
         air_drag_coefficient: 0;
-        power: 54000 hp;
+        power: 62000 hp;
         dual_headed: 0;
         length: 8;
         engine_class: ENGINE_CLASS_MAGLEV;
