@@ -58,9 +58,9 @@ STR_CONCAT_4                        :{STRING}{STRING}{STRING}{STRING}
 
 STR_DESC_AIRSPEED                   :{BLACK}Atmospheric Speed: {GOLD}{UNSIGNED_WORD} km/h{}
 
-STR_DESC_WAGONCAP                   :{BLACK}Wagon Capacity: {GOLD}{UNSIGNED_WORD}{}
+STR_DESC_WAGONCAP                   :{BLACK}Additional capacity for Passenger/Express Wagons
 
-#STR_DESC_WAGONPOWER
+#STR_DESC_WAGONPOWER                :{BLACK}Additional power and capacity for Passenger/Express Wagons
 
 #STR_DESC_LOADSPEED
 
@@ -87,22 +87,20 @@ STR_VAC_NAME :Vactrain Tracks
 
 
 STR_PARAM_CAPACITY					:Change Vactrain Capacity
-STR_PARAM_CAPACITY_DESC				:Allows to change capacities of the vacuum tube trains
+STR_PARAM_CAPACITY_DESC				:Allows to change capacities of the vactrain vehicles.{}{}Conservative: {WHITE}-20%{BLACK}{}Generous: {WHITE}+20%{BLACK}
 STR_PARAM_CAPACITY_LOW				:Conservative
 STR_PARAM_CAPACITY_MED				:Normal
 STR_PARAM_CAPACITY_HIGH				:Generous
 
 
 STR_PARAM_LOADSPEED					:Change Vactrain Loading Speed
-STR_PARAM_LOADSPEED_DESC			:Allows to change loading speed of the vacuum tube trains
+STR_PARAM_LOADSPEED_DESC			:Allows to change loading speed of the vactrain vehicles
 STR_PARAM_LOADSPEED_LOW				:Conservative
 STR_PARAM_LOADSPEED_MED				:Normal
 STR_PARAM_LOADSPEED_HIGH			:Generous
 
-STR_PARAM_STARTING_YEAR             :Change Introduction Year (Express)
-STR_PARAM_STARTING_YEAR_DESC        :Adjust introduction year for passenger and express vactrains.
-STR_PARAM_CARGO_YEAR                :Change Introduction Year (Cargo)
-STR_PARAM_CARGO_YEAR_DESC           :Adjust introduction year for cargo vactrains.
+STR_PARAM_STARTING_YEAR             :Change Introduction Year
+STR_PARAM_STARTING_YEAR_DESC        :Adjust introduction year for passenger and express vactrains. Cargo vactrains will be introduced approximately 5 years after.
 
 STR_PARAM_MAGLEVGFX                 :Replace Maglev Track Graphics
 STR_PARAM_MAGLEVGFX_DESC            :Choose whether to replace the base maglev tracks with graphics that match the Vactrain tracks. Disable this to use baseset graphics or maglev tracks from another NewGRF.
