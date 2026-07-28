@@ -71,6 +71,7 @@ STR_NAME_PAX_WAGON				    :Passenger Wagon
 STR_NAME_EXP_WAGON			        :Express Cargo Wagon
 
 STR_NAME_CARGO_WAGON				:Universal Cargo Wagon
+STR_NAME_BULK_WAGON				    :Bulk Wagon
 
 
 # general
