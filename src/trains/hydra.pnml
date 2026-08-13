@@ -1,0 +1,107 @@
+
+//Hydra
+spriteset(spriteset_hydra_front, "gfx/trains/hydra.png") {
+	template_2cc_std(1, 1)
+}
+
+spriteset(spriteset_hydra_rear, "gfx/trains/hydra.png") {
+	template_2cc_std(1, 32)
+}
+
+spriteset(spriteset_hydra_pax, "gfx/trains/hydra.png") {
+	template_2cc_std(1, 64)
+}
+
+spriteset(spriteset_hydra_mail, "gfx/trains/hydra.png") {
+	template_2cc_std(1, 96)
+}
+
+
+spriteset(spriteset_hydra_purchase, "gfx/trains/hydra.png") {
+	template_purchase_dualheaded(1, 128)
+}
+
+//HYDRA
+
+switch (FEAT_TRAINS, SELF, switch_hydra_wagon_capacity, param_vehicle_capacity) {
+    0: return 56;
+    1: return 70;
+    2: return 84;
+}
+
+
+//railtype switches
+switch (FEAT_TRAINS, SELF, switch_hydra_speed, current_railtype) {
+    VACT: return switch_vactrain_speed_gen2;
+    MGLV: return 480;
+    CB_FAILED;
+}
+
+switch (FEAT_TRAINS, SELF, switch_hydra_cost, current_railtype) {
+    VACT: return 75;
+    MGLV: return 45;
+    CB_FAILED;
+}
+
+
+//mail car gfx
+switch (FEAT_TRAINS, SELF, switch_hydra_cargo, cargo_classes) {
+    bitmask(CC_PASSENGERS): spriteset_hydra_pax;
+    spriteset_hydra_mail;
+}
+
+//Dualheaded engines
+switch(FEAT_TRAINS, SELF, switch_hydra_reversed, var[0xC8]) {
+    0xFE: spriteset_hydra_rear;
+    0xFF: spriteset_hydra_rear;
+    spriteset_hydra_front;
+}
+
+//main item
+item (FEAT_TRAINS, hydra, 134) {
+    property {
+        sprite_id: SPRITE_ID_NEW_TRAIN;
+        misc_flags: bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_MU);
+        track_type: VACT;
+        name: string(STR_NAME_HYDRA);
+        climates_available: ALL_CLIMATES;
+        introduction_date: date(param_starting_year+30,1,1);
+        air_drag_coefficient: 0;
+        power: 19000 hp;
+        dual_headed: 1;
+        length: 6;
+        engine_class: ENGINE_CLASS_MAGLEV;
+        cargo_capacity: 0;
+        loading_speed: 0;
+        weight: 52;
+        reliability_decay: 12;
+        model_life: VEHICLE_NEVER_EXPIRES;
+        vehicle_life: 48;
+        cost_factor: 150;
+        running_cost_factor: 230;
+        running_cost_base: RUNNING_COST_STEAM;
+        badges: ["power/vactrain", "role/universal"];
+    }
+    graphics {
+        additional_text:	string(STR_CONCAT_1,
+                                   string(STR_DESC_AIRSPEED, 480),
+        );
+        speed: switch_hydra_speed;
+        running_cost_factor: switch_hydra_cost;
+        can_attach_wagon: switch_can_attach_vehicle;
+        purchase: spriteset_hydra_purchase;
+        default: switch_hydra_reversed;
+    }
+
+    livery_override(vactrain_wagon_pax) { // graphics for alternative look of passenger wagon when used with this engine
+
+        default: switch_hydra_cargo;
+        cargo_capacity: switch_hydra_wagon_capacity;
+    }
+    livery_override(vactrain_wagon_exp) { // graphics for alternative look of passenger wagon when used with this engine
+
+        default: switch_hydra_cargo;
+        cargo_capacity: switch_hydra_wagon_capacity;
+    }
+
+}

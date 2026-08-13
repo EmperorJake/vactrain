@@ -1,0 +1,190 @@
+//Cheetah
+
+spriteset(spriteset_cheetah_pax_head, "gfx/trains/cheetah.png") {
+	template_2cc_std(1, 1)
+}
+
+spriteset(spriteset_cheetah_mail_head, "gfx/trains/cheetah.png") {
+	template_2cc_std(1, 32)
+}
+
+spriteset(spriteset_cheetah_pax, "gfx/trains/cheetah.png") {
+	template_2cc_std(1, 64)
+}
+
+spriteset(spriteset_cheetah_mail, "gfx/trains/cheetah.png") {
+	template_2cc_std(1, 96)
+}
+
+
+spriteset(spriteset_cheetah_purchase, "gfx/trains/cheetah.png") {
+	template_purchase_dualheaded(1, 128)
+}
+
+spriteset(spriteset_cheetah_mail_purchase, "gfx/trains/cheetah.png") {
+    template_purchase_dualheaded(1, 160)
+}
+
+//CHEETAH
+
+switch (FEAT_TRAINS, SELF, switch_cheetah_capacity, param_vehicle_capacity) {
+    0: return 58;
+    1: return 72;
+    2: return 86;
+}
+
+switch (FEAT_TRAINS, SELF, switch_cheetah_purchase_capacity, param_vehicle_capacity) {
+    0: return 58-14;
+    1: return 72;
+    2: return 86+14;
+}
+
+//railtype speed switches
+switch (FEAT_TRAINS, SELF, switch_cheetah_speed, current_railtype) {
+    VACT: return switch_vactrain_speed_gen3;
+    MGLV: return 160;
+    CB_FAILED;
+}
+
+switch (FEAT_TRAINS, SELF, switch_cheetah_cost, current_railtype) {
+    VACT: return 79;
+    MGLV: return 16;
+    CB_FAILED;
+}
+
+
+//mail car gfx
+switch (FEAT_TRAINS, SELF, switch_cheetah_cargo, cargo_classes) {
+    bitmask(CC_PASSENGERS): spriteset_cheetah_pax;
+    spriteset_cheetah_mail;
+}
+
+//mail car gfx
+switch (FEAT_TRAINS, SELF, switch_cheetah_cargo_head, cargo_classes) {
+    bitmask(CC_PASSENGERS): spriteset_cheetah_pax_head;
+    spriteset_cheetah_mail_head;
+}
+
+//main item
+item (FEAT_TRAINS, cheetah, 156) {
+    property {
+        sprite_id: SPRITE_ID_NEW_TRAIN;
+        misc_flags: bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_MU);
+        track_type: VACT;
+        name: string(STR_NAME_CHEETAH);
+        climates_available: ALL_CLIMATES;
+        introduction_date: date(param_starting_year+50,1,1);
+        speed: 4000 km/h;
+        air_drag_coefficient: 0;
+        power: 20000 hp;
+        dual_headed: 1;
+        engine_class: ENGINE_CLASS_MAGLEV;
+        cargo_capacity: 72;
+        loading_speed: 80; //fast
+        refittable_cargo_classes: bitmask(CC_PASSENGERS);
+        weight: 52;
+        reliability_decay: 12;
+        model_life: VEHICLE_NEVER_EXPIRES;
+        vehicle_life: 48;
+        cost_factor: 119;
+        running_cost_factor: 230;
+        running_cost_base: RUNNING_COST_STEAM;
+        badges: ["power/vactrain", "role/passenger"];
+    }
+    graphics {
+        additional_text:	string(STR_CONCAT_1,
+                                   string(STR_DESC_AIRSPEED, 160),
+        );
+        speed: switch_cheetah_speed;
+        running_cost_factor: switch_cheetah_cost;
+        can_attach_wagon: switch_can_attach_vehicle;
+        purchase: spriteset_cheetah_purchase;
+        default: switch_cheetah_cargo_head;
+        loading_speed: switch_loading_speed_mu;
+        cargo_capacity: switch_cheetah_capacity;
+        purchase_cargo_capacity: switch_cheetah_purchase_capacity;
+    }
+
+    livery_override(vactrain_wagon_pax) { // graphics for alternative look of passenger wagon when used with this engine
+        loading_speed: 80;
+        power: 5000;
+        weight: 52;
+        running_cost_factor: 80;
+        cargo_capacity: switch_cheetah_capacity;
+        length: 8;
+        default: switch_cheetah_cargo;
+    }
+    livery_override(vactrain_wagon_exp) { // graphics for alternative look of passenger wagon when used with this engine
+        loading_speed: 80;
+        power: 5000;
+        weight: 45;
+        running_cost_factor: 20;
+        cargo_capacity: switch_cheetah_capacity;
+        length: 8;
+        default: switch_cheetah_cargo;
+    }
+
+}
+
+//main item
+item (FEAT_TRAINS, cheetah_mail, 256) {
+    property {
+        sprite_id: SPRITE_ID_NEW_TRAIN;
+        misc_flags: bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_MU);
+        track_type: VACT;
+        name: string(STR_NAME_CHEETAH);
+        climates_available: ALL_CLIMATES;
+        introduction_date: date(param_starting_year+50,1,1);
+        speed: 4000 km/h;
+        air_drag_coefficient: 0;
+        power: 20000 hp;
+        dual_headed: 1;
+        engine_class: ENGINE_CLASS_MAGLEV;
+        cargo_capacity: 72;
+        loading_speed: 80; //fast
+        refittable_cargo_classes: bitmask(CC_MAIL, CC_EXPRESS, CC_ARMOURED);
+        weight: 52;
+        reliability_decay: 12;
+        model_life: VEHICLE_NEVER_EXPIRES;
+        vehicle_life: 48;
+        cost_factor: 119;
+        running_cost_factor: 230;
+        running_cost_base: RUNNING_COST_STEAM;
+        variant_group: 156;
+        extra_flags: bitmask(VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
+        badges: ["power/vactrain", "role/express_freight"];
+    }
+    graphics {
+        additional_text:	string(STR_CONCAT_1,
+                                   string(STR_DESC_AIRSPEED, 160),
+        );
+        speed: switch_cheetah_speed;
+        running_cost_factor: switch_cheetah_cost;
+        can_attach_wagon: switch_can_attach_vehicle;
+        purchase: spriteset_cheetah_mail_purchase;
+        default: switch_cheetah_cargo_head;
+        loading_speed: switch_loading_speed_mu;
+        cargo_capacity: switch_cheetah_capacity;
+        purchase_cargo_capacity: switch_cheetah_purchase_capacity;
+    }
+
+    livery_override(vactrain_wagon_pax) { // graphics for alternative look of passenger wagon when used with this engine
+        loading_speed: 80;
+        power: 5000;
+        weight: 52;
+        running_cost_factor: 80;
+        cargo_capacity: switch_cheetah_capacity;
+        length: 8;
+        default: switch_cheetah_cargo;
+    }
+    livery_override(vactrain_wagon_exp) { // graphics for alternative look of passenger wagon when used with this engine
+        loading_speed: 80;
+        power: 5000;
+        weight: 45;
+        running_cost_factor: 20;
+        cargo_capacity: switch_cheetah_capacity;
+        length: 8;
+        default: switch_cheetah_cargo;
+    }
+
+}

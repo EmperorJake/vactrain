@@ -1,0 +1,109 @@
+//scarab
+
+spriteset(spriteset_scarab_front, "gfx/trains/scarab.png") {
+	template_2cc_std(1, 1)
+}
+
+spriteset(spriteset_scarab_rear, "gfx/trains/scarab.png") {
+    template_2cc_std(1, 32)
+}
+
+spriteset(spriteset_scarab_pax, "gfx/trains/scarab.png") {
+    template_2cc_std(1, 64)
+}
+
+spriteset(spriteset_scarab_mail, "gfx/trains/scarab.png") {
+    template_2cc_std(1, 96)
+}
+
+spriteset(spriteset_scarab_purchase, "gfx/trains/scarab.png") {
+	template_purchase_dualheaded(1, 128)
+}
+
+spriteset(spriteset_scarab_single_purchase, "gfx/trains/scarab.png") {
+    template_purchase(1, 160)
+}
+
+
+//SCARAB
+
+switch (FEAT_TRAINS, SELF, switch_scarab_wagon_capacity, param_vehicle_capacity) {
+    0: return 64;
+    1: return 80;
+    2: return 96;
+}
+
+switch (FEAT_TRAINS, SELF, switch_scarab_cost, current_railtype) {
+    VACT: return 12;
+    MGLV: return 4;
+    CB_FAILED;
+}
+
+switch (FEAT_TRAINS, SELF, switch_scarab_speed, current_railtype) {
+    VACT: return switch_vactrain_speed_gen3;
+    MGLV: return 640;
+    CB_FAILED;
+}
+
+//mail car gfx
+switch (FEAT_TRAINS, SELF, switch_scarab_cargo, cargo_classes) {
+    bitmask(CC_PASSENGERS): spriteset_scarab_pax;
+    spriteset_scarab_mail;
+}
+
+//Dualheaded engines
+switch(FEAT_TRAINS, SELF, switch_scarab_reversed, var[0xC8]) {
+    0xFE: spriteset_scarab_rear;
+    0xFF: spriteset_scarab_rear;
+    spriteset_scarab_front;
+}
+
+item (FEAT_TRAINS, scarab, 136) {
+    property {
+        sprite_id: SPRITE_ID_NEW_TRAIN;
+        misc_flags: bitmask(TRAIN_FLAG_2CC);
+        track_type: VACT;
+        name: string(STR_NAME_SCARAB);
+        climates_available: ALL_CLIMATES;
+        introduction_date: date(param_starting_year+55,1,1);
+        speed: 1000 km/h;
+        air_drag_coefficient: 0;
+        power: 30000 hp;
+        dual_headed: 0;
+        engine_class: ENGINE_CLASS_MAGLEV;
+        cargo_capacity: 0;
+        refittable_cargo_classes: bitmask(CC_PASSENGERS);
+        weight: 48;
+        loading_speed: 40; //med
+        dual_headed: 1;
+        reliability_decay: 55;
+        model_life: 45;
+        vehicle_life: 20;
+        cost_factor: 40;
+        // running_cost_factor: 255;
+        running_cost_base: RUNNING_COST_STEAM;
+        length: 6;
+        badges: ["power/vactrain", "role/universal"];
+    }
+    graphics { // graphics for engine
+        additional_text:	string(STR_CONCAT_1,
+                                   string(STR_DESC_AIRSPEED, 640),
+        );
+        default: switch_scarab_reversed;
+        purchase: spriteset_scarab_purchase;
+        can_attach_wagon: switch_can_attach_vehicle;
+        speed: switch_scarab_speed;
+        running_cost_factor: switch_scarab_cost;
+        sound_effect: switch_vactrain_sound;
+    }
+    livery_override(vactrain_wagon_pax) { // graphics for alternative look of passenger wagon when used with this engine
+
+        default: switch_scarab_cargo;
+        cargo_capacity: switch_scarab_wagon_capacity;
+    }
+    livery_override(vactrain_wagon_exp) { // graphics for alternative look of passenger wagon when used with this engine
+
+        default: switch_scarab_cargo;
+        cargo_capacity: switch_scarab_wagon_capacity;
+    }
+}

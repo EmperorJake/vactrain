@@ -1,0 +1,276 @@
+//Tapeworm
+
+spriteset(spriteset_tapeworm_front, "gfx/trains/tapeworm.png") {
+	template_2cc_std(1, 1)
+}
+
+spriteset(spriteset_tapeworm_rear, "gfx/trains/tapeworm.png") {
+	template_2cc_std(1, 32)
+}
+
+spriteset(spriteset_tapeworm_node, "gfx/trains/tapeworm.png") {
+	template_2cc_std(1, 64)
+}
+
+spriteset(spriteset_tapeworm_pax, "gfx/trains/tapeworm.png") {
+	template_2cc_std(1, 96)
+}
+
+
+spriteset(spriteset_tapeworm_purchase, "gfx/trains/tapeworm.png") {
+	template_purchase_dualheaded(1, 160)
+}
+
+
+spriteset(spriteset_tapeworm_mail_front, "gfx/trains/tapeworm_mail.png") {
+    template_2cc_std(1, 1)
+}
+
+spriteset(spriteset_tapeworm_mail_rear, "gfx/trains/tapeworm_mail.png") {
+    template_2cc_std(1, 32)
+}
+
+spriteset(spriteset_tapeworm_mail_node, "gfx/trains/tapeworm_mail.png") {
+    template_2cc_std(1, 64)
+}
+
+
+spriteset(spriteset_tapeworm_mail, "gfx/trains/tapeworm_mail.png") {
+    template_2cc_std(1, 96)
+}
+
+
+spriteset(spriteset_tapeworm_mail_purchase, "gfx/trains/tapeworm_mail.png") {
+    template_purchase_dualheaded(1, 160)
+}
+
+//TAPEWORM
+
+//railtype switches
+switch (FEAT_TRAINS, SELF, switch_tapeworm_speed, current_railtype) {
+	VACT: return switch_vactrain_speed_gen2;
+	MGLV: return 320;
+	CB_FAILED;
+}
+
+switch (FEAT_TRAINS, SELF, switch_tapeworm_cost, current_railtype) {
+	VACT: return 70;
+	MGLV: return 35;
+	CB_FAILED;
+}
+
+
+
+//mail car gfx
+switch (FEAT_TRAINS, SELF, switch_tapeworm_cargo, cargo_classes) {
+	bitmask(CC_PASSENGERS): spriteset_tapeworm_pax;
+	spriteset_tapeworm_mail;
+}
+
+switch (FEAT_TRAINS, SELF, switch_tapeworm_cargo_rear, cargo_classes) {
+    bitmask(CC_PASSENGERS): spriteset_tapeworm_rear;
+    spriteset_tapeworm_mail_rear;
+}
+
+switch (FEAT_TRAINS, SELF, switch_tapeworm_cargo_front, cargo_classes) {
+    bitmask(CC_PASSENGERS): spriteset_tapeworm_front;
+    spriteset_tapeworm_mail_front;
+}
+
+switch (FEAT_TRAINS, SELF, switch_tapeworm_cargo_node, cargo_classes) {
+    bitmask(CC_PASSENGERS): spriteset_tapeworm_node;
+    spriteset_tapeworm_mail_node;
+}
+
+//Dualheaded engines
+switch(FEAT_TRAINS, SELF, switch_tapeworm_reversed, var[0xC8]) {
+	0xFE: switch_tapeworm_cargo_rear;
+    0xFF: switch_tapeworm_cargo_rear;
+    switch_tapeworm_cargo_front;
+}
+
+
+
+//length switch
+
+
+switch (FEAT_TRAINS, SELF, switch_tapeworm_capacity_short, param_vehicle_capacity) {
+    0: return 8;
+    1: return 10;
+    2: return 12;
+}
+
+switch (FEAT_TRAINS, SELF, switch_tapeworm_capacity_long, param_vehicle_capacity) {
+    0: return 50;
+    1: return 62;
+    2: return 75;
+}
+
+switch (FEAT_TRAINS, SELF, switch_tapeworm_purchase_capacity, param_vehicle_capacity) {
+    0: return 8-2;
+    1: return 10;
+    2: return 12+2;
+}
+
+
+
+switch(FEAT_TRAINS, SELF, switch_tapeworm_wagonlength, position_in_consist % 2) {
+    0: 2;
+    return 7;
+}
+
+switch(FEAT_TRAINS, SELF, switch_tapeworm_wagongfx, position_in_consist % 2) {
+    0: switch_tapeworm_cargo_node;
+    return switch_tapeworm_cargo;
+}
+
+switch(FEAT_TRAINS, SELF, switch_tapeworm_wagoncap, position_in_consist % 2) {
+    0: return switch_tapeworm_capacity_short;
+    return switch_tapeworm_capacity_long;
+}
+
+switch(FEAT_TRAINS, SELF, switch_tapeworm_wagonlength_end, position_in_consist_from_end) {
+    1: 7;
+    return switch_tapeworm_wagonlength;
+}
+
+switch(FEAT_TRAINS, SELF, switch_tapeworm_wagongfx_end, position_in_consist_from_end) {
+    1: switch_tapeworm_cargo;
+    return switch_tapeworm_wagongfx;
+}
+
+switch(FEAT_TRAINS, SELF, switch_tapeworm_wagoncap_end, position_in_consist_from_end) {
+    1: return switch_tapeworm_capacity_long;
+    return switch_tapeworm_wagoncap;
+}
+
+
+
+
+
+//main item
+item (FEAT_TRAINS, tapeworm, 154) {
+    property {
+        sprite_id: SPRITE_ID_NEW_TRAIN;
+        misc_flags: bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_MU, TRAIN_FLAG_AUTOREFIT);
+        track_type: VACT;
+        name: string(STR_NAME_TAPEWORM);
+        climates_available: ALL_CLIMATES;
+        introduction_date: date(param_starting_year+25,1,1);
+        speed: 2000 km/h;
+        air_drag_coefficient: 0;
+        power: 12000 hp;
+        dual_headed: 1;
+        engine_class: ENGINE_CLASS_MAGLEV;
+        cargo_capacity: 10;
+        loading_speed: 80;
+        refittable_cargo_classes: bitmask(CC_PASSENGERS);
+        weight: 18;
+        length: 3;
+        reliability_decay: 12;
+        model_life: VEHICLE_NEVER_EXPIRES;
+        vehicle_life: 48;
+        cost_factor: 107;
+        running_cost_factor: 230;
+        running_cost_base: RUNNING_COST_STEAM;
+        badges: ["power/vactrain", "role/passenger"];
+    }
+    graphics {
+        additional_text:	string(STR_CONCAT_1,
+                                   string(STR_DESC_AIRSPEED, 320),
+        );
+        speed: switch_tapeworm_speed;
+        running_cost_factor: switch_tapeworm_cost;
+        can_attach_wagon: switch_can_attach_vehicle;
+        purchase: spriteset_tapeworm_purchase;
+        default: switch_tapeworm_reversed;
+        loading_speed: switch_loading_speed_mu;
+        cargo_capacity: switch_tapeworm_capacity_short;
+        purchase_cargo_capacity: switch_tapeworm_purchase_capacity;
+    }
+
+    livery_override(vactrain_wagon_pax) { // graphics for alternative look of passenger wagon when used with this engine
+        loading_speed: 80;
+        power: 3000;
+        weight: 32;
+        running_cost_factor: 80;
+        cargo_capacity: switch_tapeworm_wagoncap_end;
+        length: switch_tapeworm_wagonlength_end;
+        default: switch_tapeworm_wagongfx_end;
+    }
+    livery_override(vactrain_wagon_exp) { // graphics for alternative look of passenger wagon when used with this engine
+        loading_speed: 80;
+        power: 3000;
+        weight: 28;
+        running_cost_factor: 20;
+        cargo_capacity: switch_tapeworm_wagoncap_end;
+        length: switch_tapeworm_wagonlength_end;
+        default: switch_tapeworm_wagongfx_end;
+    }
+
+}
+
+
+//main item
+item (FEAT_TRAINS, tapeworm_mail, 254) {
+    property {
+        sprite_id: SPRITE_ID_NEW_TRAIN;
+        misc_flags: bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_MU, TRAIN_FLAG_AUTOREFIT);
+        track_type: VACT;
+        name: string(STR_NAME_TAPEWORM);
+        climates_available: ALL_CLIMATES;
+        introduction_date: date(param_starting_year+25,1,1);
+        speed: 2000 km/h;
+        air_drag_coefficient: 0;
+        power: 12000 hp;
+        dual_headed: 1;
+        engine_class: ENGINE_CLASS_MAGLEV;
+        cargo_capacity: 10;
+        loading_speed: 80;
+        refittable_cargo_classes: bitmask(CC_MAIL, CC_EXPRESS, CC_ARMOURED);
+        weight: 18;
+        length: 3;
+        reliability_decay: 12;
+        model_life: VEHICLE_NEVER_EXPIRES;
+        vehicle_life: 48;
+        cost_factor: 107;
+        running_cost_factor: 230;
+        running_cost_base: RUNNING_COST_STEAM;
+        variant_group: 154;
+        extra_flags: bitmask(VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
+        badges: ["power/vactrain", "role/express_freight"];
+    }
+    graphics {
+        additional_text:	string(STR_CONCAT_1,
+                                   string(STR_DESC_AIRSPEED, 320),
+        );
+        speed: switch_tapeworm_speed;
+        running_cost_factor: switch_tapeworm_cost;
+        can_attach_wagon: switch_can_attach_vehicle;
+        purchase: spriteset_tapeworm_mail_purchase;
+        default: switch_tapeworm_reversed;
+        loading_speed: switch_loading_speed_mu;
+        cargo_capacity: switch_tapeworm_capacity_short;
+        purchase_cargo_capacity: switch_tapeworm_purchase_capacity;
+    }
+
+    livery_override(vactrain_wagon_pax) { // graphics for alternative look of passenger wagon when used with this engine
+        loading_speed: 80;
+        power: 3000;
+        weight: 32;
+        running_cost_factor: 80;
+        cargo_capacity: switch_tapeworm_wagoncap_end;
+        length: switch_tapeworm_wagonlength_end;
+        default: switch_tapeworm_wagongfx_end;
+    }
+    livery_override(vactrain_wagon_exp) { // graphics for alternative look of passenger wagon when used with this engine
+        loading_speed: 80;
+        power: 3000;
+        weight: 28;
+        running_cost_factor: 20;
+        cargo_capacity: switch_tapeworm_wagoncap_end;
+        length: switch_tapeworm_wagonlength_end;
+        default: switch_tapeworm_wagongfx_end;
+    }
+
+}

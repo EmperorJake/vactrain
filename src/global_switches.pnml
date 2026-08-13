@@ -1,0 +1,73 @@
+//Attachment Rules
+
+
+switch(FEAT_TRAINS, PARENT, switch_can_attach_nothing, [STORE_TEMP(position_in_consist_from_end, 0x10F), var[0x61, 0, 0x0000FFFF, 0xC6]]) {
+	string(STR_ERROR_SINGLE_ONLY);
+}
+
+switch(FEAT_TRAINS, PARENT, switch_can_attach_self, [STORE_TEMP(position_in_consist_from_end, 0x10F), var[0x61, 0, 0x0000FFFF, 0xC6]]) {
+	146: CB_RESULT_ATTACH_ALLOW_IF_RAILTYPES;
+    string(STR_ERROR_SELF_ONLY);
+}
+
+switch(FEAT_TRAINS, PARENT, switch_can_attach_unit_pax, [STORE_TEMP(position_in_consist_from_end, 0x10F), var[0x61, 0, 0x0000FFFF, 0xC6]]) {
+	142: string(STR_ERROR_NO_WAGONS);
+	146: string(STR_ERROR_NO_WAGONS);
+	CB_RESULT_ATTACH_ALLOW_IF_RAILTYPES;
+}
+
+switch(FEAT_TRAINS, PARENT, switch_can_attach_unit_cargo, [STORE_TEMP(position_in_consist_from_end, 0x10F), var[0x61, 0, 0x0000FFFF, 0xC6]]) {
+	142: string(STR_ERROR_NO_WAGONS);
+	146: string(STR_ERROR_NO_WAGONS);
+	150..179: string(STR_ERROR_MUWAG_ONLY);
+    250..279: string(STR_ERROR_MUWAG_ONLY);
+	CB_RESULT_ATTACH_ALLOW_IF_RAILTYPES;
+}
+
+//switch for wagon type
+switch(FEAT_TRAINS, SELF, switch_can_attach_vehicle, vehicle_type_id) {
+//	142: switch_can_attach_nothing;
+//	146: switch_can_attach_self;
+//	150..179: switch_can_attach_unit_pax;
+//	180..190: switch_can_attach_unit_cargo;
+//	192..194: switch_can_attach_unit_pax;
+//	196..198: switch_can_attach_unit_cargo;
+	CB_RESULT_ATTACH_ALLOW_IF_RAILTYPES;
+}
+
+
+//loading speed switch
+
+switch(FEAT_TRAINS, SELF, switch_loading_speed_mu, param_loading_speed) {
+    0: return 10;
+    1: return 50;
+    2: return 100;
+}
+
+//speed switches
+
+switch(FEAT_TRAINS, SELF, switch_vactrain_speed_gen1, max_speed) {
+    return 800 + ((param_vactrain_speed - 800) / 8);
+}
+
+switch(FEAT_TRAINS, SELF, switch_vactrain_speed_gen2, max_speed) {
+    return 800 + ((param_vactrain_speed - 800) / 4);
+}
+
+switch(FEAT_TRAINS, SELF, switch_vactrain_speed_gen3, max_speed) {
+    return 800 + ((param_vactrain_speed - 800) / 2);
+}
+
+switch(FEAT_TRAINS, SELF, switch_vactrain_speed_gen4, max_speed) {
+    return param_vactrain_speed;
+}
+
+
+//sound switch
+
+
+
+switch(FEAT_TRAINS, SELF, switch_vactrain_sound, getbits(extra_callback_info1, 0, 8)) {
+    SOUND_EVENT_START: return sound("gfx/wav/vactrain1.wav");
+    SOUND_EVENT_TUNNEL: return CB_RESULT_NO_SOUND;
+}

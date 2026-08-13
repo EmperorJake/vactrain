@@ -1,0 +1,189 @@
+//bison
+
+spriteset(spriteset_bison_pax_head, "gfx/trains/bison.png") {
+	template_2cc_std(1, 1)
+}
+
+spriteset(spriteset_bison_mail_head, "gfx/trains/bison.png") {
+	template_2cc_std(1, 32)
+}
+
+spriteset(spriteset_bison_pax, "gfx/trains/bison.png") {
+	template_2cc_std(1, 64)
+}
+
+spriteset(spriteset_bison_mail, "gfx/trains/bison.png") {
+	template_2cc_std(1, 96)
+}
+
+spriteset(spriteset_bison_purchase, "gfx/trains/bison.png") {
+    template_purchase_dualheaded(1, 128)
+}
+
+spriteset(spriteset_bison_mail_purchase, "gfx/trains/bison.png") {
+	template_purchase_dualheaded(1, 160)
+}
+
+//BISON
+
+switch (FEAT_TRAINS, SELF, switch_bison_capacity, param_vehicle_capacity) {
+    0: return 76;
+    1: return 95;
+    2: return 114;
+}
+
+switch (FEAT_TRAINS, SELF, switch_bison_purchase_capacity, param_vehicle_capacity) {
+    0: return 76-19;
+    1: return 95;
+    2: return 114+19;
+}
+
+
+//railtype speed switches
+switch (FEAT_TRAINS, SELF, switch_bison_speed, current_railtype) {
+    VACT: return switch_vactrain_speed_gen2;
+    MGLV: return 160;
+    CB_FAILED;
+}
+
+switch (FEAT_TRAINS, SELF, switch_bison_cost, current_railtype) {
+    VACT: return 95;
+    MGLV: return 20;
+    CB_FAILED;
+}
+
+
+//mail car gfx
+switch (FEAT_TRAINS, SELF, switch_bison_cargo, cargo_classes) {
+    bitmask(CC_PASSENGERS): spriteset_bison_pax;
+    spriteset_bison_mail;
+}
+
+//mail car gfx
+switch (FEAT_TRAINS, SELF, switch_bison_cargo_head, cargo_classes) {
+    bitmask(CC_PASSENGERS): spriteset_bison_pax_head;
+    spriteset_bison_mail_head;
+}
+
+//main item
+item (FEAT_TRAINS, bison, 164) {
+    property {
+        sprite_id: SPRITE_ID_NEW_TRAIN;
+        misc_flags: bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_MU);
+        track_type: VACT;
+        name: string(STR_NAME_BISON);
+        climates_available: ALL_CLIMATES;
+        introduction_date: date(param_starting_year+35,1,1);
+        speed: 4000 km/h;
+        air_drag_coefficient: 0;
+        power: 16000 hp;
+        dual_headed: 1;
+        engine_class: ENGINE_CLASS_MAGLEV;
+        cargo_capacity: 95;
+        loading_speed: 40;
+        refittable_cargo_classes: bitmask(CC_PASSENGERS);
+        weight: 68;
+        reliability_decay: 12;
+        model_life: VEHICLE_NEVER_EXPIRES;
+        vehicle_life: 48;
+        cost_factor: 200;
+        running_cost_factor: 240;
+        running_cost_base: RUNNING_COST_STEAM;
+        badges: ["power/vactrain", "role/passenger"];
+    }
+    graphics {
+        additional_text:	string(STR_CONCAT_1,
+                                   string(STR_DESC_AIRSPEED, 160)
+        );
+        speed: switch_bison_speed;
+        running_cost_factor: switch_bison_cost;
+        can_attach_wagon: switch_can_attach_vehicle;
+        purchase: spriteset_bison_purchase;
+        default: switch_bison_cargo_head;
+        loading_speed: switch_loading_speed_mu;
+        cargo_capacity: switch_bison_capacity;
+        purchase_cargo_capacity: switch_bison_purchase_capacity;
+    }
+
+    livery_override(vactrain_wagon_pax) { // graphics for alternative look of passenger wagon when used with this engine
+        loading_speed: 40;
+        power: 8000;
+        weight: 66;
+        running_cost_factor: 90;
+        cargo_capacity: switch_bison_capacity;
+        length: 8;
+    default: switch_bison_cargo;
+    }
+    livery_override(vactrain_wagon_exp) { // graphics for alternative look of passenger wagon when used with this engine
+        loading_speed: 40;
+        power: 8000;
+        weight: 56;
+        running_cost_factor: 20;
+        cargo_capacity: switch_bison_capacity;
+        length: 8;
+    default: switch_bison_cargo;
+    }
+
+}
+
+item (FEAT_TRAINS, bison_mail, 264) {
+    property {
+        sprite_id: SPRITE_ID_NEW_TRAIN;
+        misc_flags: bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_MU);
+        track_type: VACT;
+        name: string(STR_NAME_BISON);
+        climates_available: ALL_CLIMATES;
+        introduction_date: date(param_starting_year+35,1,1);
+        speed: 4000 km/h;
+        air_drag_coefficient: 0;
+        power: 16000 hp;
+        dual_headed: 1;
+        engine_class: ENGINE_CLASS_MAGLEV;
+        cargo_capacity: 95;
+        loading_speed: 40;
+        refittable_cargo_classes: bitmask(CC_MAIL, CC_EXPRESS, CC_ARMOURED);
+        weight: 68;
+        reliability_decay: 12;
+        model_life: VEHICLE_NEVER_EXPIRES;
+        vehicle_life: 48;
+        cost_factor: 200;
+        running_cost_factor: 240;
+        running_cost_base: RUNNING_COST_STEAM;
+        variant_group: 164;
+        extra_flags: bitmask(VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
+        badges: ["power/vactrain", "role/express_freight"];
+    }
+    graphics {
+        additional_text:	string(STR_CONCAT_1,
+                                   string(STR_DESC_AIRSPEED, 160),
+        );
+        speed: switch_bison_speed;
+        running_cost_factor: switch_bison_cost;
+        can_attach_wagon: switch_can_attach_vehicle;
+        purchase: spriteset_bison_mail_purchase;
+        default: switch_bison_cargo_head;
+        loading_speed: switch_loading_speed_mu;
+        cargo_capacity: switch_bison_capacity;
+        purchase_cargo_capacity: switch_bison_purchase_capacity;
+    }
+
+    livery_override(vactrain_wagon_pax) { // graphics for alternative look of passenger wagon when used with this engine
+        loading_speed: 40;
+        power: 8000;
+        weight: 66;
+        running_cost_factor: 90;
+        cargo_capacity: switch_bison_capacity;
+        length: 8;
+        default: switch_bison_cargo;
+    }
+    livery_override(vactrain_wagon_exp) { // graphics for alternative look of passenger wagon when used with this engine
+        loading_speed: 40;
+        power: 8000;
+        weight: 56;
+        running_cost_factor: 20;
+        cargo_capacity: switch_bison_capacity;
+        length: 8;
+        default: switch_bison_cargo;
+    }
+
+}

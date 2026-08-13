@@ -1,0 +1,70 @@
+//BADGES
+
+spriteset(spriteset_badge_vactrain, "gfx/badges/vactrain_icon.png") {
+    template_badge(0, 0)
+}
+
+
+badgetable {
+    "power",
+    "power/vactrain",
+    "role",
+    "role/passenger",
+    "role/express_freight",
+    "role/universal",
+    "role/freight"
+}
+
+
+item (FEAT_BADGES, power) {
+    property {
+        label: "power";
+        name: string(STR_BADGE_POWER);
+    }
+}
+
+item (FEAT_BADGES, vactrain) {
+    property {
+        label: "power/vactrain";
+        name: string(STR_BADGE_POWER_VACTRAIN);
+    }
+    graphics {
+        default: spriteset_badge_vactrain;
+    }
+}
+
+item (FEAT_BADGES, role) {
+    property {
+        label: "role";
+        name: string(STR_BADGE_ROLE);
+    }
+}
+
+item (FEAT_BADGES, role_pax) {
+    property {
+        label: "role/passenger";
+        name: string(STR_BADGE_ROLE_PAX);
+    }
+}
+
+
+item (FEAT_BADGES, role_exp) {
+    property {
+        label: "role/express_freight";
+        name: string(STR_BADGE_ROLE_EXP);
+    }
+}
+
+item (FEAT_BADGES, role_univ) {
+    property {
+        label: "role/universal";
+        name: string(STR_BADGE_ROLE_UNIV);
+    }
+}
+
+item (FEAT_BADGES, role_cargo) {
+    property {
+        label: "role/freight";
+        name: string(STR_BADGE_ROLE_CARGO);
+    }
+}

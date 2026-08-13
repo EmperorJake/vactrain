@@ -1,0 +1,209 @@
+//Crossley
+spriteset(spriteset_crossley_front, "gfx/trains/crossley.png") {
+	template_2cc_std(1, 1)
+}
+
+spriteset(spriteset_crossley_rear, "gfx/trains/crossley.png") {
+	template_2cc_std(1, 32)
+}
+
+spriteset(spriteset_crossley_pax, "gfx/trains/crossley.png") {
+	template_2cc_std(1, 64)
+}
+
+spriteset(spriteset_crossley_mail, "gfx/trains/crossley.png") {
+	template_2cc_std(1, 96)
+}
+
+
+spriteset(spriteset_crossley_purchase, "gfx/trains/crossley.png") {
+	template_purchase_dualheaded(1, 128)
+}
+
+
+spriteset(spriteset_crossley_mail_front, "gfx/trains/crossley_mail.png") {
+    template_2cc_std(1, 1)
+}
+
+spriteset(spriteset_crossley_mail_rear, "gfx/trains/crossley_mail.png") {
+    template_2cc_std(1, 32)
+}
+
+
+spriteset(spriteset_crossley_mail_purchase, "gfx/trains/crossley_mail.png") {
+    template_purchase_dualheaded(1, 128)
+}
+
+//CROSSLEY
+
+switch (FEAT_TRAINS, SELF, switch_crossley_capacity, param_vehicle_capacity) {
+    0: return 43;
+    1: return 54;
+    2: return 65;
+}
+
+switch (FEAT_TRAINS, SELF, switch_crossley_purchase_capacity, param_vehicle_capacity) {
+    0: return 32;
+    1: return 54;
+    2: return 76;
+}
+
+
+//railtype switches
+switch (FEAT_TRAINS, SELF, switch_crossley_speed, current_railtype) {
+    VACT: return switch_vactrain_speed_gen1;
+    MGLV: return 480;
+    CB_FAILED;
+}
+
+switch (FEAT_TRAINS, SELF, switch_crossley_cost, current_railtype) {
+    VACT: return 55;
+    MGLV: return 35;
+    CB_FAILED;
+}
+
+
+//mail car gfx
+switch (FEAT_TRAINS, SELF, switch_crossley_cargo, cargo_classes) {
+    bitmask(CC_PASSENGERS): spriteset_crossley_pax;
+    spriteset_crossley_mail;
+}
+
+switch (FEAT_TRAINS, SELF, switch_crossley_front_cargo, cargo_classes) {
+    bitmask(CC_PASSENGERS): spriteset_crossley_front;
+    spriteset_crossley_mail_front;
+}
+
+switch (FEAT_TRAINS, SELF, switch_crossley_rear_cargo, cargo_classes) {
+    bitmask(CC_PASSENGERS): spriteset_crossley_rear;
+    spriteset_crossley_mail_rear;
+}
+
+
+//Dualheaded engines
+switch(FEAT_TRAINS, SELF, switch_crossley_reversed, var[0xC8]) {
+    0xFE: switch_crossley_rear_cargo;
+    0xFF: switch_crossley_rear_cargo;
+    switch_crossley_front_cargo;
+}
+
+//main item
+item (FEAT_TRAINS, crossley, 152) {
+    property {
+        sprite_id: SPRITE_ID_NEW_TRAIN;
+        misc_flags: bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_MU);
+        track_type: VACT;
+        name: string(STR_NAME_CROSSLEY);
+        climates_available: ALL_CLIMATES;
+        introduction_date: date(param_starting_year+0,1,1);
+        speed: 4100 km/h;
+        air_drag_coefficient: 0;
+        power: 8000 hp;
+        dual_headed: 1;
+        engine_class: ENGINE_CLASS_MAGLEV;
+        cargo_capacity: 54;
+        loading_speed: 40;
+        refittable_cargo_classes: bitmask(CC_PASSENGERS);
+        weight: 32;
+        reliability_decay: 12;
+        model_life: 45;
+        vehicle_life: 48;
+        cost_factor: 88;
+        running_cost_factor: 144;
+        running_cost_base: RUNNING_COST_STEAM;
+        badges: ["power/vactrain", "role/passenger"];
+    }
+    graphics {
+        additional_text:	string(STR_CONCAT_1,
+                                   string(STR_DESC_AIRSPEED, 480),
+        );
+        speed: switch_crossley_speed;
+        running_cost_factor: switch_crossley_cost;
+        can_attach_wagon: switch_can_attach_vehicle;
+        purchase: spriteset_crossley_purchase;
+        default: switch_crossley_reversed;
+        loading_speed: switch_loading_speed_mu;
+        cargo_capacity: switch_crossley_capacity;
+        purchase_cargo_capacity: switch_crossley_purchase_capacity;
+    }
+
+    livery_override(vactrain_wagon_pax) { // graphics for alternative look of passenger wagon when used with this engine
+        loading_speed: 40;
+        power: 4000;
+        weight: 38;
+        running_cost_factor: 80;
+        cargo_capacity: switch_crossley_capacity;
+        length: 8;
+        default: switch_crossley_cargo;
+    }
+    livery_override(vactrain_wagon_exp) { // graphics for alternative look of passenger wagon when used with this engine
+        loading_speed: 40;
+        power: 4000;
+        weight: 38;
+        running_cost_factor: 20;
+        cargo_capacity: switch_crossley_capacity;
+        length: 8;
+        default: switch_crossley_cargo;
+    }
+}
+
+item (FEAT_TRAINS, crossley_mail, 252) {
+    property {
+        sprite_id: SPRITE_ID_NEW_TRAIN;
+        misc_flags: bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_MU);
+        track_type: VACT;
+        name: string(STR_NAME_CROSSLEY);
+        climates_available: ALL_CLIMATES;
+        introduction_date: date(param_starting_year+0,1,1);
+        speed: 4100 km/h;
+        air_drag_coefficient: 0;
+        power: 8000 hp;
+        dual_headed: 1;
+        engine_class: ENGINE_CLASS_MAGLEV;
+        cargo_capacity: 54;
+        loading_speed: 40;
+        refittable_cargo_classes: bitmask(CC_MAIL, CC_EXPRESS, CC_ARMOURED);
+        weight: 32;
+        reliability_decay: 12;
+        model_life: 45;
+        vehicle_life: 48;
+        cost_factor: 88;
+        running_cost_factor: 144;
+        running_cost_base: RUNNING_COST_STEAM;
+        variant_group: 152;
+        extra_flags: bitmask(VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
+        badges: ["power/vactrain", "role/express_freight"];
+    }
+    graphics {
+        additional_text:	string(STR_CONCAT_1,
+                                   string(STR_DESC_AIRSPEED, 480),
+        );
+        speed: switch_crossley_speed;
+        running_cost_factor: switch_crossley_cost;
+        can_attach_wagon: switch_can_attach_vehicle;
+        purchase: spriteset_crossley_mail_purchase;
+        default: switch_crossley_reversed;
+        loading_speed: switch_loading_speed_mu;
+        cargo_capacity: switch_crossley_capacity;
+        purchase_cargo_capacity: switch_crossley_purchase_capacity;
+    }
+
+    livery_override(vactrain_wagon_pax) { // graphics for alternative look of passenger wagon when used with this engine
+        loading_speed: 40;
+        power: 4000;
+        weight: 38;
+        running_cost_factor: 40;
+        cargo_capacity: switch_crossley_capacity;
+        length: 8;
+        default: switch_crossley_cargo;
+    }
+    livery_override(vactrain_wagon_exp) { // graphics for alternative look of passenger wagon when used with this engine
+        loading_speed: 40;
+        power: 4000;
+        weight: 38;
+        running_cost_factor: 40;
+        cargo_capacity: switch_crossley_capacity;
+        length: 8;
+    default: switch_crossley_cargo;
+    }
+}

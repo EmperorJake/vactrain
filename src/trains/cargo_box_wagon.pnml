@@ -1,0 +1,314 @@
+//new cargo wagons
+spriteset(spriteset_cargo_box_wagon_1, "gfx/trains/cargo_box_wagons.png") {
+    template_2cc_std(1, 1)
+}
+
+spriteset(spriteset_cargo_box_wagon_2, "gfx/trains/cargo_box_wagons.png") {
+    template_2cc_std(1, 32)
+}
+
+spriteset(spriteset_cargo_box_wagon_3, "gfx/trains/cargo_box_wagons.png") {
+    template_2cc_std(1, 64)
+}
+
+spriteset(spriteset_cargo_box_wagon_4, "gfx/trains/cargo_box_wagons.png") {
+    template_2cc_std(1, 96)
+}
+
+spriteset(spriteset_cargo_box_wagon_5, "gfx/trains/cargo_box_wagons.png") {
+    template_2cc_std(1, 128)
+}
+
+spriteset(spriteset_cargo_box_wagon_6, "gfx/trains/cargo_box_wagons.png") {
+    template_2cc_std(1, 160)
+}
+
+spriteset(spriteset_cargo_box_wagon_7, "gfx/trains/cargo_box_wagons.png") {
+    template_2cc_std(1, 192)
+}
+
+spriteset(spriteset_cargo_box_wagon_8, "gfx/trains/cargo_box_wagons.png") {
+    template_2cc_std(1, 224)
+}
+
+spriteset(spriteset_cargo_box_wagon_9, "gfx/trains/cargo_box_wagons.png") {
+    template_2cc_std(1, 256)
+}
+
+spriteset(spriteset_cargo_box_wagon_10, "gfx/trains/cargo_box_wagons.png") {
+    template_2cc_std(1, 288)
+}
+
+spriteset(spriteset_cargo_box_wagon_11, "gfx/trains/cargo_box_wagons.png") {
+    template_2cc_std(1, 320)
+}
+
+//overlays
+
+spriteset(spriteset_cargo_box_overlay_1, "gfx/trains/cargo_box_overlays.png") {
+    template_2cc_std(1, 1)
+}
+
+spriteset(spriteset_cargo_box_overlay_2, "gfx/trains/cargo_box_overlays.png") {
+    template_2cc_std(1, 32)
+}
+
+spriteset(spriteset_cargo_box_overlay_3, "gfx/trains/cargo_box_overlays.png") {
+    template_2cc_std(1, 64)
+}
+
+spriteset(spriteset_cargo_box_overlay_4, "gfx/trains/cargo_box_overlays.png") {
+    template_2cc_std(1, 96)
+}
+
+spriteset(spriteset_cargo_box_overlay_5, "gfx/trains/cargo_box_overlays.png") {
+    template_2cc_std(1, 128)
+}
+
+spriteset(spriteset_cargo_box_overlay_6, "gfx/trains/cargo_box_overlays.png") {
+    template_2cc_std(1, 160)
+}
+
+spriteset(spriteset_cargo_box_overlay_7, "gfx/trains/cargo_box_overlays.png") {
+    template_2cc_std(1, 192)
+}
+
+spriteset(spriteset_cargo_box_overlay_8, "gfx/trains/cargo_box_overlays.png") {
+    template_2cc_std(1, 224)
+}
+
+spriteset(spriteset_cargo_box_overlay_9, "gfx/trains/cargo_box_overlays.png") {
+    template_2cc_std(1, 256)
+}
+
+spriteset(spriteset_cargo_box_overlay_10, "gfx/trains/cargo_box_overlays.png") {
+    template_2cc_std(1, 288)
+}
+
+spriteset(spriteset_cargo_box_overlay_blank, "gfx/trains/cargo_box_overlays.png") {
+    template_2cc_std(1, 320)
+}
+
+
+//Cargo wagon
+
+
+switch (FEAT_TRAINS, SELF, switch_wagon_cargo_capacity, param_vehicle_capacity) {
+    0: return 40;
+    1: return 50;
+    2: return 60;
+}
+
+//variants
+
+random_switch (FEAT_TRAINS, SELF, switch_wagon_cargo_0_random_base) {
+    1: spriteset_cargo_box_wagon_1;
+    1: spriteset_cargo_box_wagon_2;
+    1: spriteset_cargo_box_wagon_4;
+    1: spriteset_cargo_box_wagon_5;
+    2: spriteset_cargo_box_wagon_6;
+}
+
+random_switch (FEAT_TRAINS, SELF, switch_wagon_cargo_0_random_logo) {
+    independent: switch_wagon_cargo_0_random_base;
+    4: spriteset_cargo_box_overlay_blank;
+    1: spriteset_cargo_box_overlay_1;
+    1: spriteset_cargo_box_overlay_2;
+    1: spriteset_cargo_box_overlay_4;
+    1: spriteset_cargo_box_overlay_5;
+}
+
+switch(FEAT_TRAINS, SELF, switch_wagon_cargo_0_stack, [
+    STORE_TEMP((getbits(extra_callback_info1, 8, 8) < 1 ? CB_FLAG_MORE_SPRITES : 0) | PALETTE_USE_DEFAULT, 0x100),
+       getbits(extra_callback_info1, 8, 8)
+]) {
+    0:  switch_wagon_cargo_0_random_base;
+    1:  switch_wagon_cargo_0_random_logo;
+}
+
+
+item (FEAT_TRAINS, vactrain_wagon_cargo_0, 200) {
+    property {
+        sprite_id: SPRITE_ID_NEW_TRAIN;
+        misc_flags: bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_AUTOREFIT, TRAIN_FLAG_SPRITE_STACK);
+        track_type: VACT;
+        name: string(STR_NAME_CARGO_WAGON);
+        climates_available: ALL_CLIMATES;
+        introduction_date: date(param_starting_year+5,1,1);
+        power: 0;
+        cargo_capacity: 50;
+        refittable_cargo_classes: ALL_NORMAL_CARGO_CLASSES;
+        non_refittable_cargo_classes: bitmask(CC_PASSENGERS);
+        weight: 41;
+        loading_speed: 30;
+        cost_factor: 25;
+        length: 8;
+        badges: ["power/vactrain", "role/freight"];
+        }
+  graphics {
+    //	purchase: spriteset_wagon_cargo_purchase;
+        default: switch_wagon_cargo_0_stack;
+        cargo_capacity: switch_wagon_cargo_capacity;
+        loading_speed: switch_loading_speed_mu;
+    }
+}
+
+
+random_switch (FEAT_TRAINS, SELF, switch_wagon_cargo_1_random_base) {
+    4: spriteset_cargo_box_wagon_10;
+    1: spriteset_cargo_box_wagon_5;
+    1: spriteset_cargo_box_wagon_6;
+    1: spriteset_cargo_box_wagon_9;
+    1: spriteset_cargo_box_wagon_4;
+}
+
+random_switch (FEAT_TRAINS, SELF, switch_wagon_cargo_1_random_logo) {
+    independent: switch_wagon_cargo_1_random_base;
+    4: spriteset_cargo_box_overlay_blank;
+    1: spriteset_cargo_box_overlay_3;
+    1: spriteset_cargo_box_overlay_4;
+    1: spriteset_cargo_box_overlay_5;
+    1: spriteset_cargo_box_overlay_6;
+}
+
+switch(FEAT_TRAINS, SELF, switch_wagon_cargo_1_stack, [
+    STORE_TEMP((getbits(extra_callback_info1, 8, 8) < 1 ? CB_FLAG_MORE_SPRITES : 0) | PALETTE_USE_DEFAULT, 0x100),
+       getbits(extra_callback_info1, 8, 8)
+]) {
+    0:  switch_wagon_cargo_1_random_base;
+    1:  switch_wagon_cargo_1_random_logo;
+}
+
+
+item (FEAT_TRAINS, vactrain_wagon_cargo_1, 201) {
+    property {
+        sprite_id: SPRITE_ID_NEW_TRAIN;
+        misc_flags: bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_AUTOREFIT, TRAIN_FLAG_SPRITE_STACK);
+        track_type: VACT;
+        name: string(STR_NAME_CARGO_WAGON);
+        climates_available: ALL_CLIMATES;
+        introduction_date: date(param_starting_year+5,1,1);
+        power: 0;
+        cargo_capacity: 50;
+        refittable_cargo_classes: ALL_NORMAL_CARGO_CLASSES;
+        non_refittable_cargo_classes: bitmask(CC_PASSENGERS);
+        weight: 41;
+        loading_speed: 30;
+        cost_factor: 25;
+        length: 8;
+        badges: ["power/vactrain", "role/freight"];
+        variant_group: 200;
+    }
+    graphics {
+        //	purchase: spriteset_wagon_cargo_purchase;
+        default: switch_wagon_cargo_1_stack;
+        cargo_capacity: switch_wagon_cargo_capacity;
+        loading_speed: switch_loading_speed_mu;
+    }
+}
+
+
+random_switch (FEAT_TRAINS, SELF, switch_wagon_cargo_2_random_base) {
+    4: spriteset_cargo_box_wagon_9;
+    1: spriteset_cargo_box_wagon_5;
+    1: spriteset_cargo_box_wagon_8;
+    1: spriteset_cargo_box_wagon_3;
+    1: spriteset_cargo_box_wagon_10;
+}
+
+random_switch (FEAT_TRAINS, SELF, switch_wagon_cargo_2_random_logo) {
+    independent: switch_wagon_cargo_2_random_base;
+    4: spriteset_cargo_box_overlay_blank;
+    1: spriteset_cargo_box_overlay_2;
+    1: spriteset_cargo_box_overlay_3;
+    1: spriteset_cargo_box_overlay_4;
+    1: spriteset_cargo_box_overlay_6;
+}
+
+switch(FEAT_TRAINS, SELF, switch_wagon_cargo_2_stack, [
+    STORE_TEMP((getbits(extra_callback_info1, 8, 8) < 1 ? CB_FLAG_MORE_SPRITES : 0) | PALETTE_USE_DEFAULT, 0x100),
+       getbits(extra_callback_info1, 8, 8)
+]) {
+    0:  switch_wagon_cargo_2_random_base;
+    1:  switch_wagon_cargo_2_random_logo;
+}
+
+
+item (FEAT_TRAINS, vactrain_wagon_cargo_2, 202) {
+    property {
+        sprite_id: SPRITE_ID_NEW_TRAIN;
+        misc_flags: bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_AUTOREFIT, TRAIN_FLAG_SPRITE_STACK);
+        track_type: VACT;
+        name: string(STR_NAME_CARGO_WAGON);
+        climates_available: ALL_CLIMATES;
+        introduction_date: date(param_starting_year+5,1,1);
+        power: 0;
+        cargo_capacity: 50;
+        refittable_cargo_classes: ALL_NORMAL_CARGO_CLASSES;
+        non_refittable_cargo_classes: bitmask(CC_PASSENGERS);
+        weight: 41;
+        loading_speed: 30;
+        cost_factor: 25;
+        length: 8;
+        badges: ["power/vactrain", "role/freight"];
+        variant_group: 200;
+    }
+    graphics {
+        //	purchase: spriteset_wagon_cargo_purchase;
+        default: switch_wagon_cargo_2_stack;
+        cargo_capacity: switch_wagon_cargo_capacity;
+        loading_speed: switch_loading_speed_mu;
+    }
+}
+
+random_switch (FEAT_TRAINS, SELF, switch_wagon_cargo_3_random_base) {
+    4: spriteset_cargo_box_wagon_11;
+    1: spriteset_cargo_box_wagon_4;
+    1: spriteset_cargo_box_wagon_6;
+    1: spriteset_cargo_box_wagon_7;
+    1: spriteset_cargo_box_wagon_1;
+}
+
+random_switch (FEAT_TRAINS, SELF, switch_wagon_cargo_3_random_logo) {
+    independent: switch_wagon_cargo_3_random_base;
+    4: spriteset_cargo_box_overlay_blank;
+    1: spriteset_cargo_box_overlay_1;
+    1: spriteset_cargo_box_overlay_3;
+    1: spriteset_cargo_box_overlay_5;
+    1: spriteset_cargo_box_overlay_6;
+}
+
+switch(FEAT_TRAINS, SELF, switch_wagon_cargo_3_stack, [
+    STORE_TEMP((getbits(extra_callback_info1, 8, 8) < 1 ? CB_FLAG_MORE_SPRITES : 0) | PALETTE_USE_DEFAULT, 0x100),
+       getbits(extra_callback_info1, 8, 8)
+]) {
+    0:  switch_wagon_cargo_3_random_base;
+    1:  switch_wagon_cargo_3_random_logo;
+}
+
+item (FEAT_TRAINS, vactrain_wagon_cargo_3, 203) {
+    property {
+        sprite_id: SPRITE_ID_NEW_TRAIN;
+        misc_flags: bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_AUTOREFIT, TRAIN_FLAG_SPRITE_STACK);
+        track_type: VACT;
+        name: string(STR_NAME_CARGO_WAGON);
+        climates_available: ALL_CLIMATES;
+        introduction_date: date(param_starting_year+5,1,1);
+        power: 0;
+        cargo_capacity: 50;
+        refittable_cargo_classes: ALL_NORMAL_CARGO_CLASSES;
+        non_refittable_cargo_classes: bitmask(CC_PASSENGERS);
+        weight: 41;
+        loading_speed: 30;
+        cost_factor: 25;
+        length: 8;
+        badges: ["power/vactrain", "role/freight"];
+        variant_group: 200;
+    }
+    graphics {
+        //	purchase: spriteset_wagon_cargo_purchase;
+        default: switch_wagon_cargo_3_stack;
+        cargo_capacity: switch_wagon_cargo_capacity;
+        loading_speed: switch_loading_speed_mu;
+    }
+}

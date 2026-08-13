@@ -1,0 +1,112 @@
+//2nd gen
+spriteset(spriteset_cargo_engine_2_front, "gfx/trains/cargo_engine_2.png") {
+	template_2cc_std(1, 1)
+}
+
+spriteset(spriteset_cargo_engine_2_rear, "gfx/trains/cargo_engine_2.png") {
+	template_2cc_std(1, 32)
+}
+
+spriteset(spriteset_cargo_engine_2_mid, "gfx/trains/cargo_engine_2.png") {
+	template_2cc_std(1, 64)
+}
+
+spriteset(spriteset_cargo_engine_2_pax, "gfx/trains/cargo_engine_2.png") {
+    template_2cc_std(1, 96)
+}
+
+spriteset(spriteset_cargo_engine_2_mail, "gfx/trains/cargo_engine_2.png") {
+    template_2cc_std(1, 128)
+}
+
+spriteset(spriteset_cargo_engine_2_purchase, "gfx/trains/cargo_engine_2.png") {
+    template_purchase(1, 160)
+}
+
+//2nd gen
+
+switch (FEAT_TRAINS, SELF, switch_cargo_engine_2_wagon_capacity, param_vehicle_capacity) {
+    0: return 92;
+    1: return 115;
+    2: return 138;
+}
+
+
+switch (FEAT_TRAINS, SELF, switch_cargo_engine_2_speed, current_railtype) {
+	VACT: return switch_vactrain_speed_gen2;
+	MGLV: return 280;
+	CB_FAILED;
+}
+
+switch (FEAT_TRAINS, SELF, switch_cargo_engine_2_cost, current_railtype) {
+	VACT: return 40;
+	MGLV: return 25;
+	CB_FAILED;
+}
+
+
+switch (FEAT_TRAINS, SELF, switch_cargo_engine_2_position_rear, position_in_consist_from_end) {
+	0: spriteset_cargo_engine_2_rear;
+	spriteset_cargo_engine_2_mid;
+}
+
+switch (FEAT_TRAINS, SELF, switch_cargo_engine_2_position_front, position_in_consist) {
+	0: spriteset_cargo_engine_2_front;
+	switch_cargo_engine_2_position_rear;
+}
+
+
+
+//main items
+item (FEAT_TRAINS, cargo_engine_2, 144) {
+    property {
+        sprite_id: SPRITE_ID_NEW_TRAIN;
+        misc_flags: bitmask(TRAIN_FLAG_2CC);
+        track_type: VACT;
+        name: string(STR_NAME_CARGO_2);
+        climates_available: ALL_CLIMATES;
+        introduction_date: date(param_starting_year+40,1,1);
+        air_drag_coefficient: 0;
+        power: 34000 hp;
+        dual_headed: 0;
+        length: 8;
+        engine_class: ENGINE_CLASS_MAGLEV;
+        cargo_capacity: 0;
+        weight: 52;
+        reliability_decay: 12;
+        model_life: VEHICLE_NEVER_EXPIRES;
+        vehicle_life: 48;
+        cost_factor: 140;
+        running_cost_factor: 230;
+        running_cost_base: RUNNING_COST_STEAM;
+        badges: ["power/vactrain", "role/freight"];
+    }
+    graphics {
+        additional_text:	string(STR_CONCAT_1,
+                                   string(STR_DESC_AIRSPEED, 320),
+        );
+        speed: switch_cargo_engine_2_speed;
+        running_cost_factor: switch_cargo_engine_2_cost;
+        can_attach_wagon: switch_can_attach_vehicle;
+        purchase: spriteset_cargo_engine_2_purchase;
+        default: switch_cargo_engine_2_position_front;
+    }
+    livery_override(vactrain_wagon_pax) { // graphics for alternative look of passenger wagon when used with this engine
+        loading_speed: 40;
+        power: 0;
+        weight: 65;
+        running_cost_factor: 40;
+        cargo_capacity: switch_cargo_engine_2_wagon_capacity;
+        length: 8;
+        default: spriteset_cargo_engine_2_pax;
+    }
+    livery_override(vactrain_wagon_exp) { // graphics for alternative look of passenger wagon when used with this engine
+        loading_speed: 40;
+        power: 0;
+        weight: 60;
+        running_cost_factor: 40;
+        cargo_capacity: switch_cargo_engine_2_wagon_capacity;
+        length: 8;
+        default: spriteset_cargo_engine_2_mail;
+    }
+}

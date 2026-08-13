@@ -1,0 +1,197 @@
+//Rocketmax
+
+spriteset(spriteset_rocketmax_pax_head, "gfx/trains/rocketmax.png") {
+	template_2cc_std(1, 1)
+}
+
+spriteset(spriteset_rocketmax_mail_head, "gfx/trains/rocketmax.png") {
+	template_2cc_std(1, 32)
+}
+
+spriteset(spriteset_rocketmax_pax, "gfx/trains/rocketmax.png") {
+	template_2cc_std(1, 64)
+}
+
+spriteset(spriteset_rocketmax_mail, "gfx/trains/rocketmax.png") {
+	template_2cc_std(1, 96)
+}
+
+spriteset(spriteset_rocketmax_purchase, "gfx/trains/rocketmax.png") {
+	template_purchase_dualheaded(1, 128)
+}
+
+spriteset(spriteset_rocketmax_mail_purchase, "gfx/trains/rocketmax.png") {
+    template_purchase_dualheaded(1, 160)
+}
+
+//ROCKETMAX
+
+switch (FEAT_TRAINS, SELF, switch_rocketmax_capacity, param_vehicle_capacity) {
+    0: return 100;
+    1: return 125;
+    2: return 150;
+}
+
+switch (FEAT_TRAINS, SELF, switch_rocketmax_purchase_capacity, param_vehicle_capacity) {
+    0: return 100-25;
+    1: return 125;
+    2: return 150+25;
+}
+
+//railtype switches
+switch (FEAT_TRAINS, SELF, switch_rocketmax_speed, current_railtype) {
+	VACT: return switch_vactrain_speed_gen4;
+	MGLV: return 800;
+	CB_FAILED;
+}
+
+switch (FEAT_TRAINS, SELF, switch_rocketmax_cost, current_railtype) {
+	VACT: return 145;
+	MGLV: return 50;
+	CB_FAILED;
+}
+
+
+//mail car gfx
+switch (FEAT_TRAINS, SELF, switch_rocketmax_cargo, cargo_classes) {
+	bitmask(CC_PASSENGERS): spriteset_rocketmax_pax;
+	spriteset_rocketmax_mail;
+}
+
+//mail head gfx - test
+switch (FEAT_TRAINS, SELF, switch_rocketmax_cargo_head, cargo_classes) {
+	bitmask(CC_PASSENGERS): spriteset_rocketmax_pax_head;
+	spriteset_rocketmax_mail_head;
+}
+
+//Dualheaded engines
+/*
+switch(FEAT_TRAINS, SELF, switch_rocketmax_reversed, var[0xC8]) {
+	0xFE: spriteset_rocketmax_rear;
+    0xFF: spriteset_rocketmax_rear;
+    spriteset_rocketmax_front;
+}
+*/
+
+//main item
+item (FEAT_TRAINS, rocketmax, 168) {
+    property {
+        sprite_id: SPRITE_ID_NEW_TRAIN;
+        misc_flags: bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_MU);
+        track_type: VACT;
+        name: string(STR_NAME_ROCKETMAX);
+        climates_available: ALL_CLIMATES;
+        introduction_date: date(param_starting_year+85,1,1);
+        speed: 4000 km/h;
+        air_drag_coefficient: 0;
+        power: 30000 hp;
+        dual_headed: 1;
+        engine_class: ENGINE_CLASS_MAGLEV;
+        cargo_capacity: 125;
+        loading_speed: 20;
+        refittable_cargo_classes: bitmask(CC_PASSENGERS);
+        weight: 70;
+        reliability_decay: 12;
+        model_life: VEHICLE_NEVER_EXPIRES;
+        vehicle_life: 52;
+        cost_factor: 249;
+        running_cost_factor: 250;
+        running_cost_base: RUNNING_COST_STEAM;
+        badges: ["power/vactrain", "role/passenger"];
+    }
+    graphics {
+        additional_text:	string(STR_CONCAT_1,
+                                   string(STR_DESC_AIRSPEED, 800),
+        );
+        speed: switch_rocketmax_speed;
+        running_cost_factor: switch_rocketmax_cost;
+        can_attach_wagon: switch_can_attach_vehicle;
+        purchase: spriteset_rocketmax_purchase;
+        default: switch_rocketmax_cargo_head;
+        loading_speed: switch_loading_speed_mu;
+        cargo_capacity: switch_rocketmax_capacity;
+        purchase_cargo_capacity: switch_rocketmax_purchase_capacity;
+    }
+
+    livery_override(vactrain_wagon_pax) { // graphics for alternative look of passenger wagon when used with this engine
+        loading_speed: 20;
+        power: 15000;
+        weight: 70;
+        running_cost_factor: 90;
+        cargo_capacity: switch_rocketmax_capacity;
+        length: 8;
+        default: switch_rocketmax_cargo;
+    }
+    livery_override(vactrain_wagon_exp) { // graphics for alternative look of passenger wagon when used with this engine
+        loading_speed: 20;
+        power: 15000;
+        weight: 60;
+        running_cost_factor: 20;
+        cargo_capacity: switch_rocketmax_capacity;
+        length: 8;
+        default: switch_rocketmax_cargo;
+    }
+
+}
+
+item (FEAT_TRAINS, rocketmax_mail, 268) {
+    property {
+        sprite_id: SPRITE_ID_NEW_TRAIN;
+        misc_flags: bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_MU);
+        track_type: VACT;
+        name: string(STR_NAME_ROCKETMAX);
+        climates_available: ALL_CLIMATES;
+        introduction_date: date(param_starting_year+85,1,1);
+        speed: 4000 km/h;
+        air_drag_coefficient: 0;
+        power: 30000 hp;
+        dual_headed: 1;
+        engine_class: ENGINE_CLASS_MAGLEV;
+        cargo_capacity: 125;
+        loading_speed: 20;
+        refittable_cargo_classes: bitmask(CC_MAIL, CC_EXPRESS, CC_ARMOURED);
+        weight: 70;
+        reliability_decay: 12;
+        model_life: VEHICLE_NEVER_EXPIRES;
+        vehicle_life: 52;
+        cost_factor: 249;
+        running_cost_factor: 250;
+        running_cost_base: RUNNING_COST_STEAM;
+        variant_group: 168;
+        extra_flags: bitmask(VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
+        badges: ["power/vactrain", "role/express_freight"];
+    }
+    graphics {
+        additional_text:	string(STR_CONCAT_1,
+                                   string(STR_DESC_AIRSPEED, 800),
+        );
+        speed: switch_rocketmax_speed;
+        running_cost_factor: switch_rocketmax_cost;
+        can_attach_wagon: switch_can_attach_vehicle;
+        purchase: spriteset_rocketmax_mail_purchase;
+        default: switch_rocketmax_cargo_head;
+        loading_speed: switch_loading_speed_mu;
+        cargo_capacity: switch_rocketmax_capacity;
+        purchase_cargo_capacity: switch_rocketmax_purchase_capacity;
+    }
+
+    livery_override(vactrain_wagon_pax) { // graphics for alternative look of passenger wagon when used with this engine
+        loading_speed: 20;
+        power: 15000;
+        weight: 70;
+        running_cost_factor: 90;
+        cargo_capacity: switch_rocketmax_capacity;
+        length: 8;
+        default: switch_rocketmax_cargo;
+    }
+    livery_override(vactrain_wagon_exp) { // graphics for alternative look of passenger wagon when used with this engine
+        loading_speed: 20;
+        power: 15000;
+        weight: 60;
+        running_cost_factor: 20;
+        cargo_capacity: switch_rocketmax_capacity;
+        length: 8;
+        default: switch_rocketmax_cargo;
+    }
+
+}

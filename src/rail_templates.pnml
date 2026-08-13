@@ -1,0 +1,232 @@
+//NEW RAIL TEMPLATES
+//from Dutch Track Set
+
+//Overlay
+template template_overlay() {
+    //left_x, upper_y, width, height, offset_x, offset_y
+    [   1,    1,       63,    31,     -31,         0]
+    [  66,    1,       63,    31,     -31,         0]
+    [ 131,    1,       63,    31,     -31,         0]
+    [ 196,    1,       63,    31,     -31,         0]
+    [ 261,    1,       63,    31,     -31,         0]
+    [ 326,    1,       63,    31,     -31,         0]
+	//Slopes
+    [ 391,    1,       63,    38,     -31,        -8]
+    [ 456,    1,       63,    22,     -31,         0]
+	[ 521,    1,       63,    22,     -31,         0]
+    [ 586,    1,       63,    38,     -31,        -8]
+}
+
+//Underlay
+template template_underlay() {
+    //left_x, upper_y, width, height, offset_x, offset_y
+    [   1,    1,       63,    31,     -31,         0]
+    [  66,    1,       63,    31,     -31,         0]
+    [ 131,    1,       63,    31,     -32,         0]
+    [ 196,    1,       63,    31,     -31,         0]
+    [ 261,    1,       63,    31,     -31,         0]
+    [ 326,    1,       63,    31,     -31,         0]
+	//Slopes
+    [ 391,    1,       63,    38,     -31,        -8]
+    [ 456,    1,       63,    22,     -31,         0]
+	[ 521,    1,       63,    22,     -31,         0]
+    [ 586,    1,       63,    38,     -31,        -8]
+	//Crossings
+	[   1,   49,       63,    31,     -31,         0]
+	[  66,   49,       63,    31,     -31,         0]
+    [ 131,   49,       63,    31,     -31,         0]
+    [ 196,   49,       63,    31,     -31,         0]
+    [ 261,   49,       63,    31,     -31,         0]
+    [ 326,   49,       63,    31,     -31,         0]
+}
+
+//Tunnel
+template template_tunnel() {
+	//left_x, upper_y, width, height, offset_x, offset_y
+    [   3,    1,       63,    30,       -32,        0]
+    [  68,    1,       63,    30,       -31,        0]
+    [   3,   64,       63,    30,       -31,        0]
+    [  68,   64,       63,    30,       -30,        0]
+}
+
+//Bridge surface
+template template_bridge() {
+	//left_x, upper_y, width, height, offset_x, offset_y
+	[   1,    1,       64,    31,       -31,        0]
+	[  66,    1,       64,    31,       -31,        0]
+	//Slopes
+	[ 131,    1,       64,    39,       -31,       -8]
+	[ 196,    1,       64,    23,       -31,        0]
+	[ 261,    1,       64,    23,       -31,        0]
+	[ 326,    1,       64,    39,       -32,       -8]
+}
+
+//Level Crossing
+template template_crossing() {
+	//left_x, upper_y, width, height, offset_x, offset_y
+	[   1,    1,       64,    31,     -31,           0]
+	[  66,    1,       64,    31,     -31,           0]
+	[ 140,    1,       5,    16,        0,         -11]
+	[ 217,    1,       5,    16,       -5,          -9]
+	[ 140,    1,       5,    16,       -8,         -14]
+	[ 217,    1,       5,    16,       -8,         -10]
+	[ 140,    1,       5,    16,        6,         -14]
+	[ 217,    1,       5,    16,        5,         -14]
+	[ 140,    1,       5,    16,       -5,         -17]
+	[ 217,    1,       5,    16,        0,         -14]
+}
+
+
+// depot sprites without tracks
+template template_depot() {
+	//left_x, upper_y, width, height, offset_x, offset_y
+	[131,  1, 20,16,  11,   2]
+	[ 66,  1, 64,56,  -9, -41]
+	[131, 18, 20,16, -24,   2]
+	[  1,  1, 64,56, -53, -41]
+	[  1, 64, 64,56, -53, -41]
+	[ 66, 64, 64,56,  -9, -41]
+}
+
+//Vactrain "Poles"
+template template_pylons() {
+	[      1,       1,     14,     22,       -11, 	 -22]
+	[     17,       1,     14,     24,        -1, 	 -23]
+	[     33,       1,     14,     22,        -2, 	 -22]
+	[     49,       1,     14,     24,       -13, 	 -21]
+	[     65,       1,     4,      22,        0,  	 -21]
+	[     81,       1,     4,      28,        0,  	 -23]
+	[     97,       1,     14,     22, 	     -3,  	 -23]
+	[    113,       1,     14,     22,       -9, 	 -23]
+}
+
+
+//Vactrain Tubes
+template template_wires() {
+	[1, 	1,  64, 39, -47, -8]
+	[66, 	1,  64, 39, -15, -8]
+	[131, 	1,  64, 39, -15, -8]
+	[196, 	1,  64, 39, -47, -8]
+	[261, 	1,  64, 48, -46, -4]
+	[326, 	1,  64, 39, -17,  1]
+	[391, 	1,  64, 39, -47, -2]
+	[456, 	1,  64, 48, -18, -4]
+	[1, 	52, 64, 39, -47, -8]
+	[66, 	52, 64, 39, -15, -8]
+	[131, 	52, 64, 39, -15, -8]
+	[196, 	52, 64, 39, -47, -8]
+	[261, 	52, 64, 48, -46, -4]
+	[326, 	52, 64, 39, -17,  1]
+	[391, 	52, 64, 39, -47, -2]
+	[456, 	52, 64, 48, -18, -4]
+	[1,    104, 64, 39, -47, -8]
+	[66,   104, 64, 39, -15, -8]
+	[131,  104, 64, 39, -15, -8]
+	[196,  104, 64, 39, -47, -8]
+	[261,  104, 64, 48, -46, -4]
+	[326,  104, 64, 39, -17,  1]
+	[391,  104, 64, 39, -47, -2]
+	[456,  104, 64, 48, -18, -4]
+	[1,    156, 64, 39, -47, -8]
+	[66,   156, 64, 39, -17, -8]
+	[131,  156, 64, 39, -47, -8]
+	[196,  156, 64, 39, -15, -8]
+}
+
+// GUI icons
+template template_gui() {
+	[  0,  0, 20, 20, 0, 0]
+	[ 25,  0, 20, 20, 0, 0]
+	[ 50,  0, 20, 20, 0, 0]
+	[ 75,  0, 20, 20, 0, 0]
+	[100,  0, 20, 20, 0, 0]
+	[125,  0, 20, 20, 0, 0]
+	[150,  0, 20, 20, 0, 0]
+	[175,  0, 20, 20, 0, 0]
+	[200,  0, 32, 32, 0, 0]
+	[250,  0, 32, 32, 0, 0]
+	[300,  0, 32, 32, 0, 0]
+	[350,  0, 32, 32, 0, 0]
+	[400,  0, 32, 32, 0, 0]
+	[450,  0, 32, 32, 0, 0]
+	[500,  0, 32, 32, 0, 0]
+	[550,  0, 32, 32, 0, 0]
+}
+
+//spritesets for rails
+
+//Overlay Maglev
+spriteset(spriteset_fsmaglev_overlay,"gfx/tracks/overlay_mag.png") {
+	template_overlay()
+}
+
+//Underlay Maglev
+spriteset(spriteset_fsmaglev_underlay,"gfx/tracks/underlay_mag.png") {
+	template_underlay()
+}
+
+//Tunnel Maglev
+spriteset(spriteset_fsmaglev_tunnel,"gfx/tracks/tunnel_mag.png") {
+	template_tunnel()
+}
+
+//Bridge Maglev
+spriteset(spriteset_fsmaglev_bridge,"gfx/tracks/bridge_mag.png") {
+	template_bridge()
+}
+
+//Level Crossing Maglev
+spriteset(spriteset_fsmaglev_crossing_open,"gfx/tracks/levelcrossing.png") {
+	template_crossing()
+}
+
+spriteset(spriteset_fsmaglev_crossing_closed,"gfx/tracks/levelcrossing.png") {
+	template_crossing()
+}
+
+//Overlay Vactrain
+spriteset(spriteset_vactrain_overlay,"gfx/tracks/overlay_vac.png") {
+	template_overlay()
+}
+
+//Underlay Vactrain
+spriteset(spriteset_vactrain_underlay,"gfx/tracks/underlay_vac.png") {
+	template_underlay()
+}
+
+//Tunnel Vactrain
+spriteset(spriteset_vactrain_tunnel,"gfx/tracks/tunnel_vac.png") {
+	template_tunnel()
+}
+
+//Bridge Vactrain
+spriteset(spriteset_vactrain_bridge,"gfx/tracks/bridge_vac.png") {
+	template_bridge()
+}
+
+//Depot Vactrain
+spriteset(spriteset_vactrain_depot_normal,"gfx/tracks/depot_normal.png") {
+	template_depot()
+}
+
+spriteset(spriteset_vactrain_depot_snow,"gfx/tracks/depot_snow.png") {
+	template_depot()
+}
+
+//Vactrain "Catenary"
+
+spriteset(spriteset_vactrain_pylons,"gfx/tracks/poles-vactrain.png") {
+		template_pylons()
+}
+
+spriteset(spriteset_vactrain_tubes,"gfx/tracks/vactubes.png") {
+		template_wires()
+}
+
+//GUI for OpenGFX
+
+spriteset(spriteset_gui_opengfx, "gfx/tracks/gui_opengfx.png") {
+	template_gui()
+}
+
+//GUI for TTD --TODO--

@@ -1,0 +1,177 @@
+//RAILTYPES
+
+
+//depot snow thingy
+switch(FEAT_RAILTYPES, SELF, depot_snow_switch, terrain_type) {
+	TILETYPE_SNOW: spriteset_vactrain_depot_snow;
+	spriteset_vactrain_depot_normal;
+}
+
+//level crossing thingy
+switch(FEAT_RAILTYPES, SELF, switch_fsmaglev_crossing, level_crossing_status) {
+	LEVEL_CROSSING_CLOSED: spriteset_fsmaglev_crossing_closed;
+	spriteset_fsmaglev_crossing_open; //Default return
+}
+
+
+if(param_maglev_graphics && param_maglev_allow) {
+
+    item(FEAT_RAILTYPES) {
+        property {
+            label: "MGLV";
+            //        name: string(STR_VAC_NAME);
+            //        menu_text: string(STR_VAC_RAIL);
+            //        build_window_caption: string(STR_BUILD_CAPTION);
+            //        autoreplace_text: string(STR_AUTOREPLACE);
+            //        new_engine_text: string(STR_NEW_ENGINE);
+            compatible_railtype_list: ["VACT", "MGLV"];
+            powered_railtype_list:      ["VACT", "MGLV"];
+            //        railtype_flags: bitmask(RAILTYPE_FLAG_NO_LEVEL_CROSSING); //add param for level crossings allowed
+            //        station_graphics: RAILTYPE_STATION_MONORAIL;
+            //        construction_cost: 36;
+            //        maintenance_cost: 36;
+            //        speed_limit: 750 km/h;
+            //        acceleration_model: ACC_MODEL_MAGLEV;
+        }
+        graphics {
+            track_overlay: 		spriteset_fsmaglev_overlay;
+            underlay: 			spriteset_fsmaglev_underlay;
+            tunnels: 			spriteset_fsmaglev_tunnel;
+            bridge_surfaces: 	spriteset_fsmaglev_bridge;
+            level_crossings:	switch_fsmaglev_crossing;
+        }
+    }
+} else if(param_maglev_allow) {
+
+    item(FEAT_RAILTYPES) {
+        property {
+            label: "MGLV";
+            //        name: string(STR_VAC_NAME);
+            //        menu_text: string(STR_VAC_RAIL);
+            //        build_window_caption: string(STR_BUILD_CAPTION);
+            //        autoreplace_text: string(STR_AUTOREPLACE);
+            //        new_engine_text: string(STR_NEW_ENGINE);
+            compatible_railtype_list: ["VACT", "MGLV"];
+            powered_railtype_list:      ["VACT", "MGLV"];
+            //        railtype_flags: bitmask(RAILTYPE_FLAG_NO_LEVEL_CROSSING); //add param for level crossings allowed
+            //        station_graphics: RAILTYPE_STATION_MONORAIL;
+            //        construction_cost: 36;
+            //        maintenance_cost: 36;
+            //        speed_limit: 750 km/h;
+            //        acceleration_model: ACC_MODEL_MAGLEV;
+        }
+    }
+} else if(param_maglev_graphics) {
+
+    item(FEAT_RAILTYPES) {
+        property {
+            label: "MGLV";
+            //        name: string(STR_VAC_NAME);
+            //        menu_text: string(STR_VAC_RAIL);
+            //        build_window_caption: string(STR_BUILD_CAPTION);
+            //        autoreplace_text: string(STR_AUTOREPLACE);
+            //        new_engine_text: string(STR_NEW_ENGINE);
+            compatible_railtype_list: ["VACT", "MGLV"];
+            powered_railtype_list:      ["MGLV"];
+            //        railtype_flags: bitmask(RAILTYPE_FLAG_NO_LEVEL_CROSSING); //add param for level crossings allowed
+            //        station_graphics: RAILTYPE_STATION_MONORAIL;
+            //        construction_cost: 36;
+            //        maintenance_cost: 36;
+            //        speed_limit: 750 km/h;
+            //        acceleration_model: ACC_MODEL_MAGLEV;
+        }
+        graphics {
+            track_overlay: 		spriteset_fsmaglev_overlay;
+            underlay: 			spriteset_fsmaglev_underlay;
+            tunnels: 			spriteset_fsmaglev_tunnel;
+            bridge_surfaces: 	spriteset_fsmaglev_bridge;
+            level_crossings:	switch_fsmaglev_crossing;
+        }
+    }
+} else {
+
+    item(FEAT_RAILTYPES) {
+        property {
+            label: "MGLV";
+            //        name: string(STR_VAC_NAME);
+            //        menu_text: string(STR_VAC_RAIL);
+            //        build_window_caption: string(STR_BUILD_CAPTION);
+            //        autoreplace_text: string(STR_AUTOREPLACE);
+            //        new_engine_text: string(STR_NEW_ENGINE);
+            compatible_railtype_list: ["VACT", "MGLV"];
+            powered_railtype_list:      ["MGLV"];
+            //        railtype_flags: bitmask(RAILTYPE_FLAG_NO_LEVEL_CROSSING); //add param for level crossings allowed
+            //        station_graphics: RAILTYPE_STATION_MONORAIL;
+            //        construction_cost: 36;
+            //        maintenance_cost: 36;
+            //        speed_limit: 750 km/h;
+            //        acceleration_model: ACC_MODEL_MAGLEV;
+        }
+    }
+}
+
+if (param_vactrain_allow) {
+
+    item(FEAT_RAILTYPES) {
+        property {
+            label: "VACT";
+            name: string(STR_VAC_NAME);
+            menu_text: string(STR_VAC_RAIL);
+            build_window_caption: string(STR_BUILD_CAPTION);
+            toolbar_caption: string(STR_TOOLBAR_CAPTION);
+            autoreplace_text: string(STR_AUTOREPLACE);
+            new_engine_text: string(STR_NEW_ENGINE);
+            compatible_railtype_list: ["VACT", "MGLV", "TCAS", "TCAI", "TBAI", "LCAI", "LBAS", "TBAS"];
+            powered_railtype_list:      ["VACT", "MGLV", "TCAS", "TCAI", "TBAI", "LCAI", "LBAS", "TBAS"];
+            railtype_flags: bitmask(RAILTYPE_FLAG_CATENARY, RAILTYPE_FLAG_NO_LEVEL_CROSSING);
+            curve_speed_multiplier: 8;
+            station_graphics: RAILTYPE_STATION_MONORAIL;
+            construction_cost: 4000;
+            maintenance_cost: 200; //real pricey
+            speed_limit: 0 km/h;
+            acceleration_model: ACC_MODEL_MAGLEV;
+        }
+        graphics {
+            track_overlay: 		spriteset_vactrain_overlay;
+            underlay: 			spriteset_vactrain_underlay;
+            tunnels: 			spriteset_vactrain_tunnel;
+            bridge_surfaces: 	spriteset_vactrain_bridge;
+            catenary_wire: 		spriteset_vactrain_tubes;
+            catenary_pylons: 	spriteset_vactrain_pylons;
+            gui: 				spriteset_gui_opengfx;
+            depots: 			depot_snow_switch;
+        }
+    }
+} else {
+
+    item(FEAT_RAILTYPES) {
+        property {
+            label: "VACT";
+            name: string(STR_VAC_NAME);
+            menu_text: string(STR_VAC_RAIL);
+            build_window_caption: string(STR_BUILD_CAPTION);
+            toolbar_caption: string(STR_TOOLBAR_CAPTION);
+            autoreplace_text: string(STR_AUTOREPLACE);
+            new_engine_text: string(STR_NEW_ENGINE);
+            compatible_railtype_list: ["VACT"];
+            powered_railtype_list:      ["VACT"];
+            railtype_flags: bitmask(RAILTYPE_FLAG_CATENARY, RAILTYPE_FLAG_NO_LEVEL_CROSSING);
+            curve_speed_multiplier: 8;
+            station_graphics: RAILTYPE_STATION_MONORAIL;
+            construction_cost: 4000;
+            maintenance_cost: 200; //real pricey
+            speed_limit: 0 km/h;
+            acceleration_model: ACC_MODEL_MAGLEV;
+        }
+        graphics {
+            track_overlay: 		spriteset_vactrain_overlay;
+            underlay: 			spriteset_vactrain_underlay;
+            tunnels: 			spriteset_vactrain_tunnel;
+            bridge_surfaces: 	spriteset_vactrain_bridge;
+            catenary_wire: 		spriteset_vactrain_tubes;
+            catenary_pylons: 	spriteset_vactrain_pylons;
+            gui: 				spriteset_gui_opengfx;
+            depots: 			depot_snow_switch;
+        }
+    }
+}

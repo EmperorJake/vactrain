@@ -1,0 +1,61 @@
+//cobra
+spriteset(spriteset_cobra, "gfx/trains/cobra.png") {
+    template_2cc_std(1, 1)
+}
+
+spriteset(spriteset_cobra_purchase, "gfx/trains/cobra.png") {
+    template_purchase(1, 32)
+}
+
+//COBRA
+
+switch (FEAT_TRAINS, SELF, switch_cobra_cost, current_railtype) {
+    VACT: return 20;
+    MGLV: return 10;
+    CB_FAILED;
+}
+
+switch (FEAT_TRAINS, SELF, switch_cobra_speed, current_railtype) {
+    VACT: return switch_vactrain_speed_gen4;
+    MGLV: return 800;
+    CB_FAILED;
+}
+
+item (FEAT_TRAINS, cobra, 138) {
+    property {
+        sprite_id: SPRITE_ID_NEW_TRAIN;
+        misc_flags: bitmask(TRAIN_FLAG_2CC);
+        track_type: VACT;
+        name: string(STR_NAME_COBRA);
+        climates_available: ALL_CLIMATES;
+        introduction_date: date(param_starting_year+80,1,1);
+        speed: 2400 km/h;
+        //		tractive_effort_coefficient:    1;
+        air_drag_coefficient: 0;
+        power: 41000 hp;
+        dual_headed: 0;
+        engine_class: ENGINE_CLASS_MAGLEV;
+        cargo_capacity: 0;
+        refittable_cargo_classes: bitmask(CC_PASSENGERS);
+        weight: 39;
+        loading_speed: 20;
+        reliability_decay: 55;
+        model_life: 35;
+        vehicle_life: 20;
+        cost_factor: 82;
+        // running_cost_factor: 255;
+        running_cost_base: RUNNING_COST_STEAM;
+        badges: ["power/vactrain", "role/universal"];
+    }
+    graphics { // graphics for engine
+        additional_text:	string(STR_CONCAT_1,
+                                   string(STR_DESC_AIRSPEED, 800),
+        );
+        default: spriteset_cobra;
+        purchase: spriteset_cobra_purchase;
+        can_attach_wagon: switch_can_attach_vehicle;
+        speed: switch_cobra_speed;
+        running_cost_factor: switch_cobra_cost;
+    }
+
+}

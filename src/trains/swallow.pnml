@@ -1,0 +1,176 @@
+//Swallow
+
+spriteset(spriteset_swallow_pax_head, "gfx/trains/swallow.png") {
+	template_2cc_std(1, 1)
+}
+
+spriteset(spriteset_swallow_mail_head, "gfx/trains/swallow.png") {
+	template_2cc_std(1, 32)
+}
+
+spriteset(spriteset_swallow_pax, "gfx/trains/swallow.png") {
+	template_2cc_std(1, 64)
+}
+
+spriteset(spriteset_swallow_mail, "gfx/trains/swallow.png") {
+	template_2cc_std(1, 96)
+}
+
+
+spriteset(spriteset_swallow_purchase, "gfx/trains/swallow.png") {
+	template_purchase_dualheaded(1, 128)
+}
+
+spriteset(spriteset_swallow_mail_purchase, "gfx/trains/swallow.png") {
+    template_purchase_dualheaded(1, 160)
+}
+
+//SWALLOW
+
+
+switch (FEAT_TRAINS, SELF, switch_swallow_capacity, param_vehicle_capacity) {
+    0: return 64;
+    1: return 80;
+    2: return 96;
+}
+
+switch (FEAT_TRAINS, SELF, switch_swallow_purchase_capacity, param_vehicle_capacity) {
+    0: return 64-16;
+    1: return 80;
+    2: return 96+16;
+}
+
+//railtype speed switches
+switch (FEAT_TRAINS, SELF, switch_swallow_speed, current_railtype) {
+	VACT: return switch_vactrain_speed_gen1;
+	MGLV: return 160;
+	CB_FAILED;
+}
+
+switch (FEAT_TRAINS, SELF, switch_swallow_cost, current_railtype) {
+	VACT: return 72;
+	MGLV: return 16;
+	CB_FAILED;
+}
+
+//main item
+item (FEAT_TRAINS, swallow, 162) {
+    property {
+        sprite_id: SPRITE_ID_NEW_TRAIN;
+        misc_flags: bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_MU, TRAIN_FLAG_AUTOREFIT);
+        track_type: VACT;
+        name: string(STR_NAME_SWALLOW);
+        climates_available: ALL_CLIMATES;
+        introduction_date: date(param_starting_year+10,1,1);
+        speed: 1200 km/h;
+        air_drag_coefficient: 0;
+        power: 9000 hp;
+        dual_headed: 1;
+        engine_class: ENGINE_CLASS_MAGLEV;
+        cargo_capacity: 80;
+        loading_speed: 80;
+        refittable_cargo_classes: bitmask(CC_PASSENGERS);
+        weight: 50;
+        reliability_decay: 12;
+        model_life: VEHICLE_NEVER_EXPIRES;
+        vehicle_life: 48;
+        cost_factor: 90;
+        running_cost_factor: 230;
+        running_cost_base: RUNNING_COST_STEAM;
+        badges: ["power/vactrain", "role/passenger"];
+    }
+    graphics {
+        additional_text:	string(STR_CONCAT_1,
+                                   string(STR_DESC_AIRSPEED, 160),
+        );
+        speed: switch_swallow_speed;
+        running_cost_factor: switch_swallow_cost;
+        can_attach_wagon: switch_can_attach_vehicle;
+        purchase: spriteset_swallow_purchase;
+        default: spriteset_swallow_pax_head;
+        loading_speed: switch_loading_speed_mu;
+        cargo_capacity: switch_swallow_capacity;
+        purchase_cargo_capacity: switch_swallow_purchase_capacity;
+    }
+
+    livery_override(vactrain_wagon_pax) { // graphics for alternative look of passenger wagon when used with this engine
+        loading_speed: 80;
+        power: 4500;
+        weight: 50;
+        running_cost_factor: 80;
+        cargo_capacity: switch_swallow_capacity;
+        length: 8;
+        default: spriteset_swallow_pax;
+    }
+    livery_override(vactrain_wagon_exp) { // graphics for alternative look of passenger wagon when used with this engine
+        loading_speed: 80;
+        power: 4500;
+        weight: 40;
+        running_cost_factor: 20;
+        cargo_capacity: switch_swallow_capacity;
+        length: 8;
+        default: spriteset_swallow_mail;
+    }
+}
+
+item (FEAT_TRAINS, swallow_mail, 262) {
+    property {
+        sprite_id: SPRITE_ID_NEW_TRAIN;
+        misc_flags: bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_MU, TRAIN_FLAG_AUTOREFIT);
+        track_type: VACT;
+        name: string(STR_NAME_SWALLOW);
+        climates_available: ALL_CLIMATES;
+        introduction_date: date(param_starting_year+10,1,1);
+        speed: 1200 km/h;
+        air_drag_coefficient: 0;
+        power: 9000 hp;
+        dual_headed: 1;
+        engine_class: ENGINE_CLASS_MAGLEV;
+        cargo_capacity: 80;
+        loading_speed: 80;
+        refittable_cargo_classes: bitmask(CC_MAIL, CC_EXPRESS, CC_ARMOURED);
+        weight: 50;
+        reliability_decay: 12;
+        model_life: VEHICLE_NEVER_EXPIRES;
+        vehicle_life: 48;
+        cost_factor: 90;
+        running_cost_factor: 230;
+        running_cost_base: RUNNING_COST_STEAM;
+        variant_group: 162;
+        extra_flags: bitmask(VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
+        badges: ["power/vactrain", "role/express_freight"];
+    }
+    graphics {
+        additional_text:	string(STR_CONCAT_1,
+                                   string(STR_DESC_AIRSPEED, 160),
+        );
+        speed: switch_swallow_speed;
+        running_cost_factor: switch_swallow_cost;
+        can_attach_wagon: switch_can_attach_vehicle;
+        purchase: spriteset_swallow_mail_purchase;
+        default: spriteset_swallow_mail_head;
+        loading_speed: switch_loading_speed_mu;
+        cargo_capacity: switch_swallow_capacity;
+        purchase_cargo_capacity: switch_swallow_purchase_capacity;
+    }
+
+    livery_override(vactrain_wagon_pax) { // graphics for alternative look of passenger wagon when used with this engine
+        loading_speed: 80;
+        power: 4500;
+        weight: 50;
+        running_cost_factor: 80;
+        cargo_capacity: switch_swallow_capacity;
+        length: 8;
+        default: spriteset_swallow_pax;
+    }
+    livery_override(vactrain_wagon_exp) { // graphics for alternative look of passenger wagon when used with this engine
+        loading_speed: 80;
+        power: 4500;
+        weight: 40;
+        running_cost_factor: 20;
+        cargo_capacity: switch_swallow_capacity;
+        length: 8;
+        default: spriteset_swallow_mail;
+    }
+}
+

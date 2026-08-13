@@ -1,0 +1,86 @@
+//wagons
+
+spriteset(spriteset_wagon_powered_purchase, "gfx/trains/unitwagons.png") {
+	template_purchase(1, 64)
+}
+
+spriteset(spriteset_wagon_unpowered_purchase, "gfx/trains/unitwagons.png") {
+	template_purchase(1, 96)
+}
+
+
+spriteset(spriteset_wagon_powered_generic, "gfx/trains/unitwagons.png") {
+	template_2cc_std(1, 1)
+}
+
+spriteset(spriteset_wagon_unpowered_generic, "gfx/trains/unitwagons.png") {
+	template_2cc_std(1, 32)
+}
+
+
+
+spriteset(spriteset_wagon_exp_generic, "gfx/trains/unitwagons_cargo.png") {
+    template_2cc_std(1, 32)
+}
+
+spriteset(spriteset_wagon_exp_purchase, "gfx/trains/unitwagons_cargo.png") {
+    template_purchase(1, 96)
+}
+
+
+//Unit Wagons
+
+switch (FEAT_TRAINS, SELF, switch_wagon_pax_capacity, param_vehicle_capacity) {
+    0: return 48;
+    1: return 60;
+    2: return 72;
+}
+
+item (FEAT_TRAINS, vactrain_wagon_pax, 192) {
+    property {
+        sprite_id: SPRITE_ID_NEW_TRAIN;
+        misc_flags: bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_AUTOREFIT);
+        track_type: VACT;
+        name: string(STR_NAME_PAX_WAGON);
+        climates_available: ALL_CLIMATES;
+        introduction_date: date(param_starting_year,1,1);
+        power: 0;
+        cargo_capacity: 60;
+        refittable_cargo_classes: bitmask(CC_PASSENGERS);
+        weight: 50;
+        cost_factor: 85;
+        loading_speed: 20;
+        badges: ["power/vactrain", "role/passenger"];
+    }
+    graphics {
+//        purchase: spriteset_wagon_unpowered_purchase;
+        default: spriteset_wagon_unpowered_generic;
+        loading_speed: switch_loading_speed_mu;
+        cargo_capacity: switch_wagon_pax_capacity;
+    }
+}
+
+
+item (FEAT_TRAINS, vactrain_wagon_exp, 194) {
+    property {
+        sprite_id: SPRITE_ID_NEW_TRAIN;
+        misc_flags: bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_AUTOREFIT);
+        track_type: VACT;
+        name: string(STR_NAME_EXP_WAGON);
+        climates_available: ALL_CLIMATES;
+        introduction_date: date(param_starting_year,1,1);
+        power: 0;
+        cargo_capacity: 40;
+        refittable_cargo_classes: bitmask(CC_MAIL, CC_EXPRESS, CC_ARMOURED);
+        weight: 44;
+        loading_speed: 20;
+        cost_factor: 85;
+        badges: ["power/vactrain", "role/express_freight"];
+    }
+    graphics {
+//        purchase: spriteset_wagon_exp_purchase;
+        default: spriteset_wagon_exp_generic;
+        loading_speed: switch_loading_speed_mu;
+        cargo_capacity: switch_wagon_pax_capacity;
+    }
+}

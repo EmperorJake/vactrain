@@ -1,0 +1,115 @@
+/*
+ * ********************************************
+ * Parameter 1: Running Costs
+ * 0: Automatic (default)
+ * 1: 1/256
+ * 2: 1/128
+ * ...
+ * 9: 1
+ * ...
+ * 18: 256x
+ * in NML a value of 0 means: don't change the base costs
+ * ********************************************
+ */
+
+RUNNING_COST_MOD = (param_running_cost_mult == 0) ? 0 : param_running_cost_mult - 9;
+
+/*
+ * ********************************************
+ * Parameter 2: Purchase Costs
+ * 0: Automatic (default)
+ * 1: 1/256
+ * 2: 1/128
+ * ...
+ * 9: 1
+ * ...
+ * 18: 256x
+ * in NML a value of 0 means: don't change the base costs
+ * ********************************************
+ */
+
+PURCHASE_COST_MOD = (param_purchase_cost_mult == 0) ? 0 : param_purchase_cost_mult - 9;
+
+/*
+ * ********************************************
+ * Parameter 3: Build/Clear rail Costs
+ * 0: Automatic (default)
+ * 1: 1/256
+ * 2: 1/128
+ * ...
+ * 9: 1
+ * ...
+ * 18: 256x
+ * in NML a value of 0 means: don't change the base costs
+ * ********************************************
+ */
+
+RAIL_COST_MOD = (param_build_rail_cost_mult == 0) ? 0 : param_build_rail_cost_mult - 9;
+
+
+//Param 4 Maintenance cost
+
+MAINTENANCE_COST_MOD = (param_maintenance_cost_mult == 0) ? 0 : param_maintenance_cost_mult - 9;
+
+/*
+ * ********************************************
+ * Check NewGRFs and adjust base costs
+ * ********************************************
+ */
+
+// NARS2
+if (grf_future_status("\44\44\03\02") == 1) {
+    if (param_running_cost_mult == 0) { RUNNING_COST_MOD = 2; }
+    if (param_purchase_cost_mult == 0) { PURCHASE_COST_MOD = 0; }
+}
+
+// UKRS2
+if (grf_future_status("\44\44\01\11") == 1) {
+    if (param_running_cost_mult == 0) { RUNNING_COST_MOD = 2; }
+    if (param_purchase_cost_mult == 0) { PURCHASE_COST_MOD = 0; }
+}
+
+//Tropical refurbishment set
+if (grf_future_status("\44\44\40\40") == 1) {
+    if (param_running_cost_mult == 0) { RUNNING_COST_MOD = 2; }
+    if (param_purchase_cost_mult == 0) { PURCHASE_COST_MOD = 0; }
+}
+
+//2ccTrainset
+if (grf_future_status("\54\4D\01\01") == 1) {
+    if (param_running_cost_mult == 0) { RUNNING_COST_MOD = 3 + param["\54\4D\01\01", 1] - 2; }
+    if (param_purchase_cost_mult == 0) { PURCHASE_COST_MOD = 2 + param["\54\4D\01\01", 0] - 2; }
+}
+
+//Japanese Trainset
+if (grf_future_status("\53\5A\0D\00") == 1) {
+    if (param_running_cost_mult == 0) { RUNNING_COST_MOD = 1; }
+    if (param_purchase_cost_mult == 0) { PURCHASE_COST_MOD = 0; }
+}
+
+// Swedish Trainset
+if (grf_future_status("\41\49\00\06") == 1) {
+    if (param_running_cost_mult == 0) { RUNNING_COST_MOD = 0; }
+    if (param_purchase_cost_mult == 0) { PURCHASE_COST_MOD = 1; }
+}
+
+//Dutch Trainset - dunno if this works
+if (grf_future_status("\FB\FB\06\01") == 1) {
+    if (param_running_cost_mult == 0) { RUNNING_COST_MOD = 3 + param["\FB\FB\06\01", 3] - 2; }
+    if (param_purchase_cost_mult == 0) { PURCHASE_COST_MOD = 2 + param["\FB\FB\06\01", 2] - 2; }
+}
+
+
+param[30] = RUNNING_COST_MOD;
+param[31] = PURCHASE_COST_MOD;
+param[32] = RAIL_COST_MOD;
+param[33] = MAINTENANCE_COST_MOD;
+
+basecost {
+ PR_RUNNING_TRAIN_STEAM: param[30] + 4;
+ PR_BUILD_VEHICLE_TRAIN: param[31] + 3;
+ PR_BUILD_VEHICLE_WAGON: param[31] + 8;
+ PR_BUILD_RAIL: param[32];
+ PR_CLEAR_RAIL: param[32];
+ PR_MAINTENANCE_RAIL: param[33];
+}

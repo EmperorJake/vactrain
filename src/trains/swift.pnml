@@ -1,0 +1,63 @@
+//Swift
+
+spriteset(spriteset_swift, "gfx/trains/swift.png") {
+	template_2cc_std(1, 1)
+}
+
+spriteset(spriteset_swift_purchase, "gfx/trains/swift.png") {
+	template_purchase(1, 32)
+}
+
+//SWIFT
+
+switch (FEAT_TRAINS, SELF, switch_swift_cost, current_railtype) {
+	VACT: return 20;
+	MGLV: return 10;
+	CB_FAILED;
+}
+
+switch (FEAT_TRAINS, SELF, switch_swift_speed, current_railtype) {
+	VACT: return switch_vactrain_speed_gen1;
+    return 320;
+}
+
+
+item (FEAT_TRAINS, swift, 132) {
+    property {
+        sprite_id: SPRITE_ID_NEW_TRAIN;
+        misc_flags: bitmask(TRAIN_FLAG_2CC);
+        track_type: VACT;
+        name: string(STR_NAME_SWIFT);
+        climates_available: ALL_CLIMATES;
+        introduction_date: date(param_starting_year+5,1,1);
+        speed: 2400 km/h;
+        //		tractive_effort_coefficient:    1;
+        air_drag_coefficient: 0;
+        power: 8000 hp;
+        dual_headed: 0;
+        engine_class: ENGINE_CLASS_MAGLEV;
+        cargo_capacity: 0;
+        refittable_cargo_classes: bitmask(CC_PASSENGERS);
+        weight: 39;
+        loading_speed: 20;
+        reliability_decay: 55;
+        model_life: 35;
+        vehicle_life: 20;
+        cost_factor: 82;
+        // running_cost_factor: 255;
+        running_cost_base: RUNNING_COST_STEAM;
+        badges: ["power/vactrain", "role/universal"];
+    }
+    graphics { // graphics for engine
+        additional_text:	string(STR_CONCAT_1,
+                                   string(STR_DESC_AIRSPEED, 320),
+                                   );
+        default: spriteset_swift;
+        purchase: spriteset_swift_purchase;
+        can_attach_wagon: switch_can_attach_vehicle;
+        speed: switch_swift_speed;
+        running_cost_factor: switch_swift_cost;
+        sound_effect: switch_vactrain_sound;
+    }
+
+}

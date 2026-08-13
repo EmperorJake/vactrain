@@ -1,5 +1,5 @@
 /*
-This is a NewGRF which adds a Vacuum Tube Railtype, and some trains to go with it, to OpenTTD. 
+This is a NewGRF which adds a Vacuum Tube Railtype, and some trains to go with it, to OpenTTD.
 
 Code by Emperor Jake, using parts from code by Terkhen, planetmaker, Transportman, FooBar, WORD559 and possibly others
 
@@ -10,11 +10,11 @@ grf {
  grfid: "\4A\4B\59\01";
  name: string(STR_GRF_NAME);
  desc: string(STR_GRF_DESCRIPTION);
- version: 140;
+ version: 150;
  min_compatible_version: 140;
 
 
- 
+
     param {
         param_starting_year {
             type: int;
@@ -222,9 +222,22 @@ grf {
 
 }
 
+//train look nice thing
+traininfo_y_offset = 2;
+train_width_32_px = 1;
+
+/*
+ * deactivate outdated vactrain grfs
+ *
+ * 444A5901 original vactrain set
+ * 444A5902 vacuum vehicule [sic] wagon
+ * 444A5903 vactrain set fork
+ * 42533033 Brianum vacuum monorail tube
+ * 42533034 Brianum vacuum monorail trains
+ */
 
 
-
+deactivate("\44\4A\59\01",  "\44\4A\59\02", "\44\4A\59\03", "\42\53\30\33", "\42\53\30\34");
 /*
  * ********************************************
  * Parameter 1: Running Costs
@@ -302,7 +315,7 @@ if (grf_future_status("\44\44\40\40") == 1) {
     if (param_purchase_cost_mult == 0) { PURCHASE_COST_MOD = 0; }
 }
 
-//2ccTrainset 
+//2ccTrainset
 if (grf_future_status("\54\4D\01\01") == 1) {
     if (param_running_cost_mult == 0) { RUNNING_COST_MOD = 3 + param["\54\4D\01\01", 1] - 2; }
     if (param_purchase_cost_mult == 0) { PURCHASE_COST_MOD = 2 + param["\54\4D\01\01", 0] - 2; }
@@ -340,11 +353,8 @@ basecost {
  PR_CLEAR_RAIL: param[32];
  PR_MAINTENANCE_RAIL: param[33];
 }
-
-//table things
-
 railtypetable {
- MGLV, VACT, TCAS, TCAI, TBAI, LCAI, LBAS, TBAS
+	MGLV, VACT, TCAS, TCAI, TBAI, LCAI, LBAS, TBAS
 }
 
 cargotable {
@@ -371,263 +381,6 @@ cargotable {
     //MISC
     NUKF, NUKW, NWST, YETI, YETY
 }
-
-
-//train look nice thing
-traininfo_y_offset = 2;
-train_width_32_px = 1;
-
-
-/*
- * deactivate outdated vactrain grfs
- *
- * 444A5901 original vactrain set
- * 444A5902 vacuum vehicule [sic] wagon
- * 444A5903 vactrain set fork
- * 42533033 Brianum vacuum monorail tube
- * 42533034 Brianum vacuum monorail trains
- */
-
-
-deactivate("\44\4A\59\01",  "\44\4A\59\02", "\44\4A\59\03", "\42\53\30\33", "\42\53\30\34");
-
-//NEW RAIL TEMPLATES
-//from Dutch Track Set
-
-//Overlay
-template template_overlay() {
-    //left_x, upper_y, width, height, offset_x, offset_y
-    [   1,    1,       63,    31,     -31,         0]
-    [  66,    1,       63,    31,     -31,         0]
-    [ 131,    1,       63,    31,     -31,         0]
-    [ 196,    1,       63,    31,     -31,         0]
-    [ 261,    1,       63,    31,     -31,         0]
-    [ 326,    1,       63,    31,     -31,         0]
-	//Slopes
-    [ 391,    1,       63,    38,     -31,        -8]
-    [ 456,    1,       63,    22,     -31,         0]
-	[ 521,    1,       63,    22,     -31,         0]
-    [ 586,    1,       63,    38,     -31,        -8]
-}
-
-//Underlay	
-template template_underlay() {
-    //left_x, upper_y, width, height, offset_x, offset_y
-    [   1,    1,       63,    31,     -31,         0]
-    [  66,    1,       63,    31,     -31,         0]
-    [ 131,    1,       63,    31,     -32,         0]
-    [ 196,    1,       63,    31,     -31,         0]
-    [ 261,    1,       63,    31,     -31,         0]
-    [ 326,    1,       63,    31,     -31,         0]
-	//Slopes
-    [ 391,    1,       63,    38,     -31,        -8]
-    [ 456,    1,       63,    22,     -31,         0]
-	[ 521,    1,       63,    22,     -31,         0]
-    [ 586,    1,       63,    38,     -31,        -8]
-	//Crossings
-	[   1,   49,       63,    31,     -31,         0]
-	[  66,   49,       63,    31,     -31,         0]
-    [ 131,   49,       63,    31,     -31,         0]
-    [ 196,   49,       63,    31,     -31,         0]
-    [ 261,   49,       63,    31,     -31,         0]
-    [ 326,   49,       63,    31,     -31,         0]
-}
-
-//Tunnel
-template template_tunnel() {
-	//left_x, upper_y, width, height, offset_x, offset_y
-    [   3,    1,       63,    30,       -32,        0]
-    [  68,    1,       63,    30,       -31,        0]
-    [   3,   64,       63,    30,       -31,        0]
-    [  68,   64,       63,    30,       -30,        0]
-}
-
-//Bridge surface
-template template_bridge() {
-	//left_x, upper_y, width, height, offset_x, offset_y
-	[   1,    1,       64,    31,       -31,        0]
-	[  66,    1,       64,    31,       -31,        0]
-	//Slopes
-	[ 131,    1,       64,    39,       -31,       -8]
-	[ 196,    1,       64,    23,       -31,        0]
-	[ 261,    1,       64,    23,       -31,        0]
-	[ 326,    1,       64,    39,       -32,       -8]
-}
-
-//Level Crossing
-template template_crossing() {
-	//left_x, upper_y, width, height, offset_x, offset_y
-	[   1,    1,       64,    31,     -31,           0]
-	[  66,    1,       64,    31,     -31,           0]
-	[ 140,    1,       5,    16,        0,         -11]
-	[ 217,    1,       5,    16,       -5,          -9]
-	[ 140,    1,       5,    16,       -8,         -14]
-	[ 217,    1,       5,    16,       -8,         -10]
-	[ 140,    1,       5,    16,        6,         -14]
-	[ 217,    1,       5,    16,        5,         -14]
-	[ 140,    1,       5,    16,       -5,         -17]
-	[ 217,    1,       5,    16,        0,         -14]
-}
-
-
-// depot sprites without tracks
-template template_depot() {
-	//left_x, upper_y, width, height, offset_x, offset_y
-	[131,  1, 20,16,  11,   2]
-	[ 66,  1, 64,56,  -9, -41]
-	[131, 18, 20,16, -24,   2]
-	[  1,  1, 64,56, -53, -41]
-	[  1, 64, 64,56, -53, -41]
-	[ 66, 64, 64,56,  -9, -41]
-}
-
-//Vactrain "Poles"
-template template_pylons() {
-	[      1,       1,     14,     22,       -11, 	 -22]
-	[     17,       1,     14,     24,        -1, 	 -23]
-	[     33,       1,     14,     22,        -2, 	 -22]
-	[     49,       1,     14,     24,       -13, 	 -21]
-	[     65,       1,     4,      22,        0,  	 -21]
-	[     81,       1,     4,      28,        0,  	 -23]
-	[     97,       1,     14,     22, 	     -3,  	 -23]
-	[    113,       1,     14,     22,       -9, 	 -23]
-}
-
-
-//Vactrain Tubes
-template template_wires() {
-	[1, 	1,  64, 39, -47, -8]
-	[66, 	1,  64, 39, -15, -8]
-	[131, 	1,  64, 39, -15, -8]
-	[196, 	1,  64, 39, -47, -8]
-	[261, 	1,  64, 48, -46, -4]
-	[326, 	1,  64, 39, -17,  1]
-	[391, 	1,  64, 39, -47, -2]
-	[456, 	1,  64, 48, -18, -4]
-	[1, 	52, 64, 39, -47, -8]
-	[66, 	52, 64, 39, -15, -8]
-	[131, 	52, 64, 39, -15, -8]
-	[196, 	52, 64, 39, -47, -8]
-	[261, 	52, 64, 48, -46, -4]
-	[326, 	52, 64, 39, -17,  1]
-	[391, 	52, 64, 39, -47, -2]
-	[456, 	52, 64, 48, -18, -4]
-	[1,    104, 64, 39, -47, -8]
-	[66,   104, 64, 39, -15, -8]
-	[131,  104, 64, 39, -15, -8]
-	[196,  104, 64, 39, -47, -8]
-	[261,  104, 64, 48, -46, -4]
-	[326,  104, 64, 39, -17,  1]
-	[391,  104, 64, 39, -47, -2]
-	[456,  104, 64, 48, -18, -4]
-	[1,    156, 64, 39, -47, -8]
-	[66,   156, 64, 39, -17, -8]
-	[131,  156, 64, 39, -47, -8]
-	[196,  156, 64, 39, -15, -8]
-}
-
-// GUI icons
-template template_gui() {
-	[  0,  0, 20, 20, 0, 0]
-	[ 25,  0, 20, 20, 0, 0]
-	[ 50,  0, 20, 20, 0, 0]
-	[ 75,  0, 20, 20, 0, 0]
-	[100,  0, 20, 20, 0, 0]
-	[125,  0, 20, 20, 0, 0]
-	[150,  0, 20, 20, 0, 0]
-	[175,  0, 20, 20, 0, 0]
-	[200,  0, 32, 32, 0, 0]
-	[250,  0, 32, 32, 0, 0]
-	[300,  0, 32, 32, 0, 0]
-	[350,  0, 32, 32, 0, 0]
-	[400,  0, 32, 32, 0, 0]
-	[450,  0, 32, 32, 0, 0]
-	[500,  0, 32, 32, 0, 0]
-	[550,  0, 32, 32, 0, 0]
-}
-
-
-
-
-//spritesets for rails
-
-//Overlay Maglev
-spriteset(spriteset_fsmaglev_overlay,"gfx/tracks/overlay_mag.png") {
-	template_overlay()
-}
-
-//Underlay Maglev
-spriteset(spriteset_fsmaglev_underlay,"gfx/tracks/underlay_mag.png") {
-	template_underlay()
-}
-
-//Tunnel Maglev
-spriteset(spriteset_fsmaglev_tunnel,"gfx/tracks/tunnel_mag.png") {
-	template_tunnel()
-}
-
-//Bridge Maglev
-spriteset(spriteset_fsmaglev_bridge,"gfx/tracks/bridge_mag.png") {
-	template_bridge()
-}
-
-//Level Crossing Maglev
-spriteset(spriteset_fsmaglev_crossing_open,"gfx/tracks/levelcrossing.png") {
-	template_crossing()
-}
-
-spriteset(spriteset_fsmaglev_crossing_closed,"gfx/tracks/levelcrossing.png") {
-	template_crossing()
-}
-
-//Overlay Vactrain
-spriteset(spriteset_vactrain_overlay,"gfx/tracks/overlay_vac.png") {
-	template_overlay()
-}
-
-//Underlay Vactrain
-spriteset(spriteset_vactrain_underlay,"gfx/tracks/underlay_vac.png") {
-	template_underlay()
-}
-
-//Tunnel Vactrain
-spriteset(spriteset_vactrain_tunnel,"gfx/tracks/tunnel_vac.png") {
-	template_tunnel()
-}
-
-//Bridge Vactrain
-spriteset(spriteset_vactrain_bridge,"gfx/tracks/bridge_vac.png") {
-	template_bridge()
-}
-
-//Depot Vactrain
-spriteset(spriteset_vactrain_depot_normal,"gfx/tracks/depot_normal.png") {
-	template_depot()
-}
-
-spriteset(spriteset_vactrain_depot_snow,"gfx/tracks/depot_snow.png") {
-	template_depot()
-}
-
-//Vactrain "Catenary"
-
-spriteset(spriteset_vactrain_pylons,"gfx/tracks/poles-vactrain.png") {
-		template_pylons()
-}
-
-spriteset(spriteset_vactrain_tubes,"gfx/tracks/vactubes.png") {
-		template_wires()
-}
-
-//GUI for OpenGFX
-
-spriteset(spriteset_gui_opengfx, "gfx/tracks/gui_opengfx.png") {
-	template_gui()
-}
-
-//GUI for TTD --TODO--
-
-
 //BULK  Recolour sprites for cargo
 
 recolour_bulk = reserve_sprites(27);
@@ -1276,10 +1029,79 @@ switch(FEAT_TRAINS, SELF, switch_generic_recolour, cargo_classes) {
     switch_piece_recolour;
 
 }
+//Attachment Rules
+
+
+switch(FEAT_TRAINS, PARENT, switch_can_attach_nothing, [STORE_TEMP(position_in_consist_from_end, 0x10F), var[0x61, 0, 0x0000FFFF, 0xC6]]) {
+	string(STR_ERROR_SINGLE_ONLY);
+}
+
+switch(FEAT_TRAINS, PARENT, switch_can_attach_self, [STORE_TEMP(position_in_consist_from_end, 0x10F), var[0x61, 0, 0x0000FFFF, 0xC6]]) {
+	146: CB_RESULT_ATTACH_ALLOW_IF_RAILTYPES;
+    string(STR_ERROR_SELF_ONLY);
+}
+
+switch(FEAT_TRAINS, PARENT, switch_can_attach_unit_pax, [STORE_TEMP(position_in_consist_from_end, 0x10F), var[0x61, 0, 0x0000FFFF, 0xC6]]) {
+	142: string(STR_ERROR_NO_WAGONS);
+	146: string(STR_ERROR_NO_WAGONS);
+	CB_RESULT_ATTACH_ALLOW_IF_RAILTYPES;
+}
+
+switch(FEAT_TRAINS, PARENT, switch_can_attach_unit_cargo, [STORE_TEMP(position_in_consist_from_end, 0x10F), var[0x61, 0, 0x0000FFFF, 0xC6]]) {
+	142: string(STR_ERROR_NO_WAGONS);
+	146: string(STR_ERROR_NO_WAGONS);
+	150..179: string(STR_ERROR_MUWAG_ONLY);
+    250..279: string(STR_ERROR_MUWAG_ONLY);
+	CB_RESULT_ATTACH_ALLOW_IF_RAILTYPES;
+}
+
+//switch for wagon type
+switch(FEAT_TRAINS, SELF, switch_can_attach_vehicle, vehicle_type_id) {
+//	142: switch_can_attach_nothing;
+//	146: switch_can_attach_self;
+//	150..179: switch_can_attach_unit_pax;
+//	180..190: switch_can_attach_unit_cargo;
+//	192..194: switch_can_attach_unit_pax;
+//	196..198: switch_can_attach_unit_cargo;
+	CB_RESULT_ATTACH_ALLOW_IF_RAILTYPES;
+}
+
+
+//loading speed switch
+
+switch(FEAT_TRAINS, SELF, switch_loading_speed_mu, param_loading_speed) {
+    0: return 10;
+    1: return 50;
+    2: return 100;
+}
+
+//speed switches
+
+switch(FEAT_TRAINS, SELF, switch_vactrain_speed_gen1, max_speed) {
+    return 800 + ((param_vactrain_speed - 800) / 8);
+}
+
+switch(FEAT_TRAINS, SELF, switch_vactrain_speed_gen2, max_speed) {
+    return 800 + ((param_vactrain_speed - 800) / 4);
+}
+
+switch(FEAT_TRAINS, SELF, switch_vactrain_speed_gen3, max_speed) {
+    return 800 + ((param_vactrain_speed - 800) / 2);
+}
+
+switch(FEAT_TRAINS, SELF, switch_vactrain_speed_gen4, max_speed) {
+    return param_vactrain_speed;
+}
+
+
+//sound switch
 
 
 
-
+switch(FEAT_TRAINS, SELF, switch_vactrain_sound, getbits(extra_callback_info1, 0, 8)) {
+    SOUND_EVENT_START: return sound("gfx/wav/vactrain1.wav");
+    SOUND_EVENT_TUNNEL: return CB_RESULT_NO_SOUND;
+}
 //VEHICLE TEMPLATES
 
 template template_2cc_std(x, y) {
@@ -1335,809 +1157,238 @@ template template_badge(x, y) {
     //[left_x, upper_y, width, height, offset_x, offset_y]
     [x, y,  12, 12, 0, 0]
 }
+//NEW RAIL TEMPLATES
+//from Dutch Track Set
+
+//Overlay
+template template_overlay() {
+    //left_x, upper_y, width, height, offset_x, offset_y
+    [   1,    1,       63,    31,     -31,         0]
+    [  66,    1,       63,    31,     -31,         0]
+    [ 131,    1,       63,    31,     -31,         0]
+    [ 196,    1,       63,    31,     -31,         0]
+    [ 261,    1,       63,    31,     -31,         0]
+    [ 326,    1,       63,    31,     -31,         0]
+	//Slopes
+    [ 391,    1,       63,    38,     -31,        -8]
+    [ 456,    1,       63,    22,     -31,         0]
+	[ 521,    1,       63,    22,     -31,         0]
+    [ 586,    1,       63,    38,     -31,        -8]
+}
+
+//Underlay
+template template_underlay() {
+    //left_x, upper_y, width, height, offset_x, offset_y
+    [   1,    1,       63,    31,     -31,         0]
+    [  66,    1,       63,    31,     -31,         0]
+    [ 131,    1,       63,    31,     -32,         0]
+    [ 196,    1,       63,    31,     -31,         0]
+    [ 261,    1,       63,    31,     -31,         0]
+    [ 326,    1,       63,    31,     -31,         0]
+	//Slopes
+    [ 391,    1,       63,    38,     -31,        -8]
+    [ 456,    1,       63,    22,     -31,         0]
+	[ 521,    1,       63,    22,     -31,         0]
+    [ 586,    1,       63,    38,     -31,        -8]
+	//Crossings
+	[   1,   49,       63,    31,     -31,         0]
+	[  66,   49,       63,    31,     -31,         0]
+    [ 131,   49,       63,    31,     -31,         0]
+    [ 196,   49,       63,    31,     -31,         0]
+    [ 261,   49,       63,    31,     -31,         0]
+    [ 326,   49,       63,    31,     -31,         0]
+}
+
+//Tunnel
+template template_tunnel() {
+	//left_x, upper_y, width, height, offset_x, offset_y
+    [   3,    1,       63,    30,       -32,        0]
+    [  68,    1,       63,    30,       -31,        0]
+    [   3,   64,       63,    30,       -31,        0]
+    [  68,   64,       63,    30,       -30,        0]
+}
+
+//Bridge surface
+template template_bridge() {
+	//left_x, upper_y, width, height, offset_x, offset_y
+	[   1,    1,       64,    31,       -31,        0]
+	[  66,    1,       64,    31,       -31,        0]
+	//Slopes
+	[ 131,    1,       64,    39,       -31,       -8]
+	[ 196,    1,       64,    23,       -31,        0]
+	[ 261,    1,       64,    23,       -31,        0]
+	[ 326,    1,       64,    39,       -32,       -8]
+}
+
+//Level Crossing
+template template_crossing() {
+	//left_x, upper_y, width, height, offset_x, offset_y
+	[   1,    1,       64,    31,     -31,           0]
+	[  66,    1,       64,    31,     -31,           0]
+	[ 140,    1,       5,    16,        0,         -11]
+	[ 217,    1,       5,    16,       -5,          -9]
+	[ 140,    1,       5,    16,       -8,         -14]
+	[ 217,    1,       5,    16,       -8,         -10]
+	[ 140,    1,       5,    16,        6,         -14]
+	[ 217,    1,       5,    16,        5,         -14]
+	[ 140,    1,       5,    16,       -5,         -17]
+	[ 217,    1,       5,    16,        0,         -14]
+}
+
+
+// depot sprites without tracks
+template template_depot() {
+	//left_x, upper_y, width, height, offset_x, offset_y
+	[131,  1, 20,16,  11,   2]
+	[ 66,  1, 64,56,  -9, -41]
+	[131, 18, 20,16, -24,   2]
+	[  1,  1, 64,56, -53, -41]
+	[  1, 64, 64,56, -53, -41]
+	[ 66, 64, 64,56,  -9, -41]
+}
+
+//Vactrain "Poles"
+template template_pylons() {
+	[      1,       1,     14,     22,       -11, 	 -22]
+	[     17,       1,     14,     24,        -1, 	 -23]
+	[     33,       1,     14,     22,        -2, 	 -22]
+	[     49,       1,     14,     24,       -13, 	 -21]
+	[     65,       1,     4,      22,        0,  	 -21]
+	[     81,       1,     4,      28,        0,  	 -23]
+	[     97,       1,     14,     22, 	     -3,  	 -23]
+	[    113,       1,     14,     22,       -9, 	 -23]
+}
 
-//VEHICLE SPRITESETS
 
-//scarab
-
-spriteset(spriteset_scarab_front, "gfx/trains/scarab.png") {
-	template_2cc_std(1, 1)
-}
-
-spriteset(spriteset_scarab_rear, "gfx/trains/scarab.png") {
-    template_2cc_std(1, 32)
-}
-
-spriteset(spriteset_scarab_pax, "gfx/trains/scarab.png") {
-    template_2cc_std(1, 64)
-}
-
-spriteset(spriteset_scarab_mail, "gfx/trains/scarab.png") {
-    template_2cc_std(1, 96)
-}
-
-spriteset(spriteset_scarab_purchase, "gfx/trains/scarab.png") {
-	template_purchase_dualheaded(1, 128)
-}
-
-spriteset(spriteset_scarab_single_purchase, "gfx/trains/scarab.png") {
-    template_purchase(1, 160)
-}
-
-
-//Swift
-
-spriteset(spriteset_swift, "gfx/trains/swift.png") {
-	template_2cc_std(1, 1)
-}
-
-spriteset(spriteset_swift_purchase, "gfx/trains/swift.png") {
-	template_purchase(1, 32)
-}
-
-
-//cobra
-spriteset(spriteset_cobra, "gfx/trains/cobra.png") {
-    template_2cc_std(1, 1)
-}
-
-spriteset(spriteset_cobra_purchase, "gfx/trains/cobra.png") {
-    template_purchase(1, 32)
-}
-
-//Swallow
-
-spriteset(spriteset_swallow_pax_head, "gfx/trains/swallow.png") {
-	template_2cc_std(1, 1)
-}
-
-spriteset(spriteset_swallow_mail_head, "gfx/trains/swallow.png") {
-	template_2cc_std(1, 32)
-}
-
-spriteset(spriteset_swallow_pax, "gfx/trains/swallow.png") {
-	template_2cc_std(1, 64)
-}
-
-spriteset(spriteset_swallow_mail, "gfx/trains/swallow.png") {
-	template_2cc_std(1, 96)
-}
-
-
-spriteset(spriteset_swallow_purchase, "gfx/trains/swallow.png") {
-	template_purchase_dualheaded(1, 128)
-}
-
-spriteset(spriteset_swallow_mail_purchase, "gfx/trains/swallow.png") {
-    template_purchase_dualheaded(1, 160)
-}
-
-//Cheetah
-
-spriteset(spriteset_cheetah_pax_head, "gfx/trains/cheetah.png") {
-	template_2cc_std(1, 1)
-}
-
-spriteset(spriteset_cheetah_mail_head, "gfx/trains/cheetah.png") {
-	template_2cc_std(1, 32)
-}
-
-spriteset(spriteset_cheetah_pax, "gfx/trains/cheetah.png") {
-	template_2cc_std(1, 64)
-}
-
-spriteset(spriteset_cheetah_mail, "gfx/trains/cheetah.png") {
-	template_2cc_std(1, 96)
-}
-
-
-spriteset(spriteset_cheetah_purchase, "gfx/trains/cheetah.png") {
-	template_purchase_dualheaded(1, 128)
-}
-
-spriteset(spriteset_cheetah_mail_purchase, "gfx/trains/cheetah.png") {
-    template_purchase_dualheaded(1, 160)
-}
-
-
-//bison
-
-spriteset(spriteset_bison_pax_head, "gfx/trains/bison.png") {
-	template_2cc_std(1, 1)
-}
-
-spriteset(spriteset_bison_mail_head, "gfx/trains/bison.png") {
-	template_2cc_std(1, 32)
-}
-
-spriteset(spriteset_bison_pax, "gfx/trains/bison.png") {
-	template_2cc_std(1, 64)
-}
-
-spriteset(spriteset_bison_mail, "gfx/trains/bison.png") {
-	template_2cc_std(1, 96)
-}
-
-spriteset(spriteset_bison_purchase, "gfx/trains/bison.png") {
-    template_purchase_dualheaded(1, 128)
-}
-
-spriteset(spriteset_bison_mail_purchase, "gfx/trains/bison.png") {
-	template_purchase_dualheaded(1, 160)
-}
-
-
-
-//Crossley
-spriteset(spriteset_crossley_front, "gfx/trains/crossley.png") {
-	template_2cc_std(1, 1)
-}
-
-spriteset(spriteset_crossley_rear, "gfx/trains/crossley.png") {
-	template_2cc_std(1, 32)
-}
-
-spriteset(spriteset_crossley_pax, "gfx/trains/crossley.png") {
-	template_2cc_std(1, 64)
-}
-
-spriteset(spriteset_crossley_mail, "gfx/trains/crossley.png") {
-	template_2cc_std(1, 96)
-}
-
-
-spriteset(spriteset_crossley_purchase, "gfx/trains/crossley.png") {
-	template_purchase_dualheaded(1, 128)
-}
-
-
-spriteset(spriteset_crossley_mail_front, "gfx/trains/crossley_mail.png") {
-    template_2cc_std(1, 1)
-}
-
-spriteset(spriteset_crossley_mail_rear, "gfx/trains/crossley_mail.png") {
-    template_2cc_std(1, 32)
-}
-
-
-spriteset(spriteset_crossley_mail_purchase, "gfx/trains/crossley_mail.png") {
-    template_purchase_dualheaded(1, 128)
-}
-
-
-
-//Hydra
-spriteset(spriteset_hydra_front, "gfx/trains/hydra.png") {
-	template_2cc_std(1, 1)
-}
-
-spriteset(spriteset_hydra_rear, "gfx/trains/hydra.png") {
-	template_2cc_std(1, 32)
-}
-
-spriteset(spriteset_hydra_pax, "gfx/trains/hydra.png") {
-	template_2cc_std(1, 64)
-}
-
-spriteset(spriteset_hydra_mail, "gfx/trains/hydra.png") {
-	template_2cc_std(1, 96)
-}
-
-
-spriteset(spriteset_hydra_purchase, "gfx/trains/hydra.png") {
-	template_purchase_dualheaded(1, 128)
-}
-
-
-//Tapeworm
-
-spriteset(spriteset_tapeworm_front, "gfx/trains/tapeworm.png") {
-	template_2cc_std(1, 1)
-}
-
-spriteset(spriteset_tapeworm_rear, "gfx/trains/tapeworm.png") {
-	template_2cc_std(1, 32)
-}
-
-spriteset(spriteset_tapeworm_node, "gfx/trains/tapeworm.png") {
-	template_2cc_std(1, 64)
-}
-
-spriteset(spriteset_tapeworm_pax, "gfx/trains/tapeworm.png") {
-	template_2cc_std(1, 96)
-}
-
-
-spriteset(spriteset_tapeworm_purchase, "gfx/trains/tapeworm.png") {
-	template_purchase_dualheaded(1, 160)
-}
-
-
-spriteset(spriteset_tapeworm_mail_front, "gfx/trains/tapeworm_mail.png") {
-    template_2cc_std(1, 1)
-}
-
-spriteset(spriteset_tapeworm_mail_rear, "gfx/trains/tapeworm_mail.png") {
-    template_2cc_std(1, 32)
-}
-
-spriteset(spriteset_tapeworm_mail_node, "gfx/trains/tapeworm_mail.png") {
-    template_2cc_std(1, 64)
-}
-
-
-spriteset(spriteset_tapeworm_mail, "gfx/trains/tapeworm_mail.png") {
-    template_2cc_std(1, 96)
-}
-
-
-spriteset(spriteset_tapeworm_mail_purchase, "gfx/trains/tapeworm_mail.png") {
-    template_purchase_dualheaded(1, 160)
-}
-
-//Pillbug
-
-spriteset(spriteset_pillbug_pax_head, "gfx/trains/pillbug.png") {
-	template_2cc_std(1, 1)
-}
-
-spriteset(spriteset_pillbug_mail_head, "gfx/trains/pillbug.png") {
-	template_2cc_std(1, 32)
-}
-
-spriteset(spriteset_pillbug_pax, "gfx/trains/pillbug.png") {
-	template_2cc_std(1, 64)
-}
-
-spriteset(spriteset_pillbug_mail, "gfx/trains/pillbug.png") {
-	template_2cc_std(1, 96)
-}
-
-spriteset(spriteset_pillbug_purchase, "gfx/trains/pillbug.png") {
-    template_purchase_dualheaded(1, 128)
-}
-
-spriteset(spriteset_pillbug_mail_purchase, "gfx/trains/pillbug.png") {
-	template_purchase_dualheaded(1, 160)
-}
-
-
-
-//Spamcan
-
-spriteset(spriteset_spamcan_pax_head, "gfx/trains/spamcan_windows.png") {
-	template_2cc_std(1, 1)
-}
-
-spriteset(spriteset_spamcan_mail_head, "gfx/trains/spamcan_windows.png") {
-	template_2cc_std(1, 32)
-}
-
-spriteset(spriteset_spamcan_pax, "gfx/trains/spamcan_windows.png") {
-	template_2cc_std(1, 64)
-}
-
-spriteset(spriteset_spamcan_mail, "gfx/trains/spamcan_windows.png") {
-	template_2cc_std(1, 96)
-}
-
-spriteset(spriteset_spamcan_purchase, "gfx/trains/spamcan_windows.png") {
-	template_purchase_dualheaded(1, 128)
-}
-
-spriteset(spriteset_spamcan_mail_purchase, "gfx/trains/spamcan_windows.png") {
-    template_purchase_dualheaded(1, 160)
-}
-
-
-
-//Rocketmax
-
-spriteset(spriteset_rocketmax_pax_head, "gfx/trains/rocketmax.png") {
-	template_2cc_std(1, 1)
-}
-
-spriteset(spriteset_rocketmax_mail_head, "gfx/trains/rocketmax.png") {
-	template_2cc_std(1, 32)
-}
-
-spriteset(spriteset_rocketmax_pax, "gfx/trains/rocketmax.png") {
-	template_2cc_std(1, 64)
-}
-
-spriteset(spriteset_rocketmax_mail, "gfx/trains/rocketmax.png") {
-	template_2cc_std(1, 96)
-}
-
-spriteset(spriteset_rocketmax_purchase, "gfx/trains/rocketmax.png") {
-	template_purchase_dualheaded(1, 128)
-}
-
-spriteset(spriteset_rocketmax_mail_purchase, "gfx/trains/rocketmax.png") {
-    template_purchase_dualheaded(1, 160)
-}
-
-
-
-//wagons
-
-spriteset(spriteset_wagon_powered_purchase, "gfx/trains/unitwagons.png") {
-	template_purchase(1, 64)
-}
-
-spriteset(spriteset_wagon_unpowered_purchase, "gfx/trains/unitwagons.png") {
-	template_purchase(1, 96)
-}
-
-
-spriteset(spriteset_wagon_powered_generic, "gfx/trains/unitwagons.png") {
-	template_2cc_std(1, 1)
-}
-
-spriteset(spriteset_wagon_unpowered_generic, "gfx/trains/unitwagons.png") {
-	template_2cc_std(1, 32)
-}
-
-
-
-spriteset(spriteset_wagon_exp_generic, "gfx/trains/unitwagons_cargo.png") {
-    template_2cc_std(1, 32)
-}
-
-spriteset(spriteset_wagon_exp_purchase, "gfx/trains/unitwagons_cargo.png") {
-    template_purchase(1, 96)
-}
-
-
-//Cargo Trains
-
-//1st gen
-spriteset(spriteset_cargo_engine_1_front, "gfx/trains/cargo_engine_1.png") {
-	template_2cc_std(1, 1)
-}
-
-spriteset(spriteset_cargo_engine_1_rear, "gfx/trains/cargo_engine_1.png") {
-	template_2cc_std(1, 32)
-}
-
-spriteset(spriteset_cargo_engine_1_mid, "gfx/trains/cargo_engine_1.png") {
-	template_2cc_std(1, 64)
-}
-
-spriteset(spriteset_cargo_engine_1_pax, "gfx/trains/cargo_engine_1.png") {
-    template_2cc_std(1, 96)
-}
-
-spriteset(spriteset_cargo_engine_1_mail, "gfx/trains/cargo_engine_1.png") {
-    template_2cc_std(1, 128)
-}
-
-spriteset(spriteset_cargo_engine_1_purchase, "gfx/trains/cargo_engine_1.png") {
-    template_purchase(1, 160)
-}
-
-//2nd gen
-spriteset(spriteset_cargo_engine_2_front, "gfx/trains/cargo_engine_2.png") {
-	template_2cc_std(1, 1)
-}
-
-spriteset(spriteset_cargo_engine_2_rear, "gfx/trains/cargo_engine_2.png") {
-	template_2cc_std(1, 32)
-}
-
-spriteset(spriteset_cargo_engine_2_mid, "gfx/trains/cargo_engine_2.png") {
-	template_2cc_std(1, 64)
-}
-
-spriteset(spriteset_cargo_engine_2_pax, "gfx/trains/cargo_engine_2.png") {
-    template_2cc_std(1, 96)
-}
-
-spriteset(spriteset_cargo_engine_2_mail, "gfx/trains/cargo_engine_2.png") {
-    template_2cc_std(1, 128)
-}
-
-spriteset(spriteset_cargo_engine_2_purchase, "gfx/trains/cargo_engine_2.png") {
-    template_purchase(1, 160)
-}
-
-//3rd gen
-spriteset(spriteset_cargo_engine_3_front, "gfx/trains/cargo_engine_3.png") {
-	template_2cc_std(1, 1)
-}
-
-spriteset(spriteset_cargo_engine_3_rear, "gfx/trains/cargo_engine_3.png") {
-	template_2cc_std(1, 32)
-}
-
-spriteset(spriteset_cargo_engine_3_mid, "gfx/trains/cargo_engine_3.png") {
-	template_2cc_std(1, 64)
-}
-
-spriteset(spriteset_cargo_engine_3_pax, "gfx/trains/cargo_engine_3.png") {
-    template_2cc_std(1, 96)
-}
-
-spriteset(spriteset_cargo_engine_3_mail, "gfx/trains/cargo_engine_3.png") {
-    template_2cc_std(1, 128)
-}
-
-spriteset(spriteset_cargo_engine_3_purchase, "gfx/trains/cargo_engine_3.png") {
-    template_purchase(1, 160)
-}
-
-//4th gen
-spriteset(spriteset_cargo_engine_4_front, "gfx/trains/cargo_engine_4.png") {
-	template_2cc_std(1, 1)
-}
-
-spriteset(spriteset_cargo_engine_4_rear, "gfx/trains/cargo_engine_4.png") {
-	template_2cc_std(1, 32)
-}
-
-spriteset(spriteset_cargo_engine_4_mid, "gfx/trains/cargo_engine_4.png") {
-	template_2cc_std(1, 64)
-}
-
-spriteset(spriteset_cargo_engine_4_pax, "gfx/trains/cargo_engine_4.png") {
-    template_2cc_std(1, 96)
-}
-
-spriteset(spriteset_cargo_engine_4_mail, "gfx/trains/cargo_engine_4.png") {
-    template_2cc_std(1, 128)
-}
-
-spriteset(spriteset_cargo_engine_4_purchase, "gfx/trains/cargo_engine_4.png") {
-    template_purchase(1, 160)
-}
-
-
-//new cargo wagons
-spriteset(spriteset_cargo_box_wagon_1, "gfx/trains/cargo_box_wagons.png") {
-    template_2cc_std(1, 1)
-}
-
-spriteset(spriteset_cargo_box_wagon_2, "gfx/trains/cargo_box_wagons.png") {
-    template_2cc_std(1, 32)
-}
-
-spriteset(spriteset_cargo_box_wagon_3, "gfx/trains/cargo_box_wagons.png") {
-    template_2cc_std(1, 64)
-}
-
-spriteset(spriteset_cargo_box_wagon_4, "gfx/trains/cargo_box_wagons.png") {
-    template_2cc_std(1, 96)
-}
-
-spriteset(spriteset_cargo_box_wagon_5, "gfx/trains/cargo_box_wagons.png") {
-    template_2cc_std(1, 128)
-}
-
-spriteset(spriteset_cargo_box_wagon_6, "gfx/trains/cargo_box_wagons.png") {
-    template_2cc_std(1, 160)
-}
-
-spriteset(spriteset_cargo_box_wagon_7, "gfx/trains/cargo_box_wagons.png") {
-    template_2cc_std(1, 192)
-}
-
-spriteset(spriteset_cargo_box_wagon_8, "gfx/trains/cargo_box_wagons.png") {
-    template_2cc_std(1, 224)
-}
-
-spriteset(spriteset_cargo_box_wagon_9, "gfx/trains/cargo_box_wagons.png") {
-    template_2cc_std(1, 256)
-}
-
-spriteset(spriteset_cargo_box_wagon_10, "gfx/trains/cargo_box_wagons.png") {
-    template_2cc_std(1, 288)
-}
-
-spriteset(spriteset_cargo_box_wagon_11, "gfx/trains/cargo_box_wagons.png") {
-    template_2cc_std(1, 320)
-}
-
-//overlays
-
-spriteset(spriteset_cargo_box_overlay_1, "gfx/trains/cargo_box_overlays.png") {
-    template_2cc_std(1, 1)
-}
-
-spriteset(spriteset_cargo_box_overlay_2, "gfx/trains/cargo_box_overlays.png") {
-    template_2cc_std(1, 32)
+//Vactrain Tubes
+template template_wires() {
+	[1, 	1,  64, 39, -47, -8]
+	[66, 	1,  64, 39, -15, -8]
+	[131, 	1,  64, 39, -15, -8]
+	[196, 	1,  64, 39, -47, -8]
+	[261, 	1,  64, 48, -46, -4]
+	[326, 	1,  64, 39, -17,  1]
+	[391, 	1,  64, 39, -47, -2]
+	[456, 	1,  64, 48, -18, -4]
+	[1, 	52, 64, 39, -47, -8]
+	[66, 	52, 64, 39, -15, -8]
+	[131, 	52, 64, 39, -15, -8]
+	[196, 	52, 64, 39, -47, -8]
+	[261, 	52, 64, 48, -46, -4]
+	[326, 	52, 64, 39, -17,  1]
+	[391, 	52, 64, 39, -47, -2]
+	[456, 	52, 64, 48, -18, -4]
+	[1,    104, 64, 39, -47, -8]
+	[66,   104, 64, 39, -15, -8]
+	[131,  104, 64, 39, -15, -8]
+	[196,  104, 64, 39, -47, -8]
+	[261,  104, 64, 48, -46, -4]
+	[326,  104, 64, 39, -17,  1]
+	[391,  104, 64, 39, -47, -2]
+	[456,  104, 64, 48, -18, -4]
+	[1,    156, 64, 39, -47, -8]
+	[66,   156, 64, 39, -17, -8]
+	[131,  156, 64, 39, -47, -8]
+	[196,  156, 64, 39, -15, -8]
 }
 
-spriteset(spriteset_cargo_box_overlay_3, "gfx/trains/cargo_box_overlays.png") {
-    template_2cc_std(1, 64)
+// GUI icons
+template template_gui() {
+	[  0,  0, 20, 20, 0, 0]
+	[ 25,  0, 20, 20, 0, 0]
+	[ 50,  0, 20, 20, 0, 0]
+	[ 75,  0, 20, 20, 0, 0]
+	[100,  0, 20, 20, 0, 0]
+	[125,  0, 20, 20, 0, 0]
+	[150,  0, 20, 20, 0, 0]
+	[175,  0, 20, 20, 0, 0]
+	[200,  0, 32, 32, 0, 0]
+	[250,  0, 32, 32, 0, 0]
+	[300,  0, 32, 32, 0, 0]
+	[350,  0, 32, 32, 0, 0]
+	[400,  0, 32, 32, 0, 0]
+	[450,  0, 32, 32, 0, 0]
+	[500,  0, 32, 32, 0, 0]
+	[550,  0, 32, 32, 0, 0]
 }
 
-spriteset(spriteset_cargo_box_overlay_4, "gfx/trains/cargo_box_overlays.png") {
-    template_2cc_std(1, 96)
-}
-
-spriteset(spriteset_cargo_box_overlay_5, "gfx/trains/cargo_box_overlays.png") {
-    template_2cc_std(1, 128)
-}
-
-spriteset(spriteset_cargo_box_overlay_6, "gfx/trains/cargo_box_overlays.png") {
-    template_2cc_std(1, 160)
-}
-
-spriteset(spriteset_cargo_box_overlay_7, "gfx/trains/cargo_box_overlays.png") {
-    template_2cc_std(1, 192)
-}
-
-spriteset(spriteset_cargo_box_overlay_8, "gfx/trains/cargo_box_overlays.png") {
-    template_2cc_std(1, 224)
-}
-
-spriteset(spriteset_cargo_box_overlay_9, "gfx/trains/cargo_box_overlays.png") {
-    template_2cc_std(1, 256)
-}
-
-spriteset(spriteset_cargo_box_overlay_10, "gfx/trains/cargo_box_overlays.png") {
-    template_2cc_std(1, 288)
-}
-
-spriteset(spriteset_cargo_box_overlay_blank, "gfx/trains/cargo_box_overlays.png") {
-    template_2cc_std(1, 320)
-}
-
-//bulk
-
-spriteset(spriteset_bulk_wagon_1, "gfx/trains/bulk_wagons.png") {
-    template_2cc_std(1, 1)
-}
-
-spriteset(spriteset_bulk_wagon_2, "gfx/trains/bulk_wagons.png") {
-    template_2cc_std(1, 32)
-}
-
-spriteset(spriteset_bulk_wagon_3, "gfx/trains/bulk_wagons.png") {
-    template_2cc_std(1, 64)
-}
-
-spriteset(spriteset_bulk_wagon_4, "gfx/trains/bulk_wagons.png") {
-    template_2cc_std(1, 96)
-}
-
-spriteset(spriteset_bulk_wagon_5, "gfx/trains/bulk_wagons.png") {
-    template_2cc_std(1, 128)
-}
-
-spriteset(spriteset_bulk_wagon_6, "gfx/trains/bulk_wagons.png") {
-    template_2cc_std(1, 160)
-}
-
-spriteset(spriteset_bulk_wagon_7, "gfx/trains/bulk_wagons.png") {
-    template_2cc_std(1, 192)
-}
-
-spriteset(spriteset_bulk_wagon_8, "gfx/trains/bulk_wagons.png") {
-    template_2cc_std(1, 224)
-}
-
-spriteset(spriteset_bulk_wagon_overlay_1, "gfx/trains/bulk_wagon_overlays.png") {
-    template_2cc_std(1, 1)
-}
-
-spriteset(spriteset_bulk_wagon_overlay_2, "gfx/trains/bulk_wagon_overlays.png") {
-    template_2cc_std(1, 32)
-}
-
-spriteset(spriteset_bulk_wagon_overlay_3, "gfx/trains/bulk_wagon_overlays.png") {
-    template_2cc_std(1, 64)
-}
-
-spriteset(spriteset_bulk_wagon_overlay_4, "gfx/trains/bulk_wagon_overlays.png") {
-    template_2cc_std(1, 96)
-}
-
-spriteset(spriteset_bulk_wagon_overlay_5, "gfx/trains/bulk_wagon_overlays.png") {
-    template_2cc_std(1, 128)
-}
-
-spriteset(spriteset_bulk_wagon_overlay_6, "gfx/trains/bulk_wagon_overlays.png") {
-    template_2cc_std(1, 160)
-}
+//spritesets for rails
 
-
-
-spriteset(spriteset_bulk_overlay_empty, "gfx/trains/bulk_wagons.png") {
-    template_2cc_std(1, 256)
-}
-
-spriteset(spriteset_bulk_overlay_half, "gfx/trains/bulk_wagons.png") {
-    template_2cc_std(1, 288)
-}
-
-spriteset(spriteset_bulk_overlay_full, "gfx/trains/bulk_wagons.png") {
-    template_2cc_std(1, 320)
-}
-
-spritegroup spritegroup_bulk_overlay {
-    loading: [spriteset_bulk_overlay_empty, spriteset_bulk_overlay_half, spriteset_bulk_overlay_full];
-    loaded:  [spriteset_bulk_overlay_empty, spriteset_bulk_overlay_half, spriteset_bulk_overlay_full];
-}
-
-
-
-//Attachment Rules
-
-
-switch(FEAT_TRAINS, PARENT, switch_can_attach_nothing, [STORE_TEMP(position_in_consist_from_end, 0x10F), var[0x61, 0, 0x0000FFFF, 0xC6]]) {
-	string(STR_ERROR_SINGLE_ONLY);
-}
-
-switch(FEAT_TRAINS, PARENT, switch_can_attach_self, [STORE_TEMP(position_in_consist_from_end, 0x10F), var[0x61, 0, 0x0000FFFF, 0xC6]]) {
-	146: CB_RESULT_ATTACH_ALLOW_IF_RAILTYPES;
-    string(STR_ERROR_SELF_ONLY);
-}
-
-switch(FEAT_TRAINS, PARENT, switch_can_attach_unit_pax, [STORE_TEMP(position_in_consist_from_end, 0x10F), var[0x61, 0, 0x0000FFFF, 0xC6]]) {
-	142: string(STR_ERROR_NO_WAGONS);
-	146: string(STR_ERROR_NO_WAGONS);
-	CB_RESULT_ATTACH_ALLOW_IF_RAILTYPES;
-}
-
-switch(FEAT_TRAINS, PARENT, switch_can_attach_unit_cargo, [STORE_TEMP(position_in_consist_from_end, 0x10F), var[0x61, 0, 0x0000FFFF, 0xC6]]) {
-	142: string(STR_ERROR_NO_WAGONS);
-	146: string(STR_ERROR_NO_WAGONS);
-	150..179: string(STR_ERROR_MUWAG_ONLY);
-    250..279: string(STR_ERROR_MUWAG_ONLY);
-	CB_RESULT_ATTACH_ALLOW_IF_RAILTYPES;
-}
-
-//switch for wagon type
-switch(FEAT_TRAINS, SELF, switch_can_attach_vehicle, vehicle_type_id) {
-//	142: switch_can_attach_nothing;
-//	146: switch_can_attach_self;
-//	150..179: switch_can_attach_unit_pax;
-//	180..190: switch_can_attach_unit_cargo;
-//	192..194: switch_can_attach_unit_pax;
-//	196..198: switch_can_attach_unit_cargo;
-	CB_RESULT_ATTACH_ALLOW_IF_RAILTYPES;
+//Overlay Maglev
+spriteset(spriteset_fsmaglev_overlay,"gfx/tracks/overlay_mag.png") {
+	template_overlay()
 }
 
-
-//loading speed switch
-
-switch(FEAT_TRAINS, SELF, switch_loading_speed_mu, param_loading_speed) {
-    0: return 10;
-    1: return 50;
-    2: return 100;
-}
-
-/*
-//capacity by cargo class switches
-switch (FEAT_TRAINS, SELF, switch_cargo_capacity_by_cargo_0, cargo_classes & bitmask(CC_PASSENGERS, CC_MAIL)) {
-    bitmask(CC_MAIL): return LOAD_TEMP(0);
-    bitmask(CC_PASSENGERS): return LOAD_TEMP(0);
-    return LOAD_TEMP(0) / 2;
-}
-
-switch (FEAT_TRAINS, SELF, switch_cargo_capacity_by_cargo_1, cargo_classes & bitmask(CC_PASSENGERS, CC_MAIL)) {
-    bitmask(CC_MAIL): return LOAD_TEMP(1);
-    bitmask(CC_PASSENGERS): return LOAD_TEMP(1);
-    return LOAD_TEMP(1) / 2;
-}
-
-switch (FEAT_TRAINS, SELF, switch_cargo_capacity_by_cargo_2, cargo_classes & bitmask(CC_PASSENGERS, CC_MAIL)) {
-    bitmask(CC_MAIL): return LOAD_TEMP(2);
-    bitmask(CC_PASSENGERS): return LOAD_TEMP(2);
-    return LOAD_TEMP(2) / 2;
+//Underlay Maglev
+spriteset(spriteset_fsmaglev_underlay,"gfx/tracks/underlay_mag.png") {
+	template_underlay()
 }
 
-
-//capacity switch
-switch(FEAT_TRAINS, SELF, switch_vehicle_capacity, param_vehicle_capacity) {
-    0: return LOAD_TEMP(0);
-    1: return LOAD_TEMP(1);
-    2: return LOAD_TEMP(2);
+//Tunnel Maglev
+spriteset(spriteset_fsmaglev_tunnel,"gfx/tracks/tunnel_mag.png") {
+	template_tunnel()
 }
-*/
 
-//speed switches
-
-switch(FEAT_TRAINS, SELF, switch_vactrain_speed_gen1, max_speed) {
-    return 800 + ((param_vactrain_speed - 800) / 8);
+//Bridge Maglev
+spriteset(spriteset_fsmaglev_bridge,"gfx/tracks/bridge_mag.png") {
+	template_bridge()
 }
 
-switch(FEAT_TRAINS, SELF, switch_vactrain_speed_gen2, max_speed) {
-    return 800 + ((param_vactrain_speed - 800) / 4);
+//Level Crossing Maglev
+spriteset(spriteset_fsmaglev_crossing_open,"gfx/tracks/levelcrossing.png") {
+	template_crossing()
 }
 
-switch(FEAT_TRAINS, SELF, switch_vactrain_speed_gen3, max_speed) {
-    return 800 + ((param_vactrain_speed - 800) / 2);
+spriteset(spriteset_fsmaglev_crossing_closed,"gfx/tracks/levelcrossing.png") {
+	template_crossing()
 }
 
-switch(FEAT_TRAINS, SELF, switch_vactrain_speed_gen4, max_speed) {
-    return param_vactrain_speed;
+//Overlay Vactrain
+spriteset(spriteset_vactrain_overlay,"gfx/tracks/overlay_vac.png") {
+	template_overlay()
 }
-
 
-//sound switch
-
-
-
-switch(FEAT_TRAINS, SELF, switch_vactrain_sound, getbits(extra_callback_info1, 0, 8)) {
-    SOUND_EVENT_START: return sound("gfx/wav/vactrain1.wav");
-    SOUND_EVENT_TUNNEL: return CB_RESULT_NO_SOUND;
+//Underlay Vactrain
+spriteset(spriteset_vactrain_underlay,"gfx/tracks/underlay_vac.png") {
+	template_underlay()
 }
-
-
-//BADGES
 
-spriteset(spriteset_badge_vactrain, "gfx/badges/vactrain_icon.png") {
-    template_badge(0, 0)
+//Tunnel Vactrain
+spriteset(spriteset_vactrain_tunnel,"gfx/tracks/tunnel_vac.png") {
+	template_tunnel()
 }
 
-
-badgetable {
-    "power",
-    "power/vactrain",
-    "role",
-    "role/passenger",
-    "role/express_freight",
-    "role/universal",
-    "role/freight"
+//Bridge Vactrain
+spriteset(spriteset_vactrain_bridge,"gfx/tracks/bridge_vac.png") {
+	template_bridge()
 }
 
-
-item (FEAT_BADGES, power) {
-    property {
-        label: "power";
-        name: string(STR_BADGE_POWER);
-    }
+//Depot Vactrain
+spriteset(spriteset_vactrain_depot_normal,"gfx/tracks/depot_normal.png") {
+	template_depot()
 }
 
-item (FEAT_BADGES, vactrain) {
-    property {
-        label: "power/vactrain";
-        name: string(STR_BADGE_POWER_VACTRAIN);
-    }
-    graphics {
-        default: spriteset_badge_vactrain;
-    }
+spriteset(spriteset_vactrain_depot_snow,"gfx/tracks/depot_snow.png") {
+	template_depot()
 }
 
-item (FEAT_BADGES, role) {
-    property {
-        label: "role";
-        name: string(STR_BADGE_ROLE);
-    }
-}
+//Vactrain "Catenary"
 
-item (FEAT_BADGES, role_pax) {
-    property {
-        label: "role/passenger";
-        name: string(STR_BADGE_ROLE_PAX);
-    }
+spriteset(spriteset_vactrain_pylons,"gfx/tracks/poles-vactrain.png") {
+		template_pylons()
 }
 
-
-item (FEAT_BADGES, role_exp) {
-    property {
-        label: "role/express_freight";
-        name: string(STR_BADGE_ROLE_EXP);
-    }
+spriteset(spriteset_vactrain_tubes,"gfx/tracks/vactubes.png") {
+		template_wires()
 }
 
-item (FEAT_BADGES, role_univ) {
-    property {
-        label: "role/universal";
-        name: string(STR_BADGE_ROLE_UNIV);
-    }
-}
+//GUI for OpenGFX
 
-item (FEAT_BADGES, role_cargo) {
-    property {
-        label: "role/freight";
-        name: string(STR_BADGE_ROLE_CARGO);
-    }
+spriteset(spriteset_gui_opengfx, "gfx/tracks/gui_opengfx.png") {
+	template_gui()
 }
-
 
+//GUI for TTD --TODO--
 //RAILTYPES
 
 
@@ -2315,11 +1566,86 @@ if (param_vactrain_allow) {
         }
     }
 }
+//BADGES
+
+spriteset(spriteset_badge_vactrain, "gfx/badges/vactrain_icon.png") {
+    template_badge(0, 0)
+}
 
 
-//TRAINS
+badgetable {
+    "power",
+    "power/vactrain",
+    "role",
+    "role/passenger",
+    "role/express_freight",
+    "role/universal",
+    "role/freight"
+}
 
-//LOCOMOTIVES
+
+item (FEAT_BADGES, power) {
+    property {
+        label: "power";
+        name: string(STR_BADGE_POWER);
+    }
+}
+
+item (FEAT_BADGES, vactrain) {
+    property {
+        label: "power/vactrain";
+        name: string(STR_BADGE_POWER_VACTRAIN);
+    }
+    graphics {
+        default: spriteset_badge_vactrain;
+    }
+}
+
+item (FEAT_BADGES, role) {
+    property {
+        label: "role";
+        name: string(STR_BADGE_ROLE);
+    }
+}
+
+item (FEAT_BADGES, role_pax) {
+    property {
+        label: "role/passenger";
+        name: string(STR_BADGE_ROLE_PAX);
+    }
+}
+
+
+item (FEAT_BADGES, role_exp) {
+    property {
+        label: "role/express_freight";
+        name: string(STR_BADGE_ROLE_EXP);
+    }
+}
+
+item (FEAT_BADGES, role_univ) {
+    property {
+        label: "role/universal";
+        name: string(STR_BADGE_ROLE_UNIV);
+    }
+}
+
+item (FEAT_BADGES, role_cargo) {
+    property {
+        label: "role/freight";
+        name: string(STR_BADGE_ROLE_CARGO);
+    }
+}
+
+//Swift
+
+spriteset(spriteset_swift, "gfx/trains/swift.png") {
+	template_2cc_std(1, 1)
+}
+
+spriteset(spriteset_swift_purchase, "gfx/trains/swift.png") {
+	template_purchase(1, 32)
+}
 
 //SWIFT
 
@@ -2375,8 +1701,27 @@ item (FEAT_TRAINS, swift, 132) {
 
 }
 
+//Hydra
+spriteset(spriteset_hydra_front, "gfx/trains/hydra.png") {
+	template_2cc_std(1, 1)
+}
+
+spriteset(spriteset_hydra_rear, "gfx/trains/hydra.png") {
+	template_2cc_std(1, 32)
+}
+
+spriteset(spriteset_hydra_pax, "gfx/trains/hydra.png") {
+	template_2cc_std(1, 64)
+}
+
+spriteset(spriteset_hydra_mail, "gfx/trains/hydra.png") {
+	template_2cc_std(1, 96)
+}
 
 
+spriteset(spriteset_hydra_purchase, "gfx/trains/hydra.png") {
+	template_purchase_dualheaded(1, 128)
+}
 
 //HYDRA
 
@@ -2462,6 +1807,31 @@ item (FEAT_TRAINS, hydra, 134) {
     }
 
 }
+//scarab
+
+spriteset(spriteset_scarab_front, "gfx/trains/scarab.png") {
+	template_2cc_std(1, 1)
+}
+
+spriteset(spriteset_scarab_rear, "gfx/trains/scarab.png") {
+    template_2cc_std(1, 32)
+}
+
+spriteset(spriteset_scarab_pax, "gfx/trains/scarab.png") {
+    template_2cc_std(1, 64)
+}
+
+spriteset(spriteset_scarab_mail, "gfx/trains/scarab.png") {
+    template_2cc_std(1, 96)
+}
+
+spriteset(spriteset_scarab_purchase, "gfx/trains/scarab.png") {
+	template_purchase_dualheaded(1, 128)
+}
+
+spriteset(spriteset_scarab_single_purchase, "gfx/trains/scarab.png") {
+    template_purchase(1, 160)
+}
 
 
 //SCARAB
@@ -2546,8 +1916,14 @@ item (FEAT_TRAINS, scarab, 136) {
         cargo_capacity: switch_scarab_wagon_capacity;
     }
 }
+//cobra
+spriteset(spriteset_cobra, "gfx/trains/cobra.png") {
+    template_2cc_std(1, 1)
+}
 
-
+spriteset(spriteset_cobra_purchase, "gfx/trains/cobra.png") {
+    template_purchase(1, 32)
+}
 
 //COBRA
 
@@ -2601,9 +1977,41 @@ item (FEAT_TRAINS, cobra, 138) {
     }
 
 }
+//Crossley
+spriteset(spriteset_crossley_front, "gfx/trains/crossley.png") {
+	template_2cc_std(1, 1)
+}
+
+spriteset(spriteset_crossley_rear, "gfx/trains/crossley.png") {
+	template_2cc_std(1, 32)
+}
+
+spriteset(spriteset_crossley_pax, "gfx/trains/crossley.png") {
+	template_2cc_std(1, 64)
+}
+
+spriteset(spriteset_crossley_mail, "gfx/trains/crossley.png") {
+	template_2cc_std(1, 96)
+}
 
 
-//MULTIPLE UNITS
+spriteset(spriteset_crossley_purchase, "gfx/trains/crossley.png") {
+	template_purchase_dualheaded(1, 128)
+}
+
+
+spriteset(spriteset_crossley_mail_front, "gfx/trains/crossley_mail.png") {
+    template_2cc_std(1, 1)
+}
+
+spriteset(spriteset_crossley_mail_rear, "gfx/trains/crossley_mail.png") {
+    template_2cc_std(1, 32)
+}
+
+
+spriteset(spriteset_crossley_mail_purchase, "gfx/trains/crossley_mail.png") {
+    template_purchase_dualheaded(1, 128)
+}
 
 //CROSSLEY
 
@@ -2778,159 +2186,51 @@ item (FEAT_TRAINS, crossley_mail, 252) {
     default: switch_crossley_cargo;
     }
 }
+//Tapeworm
 
-
-//SWALLOW
-
-
-switch (FEAT_TRAINS, SELF, switch_swallow_capacity, param_vehicle_capacity) {
-    0: return 64;
-    1: return 80;
-    2: return 96;
+spriteset(spriteset_tapeworm_front, "gfx/trains/tapeworm.png") {
+	template_2cc_std(1, 1)
 }
 
-switch (FEAT_TRAINS, SELF, switch_swallow_purchase_capacity, param_vehicle_capacity) {
-    0: return 64-16;
-    1: return 80;
-    2: return 96+16;
+spriteset(spriteset_tapeworm_rear, "gfx/trains/tapeworm.png") {
+	template_2cc_std(1, 32)
 }
 
-//railtype speed switches
-switch (FEAT_TRAINS, SELF, switch_swallow_speed, current_railtype) {
-	VACT: return switch_vactrain_speed_gen1;
-	MGLV: return 160;
-	CB_FAILED;
+spriteset(spriteset_tapeworm_node, "gfx/trains/tapeworm.png") {
+	template_2cc_std(1, 64)
 }
 
-switch (FEAT_TRAINS, SELF, switch_swallow_cost, current_railtype) {
-	VACT: return 72;
-	MGLV: return 16;
-	CB_FAILED;
-}
-
-//main item
-item (FEAT_TRAINS, swallow, 162) {
-    property {
-        sprite_id: SPRITE_ID_NEW_TRAIN;
-        misc_flags: bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_MU, TRAIN_FLAG_AUTOREFIT);
-        track_type: VACT;
-        name: string(STR_NAME_SWALLOW);
-        climates_available: ALL_CLIMATES;
-        introduction_date: date(param_starting_year+10,1,1);
-        speed: 1200 km/h;
-        air_drag_coefficient: 0;
-        power: 9000 hp;
-        dual_headed: 1;
-        engine_class: ENGINE_CLASS_MAGLEV;
-        cargo_capacity: 80;
-        loading_speed: 80;
-        refittable_cargo_classes: bitmask(CC_PASSENGERS);
-        weight: 50;
-        reliability_decay: 12;
-        model_life: VEHICLE_NEVER_EXPIRES;
-        vehicle_life: 48;
-        cost_factor: 90;
-        running_cost_factor: 230;
-        running_cost_base: RUNNING_COST_STEAM;
-        badges: ["power/vactrain", "role/passenger"];
-    }
-    graphics {
-        additional_text:	string(STR_CONCAT_1,
-                                   string(STR_DESC_AIRSPEED, 160),
-        );
-        speed: switch_swallow_speed;
-        running_cost_factor: switch_swallow_cost;
-        can_attach_wagon: switch_can_attach_vehicle;
-        purchase: spriteset_swallow_purchase;
-        default: spriteset_swallow_pax_head;
-        loading_speed: switch_loading_speed_mu;
-        cargo_capacity: switch_swallow_capacity;
-        purchase_cargo_capacity: switch_swallow_purchase_capacity;
-    }
-  
-    livery_override(vactrain_wagon_pax) { // graphics for alternative look of passenger wagon when used with this engine
-        loading_speed: 80;
-        power: 4500;
-        weight: 50;
-        running_cost_factor: 80;
-        cargo_capacity: switch_swallow_capacity;
-        length: 8;
-        default: spriteset_swallow_pax;
-    }
-    livery_override(vactrain_wagon_exp) { // graphics for alternative look of passenger wagon when used with this engine
-        loading_speed: 80;
-        power: 4500;
-        weight: 40;
-        running_cost_factor: 20;
-        cargo_capacity: switch_swallow_capacity;
-        length: 8;
-        default: spriteset_swallow_mail;
-    }
-}
-
-item (FEAT_TRAINS, swallow_mail, 262) {
-    property {
-        sprite_id: SPRITE_ID_NEW_TRAIN;
-        misc_flags: bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_MU, TRAIN_FLAG_AUTOREFIT);
-        track_type: VACT;
-        name: string(STR_NAME_SWALLOW);
-        climates_available: ALL_CLIMATES;
-        introduction_date: date(param_starting_year+10,1,1);
-        speed: 1200 km/h;
-        air_drag_coefficient: 0;
-        power: 9000 hp;
-        dual_headed: 1;
-        engine_class: ENGINE_CLASS_MAGLEV;
-        cargo_capacity: 80;
-        loading_speed: 80;
-        refittable_cargo_classes: bitmask(CC_MAIL, CC_EXPRESS, CC_ARMOURED);
-        weight: 50;
-        reliability_decay: 12;
-        model_life: VEHICLE_NEVER_EXPIRES;
-        vehicle_life: 48;
-        cost_factor: 90;
-        running_cost_factor: 230;
-        running_cost_base: RUNNING_COST_STEAM;
-        variant_group: 162;
-        extra_flags: bitmask(VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
-        badges: ["power/vactrain", "role/express_freight"];
-    }
-    graphics {
-        additional_text:	string(STR_CONCAT_1,
-                                   string(STR_DESC_AIRSPEED, 160),
-        );
-        speed: switch_swallow_speed;
-        running_cost_factor: switch_swallow_cost;
-        can_attach_wagon: switch_can_attach_vehicle;
-        purchase: spriteset_swallow_mail_purchase;
-        default: spriteset_swallow_mail_head;
-        loading_speed: switch_loading_speed_mu;
-        cargo_capacity: switch_swallow_capacity;
-        purchase_cargo_capacity: switch_swallow_purchase_capacity;
-    }
-
-    livery_override(vactrain_wagon_pax) { // graphics for alternative look of passenger wagon when used with this engine
-        loading_speed: 80;
-        power: 4500;
-        weight: 50;
-        running_cost_factor: 80;
-        cargo_capacity: switch_swallow_capacity;
-        length: 8;
-        default: spriteset_swallow_pax;
-    }
-    livery_override(vactrain_wagon_exp) { // graphics for alternative look of passenger wagon when used with this engine
-        loading_speed: 80;
-        power: 4500;
-        weight: 40;
-        running_cost_factor: 20;
-        cargo_capacity: switch_swallow_capacity;
-        length: 8;
-        default: spriteset_swallow_mail;
-    }
+spriteset(spriteset_tapeworm_pax, "gfx/trains/tapeworm.png") {
+	template_2cc_std(1, 96)
 }
 
 
+spriteset(spriteset_tapeworm_purchase, "gfx/trains/tapeworm.png") {
+	template_purchase_dualheaded(1, 160)
+}
 
+
+spriteset(spriteset_tapeworm_mail_front, "gfx/trains/tapeworm_mail.png") {
+    template_2cc_std(1, 1)
+}
+
+spriteset(spriteset_tapeworm_mail_rear, "gfx/trains/tapeworm_mail.png") {
+    template_2cc_std(1, 32)
+}
+
+spriteset(spriteset_tapeworm_mail_node, "gfx/trains/tapeworm_mail.png") {
+    template_2cc_std(1, 64)
+}
+
+
+spriteset(spriteset_tapeworm_mail, "gfx/trains/tapeworm_mail.png") {
+    template_2cc_std(1, 96)
+}
+
+
+spriteset(spriteset_tapeworm_mail_purchase, "gfx/trains/tapeworm_mail.png") {
+    template_purchase_dualheaded(1, 160)
+}
 
 //TAPEWORM
 
@@ -3095,7 +2395,7 @@ item (FEAT_TRAINS, tapeworm, 154) {
         length: switch_tapeworm_wagonlength_end;
         default: switch_tapeworm_wagongfx_end;
     }
-  
+
 }
 
 
@@ -3161,6 +2461,581 @@ item (FEAT_TRAINS, tapeworm_mail, 254) {
         default: switch_tapeworm_wagongfx_end;
     }
 
+}
+//Cheetah
+
+spriteset(spriteset_cheetah_pax_head, "gfx/trains/cheetah.png") {
+	template_2cc_std(1, 1)
+}
+
+spriteset(spriteset_cheetah_mail_head, "gfx/trains/cheetah.png") {
+	template_2cc_std(1, 32)
+}
+
+spriteset(spriteset_cheetah_pax, "gfx/trains/cheetah.png") {
+	template_2cc_std(1, 64)
+}
+
+spriteset(spriteset_cheetah_mail, "gfx/trains/cheetah.png") {
+	template_2cc_std(1, 96)
+}
+
+
+spriteset(spriteset_cheetah_purchase, "gfx/trains/cheetah.png") {
+	template_purchase_dualheaded(1, 128)
+}
+
+spriteset(spriteset_cheetah_mail_purchase, "gfx/trains/cheetah.png") {
+    template_purchase_dualheaded(1, 160)
+}
+
+//CHEETAH
+
+switch (FEAT_TRAINS, SELF, switch_cheetah_capacity, param_vehicle_capacity) {
+    0: return 58;
+    1: return 72;
+    2: return 86;
+}
+
+switch (FEAT_TRAINS, SELF, switch_cheetah_purchase_capacity, param_vehicle_capacity) {
+    0: return 58-14;
+    1: return 72;
+    2: return 86+14;
+}
+
+//railtype speed switches
+switch (FEAT_TRAINS, SELF, switch_cheetah_speed, current_railtype) {
+    VACT: return switch_vactrain_speed_gen3;
+    MGLV: return 160;
+    CB_FAILED;
+}
+
+switch (FEAT_TRAINS, SELF, switch_cheetah_cost, current_railtype) {
+    VACT: return 79;
+    MGLV: return 16;
+    CB_FAILED;
+}
+
+
+//mail car gfx
+switch (FEAT_TRAINS, SELF, switch_cheetah_cargo, cargo_classes) {
+    bitmask(CC_PASSENGERS): spriteset_cheetah_pax;
+    spriteset_cheetah_mail;
+}
+
+//mail car gfx
+switch (FEAT_TRAINS, SELF, switch_cheetah_cargo_head, cargo_classes) {
+    bitmask(CC_PASSENGERS): spriteset_cheetah_pax_head;
+    spriteset_cheetah_mail_head;
+}
+
+//main item
+item (FEAT_TRAINS, cheetah, 156) {
+    property {
+        sprite_id: SPRITE_ID_NEW_TRAIN;
+        misc_flags: bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_MU);
+        track_type: VACT;
+        name: string(STR_NAME_CHEETAH);
+        climates_available: ALL_CLIMATES;
+        introduction_date: date(param_starting_year+50,1,1);
+        speed: 4000 km/h;
+        air_drag_coefficient: 0;
+        power: 20000 hp;
+        dual_headed: 1;
+        engine_class: ENGINE_CLASS_MAGLEV;
+        cargo_capacity: 72;
+        loading_speed: 80; //fast
+        refittable_cargo_classes: bitmask(CC_PASSENGERS);
+        weight: 52;
+        reliability_decay: 12;
+        model_life: VEHICLE_NEVER_EXPIRES;
+        vehicle_life: 48;
+        cost_factor: 119;
+        running_cost_factor: 230;
+        running_cost_base: RUNNING_COST_STEAM;
+        badges: ["power/vactrain", "role/passenger"];
+    }
+    graphics {
+        additional_text:	string(STR_CONCAT_1,
+                                   string(STR_DESC_AIRSPEED, 160),
+        );
+        speed: switch_cheetah_speed;
+        running_cost_factor: switch_cheetah_cost;
+        can_attach_wagon: switch_can_attach_vehicle;
+        purchase: spriteset_cheetah_purchase;
+        default: switch_cheetah_cargo_head;
+        loading_speed: switch_loading_speed_mu;
+        cargo_capacity: switch_cheetah_capacity;
+        purchase_cargo_capacity: switch_cheetah_purchase_capacity;
+    }
+
+    livery_override(vactrain_wagon_pax) { // graphics for alternative look of passenger wagon when used with this engine
+        loading_speed: 80;
+        power: 5000;
+        weight: 52;
+        running_cost_factor: 80;
+        cargo_capacity: switch_cheetah_capacity;
+        length: 8;
+        default: switch_cheetah_cargo;
+    }
+    livery_override(vactrain_wagon_exp) { // graphics for alternative look of passenger wagon when used with this engine
+        loading_speed: 80;
+        power: 5000;
+        weight: 45;
+        running_cost_factor: 20;
+        cargo_capacity: switch_cheetah_capacity;
+        length: 8;
+        default: switch_cheetah_cargo;
+    }
+
+}
+
+//main item
+item (FEAT_TRAINS, cheetah_mail, 256) {
+    property {
+        sprite_id: SPRITE_ID_NEW_TRAIN;
+        misc_flags: bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_MU);
+        track_type: VACT;
+        name: string(STR_NAME_CHEETAH);
+        climates_available: ALL_CLIMATES;
+        introduction_date: date(param_starting_year+50,1,1);
+        speed: 4000 km/h;
+        air_drag_coefficient: 0;
+        power: 20000 hp;
+        dual_headed: 1;
+        engine_class: ENGINE_CLASS_MAGLEV;
+        cargo_capacity: 72;
+        loading_speed: 80; //fast
+        refittable_cargo_classes: bitmask(CC_MAIL, CC_EXPRESS, CC_ARMOURED);
+        weight: 52;
+        reliability_decay: 12;
+        model_life: VEHICLE_NEVER_EXPIRES;
+        vehicle_life: 48;
+        cost_factor: 119;
+        running_cost_factor: 230;
+        running_cost_base: RUNNING_COST_STEAM;
+        variant_group: 156;
+        extra_flags: bitmask(VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
+        badges: ["power/vactrain", "role/express_freight"];
+    }
+    graphics {
+        additional_text:	string(STR_CONCAT_1,
+                                   string(STR_DESC_AIRSPEED, 160),
+        );
+        speed: switch_cheetah_speed;
+        running_cost_factor: switch_cheetah_cost;
+        can_attach_wagon: switch_can_attach_vehicle;
+        purchase: spriteset_cheetah_mail_purchase;
+        default: switch_cheetah_cargo_head;
+        loading_speed: switch_loading_speed_mu;
+        cargo_capacity: switch_cheetah_capacity;
+        purchase_cargo_capacity: switch_cheetah_purchase_capacity;
+    }
+
+    livery_override(vactrain_wagon_pax) { // graphics for alternative look of passenger wagon when used with this engine
+        loading_speed: 80;
+        power: 5000;
+        weight: 52;
+        running_cost_factor: 80;
+        cargo_capacity: switch_cheetah_capacity;
+        length: 8;
+        default: switch_cheetah_cargo;
+    }
+    livery_override(vactrain_wagon_exp) { // graphics for alternative look of passenger wagon when used with this engine
+        loading_speed: 80;
+        power: 5000;
+        weight: 45;
+        running_cost_factor: 20;
+        cargo_capacity: switch_cheetah_capacity;
+        length: 8;
+        default: switch_cheetah_cargo;
+    }
+
+}
+//Spamcan
+
+spriteset(spriteset_spamcan_pax_head, "gfx/trains/spamcan_windows.png") {
+	template_2cc_std(1, 1)
+}
+
+spriteset(spriteset_spamcan_mail_head, "gfx/trains/spamcan_windows.png") {
+	template_2cc_std(1, 32)
+}
+
+spriteset(spriteset_spamcan_pax, "gfx/trains/spamcan_windows.png") {
+	template_2cc_std(1, 64)
+}
+
+spriteset(spriteset_spamcan_mail, "gfx/trains/spamcan_windows.png") {
+	template_2cc_std(1, 96)
+}
+
+spriteset(spriteset_spamcan_purchase, "gfx/trains/spamcan_windows.png") {
+	template_purchase_dualheaded(1, 128)
+}
+
+spriteset(spriteset_spamcan_mail_purchase, "gfx/trains/spamcan_windows.png") {
+    template_purchase_dualheaded(1, 160)
+}
+
+
+//SPAMCAN
+
+switch (FEAT_TRAINS, SELF, switch_spamcan_capacity, param_vehicle_capacity) {
+    0: return 67;
+    1: return 84;
+    2: return 100;
+}
+
+switch (FEAT_TRAINS, SELF, switch_spamcan_purchase_capacity, param_vehicle_capacity) {
+    0: return 67-17;
+    1: return 84;
+    2: return 100+16;
+}
+
+//railtype switches
+switch (FEAT_TRAINS, SELF, switch_spamcan_speed, current_railtype) {
+	VACT: return switch_vactrain_speed_gen4;
+	MGLV: return 640;
+	CB_FAILED;
+}
+
+switch (FEAT_TRAINS, SELF, switch_spamcan_cost, current_railtype) {
+	VACT: return 105;
+	MGLV: return 40;
+	CB_FAILED;
+}
+
+
+//mail car gfx
+switch (FEAT_TRAINS, SELF, switch_spamcan_cargo, cargo_classes) {
+	bitmask(CC_PASSENGERS): spriteset_spamcan_pax;
+	spriteset_spamcan_mail;
+}
+
+
+//main item
+item (FEAT_TRAINS, spamcan, 158) {
+    property {
+        sprite_id: SPRITE_ID_NEW_TRAIN;
+        misc_flags: bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_MU);
+        track_type: VACT;
+        name: string(STR_NAME_SPAMCAN);
+        climates_available: ALL_CLIMATES;
+        introduction_date: date(param_starting_year+75,1,1);
+        speed: 4000 km/h;
+        air_drag_coefficient: 0;
+        power: 24000 hp;
+        dual_headed: 1;
+        engine_class: ENGINE_CLASS_MAGLEV;
+        cargo_capacity: 84;
+        loading_speed: 40;
+        refittable_cargo_classes: bitmask(CC_PASSENGERS);
+        weight: 46;
+        reliability_decay: 12;
+        model_life: VEHICLE_NEVER_EXPIRES;
+        vehicle_life: 52;
+        cost_factor: 187;
+        running_cost_factor: 240;
+        running_cost_base: RUNNING_COST_STEAM;
+        badges: ["power/vactrain", "role/passenger"];
+    }
+    graphics {
+        additional_text:	string(STR_CONCAT_1,
+                                   string(STR_DESC_AIRSPEED, 640),
+        );
+        speed: switch_spamcan_speed;
+        running_cost_factor: switch_spamcan_cost;
+        can_attach_wagon: switch_can_attach_vehicle;
+        purchase: spriteset_spamcan_purchase;
+        default: spriteset_spamcan_pax_head;
+        loading_speed: switch_loading_speed_mu;
+        cargo_capacity: switch_spamcan_capacity;
+        purchase_cargo_capacity: switch_spamcan_purchase_capacity;
+    }
+
+    livery_override(vactrain_wagon_pax) { // graphics for alternative look of passenger wagon when used with this engine
+        loading_speed: 40;
+        power: 12000;
+        weight: 48;
+        running_cost_factor: 80;
+        cargo_capacity: switch_spamcan_capacity;
+        length: 8;
+        default: switch_spamcan_cargo;
+    }
+    livery_override(vactrain_wagon_exp) { // graphics for alternative look of passenger wagon when used with this engine
+        loading_speed: 40;
+        power: 12000;
+        weight: 48;
+        running_cost_factor: 20;
+        cargo_capacity: switch_spamcan_capacity;
+        length: 8;
+        default: switch_spamcan_cargo;
+    }
+
+}
+
+item (FEAT_TRAINS, spamcan_mail, 258) {
+    property {
+        sprite_id: SPRITE_ID_NEW_TRAIN;
+        misc_flags: bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_MU);
+        track_type: VACT;
+        name: string(STR_NAME_SPAMCAN);
+        climates_available: ALL_CLIMATES;
+        introduction_date: date(param_starting_year+75,1,1);
+        speed: 4000 km/h;
+        air_drag_coefficient: 0;
+        power: 24000 hp;
+        dual_headed: 1;
+        engine_class: ENGINE_CLASS_MAGLEV;
+        cargo_capacity: 84;
+        loading_speed: 40;
+        refittable_cargo_classes: bitmask(CC_MAIL, CC_EXPRESS, CC_ARMOURED);
+        weight: 46;
+        reliability_decay: 12;
+        model_life: VEHICLE_NEVER_EXPIRES;
+        vehicle_life: 52;
+        cost_factor: 187;
+        running_cost_factor: 240;
+        running_cost_base: RUNNING_COST_STEAM;
+        variant_group: 158;
+        extra_flags: bitmask(VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
+        badges: ["power/vactrain", "role/express_freight"];
+    }
+    graphics {
+        additional_text:	string(STR_CONCAT_1,
+                                   string(STR_DESC_AIRSPEED, 640),
+        );
+        speed: switch_spamcan_speed;
+        running_cost_factor: switch_spamcan_cost;
+        can_attach_wagon: switch_can_attach_vehicle;
+        purchase: spriteset_spamcan_mail_purchase;
+        default: spriteset_spamcan_mail_head;
+        loading_speed: switch_loading_speed_mu;
+        cargo_capacity: switch_spamcan_capacity;
+        purchase_cargo_capacity: switch_spamcan_purchase_capacity;
+    }
+
+    livery_override(vactrain_wagon_pax) { // graphics for alternative look of passenger wagon when used with this engine
+        loading_speed: 40;
+        power: 12000;
+        weight: 48;
+        running_cost_factor: 80;
+        cargo_capacity: switch_spamcan_capacity;
+        length: 8;
+        default: switch_spamcan_cargo;
+    }
+    livery_override(vactrain_wagon_exp) { // graphics for alternative look of passenger wagon when used with this engine
+        loading_speed: 40;
+        power: 12000;
+        weight: 48;
+        running_cost_factor: 20;
+        cargo_capacity: switch_spamcan_capacity;
+        length: 8;
+        default: switch_spamcan_cargo;
+    }
+
+}
+//Swallow
+
+spriteset(spriteset_swallow_pax_head, "gfx/trains/swallow.png") {
+	template_2cc_std(1, 1)
+}
+
+spriteset(spriteset_swallow_mail_head, "gfx/trains/swallow.png") {
+	template_2cc_std(1, 32)
+}
+
+spriteset(spriteset_swallow_pax, "gfx/trains/swallow.png") {
+	template_2cc_std(1, 64)
+}
+
+spriteset(spriteset_swallow_mail, "gfx/trains/swallow.png") {
+	template_2cc_std(1, 96)
+}
+
+
+spriteset(spriteset_swallow_purchase, "gfx/trains/swallow.png") {
+	template_purchase_dualheaded(1, 128)
+}
+
+spriteset(spriteset_swallow_mail_purchase, "gfx/trains/swallow.png") {
+    template_purchase_dualheaded(1, 160)
+}
+
+//SWALLOW
+
+
+switch (FEAT_TRAINS, SELF, switch_swallow_capacity, param_vehicle_capacity) {
+    0: return 64;
+    1: return 80;
+    2: return 96;
+}
+
+switch (FEAT_TRAINS, SELF, switch_swallow_purchase_capacity, param_vehicle_capacity) {
+    0: return 64-16;
+    1: return 80;
+    2: return 96+16;
+}
+
+//railtype speed switches
+switch (FEAT_TRAINS, SELF, switch_swallow_speed, current_railtype) {
+	VACT: return switch_vactrain_speed_gen1;
+	MGLV: return 160;
+	CB_FAILED;
+}
+
+switch (FEAT_TRAINS, SELF, switch_swallow_cost, current_railtype) {
+	VACT: return 72;
+	MGLV: return 16;
+	CB_FAILED;
+}
+
+//main item
+item (FEAT_TRAINS, swallow, 162) {
+    property {
+        sprite_id: SPRITE_ID_NEW_TRAIN;
+        misc_flags: bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_MU, TRAIN_FLAG_AUTOREFIT);
+        track_type: VACT;
+        name: string(STR_NAME_SWALLOW);
+        climates_available: ALL_CLIMATES;
+        introduction_date: date(param_starting_year+10,1,1);
+        speed: 1200 km/h;
+        air_drag_coefficient: 0;
+        power: 9000 hp;
+        dual_headed: 1;
+        engine_class: ENGINE_CLASS_MAGLEV;
+        cargo_capacity: 80;
+        loading_speed: 80;
+        refittable_cargo_classes: bitmask(CC_PASSENGERS);
+        weight: 50;
+        reliability_decay: 12;
+        model_life: VEHICLE_NEVER_EXPIRES;
+        vehicle_life: 48;
+        cost_factor: 90;
+        running_cost_factor: 230;
+        running_cost_base: RUNNING_COST_STEAM;
+        badges: ["power/vactrain", "role/passenger"];
+    }
+    graphics {
+        additional_text:	string(STR_CONCAT_1,
+                                   string(STR_DESC_AIRSPEED, 160),
+        );
+        speed: switch_swallow_speed;
+        running_cost_factor: switch_swallow_cost;
+        can_attach_wagon: switch_can_attach_vehicle;
+        purchase: spriteset_swallow_purchase;
+        default: spriteset_swallow_pax_head;
+        loading_speed: switch_loading_speed_mu;
+        cargo_capacity: switch_swallow_capacity;
+        purchase_cargo_capacity: switch_swallow_purchase_capacity;
+    }
+
+    livery_override(vactrain_wagon_pax) { // graphics for alternative look of passenger wagon when used with this engine
+        loading_speed: 80;
+        power: 4500;
+        weight: 50;
+        running_cost_factor: 80;
+        cargo_capacity: switch_swallow_capacity;
+        length: 8;
+        default: spriteset_swallow_pax;
+    }
+    livery_override(vactrain_wagon_exp) { // graphics for alternative look of passenger wagon when used with this engine
+        loading_speed: 80;
+        power: 4500;
+        weight: 40;
+        running_cost_factor: 20;
+        cargo_capacity: switch_swallow_capacity;
+        length: 8;
+        default: spriteset_swallow_mail;
+    }
+}
+
+item (FEAT_TRAINS, swallow_mail, 262) {
+    property {
+        sprite_id: SPRITE_ID_NEW_TRAIN;
+        misc_flags: bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_MU, TRAIN_FLAG_AUTOREFIT);
+        track_type: VACT;
+        name: string(STR_NAME_SWALLOW);
+        climates_available: ALL_CLIMATES;
+        introduction_date: date(param_starting_year+10,1,1);
+        speed: 1200 km/h;
+        air_drag_coefficient: 0;
+        power: 9000 hp;
+        dual_headed: 1;
+        engine_class: ENGINE_CLASS_MAGLEV;
+        cargo_capacity: 80;
+        loading_speed: 80;
+        refittable_cargo_classes: bitmask(CC_MAIL, CC_EXPRESS, CC_ARMOURED);
+        weight: 50;
+        reliability_decay: 12;
+        model_life: VEHICLE_NEVER_EXPIRES;
+        vehicle_life: 48;
+        cost_factor: 90;
+        running_cost_factor: 230;
+        running_cost_base: RUNNING_COST_STEAM;
+        variant_group: 162;
+        extra_flags: bitmask(VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
+        badges: ["power/vactrain", "role/express_freight"];
+    }
+    graphics {
+        additional_text:	string(STR_CONCAT_1,
+                                   string(STR_DESC_AIRSPEED, 160),
+        );
+        speed: switch_swallow_speed;
+        running_cost_factor: switch_swallow_cost;
+        can_attach_wagon: switch_can_attach_vehicle;
+        purchase: spriteset_swallow_mail_purchase;
+        default: spriteset_swallow_mail_head;
+        loading_speed: switch_loading_speed_mu;
+        cargo_capacity: switch_swallow_capacity;
+        purchase_cargo_capacity: switch_swallow_purchase_capacity;
+    }
+
+    livery_override(vactrain_wagon_pax) { // graphics for alternative look of passenger wagon when used with this engine
+        loading_speed: 80;
+        power: 4500;
+        weight: 50;
+        running_cost_factor: 80;
+        cargo_capacity: switch_swallow_capacity;
+        length: 8;
+        default: spriteset_swallow_pax;
+    }
+    livery_override(vactrain_wagon_exp) { // graphics for alternative look of passenger wagon when used with this engine
+        loading_speed: 80;
+        power: 4500;
+        weight: 40;
+        running_cost_factor: 20;
+        cargo_capacity: switch_swallow_capacity;
+        length: 8;
+        default: spriteset_swallow_mail;
+    }
+}
+
+//bison
+
+spriteset(spriteset_bison_pax_head, "gfx/trains/bison.png") {
+	template_2cc_std(1, 1)
+}
+
+spriteset(spriteset_bison_mail_head, "gfx/trains/bison.png") {
+	template_2cc_std(1, 32)
+}
+
+spriteset(spriteset_bison_pax, "gfx/trains/bison.png") {
+	template_2cc_std(1, 64)
+}
+
+spriteset(spriteset_bison_mail, "gfx/trains/bison.png") {
+	template_2cc_std(1, 96)
+}
+
+spriteset(spriteset_bison_purchase, "gfx/trains/bison.png") {
+    template_purchase_dualheaded(1, 128)
+}
+
+spriteset(spriteset_bison_mail_purchase, "gfx/trains/bison.png") {
+	template_purchase_dualheaded(1, 160)
 }
 
 //BISON
@@ -3326,176 +3201,31 @@ item (FEAT_TRAINS, bison_mail, 264) {
     }
 
 }
+//Pillbug
 
-
-
-
-
-
-//CHEETAH
-
-switch (FEAT_TRAINS, SELF, switch_cheetah_capacity, param_vehicle_capacity) {
-    0: return 58;
-    1: return 72;
-    2: return 86;
+spriteset(spriteset_pillbug_pax_head, "gfx/trains/pillbug.png") {
+	template_2cc_std(1, 1)
 }
 
-switch (FEAT_TRAINS, SELF, switch_cheetah_purchase_capacity, param_vehicle_capacity) {
-    0: return 58-14;
-    1: return 72;
-    2: return 86+14;
+spriteset(spriteset_pillbug_mail_head, "gfx/trains/pillbug.png") {
+	template_2cc_std(1, 32)
 }
 
-//railtype speed switches
-switch (FEAT_TRAINS, SELF, switch_cheetah_speed, current_railtype) {
-    VACT: return switch_vactrain_speed_gen3;
-    MGLV: return 160;
-    CB_FAILED;
+spriteset(spriteset_pillbug_pax, "gfx/trains/pillbug.png") {
+	template_2cc_std(1, 64)
 }
 
-switch (FEAT_TRAINS, SELF, switch_cheetah_cost, current_railtype) {
-    VACT: return 79;
-    MGLV: return 16;
-    CB_FAILED;
+spriteset(spriteset_pillbug_mail, "gfx/trains/pillbug.png") {
+	template_2cc_std(1, 96)
 }
 
-
-//mail car gfx
-switch (FEAT_TRAINS, SELF, switch_cheetah_cargo, cargo_classes) {
-    bitmask(CC_PASSENGERS): spriteset_cheetah_pax;
-    spriteset_cheetah_mail;
+spriteset(spriteset_pillbug_purchase, "gfx/trains/pillbug.png") {
+    template_purchase_dualheaded(1, 128)
 }
 
-//mail car gfx
-switch (FEAT_TRAINS, SELF, switch_cheetah_cargo_head, cargo_classes) {
-    bitmask(CC_PASSENGERS): spriteset_cheetah_pax_head;
-    spriteset_cheetah_mail_head;
+spriteset(spriteset_pillbug_mail_purchase, "gfx/trains/pillbug.png") {
+	template_purchase_dualheaded(1, 160)
 }
-
-//main item
-item (FEAT_TRAINS, cheetah, 156) {
-    property {
-        sprite_id: SPRITE_ID_NEW_TRAIN;
-        misc_flags: bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_MU);
-        track_type: VACT;
-        name: string(STR_NAME_CHEETAH);
-        climates_available: ALL_CLIMATES;
-        introduction_date: date(param_starting_year+50,1,1);
-        speed: 4000 km/h;
-        air_drag_coefficient: 0;
-        power: 20000 hp;
-        dual_headed: 1;
-        engine_class: ENGINE_CLASS_MAGLEV;
-        cargo_capacity: 72;
-        loading_speed: 80; //fast
-        refittable_cargo_classes: bitmask(CC_PASSENGERS);
-        weight: 52;
-        reliability_decay: 12;
-        model_life: VEHICLE_NEVER_EXPIRES;
-        vehicle_life: 48;
-        cost_factor: 119;
-        running_cost_factor: 230;
-        running_cost_base: RUNNING_COST_STEAM;
-        badges: ["power/vactrain", "role/passenger"];
-    }
-    graphics {
-        additional_text:	string(STR_CONCAT_1,
-                                   string(STR_DESC_AIRSPEED, 160),
-        );
-        speed: switch_cheetah_speed;
-        running_cost_factor: switch_cheetah_cost;
-        can_attach_wagon: switch_can_attach_vehicle;
-        purchase: spriteset_cheetah_purchase;
-        default: switch_cheetah_cargo_head;
-        loading_speed: switch_loading_speed_mu;
-        cargo_capacity: switch_cheetah_capacity;
-        purchase_cargo_capacity: switch_cheetah_purchase_capacity;
-    }
-
-    livery_override(vactrain_wagon_pax) { // graphics for alternative look of passenger wagon when used with this engine
-        loading_speed: 80;
-        power: 5000;
-        weight: 52;
-        running_cost_factor: 80;
-        cargo_capacity: switch_cheetah_capacity;
-        length: 8;
-        default: switch_cheetah_cargo;
-    }
-    livery_override(vactrain_wagon_exp) { // graphics for alternative look of passenger wagon when used with this engine
-        loading_speed: 80;
-        power: 5000;
-        weight: 45;
-        running_cost_factor: 20;
-        cargo_capacity: switch_cheetah_capacity;
-        length: 8;
-        default: switch_cheetah_cargo;
-    }
-
-}
-
-//main item
-item (FEAT_TRAINS, cheetah_mail, 256) {
-    property {
-        sprite_id: SPRITE_ID_NEW_TRAIN;
-        misc_flags: bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_MU);
-        track_type: VACT;
-        name: string(STR_NAME_CHEETAH);
-        climates_available: ALL_CLIMATES;
-        introduction_date: date(param_starting_year+50,1,1);
-        speed: 4000 km/h;
-        air_drag_coefficient: 0;
-        power: 20000 hp;
-        dual_headed: 1;
-        engine_class: ENGINE_CLASS_MAGLEV;
-        cargo_capacity: 72;
-        loading_speed: 80; //fast
-        refittable_cargo_classes: bitmask(CC_MAIL, CC_EXPRESS, CC_ARMOURED);
-        weight: 52;
-        reliability_decay: 12;
-        model_life: VEHICLE_NEVER_EXPIRES;
-        vehicle_life: 48;
-        cost_factor: 119;
-        running_cost_factor: 230;
-        running_cost_base: RUNNING_COST_STEAM;
-        variant_group: 156;
-        extra_flags: bitmask(VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
-        badges: ["power/vactrain", "role/express_freight"];
-    }
-    graphics {
-        additional_text:	string(STR_CONCAT_1,
-                                   string(STR_DESC_AIRSPEED, 160),
-        );
-        speed: switch_cheetah_speed;
-        running_cost_factor: switch_cheetah_cost;
-        can_attach_wagon: switch_can_attach_vehicle;
-        purchase: spriteset_cheetah_mail_purchase;
-        default: switch_cheetah_cargo_head;
-        loading_speed: switch_loading_speed_mu;
-        cargo_capacity: switch_cheetah_capacity;
-        purchase_cargo_capacity: switch_cheetah_purchase_capacity;
-    }
-
-    livery_override(vactrain_wagon_pax) { // graphics for alternative look of passenger wagon when used with this engine
-        loading_speed: 80;
-        power: 5000;
-        weight: 52;
-        running_cost_factor: 80;
-        cargo_capacity: switch_cheetah_capacity;
-        length: 8;
-        default: switch_cheetah_cargo;
-    }
-    livery_override(vactrain_wagon_exp) { // graphics for alternative look of passenger wagon when used with this engine
-        loading_speed: 80;
-        power: 5000;
-        weight: 45;
-        running_cost_factor: 20;
-        cargo_capacity: switch_cheetah_capacity;
-        length: 8;
-        default: switch_cheetah_cargo;
-    }
-
-}
-
 
 //PILLBUG
 
@@ -3659,166 +3389,31 @@ item (FEAT_TRAINS, pillbug_mail, 266) {
     }
 
 }
+//Rocketmax
 
-
-//SPAMCAN
-
-switch (FEAT_TRAINS, SELF, switch_spamcan_capacity, param_vehicle_capacity) {
-    0: return 67;
-    1: return 84;
-    2: return 100;
+spriteset(spriteset_rocketmax_pax_head, "gfx/trains/rocketmax.png") {
+	template_2cc_std(1, 1)
 }
 
-switch (FEAT_TRAINS, SELF, switch_spamcan_purchase_capacity, param_vehicle_capacity) {
-    0: return 67-17;
-    1: return 84;
-    2: return 100+16;
+spriteset(spriteset_rocketmax_mail_head, "gfx/trains/rocketmax.png") {
+	template_2cc_std(1, 32)
 }
 
-//railtype switches
-switch (FEAT_TRAINS, SELF, switch_spamcan_speed, current_railtype) {
-	VACT: return switch_vactrain_speed_gen4;
-	MGLV: return 640;
-	CB_FAILED;
+spriteset(spriteset_rocketmax_pax, "gfx/trains/rocketmax.png") {
+	template_2cc_std(1, 64)
 }
 
-switch (FEAT_TRAINS, SELF, switch_spamcan_cost, current_railtype) {
-	VACT: return 105;
-	MGLV: return 40;
-	CB_FAILED;
+spriteset(spriteset_rocketmax_mail, "gfx/trains/rocketmax.png") {
+	template_2cc_std(1, 96)
 }
 
-
-//mail car gfx
-switch (FEAT_TRAINS, SELF, switch_spamcan_cargo, cargo_classes) {
-	bitmask(CC_PASSENGERS): spriteset_spamcan_pax;
-	spriteset_spamcan_mail;
+spriteset(spriteset_rocketmax_purchase, "gfx/trains/rocketmax.png") {
+	template_purchase_dualheaded(1, 128)
 }
 
-
-//main item
-item (FEAT_TRAINS, spamcan, 158) {
-    property {
-        sprite_id: SPRITE_ID_NEW_TRAIN;
-        misc_flags: bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_MU);
-        track_type: VACT;
-        name: string(STR_NAME_SPAMCAN);
-        climates_available: ALL_CLIMATES;
-        introduction_date: date(param_starting_year+75,1,1);
-        speed: 4000 km/h;
-        air_drag_coefficient: 0;
-        power: 24000 hp;
-        dual_headed: 1;
-        engine_class: ENGINE_CLASS_MAGLEV;
-        cargo_capacity: 84;
-        loading_speed: 40;
-        refittable_cargo_classes: bitmask(CC_PASSENGERS);
-        weight: 46;
-        reliability_decay: 12;
-        model_life: VEHICLE_NEVER_EXPIRES;
-        vehicle_life: 52;
-        cost_factor: 187;
-        running_cost_factor: 240;
-        running_cost_base: RUNNING_COST_STEAM;
-        badges: ["power/vactrain", "role/passenger"];
-    }
-    graphics {
-        additional_text:	string(STR_CONCAT_1,
-                                   string(STR_DESC_AIRSPEED, 640),
-        );
-        speed: switch_spamcan_speed;
-        running_cost_factor: switch_spamcan_cost;
-        can_attach_wagon: switch_can_attach_vehicle;
-        purchase: spriteset_spamcan_purchase;
-        default: spriteset_spamcan_pax_head;
-        loading_speed: switch_loading_speed_mu;
-        cargo_capacity: switch_spamcan_capacity;
-        purchase_cargo_capacity: switch_spamcan_purchase_capacity;
-    }
-
-    livery_override(vactrain_wagon_pax) { // graphics for alternative look of passenger wagon when used with this engine
-        loading_speed: 40;
-        power: 12000;
-        weight: 48;
-        running_cost_factor: 80;
-        cargo_capacity: switch_spamcan_capacity;
-        length: 8;
-        default: switch_spamcan_cargo;
-    }
-    livery_override(vactrain_wagon_exp) { // graphics for alternative look of passenger wagon when used with this engine
-        loading_speed: 40;
-        power: 12000;
-        weight: 48;
-        running_cost_factor: 20;
-        cargo_capacity: switch_spamcan_capacity;
-        length: 8;
-        default: switch_spamcan_cargo;
-    }
-  
+spriteset(spriteset_rocketmax_mail_purchase, "gfx/trains/rocketmax.png") {
+    template_purchase_dualheaded(1, 160)
 }
-
-item (FEAT_TRAINS, spamcan_mail, 258) {
-    property {
-        sprite_id: SPRITE_ID_NEW_TRAIN;
-        misc_flags: bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_MU);
-        track_type: VACT;
-        name: string(STR_NAME_SPAMCAN);
-        climates_available: ALL_CLIMATES;
-        introduction_date: date(param_starting_year+75,1,1);
-        speed: 4000 km/h;
-        air_drag_coefficient: 0;
-        power: 24000 hp;
-        dual_headed: 1;
-        engine_class: ENGINE_CLASS_MAGLEV;
-        cargo_capacity: 84;
-        loading_speed: 40;
-        refittable_cargo_classes: bitmask(CC_MAIL, CC_EXPRESS, CC_ARMOURED);
-        weight: 46;
-        reliability_decay: 12;
-        model_life: VEHICLE_NEVER_EXPIRES;
-        vehicle_life: 52;
-        cost_factor: 187;
-        running_cost_factor: 240;
-        running_cost_base: RUNNING_COST_STEAM;
-        variant_group: 158;
-        extra_flags: bitmask(VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
-        badges: ["power/vactrain", "role/express_freight"];
-    }
-    graphics {
-        additional_text:	string(STR_CONCAT_1,
-                                   string(STR_DESC_AIRSPEED, 640),
-        );
-        speed: switch_spamcan_speed;
-        running_cost_factor: switch_spamcan_cost;
-        can_attach_wagon: switch_can_attach_vehicle;
-        purchase: spriteset_spamcan_mail_purchase;
-        default: spriteset_spamcan_mail_head;
-        loading_speed: switch_loading_speed_mu;
-        cargo_capacity: switch_spamcan_capacity;
-        purchase_cargo_capacity: switch_spamcan_purchase_capacity;
-    }
-
-    livery_override(vactrain_wagon_pax) { // graphics for alternative look of passenger wagon when used with this engine
-        loading_speed: 40;
-        power: 12000;
-        weight: 48;
-        running_cost_factor: 80;
-        cargo_capacity: switch_spamcan_capacity;
-        length: 8;
-        default: switch_spamcan_cargo;
-    }
-    livery_override(vactrain_wagon_exp) { // graphics for alternative look of passenger wagon when used with this engine
-        loading_speed: 40;
-        power: 12000;
-        weight: 48;
-        running_cost_factor: 20;
-        cargo_capacity: switch_spamcan_capacity;
-        length: 8;
-        default: switch_spamcan_cargo;
-    }
-
-}
-
 
 //ROCKETMAX
 
@@ -3927,7 +3522,7 @@ item (FEAT_TRAINS, rocketmax, 168) {
         length: 8;
         default: switch_rocketmax_cargo;
     }
-  
+
 }
 
 item (FEAT_TRAINS, rocketmax_mail, 268) {
@@ -3991,66 +3586,30 @@ item (FEAT_TRAINS, rocketmax_mail, 268) {
     }
 
 }
-
-
-
-//Unit Wagons
-
-switch (FEAT_TRAINS, SELF, switch_wagon_pax_capacity, param_vehicle_capacity) {
-    0: return 48;
-    1: return 60;
-    2: return 72;
+//1st gen
+spriteset(spriteset_cargo_engine_1_front, "gfx/trains/cargo_engine_1.png") {
+	template_2cc_std(1, 1)
 }
 
-item (FEAT_TRAINS, vactrain_wagon_pax, 192) {
-    property {
-        sprite_id: SPRITE_ID_NEW_TRAIN;
-        misc_flags: bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_AUTOREFIT);
-        track_type: VACT;
-        name: string(STR_NAME_PAX_WAGON);
-        climates_available: ALL_CLIMATES;
-        introduction_date: date(param_starting_year,1,1);
-        power: 0;
-        cargo_capacity: 60;
-        refittable_cargo_classes: bitmask(CC_PASSENGERS);
-        weight: 50;
-        cost_factor: 85;
-        loading_speed: 20;
-        badges: ["power/vactrain", "role/passenger"];
-    }
-    graphics {
-//        purchase: spriteset_wagon_unpowered_purchase;
-        default: spriteset_wagon_unpowered_generic;
-        loading_speed: switch_loading_speed_mu;
-        cargo_capacity: switch_wagon_pax_capacity;
-    }
+spriteset(spriteset_cargo_engine_1_rear, "gfx/trains/cargo_engine_1.png") {
+	template_2cc_std(1, 32)
 }
 
-
-item (FEAT_TRAINS, vactrain_wagon_exp, 194) {
-    property {
-        sprite_id: SPRITE_ID_NEW_TRAIN;
-        misc_flags: bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_AUTOREFIT);
-        track_type: VACT;
-        name: string(STR_NAME_EXP_WAGON);
-        climates_available: ALL_CLIMATES;
-        introduction_date: date(param_starting_year,1,1);
-        power: 0;
-        cargo_capacity: 40;
-        refittable_cargo_classes: bitmask(CC_MAIL, CC_EXPRESS, CC_ARMOURED);
-        weight: 44;
-        loading_speed: 20;
-        cost_factor: 85;
-        badges: ["power/vactrain", "role/express_freight"];
-    }
-    graphics {
-//        purchase: spriteset_wagon_exp_purchase;
-        default: spriteset_wagon_exp_generic;
-        loading_speed: switch_loading_speed_mu;
-        cargo_capacity: switch_wagon_pax_capacity;
-    }
+spriteset(spriteset_cargo_engine_1_mid, "gfx/trains/cargo_engine_1.png") {
+	template_2cc_std(1, 64)
 }
 
+spriteset(spriteset_cargo_engine_1_pax, "gfx/trains/cargo_engine_1.png") {
+    template_2cc_std(1, 96)
+}
+
+spriteset(spriteset_cargo_engine_1_mail, "gfx/trains/cargo_engine_1.png") {
+    template_2cc_std(1, 128)
+}
+
+spriteset(spriteset_cargo_engine_1_purchase, "gfx/trains/cargo_engine_1.png") {
+    template_purchase(1, 160)
+}
 
 //Cargo vactrain 1st gen.
 
@@ -4138,9 +3697,31 @@ item (FEAT_TRAINS, cargo_engine_1, 142) {
         default: spriteset_cargo_engine_1_mail;
     }
 }
-  
-  
-  
+//2nd gen
+spriteset(spriteset_cargo_engine_2_front, "gfx/trains/cargo_engine_2.png") {
+	template_2cc_std(1, 1)
+}
+
+spriteset(spriteset_cargo_engine_2_rear, "gfx/trains/cargo_engine_2.png") {
+	template_2cc_std(1, 32)
+}
+
+spriteset(spriteset_cargo_engine_2_mid, "gfx/trains/cargo_engine_2.png") {
+	template_2cc_std(1, 64)
+}
+
+spriteset(spriteset_cargo_engine_2_pax, "gfx/trains/cargo_engine_2.png") {
+    template_2cc_std(1, 96)
+}
+
+spriteset(spriteset_cargo_engine_2_mail, "gfx/trains/cargo_engine_2.png") {
+    template_2cc_std(1, 128)
+}
+
+spriteset(spriteset_cargo_engine_2_purchase, "gfx/trains/cargo_engine_2.png") {
+    template_purchase(1, 160)
+}
+
 //2nd gen
 
 switch (FEAT_TRAINS, SELF, switch_cargo_engine_2_wagon_capacity, param_vehicle_capacity) {
@@ -4228,7 +3809,30 @@ item (FEAT_TRAINS, cargo_engine_2, 144) {
         default: spriteset_cargo_engine_2_mail;
     }
 }
+//3rd gen
+spriteset(spriteset_cargo_engine_3_front, "gfx/trains/cargo_engine_3.png") {
+	template_2cc_std(1, 1)
+}
 
+spriteset(spriteset_cargo_engine_3_rear, "gfx/trains/cargo_engine_3.png") {
+	template_2cc_std(1, 32)
+}
+
+spriteset(spriteset_cargo_engine_3_mid, "gfx/trains/cargo_engine_3.png") {
+	template_2cc_std(1, 64)
+}
+
+spriteset(spriteset_cargo_engine_3_pax, "gfx/trains/cargo_engine_3.png") {
+    template_2cc_std(1, 96)
+}
+
+spriteset(spriteset_cargo_engine_3_mail, "gfx/trains/cargo_engine_3.png") {
+    template_2cc_std(1, 128)
+}
+
+spriteset(spriteset_cargo_engine_3_purchase, "gfx/trains/cargo_engine_3.png") {
+    template_purchase(1, 160)
+}
 
 //3rd gen
 
@@ -4316,7 +3920,30 @@ item (FEAT_TRAINS, cargo_engine_3, 146) {
         default: spriteset_cargo_engine_3_mail;
     }
 }
+//4th gen
+spriteset(spriteset_cargo_engine_4_front, "gfx/trains/cargo_engine_4.png") {
+	template_2cc_std(1, 1)
+}
 
+spriteset(spriteset_cargo_engine_4_rear, "gfx/trains/cargo_engine_4.png") {
+	template_2cc_std(1, 32)
+}
+
+spriteset(spriteset_cargo_engine_4_mid, "gfx/trains/cargo_engine_4.png") {
+	template_2cc_std(1, 64)
+}
+
+spriteset(spriteset_cargo_engine_4_pax, "gfx/trains/cargo_engine_4.png") {
+    template_2cc_std(1, 96)
+}
+
+spriteset(spriteset_cargo_engine_4_mail, "gfx/trains/cargo_engine_4.png") {
+    template_2cc_std(1, 128)
+}
+
+spriteset(spriteset_cargo_engine_4_purchase, "gfx/trains/cargo_engine_4.png") {
+    template_purchase(1, 160)
+}
 
 //4th gen
 
@@ -4404,9 +4031,182 @@ item (FEAT_TRAINS, cargo_engine_4, 148) {
         default: spriteset_cargo_engine_4_mail;
     }
 }
- 
- 
+//wagons
 
+spriteset(spriteset_wagon_powered_purchase, "gfx/trains/unitwagons.png") {
+	template_purchase(1, 64)
+}
+
+spriteset(spriteset_wagon_unpowered_purchase, "gfx/trains/unitwagons.png") {
+	template_purchase(1, 96)
+}
+
+
+spriteset(spriteset_wagon_powered_generic, "gfx/trains/unitwagons.png") {
+	template_2cc_std(1, 1)
+}
+
+spriteset(spriteset_wagon_unpowered_generic, "gfx/trains/unitwagons.png") {
+	template_2cc_std(1, 32)
+}
+
+
+
+spriteset(spriteset_wagon_exp_generic, "gfx/trains/unitwagons_cargo.png") {
+    template_2cc_std(1, 32)
+}
+
+spriteset(spriteset_wagon_exp_purchase, "gfx/trains/unitwagons_cargo.png") {
+    template_purchase(1, 96)
+}
+
+
+//Unit Wagons
+
+switch (FEAT_TRAINS, SELF, switch_wagon_pax_capacity, param_vehicle_capacity) {
+    0: return 48;
+    1: return 60;
+    2: return 72;
+}
+
+item (FEAT_TRAINS, vactrain_wagon_pax, 192) {
+    property {
+        sprite_id: SPRITE_ID_NEW_TRAIN;
+        misc_flags: bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_AUTOREFIT);
+        track_type: VACT;
+        name: string(STR_NAME_PAX_WAGON);
+        climates_available: ALL_CLIMATES;
+        introduction_date: date(param_starting_year,1,1);
+        power: 0;
+        cargo_capacity: 60;
+        refittable_cargo_classes: bitmask(CC_PASSENGERS);
+        weight: 50;
+        cost_factor: 85;
+        loading_speed: 20;
+        badges: ["power/vactrain", "role/passenger"];
+    }
+    graphics {
+//        purchase: spriteset_wagon_unpowered_purchase;
+        default: spriteset_wagon_unpowered_generic;
+        loading_speed: switch_loading_speed_mu;
+        cargo_capacity: switch_wagon_pax_capacity;
+    }
+}
+
+
+item (FEAT_TRAINS, vactrain_wagon_exp, 194) {
+    property {
+        sprite_id: SPRITE_ID_NEW_TRAIN;
+        misc_flags: bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_AUTOREFIT);
+        track_type: VACT;
+        name: string(STR_NAME_EXP_WAGON);
+        climates_available: ALL_CLIMATES;
+        introduction_date: date(param_starting_year,1,1);
+        power: 0;
+        cargo_capacity: 40;
+        refittable_cargo_classes: bitmask(CC_MAIL, CC_EXPRESS, CC_ARMOURED);
+        weight: 44;
+        loading_speed: 20;
+        cost_factor: 85;
+        badges: ["power/vactrain", "role/express_freight"];
+    }
+    graphics {
+//        purchase: spriteset_wagon_exp_purchase;
+        default: spriteset_wagon_exp_generic;
+        loading_speed: switch_loading_speed_mu;
+        cargo_capacity: switch_wagon_pax_capacity;
+    }
+}
+//new cargo wagons
+spriteset(spriteset_cargo_box_wagon_1, "gfx/trains/cargo_box_wagons.png") {
+    template_2cc_std(1, 1)
+}
+
+spriteset(spriteset_cargo_box_wagon_2, "gfx/trains/cargo_box_wagons.png") {
+    template_2cc_std(1, 32)
+}
+
+spriteset(spriteset_cargo_box_wagon_3, "gfx/trains/cargo_box_wagons.png") {
+    template_2cc_std(1, 64)
+}
+
+spriteset(spriteset_cargo_box_wagon_4, "gfx/trains/cargo_box_wagons.png") {
+    template_2cc_std(1, 96)
+}
+
+spriteset(spriteset_cargo_box_wagon_5, "gfx/trains/cargo_box_wagons.png") {
+    template_2cc_std(1, 128)
+}
+
+spriteset(spriteset_cargo_box_wagon_6, "gfx/trains/cargo_box_wagons.png") {
+    template_2cc_std(1, 160)
+}
+
+spriteset(spriteset_cargo_box_wagon_7, "gfx/trains/cargo_box_wagons.png") {
+    template_2cc_std(1, 192)
+}
+
+spriteset(spriteset_cargo_box_wagon_8, "gfx/trains/cargo_box_wagons.png") {
+    template_2cc_std(1, 224)
+}
+
+spriteset(spriteset_cargo_box_wagon_9, "gfx/trains/cargo_box_wagons.png") {
+    template_2cc_std(1, 256)
+}
+
+spriteset(spriteset_cargo_box_wagon_10, "gfx/trains/cargo_box_wagons.png") {
+    template_2cc_std(1, 288)
+}
+
+spriteset(spriteset_cargo_box_wagon_11, "gfx/trains/cargo_box_wagons.png") {
+    template_2cc_std(1, 320)
+}
+
+//overlays
+
+spriteset(spriteset_cargo_box_overlay_1, "gfx/trains/cargo_box_overlays.png") {
+    template_2cc_std(1, 1)
+}
+
+spriteset(spriteset_cargo_box_overlay_2, "gfx/trains/cargo_box_overlays.png") {
+    template_2cc_std(1, 32)
+}
+
+spriteset(spriteset_cargo_box_overlay_3, "gfx/trains/cargo_box_overlays.png") {
+    template_2cc_std(1, 64)
+}
+
+spriteset(spriteset_cargo_box_overlay_4, "gfx/trains/cargo_box_overlays.png") {
+    template_2cc_std(1, 96)
+}
+
+spriteset(spriteset_cargo_box_overlay_5, "gfx/trains/cargo_box_overlays.png") {
+    template_2cc_std(1, 128)
+}
+
+spriteset(spriteset_cargo_box_overlay_6, "gfx/trains/cargo_box_overlays.png") {
+    template_2cc_std(1, 160)
+}
+
+spriteset(spriteset_cargo_box_overlay_7, "gfx/trains/cargo_box_overlays.png") {
+    template_2cc_std(1, 192)
+}
+
+spriteset(spriteset_cargo_box_overlay_8, "gfx/trains/cargo_box_overlays.png") {
+    template_2cc_std(1, 224)
+}
+
+spriteset(spriteset_cargo_box_overlay_9, "gfx/trains/cargo_box_overlays.png") {
+    template_2cc_std(1, 256)
+}
+
+spriteset(spriteset_cargo_box_overlay_10, "gfx/trains/cargo_box_overlays.png") {
+    template_2cc_std(1, 288)
+}
+
+spriteset(spriteset_cargo_box_overlay_blank, "gfx/trains/cargo_box_overlays.png") {
+    template_2cc_std(1, 320)
+}
 
 
 //Cargo wagon
@@ -4631,143 +4431,3 @@ item (FEAT_TRAINS, vactrain_wagon_cargo_3, 203) {
         loading_speed: switch_loading_speed_mu;
     }
 }
-
-
-//BULK
-
-switch (FEAT_TRAINS, SELF, switch_wagon_bulk_capacity, param_vehicle_capacity) {
-    0: return 48;
-    1: return 60;
-    2: return 72;
-}
-
-random_switch (FEAT_TRAINS, SELF, switch_wagon_bulk_0_random) {
-    2: spriteset_bulk_wagon_2;
-    2: spriteset_bulk_wagon_3;
-    2: spriteset_bulk_wagon_6;
-    2: spriteset_bulk_wagon_7;
-}
-
-random_switch (FEAT_TRAINS, SELF, switch_wagon_bulk_0_random_logo) {
-    1: spriteset_bulk_wagon_overlay_1;
-    1: spriteset_bulk_wagon_overlay_2;
-    1: spriteset_bulk_wagon_overlay_3;
-    1: spriteset_bulk_wagon_overlay_4;
-    1: spriteset_bulk_wagon_overlay_5;
-    1: spriteset_bulk_wagon_overlay_6;
-    6: spriteset_cargo_box_overlay_blank;
-}
-
-//new recolour stack
-
-switch (FEAT_TRAINS, SELF, switch_wagon_bulk_0_basestack, STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100)) {
-    return switch_wagon_bulk_0_random;
-}
-
-switch (FEAT_TRAINS, SELF, switch_wagon_bulk_0_logostack, STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100)) {
-    return switch_wagon_bulk_0_random_logo;
-}
-
-switch (FEAT_TRAINS, SELF, switch_wagon_bulk_0_loadstack, STORE_TEMP(switch_bulk_recolour(), 0x100)) {
-    return spritegroup_bulk_overlay;
-}
-
-switch (FEAT_TRAINS, SELF, switch_wagon_bulk_0_mainstack, getbits(extra_callback_info1, 8, 8)) {
-    0: return switch_wagon_bulk_0_basestack;
-    1: return switch_wagon_bulk_0_logostack;
-    return switch_wagon_bulk_0_loadstack;
-}
-
-
-item (FEAT_TRAINS, vactrain_wagon_bulk_0, 210) {
-    property {
-        sprite_id: SPRITE_ID_NEW_TRAIN;
-        misc_flags: bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_AUTOREFIT, TRAIN_FLAG_SPRITE_STACK);
-        track_type: VACT;
-        name: string(STR_NAME_BULK_WAGON);
-        climates_available: ALL_CLIMATES;
-        introduction_date: date(param_starting_year+5,1,1);
-        power: 0;
-        cargo_capacity: 55;
-        refittable_cargo_classes: bitmask(CC_BULK);
-        non_refittable_cargo_classes: bitmask(CC_PASSENGERS);
-        weight: 41;
-        loading_speed: 30;
-        cost_factor: 25;
-        length: 8;
-        badges: ["power/vactrain", "role/freight"];
-    }
-    graphics {
-        //	purchase: spriteset_wagon_cargo_purchase;
-        default: switch_wagon_bulk_0_mainstack;
-        cargo_capacity: switch_wagon_bulk_capacity;
-        loading_speed: switch_loading_speed_mu;
-    }
-}
-
-
-random_switch (FEAT_TRAINS, SELF, switch_wagon_bulk_1_random) {
-    1: spriteset_bulk_wagon_1;
-    1: spriteset_bulk_wagon_4;
-    1: spriteset_bulk_wagon_5;
-    1: spriteset_bulk_wagon_8;
-}
-
-random_switch (FEAT_TRAINS, SELF, switch_wagon_bulk_1_random_logo) {
-    1: spriteset_bulk_wagon_overlay_1;
-    1: spriteset_bulk_wagon_overlay_2;
-    1: spriteset_bulk_wagon_overlay_3;
-    1: spriteset_bulk_wagon_overlay_4;
-    1: spriteset_bulk_wagon_overlay_5;
-    1: spriteset_bulk_wagon_overlay_6;
-    6: spriteset_cargo_box_overlay_blank;
-}
-
-//new recolour stack
-
-switch (FEAT_TRAINS, SELF, switch_wagon_bulk_1_basestack, STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100)) {
-    return switch_wagon_bulk_1_random;
-}
-
-switch (FEAT_TRAINS, SELF, switch_wagon_bulk_1_logostack, STORE_TEMP(CB_FLAG_MORE_SPRITES | PALETTE_USE_DEFAULT, 0x100)) {
-    return switch_wagon_bulk_1_random_logo;
-}
-
-switch (FEAT_TRAINS, SELF, switch_wagon_bulk_1_loadstack, STORE_TEMP(switch_bulk_recolour(), 0x100)) {
-    return spritegroup_bulk_overlay;
-}
-
-switch (FEAT_TRAINS, SELF, switch_wagon_bulk_1_mainstack, getbits(extra_callback_info1, 8, 8)) {
-    0: return switch_wagon_bulk_1_basestack;
-    1: return switch_wagon_bulk_1_logostack;
-    return switch_wagon_bulk_1_loadstack;
-}
-
-
-item (FEAT_TRAINS, vactrain_wagon_bulk_1, 211) {
-    property {
-        sprite_id: SPRITE_ID_NEW_TRAIN;
-        misc_flags: bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_AUTOREFIT, TRAIN_FLAG_SPRITE_STACK);
-        track_type: VACT;
-        name: string(STR_NAME_BULK_WAGON);
-        climates_available: ALL_CLIMATES;
-        introduction_date: date(param_starting_year+5,1,1);
-        power: 0;
-        cargo_capacity: 55;
-        refittable_cargo_classes: bitmask(CC_BULK);
-        non_refittable_cargo_classes: bitmask(CC_PASSENGERS);
-        weight: 41;
-        loading_speed: 30;
-        cost_factor: 25;
-        length: 8;
-        badges: ["power/vactrain", "role/freight"];
-        variant_group: 210;
-    }
-    graphics {
-        //	purchase: spriteset_wagon_cargo_purchase;
-    default: switch_wagon_bulk_1_mainstack;
-    cargo_capacity: switch_wagon_bulk_capacity;
-    loading_speed: switch_loading_speed_mu;
-    }
-}
-

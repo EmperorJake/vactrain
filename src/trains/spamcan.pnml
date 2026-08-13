@@ -1,0 +1,184 @@
+//Spamcan
+
+spriteset(spriteset_spamcan_pax_head, "gfx/trains/spamcan_windows.png") {
+	template_2cc_std(1, 1)
+}
+
+spriteset(spriteset_spamcan_mail_head, "gfx/trains/spamcan_windows.png") {
+	template_2cc_std(1, 32)
+}
+
+spriteset(spriteset_spamcan_pax, "gfx/trains/spamcan_windows.png") {
+	template_2cc_std(1, 64)
+}
+
+spriteset(spriteset_spamcan_mail, "gfx/trains/spamcan_windows.png") {
+	template_2cc_std(1, 96)
+}
+
+spriteset(spriteset_spamcan_purchase, "gfx/trains/spamcan_windows.png") {
+	template_purchase_dualheaded(1, 128)
+}
+
+spriteset(spriteset_spamcan_mail_purchase, "gfx/trains/spamcan_windows.png") {
+    template_purchase_dualheaded(1, 160)
+}
+
+
+//SPAMCAN
+
+switch (FEAT_TRAINS, SELF, switch_spamcan_capacity, param_vehicle_capacity) {
+    0: return 67;
+    1: return 84;
+    2: return 100;
+}
+
+switch (FEAT_TRAINS, SELF, switch_spamcan_purchase_capacity, param_vehicle_capacity) {
+    0: return 67-17;
+    1: return 84;
+    2: return 100+16;
+}
+
+//railtype switches
+switch (FEAT_TRAINS, SELF, switch_spamcan_speed, current_railtype) {
+	VACT: return switch_vactrain_speed_gen4;
+	MGLV: return 640;
+	CB_FAILED;
+}
+
+switch (FEAT_TRAINS, SELF, switch_spamcan_cost, current_railtype) {
+	VACT: return 105;
+	MGLV: return 40;
+	CB_FAILED;
+}
+
+
+//mail car gfx
+switch (FEAT_TRAINS, SELF, switch_spamcan_cargo, cargo_classes) {
+	bitmask(CC_PASSENGERS): spriteset_spamcan_pax;
+	spriteset_spamcan_mail;
+}
+
+
+//main item
+item (FEAT_TRAINS, spamcan, 158) {
+    property {
+        sprite_id: SPRITE_ID_NEW_TRAIN;
+        misc_flags: bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_MU);
+        track_type: VACT;
+        name: string(STR_NAME_SPAMCAN);
+        climates_available: ALL_CLIMATES;
+        introduction_date: date(param_starting_year+75,1,1);
+        speed: 4000 km/h;
+        air_drag_coefficient: 0;
+        power: 24000 hp;
+        dual_headed: 1;
+        engine_class: ENGINE_CLASS_MAGLEV;
+        cargo_capacity: 84;
+        loading_speed: 40;
+        refittable_cargo_classes: bitmask(CC_PASSENGERS);
+        weight: 46;
+        reliability_decay: 12;
+        model_life: VEHICLE_NEVER_EXPIRES;
+        vehicle_life: 52;
+        cost_factor: 187;
+        running_cost_factor: 240;
+        running_cost_base: RUNNING_COST_STEAM;
+        badges: ["power/vactrain", "role/passenger"];
+    }
+    graphics {
+        additional_text:	string(STR_CONCAT_1,
+                                   string(STR_DESC_AIRSPEED, 640),
+        );
+        speed: switch_spamcan_speed;
+        running_cost_factor: switch_spamcan_cost;
+        can_attach_wagon: switch_can_attach_vehicle;
+        purchase: spriteset_spamcan_purchase;
+        default: spriteset_spamcan_pax_head;
+        loading_speed: switch_loading_speed_mu;
+        cargo_capacity: switch_spamcan_capacity;
+        purchase_cargo_capacity: switch_spamcan_purchase_capacity;
+    }
+
+    livery_override(vactrain_wagon_pax) { // graphics for alternative look of passenger wagon when used with this engine
+        loading_speed: 40;
+        power: 12000;
+        weight: 48;
+        running_cost_factor: 80;
+        cargo_capacity: switch_spamcan_capacity;
+        length: 8;
+        default: switch_spamcan_cargo;
+    }
+    livery_override(vactrain_wagon_exp) { // graphics for alternative look of passenger wagon when used with this engine
+        loading_speed: 40;
+        power: 12000;
+        weight: 48;
+        running_cost_factor: 20;
+        cargo_capacity: switch_spamcan_capacity;
+        length: 8;
+        default: switch_spamcan_cargo;
+    }
+
+}
+
+item (FEAT_TRAINS, spamcan_mail, 258) {
+    property {
+        sprite_id: SPRITE_ID_NEW_TRAIN;
+        misc_flags: bitmask(TRAIN_FLAG_2CC, TRAIN_FLAG_MU);
+        track_type: VACT;
+        name: string(STR_NAME_SPAMCAN);
+        climates_available: ALL_CLIMATES;
+        introduction_date: date(param_starting_year+75,1,1);
+        speed: 4000 km/h;
+        air_drag_coefficient: 0;
+        power: 24000 hp;
+        dual_headed: 1;
+        engine_class: ENGINE_CLASS_MAGLEV;
+        cargo_capacity: 84;
+        loading_speed: 40;
+        refittable_cargo_classes: bitmask(CC_MAIL, CC_EXPRESS, CC_ARMOURED);
+        weight: 46;
+        reliability_decay: 12;
+        model_life: VEHICLE_NEVER_EXPIRES;
+        vehicle_life: 52;
+        cost_factor: 187;
+        running_cost_factor: 240;
+        running_cost_base: RUNNING_COST_STEAM;
+        variant_group: 158;
+        extra_flags: bitmask(VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
+        badges: ["power/vactrain", "role/express_freight"];
+    }
+    graphics {
+        additional_text:	string(STR_CONCAT_1,
+                                   string(STR_DESC_AIRSPEED, 640),
+        );
+        speed: switch_spamcan_speed;
+        running_cost_factor: switch_spamcan_cost;
+        can_attach_wagon: switch_can_attach_vehicle;
+        purchase: spriteset_spamcan_mail_purchase;
+        default: spriteset_spamcan_mail_head;
+        loading_speed: switch_loading_speed_mu;
+        cargo_capacity: switch_spamcan_capacity;
+        purchase_cargo_capacity: switch_spamcan_purchase_capacity;
+    }
+
+    livery_override(vactrain_wagon_pax) { // graphics for alternative look of passenger wagon when used with this engine
+        loading_speed: 40;
+        power: 12000;
+        weight: 48;
+        running_cost_factor: 80;
+        cargo_capacity: switch_spamcan_capacity;
+        length: 8;
+        default: switch_spamcan_cargo;
+    }
+    livery_override(vactrain_wagon_exp) { // graphics for alternative look of passenger wagon when used with this engine
+        loading_speed: 40;
+        power: 12000;
+        weight: 48;
+        running_cost_factor: 20;
+        cargo_capacity: switch_spamcan_capacity;
+        length: 8;
+        default: switch_spamcan_cargo;
+    }
+
+}
