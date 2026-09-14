@@ -109,6 +109,19 @@ Replace Maglev Track Graphics
 By default, the Vactrain set replaces the vanilla maglev tracks to match the vactrain tracks. Disable this if you want to use the maglev tracks from the base set or another NewGRF that provides maglev tracks.
 
 
+Graphical Parameters
+These allow you to choose the graphical style of different elements of the vactrain track.
+
+Track Style
+Choose between FS-Maglev (default), JP+ SC-Maglev, or OpenGFX?
+
+Tube Style
+Choose between Transparent, Opaque, Invisible and Classic
+
+Fence style
+Choose between default and JP+ Tracks
+
+
 
 ---Game Settings---
 
@@ -126,10 +139,8 @@ When realistic braking is enabled, vactrains also need much greater gaps between
 3 Building from source
 ----------------------
 
-Just compile the vactrain.nml
+Just compile the vactrain.nml. The Vactrain Set does not yet use a modular compile system.
 
-3.1 Obtaining the source
-------------------------
 
 The source code can be obtained from the GitHub page.
 https://github.com/EmperorJake/vactrain

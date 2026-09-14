@@ -1,8 +1,8 @@
-//RAILTYPES
+//MAGLEV RAILTYPES
 
 
 //depot snow thingy
-switch(FEAT_RAILTYPES, SELF, depot_snow_switch, terrain_type) {
+switch(FEAT_RAILTYPES, SELF, switch_depot_snow, terrain_type) {
 	TILETYPE_SNOW: spriteset_vactrain_depot_snow;
 	spriteset_vactrain_depot_normal;
 }
@@ -110,6 +110,25 @@ if(param_maglev_graphics && param_maglev_allow) {
     }
 }
 
+//VACTRAIN RAILTYPE
+
+switch(FEAT_RAILTYPES, SELF, switch_vactrain_overlay, param_vactrain_track_graphics) {
+    0: spriteset_vactrain_overlay;
+    1: switch_jp_overlay_snow;
+}
+
+switch(FEAT_RAILTYPES, SELF, switch_vactrain_underlay, param_vactrain_track_graphics) {
+    0: spriteset_vactrain_underlay;
+    1: switch_jp_maglev_underlay;
+}
+
+switch(FEAT_RAILTYPES, SELF, switch_vactrain_tunnel, param_vactrain_track_graphics) {
+    0: spriteset_vactrain_underlay;
+    1: switch_tunnel_standard_maglev_underlay;
+}
+
+
+
 if (param_vactrain_allow) {
 
     item(FEAT_RAILTYPES) {
@@ -123,7 +142,7 @@ if (param_vactrain_allow) {
             new_engine_text: string(STR_NEW_ENGINE);
             compatible_railtype_list: ["VACT", "MGLV", "TCAS", "TCAI", "TBAI", "LCAI", "LBAS", "TBAS"];
             powered_railtype_list:      ["VACT", "MGLV", "TCAS", "TCAI", "TBAI", "LCAI", "LBAS", "TBAS"];
-            railtype_flags: bitmask(RAILTYPE_FLAG_CATENARY, RAILTYPE_FLAG_NO_LEVEL_CROSSING);
+            railtype_flags: bitmask(RAILTYPE_FLAG_CATENARY, RAILTYPE_FLAG_NO_LEVEL_CROSSING, RAILTYPE_FLAG_PRECOMBINED);
             curve_speed_multiplier: 8;
             station_graphics: RAILTYPE_STATION_MONORAIL;
             construction_cost: 4000;
@@ -132,14 +151,16 @@ if (param_vactrain_allow) {
             acceleration_model: ACC_MODEL_MAGLEV;
         }
         graphics {
-            track_overlay: 		spriteset_vactrain_overlay;
-            underlay: 			spriteset_vactrain_underlay;
-            tunnels: 			spriteset_vactrain_tunnel;
+            track_overlay: 		switch_vactrain_overlay;
+            underlay: 			switch_vactrain_underlay;
+            tunnels: 			switch_vactrain_tunnel;
+            tunnel_overlay:     switch_tunnel_standard_maglev_overlay;
             bridge_surfaces: 	spriteset_vactrain_bridge;
             catenary_wire: 		spriteset_vactrain_tubes;
             catenary_pylons: 	spriteset_vactrain_pylons;
             gui: 				spriteset_gui_opengfx;
-            depots: 			depot_snow_switch;
+            depots: 			switch_depot_snow;
+            precombined:        switch_jp_maglev_combined;
         }
     }
 } else {
@@ -155,7 +176,7 @@ if (param_vactrain_allow) {
             new_engine_text: string(STR_NEW_ENGINE);
             compatible_railtype_list: ["VACT"];
             powered_railtype_list:      ["VACT"];
-            railtype_flags: bitmask(RAILTYPE_FLAG_CATENARY, RAILTYPE_FLAG_NO_LEVEL_CROSSING);
+            railtype_flags: bitmask(RAILTYPE_FLAG_CATENARY, RAILTYPE_FLAG_NO_LEVEL_CROSSING, RAILTYPE_FLAG_PRECOMBINED);
             curve_speed_multiplier: 8;
             station_graphics: RAILTYPE_STATION_MONORAIL;
             construction_cost: 4000;
@@ -171,7 +192,8 @@ if (param_vactrain_allow) {
             catenary_wire: 		spriteset_vactrain_tubes;
             catenary_pylons: 	spriteset_vactrain_pylons;
             gui: 				spriteset_gui_opengfx;
-            depots: 			depot_snow_switch;
+            depots: 			switch_depot_snow;
+            precombined:        switch_jp_maglev_combined;
         }
     }
 }

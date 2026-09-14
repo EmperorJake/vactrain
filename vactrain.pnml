@@ -5,6 +5,7 @@
 #include "src/global_switches.pnml"
 #include "src/vehicle_templates.pnml"
 #include "src/rail_templates.pnml"
+#include "src/jp_templates.pnml"
 #include "src/railtypes.pnml"
 #include "src/badges.pnml"
 

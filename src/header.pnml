@@ -219,6 +219,20 @@ grf {
             def_value: 1;
         }
     }
+    param {
+        param_vactrain_track_graphics {
+            type: int;
+            name: string(STR_PARAM_VACRAILGFX);
+            desc: string(STR_PARAM_VACRAILGFX_DESC);
+            min_value: 0;
+            max_value: 1;
+            def_value: 0;
+            names: {
+                0: string(STR_PARAM_VACRAILGFX_FS);
+                1: string(STR_PARAM_VACRAILGFX_JP);
+            };
+        }
+    }
 
 }
 

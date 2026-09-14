@@ -1,0 +1,304 @@
+//Templates n stuff, nicked from JP+ Tracks
+  // Overlay
+    template template_jp_overlay (x, y) {
+        [ x,      y,      64,      31,     -31,       0]   // ↗↙
+        [ x+70,   y,      64,      31,     -31,       0]   // ↖↘
+        [ x+140,  y,      64,      31,     -31,       0]   // ↔U
+        [ x+210,  y,      64,      31,     -31,       0]   // ↔D
+        [ x+280,  y,      64,      31,     -31,       0]   // ↕R
+        [ x+350,  y,      64,      31,     -31,       0]   // ↕L
+        [ x+420,  y,      64,      39,     -31,      -8]   // ↗ slope up
+        [ x+490,  y,      64,      23,     -31,       0]   // ↘ slope up 
+        [ x+560,  y,      64,      23,     -31,       0]   // ↙ slope up
+        [ x+630,  y,      64,      39,     -31,      -8]   // ↖ slope up
+    }
+  // Underlay v2
+    template template_jp_underlay_v2 (x, y) {
+      [ x+70,   y,      64,      31,     -31,       0]   // ↗↙
+      [ x+140,  y,      64,      31,     -31,       0]   // ↖↘
+      [ x+280,  y,      64,      31,     -31,       0]   // ↔U
+      [ x+0,    y+40,   64,      31,     -31,       0]   // ↔D
+      [ x+0,    y+160,  64,      31,     -31,       0]   // ↕R
+      [ x+0,    y+80,   64,      31,     -31,       0]   // ↕L
+      [ x+0,    y+320,  64,      39,     -31,      -8]   // ↗ slope up
+      [ x+70,   y+320,  64,      23,     -31,       0]   // ↘ slope up  
+      [ x+140,  y+320,  64,      23,     -31,       0]   // ↙ slope up 
+      [ x+210,  y+320,  64,      39,     -31,      -8]   // ↖ slope up
+      [ x,y,1,1,0,0]
+      [ x,y,1,1,0,0]
+      [ x,y,1,1,0,0]
+      [ x,y,1,1,0,0]
+      [ x,y,1,1,0,0]
+      [ x,y,1,1,0,0]
+    }
+    template template_jp_combined (x, y) {
+      [ x+70,   y,      64,      31,     -31,       0]
+      [ x+140,  y,      64,      31,     -31,       0]
+      [ x+210,  y,      64,      31,     -31,       0]
+      [ x+280,  y,      64,      31,     -31,       0]
+      [ x+350,  y,      64,      31,     -31,       0]
+      [ x+420,  y,      64,      31,     -31,       0]
+      [ x+490,  y,      64,      31,     -31,       0]
+      [ x+0,    y+40,   64,      31,     -31,       0]
+      [ x+70,   y+40,   64,      31,     -31,       0]
+      [ x+140,  y+40,   64,      31,     -31,       0]
+      [ x+210,  y+40,   64,      31,     -31,       0]
+      [ x+280,  y+40,   64,      31,     -31,       0]
+      [ x+350,  y+40,   64,      31,     -31,       0]
+      [ x+420,  y+40,   64,      31,     -31,       0]
+      [ x+490,  y+40,   64,      31,     -31,       0]
+      [ x+0,    y+80,   64,      31,     -31,       0]
+      [ x+70,   y+80,   64,      31,     -31,       0]
+      [ x+140,  y+80,   64,      31,     -31,       0]
+      [ x+210,  y+80,   64,      31,     -31,       0]
+      [ x+280,  y+80,   64,      31,     -31,       0]
+      [ x+350,  y+80,   64,      31,     -31,       0]
+      [ x+420,  y+80,   64,      31,     -31,       0]
+      [ x+490,  y+80,   64,      31,     -31,       0]
+      [ x+0,    y+120,  64,      31,     -31,       0]
+      [ x+70,   y+120,  64,      31,     -31,       0]
+      [ x+140,  y+120,  64,      31,     -31,       0]
+      [ x+210,  y+120,  64,      31,     -31,       0]
+      [ x+280,  y+120,  64,      31,     -31,       0]
+      [ x+350,  y+120,  64,      31,     -31,       0]
+      [ x+420,  y+120,  64,      31,     -31,       0]
+      [ x+490,  y+120,  64,      31,     -31,       0]
+      [ x+0,    y+160,  64,      31,     -31,       0]
+      [ x+70,   y+160,  64,      31,     -31,       0]
+      [ x+140,  y+160,  64,      31,     -31,       0]
+      [ x+210,  y+160,  64,      31,     -31,       0]
+      [ x+280,  y+160,  64,      31,     -31,       0]
+      [ x+350,  y+160,  64,      31,     -31,       0]
+      [ x+420,  y+160,  64,      31,     -31,       0]
+      [ x+490,  y+160,  64,      31,     -31,       0]
+      [ x+0,    y+200,  64,      31,     -31,       0]
+      [ x+70,   y+200,  64,      31,     -31,       0]
+      [ x+140,  y+200,  64,      31,     -31,       0]
+      [ x+210,  y+200,  64,      31,     -31,       0]
+      [ x+280,  y+200,  64,      31,     -31,       0]
+      [ x+350,  y+200,  64,      31,     -31,       0]
+      [ x+420,  y+200,  64,      31,     -31,       0]
+      [ x+490,  y+200,  64,      31,     -31,       0]
+      [ x+0,    y+240,  64,      31,     -31,       0]
+      [ x+70,   y+240,  64,      31,     -31,       0]
+      [ x+140,  y+240,  64,      31,     -31,       0]
+      [ x+210,  y+240,  64,      31,     -31,       0]
+      [ x+280,  y+240,  64,      31,     -31,       0]
+      [ x+350,  y+240,  64,      31,     -31,       0]
+      [ x+420,  y+240,  64,      31,     -31,       0]
+      [ x+490,  y+240,  64,      31,     -31,       0]
+      [ x+0,    y+280,  64,      31,     -31,       0]
+      [ x+70,   y+280,  64,      31,     -31,       0]
+      [ x+140,  y+280,  64,      31,     -31,       0]
+      [ x+210,  y+280,  64,      31,     -31,       0]
+      [ x+280,  y+280,  64,      31,     -31,       0]
+      [ x+350,  y+280,  64,      31,     -31,       0]
+      [ x+420,  y+280,  64,      31,     -31,       0]
+      [ x+490,  y+280,  64,      31,     -31,       0]
+    }
+  // Underlay
+    template template_jp_underlay (x, y) {
+        [ x,      y,      64,      31,     -31,       0]   // ↗↙
+        [ x+70,   y,      64,      31,     -31,       0]   // ↖↘
+        [ x+140,  y,      64,      31,     -31,       0]   // ↔U
+        [ x+210,  y,      64,      31,     -31,       0]   // ↔D
+        [ x+280,  y,      64,      31,     -31,       0]   // ↕R
+        [ x+350,  y,      64,      31,     -31,       0]   // ↕L
+        [ x+420,  y,      64,      39,     -31,      -8]   // ↗ slope up
+        [ x+490,  y,      64,      23,     -31,       0]   // ↘ slope up 
+        [ x+560,  y,      64,      23,     -31,       0]   // ↙ slope up
+        [ x+630,  y,      64,      39,     -31,      -8]   // ↖ slope up
+        [ x+700,  y,      64,      31,     -31,       0]   // +
+        [ x+770,  y,      64,      31,     -31,       0]   // combi SW
+        [ x+840,  y,      64,      31,     -31,       0]   // combi NE
+        [ x+910,  y,      64,      31,     -31,       0]   // combi SE
+        [ x+980,  y,      64,      31,     -31,       0]   // combi NW
+        [ x+1050, y,      64,      31,     -31,       0]   // combi all
+    }
+  //deco overlay
+    template template_jp_overlay_deco (x, y) {
+        [ x,      y,      64,      31,     -31,       0]   // ↗↙
+        [ x,      y,      64,      31,     -31,       0]   // ↖↘
+        [ x+70,  y,       64,      31,     -31,       0]   // ↔U
+        [ x+140,  y,       64,      31,     -31,       0]   // ↔D
+        [ x+210,  y,      64,      31,     -31,       0]   // ↕R
+        [ x+280,  y,      64,      31,     -31,       0]   // ↕L
+        [ x+350,  y,      64,      39,     -31,      -8]   // ↗ slope up
+        [ x+420,  y,      64,      23,     -31,       0]   // ↘ slope up 
+        [ x+490,  y,      64,      23,     -31,       0]   // ↙ slope up
+        [ x+560,  y,      64,      39,     -31,      -8]   // ↖ slope up
+    }
+  //deco underlay
+    template template_jp_underlay_deco (x, y) {
+        [ x,      y,      64,      31,     -31,       0]   // ↗↙
+        [ x,      y,      64,      31,     -31,       0]   // ↖↘
+        [ x+70,   y,      64,      31,     -31,       0]   // ↔U
+        [ x+140,  y,      64,      31,     -31,       0]   // ↔D
+        [ x+210,  y,      64,      31,     -31,       0]   // ↕R
+        [ x+280,  y,      64,      31,     -31,       0]   // ↕L
+        [ x+350,  y,      64,      39,     -31,      -8]   // ↗ slope up
+        [ x+420,  y,      64,      23,     -31,       0]   // ↘ slope up 
+        [ x+490,  y,      64,      23,     -31,       0]   // ↙ slope up
+        [ x+560,  y,      64,      39,     -31,      -8]   // ↖ slope up
+        [ x,      y,      64,      31,     -31,       0]   // +
+        [ x,      y,      64,      31,     -31,       0]   // combi SW
+        [ x,      y,      64,      31,     -31,       0]   // combi NE
+        [ x,      y,      64,      31,     -31,       0]   // combi SE
+        [ x,      y,      64,      31,     -31,       0]   // combi NW
+        [ x,      y,      64,      31,     -31,       0]   // combi all
+    }
+  // Bridge Surface
+    template template_jp_bridge_surface (x, y) {
+        [ x,      y,      64,      31,     -31,       0]   // ↗↙
+        [ x+70,   y,      64,      31,     -31,       0]   // ↖↘
+        [ x+140,  y,      64,      39,     -31,      -8]   // ↗ slope up
+        [ x+210,  y,      64,      23,     -31,       0]   // ↘ slope up 
+        [ x+280,  y,      64,      23,     -31,       0]   // ↙ slope up
+        [ x+350,  y,      64,      39,     -31,      -8]   // ↖ slope up
+    }
+    template template_jp_bridge_surface_v2 () {
+      [0,   360,    64,      31,     -31,       0]   // ↗↙
+      [70,  360,    64,      31,     -31,       0]   // ↖↘
+      [140, 360,    64,      39,     -31,      -8]   // ↗ slope up
+      [210, 360,    64,      23,     -31,       0]   // ↘ slope up  
+      [280, 360,    64,      23,     -31,       0]   // ↙ slope up 
+      [350, 360,    64,      39,     -31,      -8]   // ↖ slope up
+    }
+    template template_jp_bridge_surface_deco (x, y) {
+        [ x,      y,      64,      31,     -31,       0]   // ↗↙
+        [ x,      y,      64,      31,     -31,       0]   // ↖↘
+        [ x+350,  y,      64,      39,     -31,      -8]   // ↗ slope up
+        [ x+420,  y,      64,      23,     -31,       0]   // ↘ slope up 
+        [ x+490,  y,      64,      23,     -31,       0]   // ↙ slope up
+        [ x+560,  y,      64,      39,     -31,      -8]   // ↖ slope up
+    }
+  // Tunnel
+    template template_jp_tunnel_overlay_v2 (x, y) {
+      [ x+70,      y,      66,      50,     -31,     -49]  // ↙
+      [ x+70+278,  y,      66,      50,     -33,     -49]  // ↖
+      [ x+70+138,  y,      66,      50,     -31,     -49]  // ↗
+      [ x+70+418,  y,      66,      50,     -31,     -48]  // ↘
+    }
+    template template_jp_tunnel_underlay_v2 (x, y) {
+        [ x,      y,      66,      50,     -31,     -19]  // ↙
+        [ x+278,  y,      66,      50,     -33,     -19]  // ↖
+        [ x+140,  y,      64,      50,     -31,     -19]  // ↗
+        [ x+418,  y,      66,      50,     -31,     -18]  // ↘
+    }
+    // template template_jp_tunnel_overlay_v2 (x, y) {
+    //     [ x,      y,      64,      50,     -31,     -40]  // ↙
+    //     [ x+70,   y,      64,      50,     -27,     -38]  // ↖
+    //     [ x+140,  y,      64,      50,     -35,     -38]  // ↗
+    //     [ x+210,  y,      64,      50,     -31,     -40]  // ↘
+    // }
+    template template_jp_tunnel_underlay (x, y) {
+        [ x,      y,      64,      50,     -31,     -10]  // ↙
+        [ x+70,   y,      64,      50,     -31,     -19]  // ↖
+        [ x+140,  y,      64,      50,     -31,     -19]  // ↗
+        [ x+210,  y,      64,      50,     -31,     -10]  // ↘
+    }
+    template template_jp_tunnel_overlay (x, y) {
+        [ x,      y,      64,      50,     -31,     -40]  // ↙
+        [ x+70,   y,      64,      50,     -27,     -38]  // ↖
+        [ x+140,  y,      64,      50,     -35,     -38]  // ↗
+        [ x+210,  y,      64,      50,     -31,     -40]  // ↘
+    }
+    template template_jp_tunnel_urban_underlay_v2 (x, y) {
+        [ x+70,   y,      64,      31,     -31,       0]   // ↙
+        [ x+140,  y,      64,      31,     -31,       0]   // ↖
+        [ x+70,   y,      64,      31,     -31,       0]   // ↗
+        [ x+140,  y,      64,      31,     -31,       0]   // ↘
+    }
+    template template_jp_tunnel_urban_underlay (x, y) {
+        [ x,      y,      64,      31,     -31,       0]   // ↙
+        [ x+70,   y,      64,      31,     -31,       0]   // ↖
+        [ x,      y,      64,      31,     -31,       0]   // ↗
+        [ x+70,   y,      64,      31,     -31,       0]   // ↘
+    }
+    template template_jp_tunnel_urban_overlay (x, y) {
+        [ x,      y,      64,      50,     -31,     -39]  // ↙
+        [ x+70,   y,      64,      50,     -31,     -38]  // ↖
+        [ x+140,  y,      64,      50,     -31,     -38]  // ↗
+        [ x+210,  y,      64,      50,     -31,     -39]  // ↘
+    }
+  // Fence
+    template template_jp_fence (x, y) {
+      [ x,      y,      32,      25,     -33,     -11]
+      [ x+40,   y,      32,      25,       3,     -11]
+      [ x+80,   y,       8,      39,      -3,     -24]
+      [ x+100,  y,      64,      12,     -31,     -12]
+      [ x+170,  y,      32,      17,     -33,     -10]
+      [ x+210,  y,      32,      17,       3,     -10]
+      [ x+250,  y,      32,      35,     -33,     -20]
+      [ x+290,  y,      32,      35,       3,     -20]
+      [ x,      y,      32,      25,     -29,      -9]
+      [ x+40,   y,      32,      25,      -1,      -9]
+      [ x+330,  y,       8,      39,      -3,     -24]
+      [ x+100,  y,      64,      12,     -31,     -12]
+      [ x+170,  y,      32,      17,     -29,      -8]
+      [ x+210,  y,      32,      17,      -1,      -8]
+      [ x+250,  y,      32,      35,     -29,     -18]
+      [ x+290,  y,      32,      35,      -1,     -18]
+    }
+
+
+//* Tracks overlay
+  spriteset(spriteset_jp_overlay, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/tracks/jp/1067_overlay.png") {
+    template_jp_overlay (0, 0)
+  }
+  spriteset(spriteset_jp_overlay_snow_1, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/tracks/jp/1067_overlay_snow.png") {
+    template_jp_overlay (0, 0)
+  }
+  switch(FEAT_RAILTYPES, SELF, switch_jp_overlay_snow, terrain_type) {
+    TILETYPE_SNOW: spriteset_jp_overlay_snow_1;
+    spriteset_jp_overlay;
+  }
+//
+
+//* Maglev
+  //Underlay+Combined
+    spriteset(spriteset_jp_maglev_underlay_snow, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/tracks/jp/track_maglev_snow.png") {template_jp_underlay_v2 (0, 0)}
+    spriteset(spriteset_jp_maglev_underlay_def, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/tracks/jp/track_maglev.png") {template_jp_underlay_v2 (0, 0)}
+    switch(FEAT_RAILTYPES, SELF, switch_jp_maglev_underlay, terrain_type) {
+      TILETYPE_SNOW: spriteset_jp_maglev_underlay_snow;
+      spriteset_jp_maglev_underlay_def;
+    }
+    spriteset(spriteset_jp_maglev_combined_snow, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/tracks/jp/track_maglev_snow.png") {template_jp_combined (0, 0)}
+    spriteset(spriteset_jp_maglev_combined_def, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/tracks/jp/track_maglev.png") {template_jp_combined (0, 0)}
+    switch(FEAT_RAILTYPES, SELF, switch_jp_maglev_combined, terrain_type) {
+      TILETYPE_SNOW: spriteset_jp_maglev_combined_snow;
+      spriteset_jp_maglev_combined_def;
+    }
+  // Bridge
+    spriteset(spriteset_jp_maglev_bridge, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/tracks/jp/track_maglev.png") {
+       template_jp_bridge_surface_v2()
+    }
+
+//Fences
+    spriteset (gfx_fence_empty, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/tracks/fences_symmetric.png") {template_jp_fence(0,0)}
+    spriteset (gfx_fence_concrete, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/tracks/fences_symmetric.png") {template_jp_fence(0,50)}
+    spriteset (gfx_fence_concrete_2, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/tracks/fences_symmetric.png") {template_jp_fence(0,100)}
+
+//Tunnels
+    spriteset(tunnel_standard_maglev_underlay_conc, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/tracks/tunnel_maglev.png") {
+        template_jp_tunnel_underlay_v2 (0, 0)
+        }
+        spriteset(tunnel_standard_maglev_underlay_snow, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/tracks/tunnel_maglev.png") {
+          template_jp_tunnel_underlay_v2 (0, 120)
+        }
+        switch(FEAT_RAILTYPES, SELF, switch_tunnel_standard_maglev_underlay, terrain_type) {
+          TILETYPE_SNOW: tunnel_standard_maglev_underlay_snow;
+          tunnel_standard_maglev_underlay_conc;
+        }
+
+        spriteset(tunnel_standard_maglev_overlay_conc, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/tracks/tunnel_maglev.png") {
+          template_jp_tunnel_overlay_v2 (0, 0)
+        }
+        spriteset(tunnel_standard_maglev_overlay_snow, ZOOM_LEVEL_NORMAL, BIT_DEPTH_32BPP, "gfx/tracks/tunnel_maglev.png") {
+          template_jp_tunnel_overlay_v2 (0, 120)
+        }
+        switch(FEAT_RAILTYPES, SELF, switch_tunnel_standard_maglev_overlay, terrain_type) {
+          TILETYPE_SNOW: tunnel_standard_maglev_overlay_snow;
+          tunnel_standard_maglev_overlay_conc;
+        }
+//

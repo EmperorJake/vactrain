@@ -115,6 +115,24 @@ STR_PARAM_ALLOWVACTRAIN_DESC        :Choose whether to allow vactrains to travel
 STR_PARAM_SPEED					    :Change Vactrain Maximum Speed
 STR_PARAM_SPEED_DESC		        :Allows to change top speed of the fastest generation of vactrains. Previous generations will be adjusted accordingly.
 
+STR_PARAM_VACRAILGFX				:Select Vactrain Track Graphics
+STR_PARAM_VACRAILGFX_DESC			:Choose the graphical style for the vactrain track base.
+STR_PARAM_VACRAILGFX_FS				:FS-Maglev Tracks
+STR_PARAM_VACRAILGFX_JP				:JP+ Maglev Tracks
+
+STR_PARAM_VACTUBEGFX				:Select Vactrain Tube Graphics
+STR_PARAM_VACTUBEGFX_DESC			:Choose the graphical style for the vactrain tube overlay.
+STR_PARAM_VACTUBEGFX_ORIG			:Original Style
+STR_PARAM_VACTUBEGFX_INVIS			:New Style - Invisible Tube
+STR_PARAM_VACTUBEGFX_CLEAR			:New Style - Transparent Tube
+STR_PARAM_VACTUBEGFX_OPAQUE			:New Style - Opaque Tube
+
+STR_PARAM_VACFENCEGFX				:Select Vactrain Fence Graphics
+STR_PARAM_VACFENCEGFX_DESC			:Choose the graphical style for the vactrain track fences.
+STR_PARAM_VACFENCEGFX_FS			:Default Fences
+STR_PARAM_VACFENCEGFX_JP			:JP+ Fences
+
+
 #cost params
 
 STR_PARAM_RUNNING_COST                                          :Adjust running costs
