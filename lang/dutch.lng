@@ -1,127 +1,111 @@
 ##grflangid 0x1F
 
+STR_GRF_NAME :Vacuümtreinset {VERSION}
+STR_GRF_DESCRIPTION :Vacuümtreinen rijden door vacuümbuizen om duizelingwekkende snelheden te bereiken, maar tegen een exorbitante prijs. Essentieel voor gameplay in de verre toekomst. Graphics door Emperor Jake, Voyager One, DJNekkid, Purno, Froix, Erato en Zephyris; code door Emperor Jake en anderen, uitgebracht onder GPLv2 en hoger.
 
-STR_GRF_NAME :Vacuüm treinen set Set {VERSION}
-STR_GRF_DESCRIPTION :Stop maglev treinen in vacuümtubes om absurde snelheden te bereiken, maar voor een onmogelijke prijs. Essentieel voor futuristische gameplay. Graphics door Emperor Jake, Voyager One, DJNekkid, Purno, Froix, Erato en Zephyris; code door Emperor Jake en anderen, gepubliceerd onder GPLv2 en hoger.
+# badges
+STR_BADGE_POWER                           :Aandrijving
+STR_BADGE_POWER_VACTRAIN                  :Vacuümtrein
+STR_BADGE_ROLE                            :Rol
+STR_BADGE_ROLE_PAX                        :Passagiers
+STR_BADGE_ROLE_EXP                        :Expressgoederen
+STR_BADGE_ROLE_CARGO                      :Goederen
+STR_BADGE_ROLE_UNIV                       :Universeel
 
+# locomotives
+STR_NAME_SWIFT                            :Swift
+STR_NAME_HYDRA                            :Hydra
+STR_NAME_SCARAB                           :Scarab
+STR_NAME_COBRA                            :Cobra
 
+# multiple units
+STR_NAME_CROSSLEY                         :Crossley
+STR_NAME_SWALLOW                          :Swallow
+STR_NAME_TAPEWORM                         :Tapeworm
+STR_NAME_BISON                            :Bison
+STR_NAME_CHEETAH                          :Cheetah
+STR_NAME_PILLBUG                          :Pillbug
+STR_NAME_SPAMCAN                          :Spamcan
+STR_NAME_ROCKETMAX                        :Rocketmax
 
+# cargo locomotives
+STR_NAME_CARGO_1                          :Coelacanth
+STR_NAME_CARGO_2                          :Juggernaut
+STR_NAME_CARGO_3                          :Capybara
+STR_NAME_CARGO_4                          :Cyber Dragon
 
+# additional text
+STR_CONCAT_1                              :{STRING}
+STR_CONCAT_2                              :{STRING}{STRING}
+STR_CONCAT_3                              :{STRING}{STRING}{STRING}
+STR_CONCAT_4                              :{STRING}{STRING}{STRING}{STRING}
+STR_DESC_AIRSPEED                         :{BLACK}Atmosferische snelheid: {GOLD}{UNSIGNED_WORD} km/h{}
+STR_DESC_WAGONCAP                         :{BLACK}Extra capaciteit voor passagiers-/expresswagons
 
-
-#trains
-
-STR_NAME_CHINESE_PROTO					:Fenglong FL1 Prototype
-STR_NAME_CHINESE_INTERCITY				:Fenglong FL2
-STR_NAME_CHINESE_INTERNATIONAL			:Fenglong FL5 “Gepard”
-STR_NAME_CHINESE_INTERCONTINENTAL		:Fenglong FL8
-
-STR_NAME_HYPERLOOP_1				:Hyperloop Pod
-
-STR_NAME_SWISSMETRO_1				:Swissmetro
-
-STR_NAME_CHIMAERA					:Siemens Chimaera
-
-STR_NAME_FRENCH_1					:Alstom Train-Sous-Vide 
-STR_NAME_FRENCH_2					:Alstom TSV Duplex
-
-STR_NAME_JAPANESE_1					:JVAC Shinkūsen 1000
-STR_NAME_JAPANESE_2					:JVAC Shinkūsen 4000
-
-
-#cargo vactrains
-
-STR_NAME_CARGO_1					:Siemens TransCargo
-STR_NAME_CARGO_2					:Alstom TSV Fret
-STR_NAME_CARGO_3					:F-Trainz FT001
-STR_NAME_CARGO_4					:Juanlong “Zijden Draak”
-
-
-# additional text - metric TODO ADD DIFFERENT UNITS mph and kW
-
-STR_TEXT_CHINESE_PROTO					:{BLACK}Laadsnelheid: {GOLD}Langzaam {}{BLACK}Atmospherische Snelheid: {GOLD}200 km/h {}{BLACK}Kan enkel aan zichzelf bevestigd worden.
-STR_TEXT_CHINESE_INTERCITY				:{BLACK}Laadsnelheid: {GOLD}Snel {}{BLACK}Atmospherische Snelheid: {GOLD}200 km/h {}{BLACK}Wagonskracht: {GOLD}7,000 pk {}{BLACK}Wagoncapaciteit {GOLD}80 Passagiers
-STR_TEXT_CHINESE_INTERNATIONAL			:{BLACK}Laadsnelheid: {GOLD}Snel {}{BLACK}Atmospherische Snelheid: {GOLD}200 km/h {}{BLACK}Wagonskracht: {GOLD}7,000 pk {}{BLACK}Wagoncapaciteit {GOLD}72 Passagiers
-STR_TEXT_CHINESE_INTERCONT				:{BLACK}Laadsnelheid: {GOLD}Gemiddeld {}{BLACK}Atmospherische Snelheid: {GOLD}200 km/h {}{BLACK}Wagonskracht: {GOLD}19,000 pk {}{BLACK}Wagoncapaciteit {GOLD}105/110 Passagiers
-
-STR_TEXT_HYPERLOOP_1				:{BLACK}Laadsnelheid: {GOLD}Gemiddeld {}{BLACK}Atmospherische Snelheid: {GOLD}120 km/h {}{BLACK}Kan nergens aan bevestigd worden.
-
-STR_TEXT_SWISSMETRO_1				:{BLACK}Laadsnelheid: {GOLD}Gemiddeld {}{BLACK}Atmospherische Snelheid: {GOLD}420 km/h {}{BLACK}Wagonskracht: {GOLD}10,000 pk {}{BLACK}Wagoncapaciteit {GOLD}56 Passagiers
-
-STR_TEXT_CHIMAERA					:{BLACK}Laadsnelheid: {GOLD}Langzaam {}{BLACK}Atmospherische Snelheid: {GOLD}640 km/h {}{BLACK}Wagonskracht: {GOLD}12,000 pk {}{BLACK}Wagoncapaciteit {GOLD}40 Passagiers
-
-STR_TEXT_FRENCH_1					:{BLACK}Laadsnelheid: {GOLD}Snel {}{BLACK}Atmospherische Snelheid: {GOLD}450 km/h {}{BLACK}Wagonskracht: {GOLD}9,000 pk {}{BLACK}Wagoncapaciteit {GOLD}10/62 Passagiers
-STR_TEXT_FRENCH_2					:{BLACK}Laadsnelheid: {GOLD}Snel {}{BLACK}Atmospherische Snelheid: {GOLD}640 km/h {}{BLACK}Wagonskracht: {GOLD}16,000 pk {}{BLACK}Wagoncapaciteit {GOLD}120 Passagiers
-
-STR_TEXT_JAPANESE_1					:{BLACK}Laadsnelheid: {GOLD}Gemiddeld {}{BLACK}Atmospherische Snelheid: {GOLD}500 km/h {}{BLACK}Wagonskracht: {GOLD}7,000 pk {}{BLACK}Wagoncapaciteit {GOLD}95 Passagiers
-STR_TEXT_JAPANESE_2					:{BLACK}Laadsnelheid: {GOLD}Langzaam {}{BLACK}Atmospherische Snelheid: {GOLD}500 km/h {}{BLACK}Wagonskracht: {GOLD}20,000 pk {}{BLACK}Wagoncapaciteit {GOLD}185/190 Passagiers
-
-STR_TEXT_CARGO_1					:{BLACK}Atmospherische Snelheid: {GOLD}300 km/h
-STR_TEXT_CARGO_2					:{BLACK}Atmospherische Snelheid: {GOLD}450 km/h
-STR_TEXT_CARGO_3					:{BLACK}Atmospherische Snelheid: {GOLD}640 km/h
-STR_TEXT_CARGO_4					:{BLACK}Atmospherische Snelheid: {GOLD}750 km/h
-
-
-
-#wagons
-
-STR_NAME_POWERED_WAGON				:Vacuüm Trein Eenheidswagen (Bekrachtigd)
-STR_NAME_UNPOWERED_WAGON			:Vacuüm Trein Eenheidswagen (Onbekrachtigd)
-STR_NAME_CARGO_WAGON				:Vacuüm Trein Universele Vracht Module
-STR_NAME_EXPRESS_WAGON				:Vacuüm Trein Express Vrachtwagon
+# wagons
+STR_NAME_PAX_WAGON                        :Passagierswagon
+STR_NAME_EXP_WAGON                        :Expressgoederenwagon
+STR_NAME_CARGO_WAGON                      :Universele goederenwagon
+STR_NAME_BULK_WAGON                       :Bulkgoederenwagon
 
 # general
+STR_NEW_ENGINE                            :Vacuümtreinlocomotief
+STR_AUTOREPLACE                           :Vacuümtreinvoertuigen
+STR_BUILD_CAPTION                         :Nieuwe vacuümtreinvoertuigen
+STR_TOOLBAR_CAPTION                       :Vacuümbaanbouw
+STR_VAC_RAIL                              :Vacuümbaan bouwen
+STR_VAC_NAME                              :Vacuümbaan
 
-STR_NEW_ENGINE :Vacuüm trein voertuig
-STR_AUTOREPLACE :Vacuüm Trein Voertuigen
-STR_BUILD_CAPTION :Nieuwe Vacuüm Trein Voertuigen
-STR_TOOLBAR_CAPTION :Vacuüm Tube Constructie
-STR_VAC_RAIL :Vacuüm Tube constructie
-STR_VAC_NAME :Vacuüm Tube Spoor
+# general parameters
+STR_PARAM_CAPACITY                        :Capaciteit van vacuümtreinen aanpassen
+STR_PARAM_CAPACITY_DESC                   :Hiermee kan de capaciteit van vacuümtreinvoertuigen worden aangepast.{}{}Conservatief: {WHITE}-20%{BLACK}{}Royaal: {WHITE}+20%{BLACK}
+STR_PARAM_CAPACITY_LOW                    :Conservatief
+STR_PARAM_CAPACITY_MED                    :Normaal
+STR_PARAM_CAPACITY_HIGH                   :Royaal
 
-# errors
+STR_PARAM_LOADSPEED                       :Laadsnelheid van vacuümtreinen aanpassen
+STR_PARAM_LOADSPEED_DESC                  :Hiermee kan de laadsnelheid van vacuümtreinvoertuigen worden aangepast
+STR_PARAM_LOADSPEED_LOW                   :Conservatief
+STR_PARAM_LOADSPEED_MED                   :Normaal
+STR_PARAM_LOADSPEED_HIGH                  :Royaal
 
-STR_ERROR_SELF_ONLY					:Kan enkel aan zichzelf bevestigen worden.
-STR_ERROR_SINGLE_ONLY				:Kan nergens aan bevestigd worden.
-STR_ERROR_MUWAG_ONLY				:Enkel eenheidswagons
-STR_ERROR_CARGO_ONLY				:Enkel vrachtwagons
-STR_ERROR_NO_WAGONS					:Kan niet worden bevestigd aan wagons
+STR_PARAM_STARTING_YEAR                   :Introductiejaar aanpassen
+STR_PARAM_STARTING_YEAR_DESC              :Pas het introductiejaar voor passagiers- en expressvacuümtreinen aan. Goederenvacuümtreinen verschijnen ongeveer 5 jaar later.
+STR_PARAM_MAGLEVGFX                       :Maglevbaangraphics vervangen
+STR_PARAM_MAGLEVGFX_DESC                  :Kies of de standaard maglevbaan moet worden vervangen door graphics die bij de vacuümbaan passen. Schakel dit uit om graphics van de basisset of maglevbanen van een andere NewGRF te gebruiken.
+STR_PARAM_ALLOWMAGLEV                     :Maglevtreinen op vacuümbanen toestaan
+STR_PARAM_ALLOWMAGLEV_DESC                :Kies of standaard maglevtreinen op vacuümbanen mogen rijden. Dit omvat zowel standaardmaglevtreinen als compatibele NewGRF-maglevtreinen.
+STR_PARAM_ALLOWVACTRAIN                   :Vacuümtreinen op maglevbanen toestaan
+STR_PARAM_ALLOWVACTRAIN_DESC              :Kies of vacuümtreinen op standaard maglevbanen mogen rijden.
+STR_PARAM_SPEED                           :Maximumsnelheid van vacuümtreinen aanpassen
+STR_PARAM_SPEED_DESC                      :Hiermee kan de topsnelheid van de snelste generatie vacuümtreinen worden aangepast. Eerdere generaties worden evenredig aangepast.
 
-#general params
+# cost parameters
+STR_PARAM_RUNNING_COST                    :Bedrijfskosten aanpassen
+STR_PARAM_RUNNING_COST_DESC               :Hiermee kunnen de bedrijfskosten van vacuümtreinen worden aangepast
+STR_PARAM_PURCHASE_COST                   :Aankoopkosten aanpassen
+STR_PARAM_PURCHASE_COST_DESC              :Hiermee kunnen de aankoopkosten van vacuümtreinen worden aangepast
+STR_PARAM_RAIL_COST                       :Bouwkosten van de baan aanpassen
+STR_PARAM_RAIL_COST_DESC                  :Hiermee kunnen de bouw- en verwijderingskosten van vacuümbanen worden aangepast.
+STR_PARAM_MAINTENANCE_COST                :Onderhoudskosten van de baan aanpassen
+STR_PARAM_MAINTENANCE_COST_DESC           :Hiermee kunnen de onderhoudskosten van vacuümbanen worden aangepast. Infrastructuuronderhoud moet zijn ingeschakeld om dit effect te laten hebben.
 
-STR_PARAM_CARGO_ENGINES				:Sta Vracht Vacuüm Treinen Toe
-STR_PARAM_CARGO_ENGINES_DESC		:Zet vrachttreinen die specifiek niet-express vracht kunnen dragen aan of uit.
-
-STR_PARAM_CAPACITY					:Verander Vracht Capaciteit
-STR_PARAM_CAPACITY_DESC				:Laat je de capaciteit van wagonnen veranderen (bijvoorbeeld om het te balanceren met anderen).
-STR_PARAM_CAPACITY_LOW				:Conservatief
-STR_PARAM_CAPACITY_MED				:Normaal
-STR_PARAM_CAPACITY_HIGH				:Gul
-
-#cost params
-
-STR_PARAM_RUNNING_COST                                          :Pas onderhoudskosten aan
-STR_PARAM_RUNNING_COST_DESC                                     :Laat je de aankoopkosten van vacuüm tube treinen veranderen (bijvoorbeeld om het te balanceren met anderen).
-STR_PARAM_PURCHASE_COST                                         :Pas aankoopkosten aan
-STR_PARAM_PURCHASE_COST_DESC                                    :Laat je de aankoopkosten van vacuüm tube treinen veranderen (bijvoorbeeld om het te balanceren met anderen).
-STR_PARAM_RAIL_COST                                             :Pas vacuüm tube plaats / opruim kosten aan
-STR_PARAM_RAIL_COST_DESC                                        :Laat je de plaats en opruim kosten van vacuüm tube treinen veranderen.
-STR_PARAM_COST_AUTOMATICALLY                                    :automatisch (standaard)
-STR_PARAM_COST_BY256                                            :1 / 256
-STR_PARAM_COST_BY128                                            :1 / 128
-STR_PARAM_COST_BY64                                             :1 / 64
-STR_PARAM_COST_BY32                                             :1 / 32
-STR_PARAM_COST_BY16                                             :1 / 16
-STR_PARAM_COST_BY8                                              :1 / 8
-STR_PARAM_COST_BY4                                              :1 / 4
-STR_PARAM_COST_BY2                                              :1 / 2
-STR_PARAM_COST_NORMAL                                           :normaal
-STR_PARAM_COST_TIMES2                                           :2x
-STR_PARAM_COST_TIMES4                                           :4x
-STR_PARAM_COST_TIMES8                                           :8x
-STR_PARAM_COST_TIMES16                                          :16x
-STR_PARAM_COST_TIMES32                                          :32x
-STR_PARAM_COST_TIMES64                                          :64x
-STR_PARAM_COST_TIMES128                                         :128x
-STR_PARAM_COST_TIMES256                                         :256x
-STR_PARAM_COST_TIMES512                                         :512x
+STR_PARAM_COST_AUTOMATICALLY              :automatisch (standaard)
+STR_PARAM_COST_BY256                      :1 / 256
+STR_PARAM_COST_BY128                      :1 / 128
+STR_PARAM_COST_BY64                       :1 / 64
+STR_PARAM_COST_BY32                       :1 / 32
+STR_PARAM_COST_BY16                       :1 / 16
+STR_PARAM_COST_BY8                        :1 / 8
+STR_PARAM_COST_BY4                        :1 / 4
+STR_PARAM_COST_BY2                        :1 / 2
+STR_PARAM_COST_NORMAL                     :normaal
+STR_PARAM_COST_TIMES2                     :2x
+STR_PARAM_COST_TIMES4                     :4x
+STR_PARAM_COST_TIMES8                     :8x
+STR_PARAM_COST_TIMES16                    :16x
+STR_PARAM_COST_TIMES32                    :32x
+STR_PARAM_COST_TIMES64                    :64x
+STR_PARAM_COST_TIMES128                   :128x
+STR_PARAM_COST_TIMES256                   :256x
+STR_PARAM_COST_TIMES512                   :512x

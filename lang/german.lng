@@ -3,119 +3,111 @@
 lang: 7F
 
 STR_GRF_NAME :Vactrain Set {VERSION}
+STR_GRF_DESCRIPTION :Vakuumzüge fahren in Vakuumröhren und erreichen dadurch unglaubliche Geschwindigkeiten, allerdings zu einem exorbitanten Preis. Unverzichtbar für Spiele in ferner Zukunft. Grafiken von Emperor Jake, Voyager One, DJNekkid, Purno, Froix, Erato und Zephyris; Code von Emperor Jake und anderen, veröffentlicht unter GPLv2 oder höher.
 
-#Deutsche Übersetzung von Emperor Jake, könnte verbessert werden
+# badges
+STR_BADGE_POWER                           :Antrieb
+STR_BADGE_POWER_VACTRAIN                  :Vakuumzug
+STR_BADGE_ROLE                            :Rolle
+STR_BADGE_ROLE_PAX                        :Passagier
+STR_BADGE_ROLE_EXP                        :Expressfracht
+STR_BADGE_ROLE_CARGO                      :Fracht
+STR_BADGE_ROLE_UNIV                       :Universal
 
+# locomotives
+STR_NAME_SWIFT                            :Swift
+STR_NAME_HYDRA                            :Hydra
+STR_NAME_SCARAB                           :Scarab
+STR_NAME_COBRA                            :Cobra
 
+# multiple units
+STR_NAME_CROSSLEY                         :Crossley
+STR_NAME_SWALLOW                          :Swallow
+STR_NAME_TAPEWORM                         :Tapeworm
+STR_NAME_BISON                            :Bison
+STR_NAME_CHEETAH                          :Cheetah
+STR_NAME_PILLBUG                          :Pillbug
+STR_NAME_SPAMCAN                          :Spamcan
+STR_NAME_ROCKETMAX                        :Rocketmax
 
+# cargo locomotives
+STR_NAME_CARGO_1                          :Coelacanth
+STR_NAME_CARGO_2                          :Juggernaut
+STR_NAME_CARGO_3                          :Capybara
+STR_NAME_CARGO_4                          :Cyber Dragon
 
-#trains
+# additional text
+STR_CONCAT_1                              :{STRING}
+STR_CONCAT_2                              :{STRING}{STRING}
+STR_CONCAT_3                              :{STRING}{STRING}{STRING}
+STR_CONCAT_4                              :{STRING}{STRING}{STRING}{STRING}
+STR_DESC_AIRSPEED                         :{BLACK}Geschwindigkeit außerhalb der Röhre: {GOLD}{UNSIGNED_WORD} km/h{}
+STR_DESC_WAGONCAP                         :{BLACK}Zusätzliche Kapazität für Passagier-/Expresswagen
 
-STR_NAME_CHINESE_PROTO					:Fenglong FL1 Prototyp
-STR_NAME_CHINESE_INTERCITY				:Fenglong FL2
-STR_NAME_CHINESE_INTERNATIONAL			:Fenglong FL5 “Gepard”
-STR_NAME_CHINESE_INTERCONTINENTAL		:Fenglong FL8
-
-STR_NAME_HYPERLOOP_1				:Hyperloop Pod
-
-STR_NAME_SWISSMETRO_1				:Swissmetro
-
-STR_NAME_CHIMAERA					:Siemens Chimaera
-
-STR_NAME_FRENCH_1					:Alstom Train-Sous-Vide 
-STR_NAME_FRENCH_2					:Alstom TSV Duplex
-
-STR_NAME_JAPANESE_1					:JVAC Shinkūsen 1000
-STR_NAME_JAPANESE_2					:JVAC Shinkūsen 4000
-
-
-#cargo vactrains
-
-STR_NAME_CARGO_1					:Siemens TransCargo
-STR_NAME_CARGO_2					:Alstom TSV Fret
-STR_NAME_CARGO_3					:F-Trainz FT001
-STR_NAME_CARGO_4					:Juanlong “Silk Dragon”
-
-
-# additional text - metric TODO ADD DIFFERENT UNITS mph and kW
-
-STR_TEXT_CHINESE_PROTO					:{BLACK}Ladegeschwindigkeit: {GOLD}Langsam {}{BLACK}Außengeschwindigkeit: {GOLD}200 km/h {}{BLACK}Kann nur an sich selbst anhängen
-STR_TEXT_CHINESE_INTERCITY				:{BLACK}Ladegeschwindigkeit: {GOLD}Schnell {}{BLACK}Außengeschwindigkeit: {GOLD}200 km/h {}{BLACK}Wagenleistung: {GOLD}7,000 PS {}{BLACK}Wagenkapazität: {GOLD}80 Passagiere
-STR_TEXT_CHINESE_INTERNATIONAL			:{BLACK}Ladegeschwindigkeit: {GOLD}Schnell {}{BLACK}Außengeschwindigkeit: {GOLD}200 km/h {}{BLACK}Wagenleistung: {GOLD}7,000 PS {}{BLACK}Wagenkapazität: {GOLD}72 Passagiere
-STR_TEXT_CHINESE_INTERCONT				:{BLACK}Ladegeschwindigkeit: {GOLD}Mittel {}{BLACK}Außengeschwindigkeit: {GOLD}200 km/h {}{BLACK}Wagenleistung: {GOLD}19,000 PS {}{BLACK}Wagenkapazität: {GOLD}105/110 Passagiere
-
-STR_TEXT_HYPERLOOP_1				:{BLACK}Ladegeschwindigkeit: {GOLD}Mittel {}{BLACK}Außengeschwindigkeit: {GOLD}120 km/h	{}{BLACK}Kann sich an nichts anhängen
-
-STR_TEXT_SWISSMETRO_1				:{BLACK}Ladegeschwindigkeit: {GOLD}Mittel {}{BLACK}Außengeschwindigkeit: {GOLD}420 km/h {}{BLACK}Wagenleistung: {GOLD}10,000 PS {}{BLACK}Wagenkapazität: {GOLD}56 Passagiere
-
-STR_TEXT_CHIMAERA					:{BLACK}Ladegeschwindigkeit: {GOLD}Langsam {}{BLACK}Außengeschwindigkeit: {GOLD}640 km/h {}{BLACK}Wagenleistung: {GOLD}12,000 PS {}{BLACK}Wagenkapazität: {GOLD}40 Passagiere
-
-STR_TEXT_FRENCH_1					:{BLACK}Ladegeschwindigkeit: {GOLD}Schnell {}{BLACK}Außengeschwindigkeit: {GOLD}450 km/h {}{BLACK}Wagenleistung: {GOLD}9,000 PS {}{BLACK}Wagenkapazität: {GOLD}10/62 Passagiere
-STR_TEXT_FRENCH_2					:{BLACK}Ladegeschwindigkeit: {GOLD}Schnell {}{BLACK}Außengeschwindigkeit: {GOLD}640 km/h {}{BLACK}Wagenleistung: {GOLD}16,000 PS {}{BLACK}Wagenkapazität: {GOLD}120 Passagiere
-
-STR_TEXT_JAPANESE_1					:{BLACK}Ladegeschwindigkeit: {GOLD}Mittel {}{BLACK}Außengeschwindigkeit: {GOLD}500 km/h {}{BLACK}Wagenleistung: {GOLD}7,000 PS {}{BLACK}Wagenkapazität: {GOLD}95 Passagiere
-STR_TEXT_JAPANESE_2					:{BLACK}Ladegeschwindigkeit: {GOLD}Langsam {}{BLACK}Außengeschwindigkeit: {GOLD}500 km/h {}{BLACK}Wagenleistung: {GOLD}20,000 PS {}{BLACK}Wagenkapazität: {GOLD}185/190 Passagiere
-
-STR_TEXT_CARGO_1					:{BLACK}Außengeschwindigkeit: {GOLD}300 km/h
-STR_TEXT_CARGO_2					:{BLACK}Außengeschwindigkeit: {GOLD}450 km/h
-STR_TEXT_CARGO_3					:{BLACK}Außengeschwindigkeit: {GOLD}640 km/h
-STR_TEXT_CARGO_4					:{BLACK}Außengeschwindigkeit: {GOLD}750 km/h
-
-
-
-#wagons
-
-STR_NAME_POWERED_WAGON				:Vakuumtunnelmagnetschwebebahneinheitswagen (Angetrieben)
-STR_NAME_UNPOWERED_WAGON			:Vakuumtunnelbahn Einheitswagen (Nicht angetrieben)
-STR_NAME_CARGO_WAGON				:Vakuumtunnelbahn modularer Güterwagen
-STR_NAME_EXPRESS_WAGON				:Vakuumtunnelbahn Express-Güterwagen
+# wagons
+STR_NAME_PAX_WAGON                        :Passagierwagen
+STR_NAME_EXP_WAGON                        :Expressfrachtwagen
+STR_NAME_CARGO_WAGON                      :Universalgüterwagen
+STR_NAME_BULK_WAGON                       :Schüttgutwagen
 
 # general
+STR_NEW_ENGINE                            :Vakuumzuglokomotive
+STR_AUTOREPLACE                           :Vakuumzugfahrzeuge
+STR_BUILD_CAPTION                         :Neue Vakuumzugfahrzeuge
+STR_TOOLBAR_CAPTION                       :Vakuumröhrenbau
+STR_VAC_RAIL                              :Vakuumröhrenstrecke bauen
+STR_VAC_NAME                              :Vakuumröhrenstrecke
 
-STR_NEW_ENGINE :Vakuumtunnelbahn-Fahrzeug
-STR_AUTOREPLACE :Vakuumtunnelbahn-Fahrzeuge
-STR_BUILD_CAPTION :Neue Vakuumtunnelbahn-Fahrzeuge
-STR_TOOLBAR_CAPTION :Vakuumtunnelbahnbau
-STR_VAC_RAIL :Vakuumtunnelbahnbau
-STR_VAC_NAME :Vakuumtunnelbahn
+# general parameters
+STR_PARAM_CAPACITY                        :Kapazität der Vakuumzüge ändern
+STR_PARAM_CAPACITY_DESC                   :Ermöglicht die Anpassung der Kapazität von Vakuumzugfahrzeugen.{}{}Konservativ: {WHITE}-20%{BLACK}{}Großzügig: {WHITE}+20%{BLACK}
+STR_PARAM_CAPACITY_LOW                    :Konservativ
+STR_PARAM_CAPACITY_MED                    :Normal
+STR_PARAM_CAPACITY_HIGH                   :Großzügig
 
-# errors
+STR_PARAM_LOADSPEED                       :Ladegeschwindigkeit der Vakuumzüge ändern
+STR_PARAM_LOADSPEED_DESC                  :Ermöglicht die Anpassung der Ladegeschwindigkeit von Vakuumzugfahrzeugen
+STR_PARAM_LOADSPEED_LOW                   :Konservativ
+STR_PARAM_LOADSPEED_MED                   :Normal
+STR_PARAM_LOADSPEED_HIGH                  :Großzügig
 
-STR_ERROR_SELF_ONLY					:Kann nur an sich selbst anhängen
-STR_ERROR_SINGLE_ONLY				:Kann sich an nichts anhängen
-STR_ERROR_MUWAG_ONLY				:Nur Einheitswagen erlaubt
-STR_ERROR_CARGO_ONLY				:Nur Güterwagen erlaubt
-STR_ERROR_NO_WAGONS					:Keine Wagen erlaubt
+STR_PARAM_STARTING_YEAR                   :Einführungsjahr ändern
+STR_PARAM_STARTING_YEAR_DESC              :Passt das Einführungsjahr für Passagier- und Expressvakuumzüge an. Gütervakuumzüge werden ungefähr 5 Jahre später eingeführt.
+STR_PARAM_MAGLEVGFX                       :Maglev-Streckengrafiken ersetzen
+STR_PARAM_MAGLEVGFX_DESC                  :Legt fest, ob die Standard-Maglevstrecke durch Grafiken ersetzt wird, die zur Vakuumröhrenstrecke passen. Deaktivieren, um Grafiken des Basisspiels oder Maglevstrecken eines anderen NewGRF zu verwenden.
+STR_PARAM_ALLOWMAGLEV                     :Maglevzüge auf Vakuumröhrenstrecken erlauben
+STR_PARAM_ALLOWMAGLEV_DESC                :Legt fest, ob normale Maglevzüge auf Vakuumröhrenstrecken fahren dürfen. Dies umfasst Standard-Maglevzüge sowie kompatible NewGRF-Maglevzüge.
+STR_PARAM_ALLOWVACTRAIN                   :Vakuumzüge auf Maglevstrecken erlauben
+STR_PARAM_ALLOWVACTRAIN_DESC              :Legt fest, ob Vakuumzüge auf normalen Maglevstrecken fahren dürfen.
+STR_PARAM_SPEED                           :Höchstgeschwindigkeit der Vakuumzüge ändern
+STR_PARAM_SPEED_DESC                      :Ermöglicht die Anpassung der Höchstgeschwindigkeit der schnellsten Vakuumzuggeneration. Frühere Generationen werden proportional angepasst.
 
-#general params
+# cost parameters
+STR_PARAM_RUNNING_COST                    :Betriebskosten anpassen
+STR_PARAM_RUNNING_COST_DESC               :Ermöglicht die Anpassung der Betriebskosten der Vakuumzüge
+STR_PARAM_PURCHASE_COST                   :Anschaffungskosten anpassen
+STR_PARAM_PURCHASE_COST_DESC              :Ermöglicht die Anpassung der Anschaffungskosten der Vakuumzüge
+STR_PARAM_RAIL_COST                       :Streckenbaukosten anpassen
+STR_PARAM_RAIL_COST_DESC                  :Ermöglicht die Anpassung der Bau- und Abrisskosten von Vakuumröhrenstrecken.
+STR_PARAM_MAINTENANCE_COST                :Streckenwartungskosten anpassen
+STR_PARAM_MAINTENANCE_COST_DESC           :Ermöglicht die Anpassung der Wartungskosten von Vakuumröhrenstrecken. Die Infrastrukturwartung muss aktiviert sein, damit diese Einstellung wirksam wird.
 
-STR_PARAM_STARTING_YEAR             :Starting Year
-STR_PARAM_STARTING_YEAR_DESC        :Adjust year that first new vehicle becomes available in.
-
-#cost params
-
-STR_PARAM_RUNNING_COST                                          :Betriebskosten anpassen
-STR_PARAM_RUNNING_COST_DESC                                     :Ermöglicht, die Betriebskosten der Fahrzeuge anzupassen (z.B. um sie anderen Sets gegenüber anzupassen)
-STR_PARAM_PURCHASE_COST                                         :Fahrzeugpreise anpassen
-STR_PARAM_PURCHASE_COST_DESC                                    :Ermöglicht, die Kaufpreise der Fahrzeuge anzupassen (z.B. um sie anderen Sets gegenüber anzupassen)
-STR_PARAM_RAIL_COST                                             :Baukosten der Vakuumtunnelbahntrassen anpassen
-STR_PARAM_RAIL_COST_DESC                                        :Ermöglicht, die Baukosten der Vakuumtunnelbahntrassen anzupassen (z.B. um sie anderen Sets gegenüber anzupassen)
-STR_PARAM_COST_AUTOMATICALLY                                    :automatisch (Standard)
-STR_PARAM_COST_BY256                                            :1 / 256
-STR_PARAM_COST_BY128                                            :1 / 128
-STR_PARAM_COST_BY64                                             :1 / 64
-STR_PARAM_COST_BY32                                             :1 / 32
-STR_PARAM_COST_BY16                                             :1 / 16
-STR_PARAM_COST_BY8                                              :1 / 8
-STR_PARAM_COST_BY4                                              :1 / 4
-STR_PARAM_COST_BY2                                              :1 / 2
-STR_PARAM_COST_NORMAL                                           :normal
-STR_PARAM_COST_TIMES2                                           :2x
-STR_PARAM_COST_TIMES4                                           :4x
-STR_PARAM_COST_TIMES8                                           :8x
-STR_PARAM_COST_TIMES16                                          :16x
-STR_PARAM_COST_TIMES32                                          :32x
-STR_PARAM_COST_TIMES64                                          :64x
-STR_PARAM_COST_TIMES128                                         :128x
-STR_PARAM_COST_TIMES256                                         :256x
-STR_PARAM_COST_TIMES512                                         :512x
+STR_PARAM_COST_AUTOMATICALLY              :automatisch (Standard)
+STR_PARAM_COST_BY256                      :1 / 256
+STR_PARAM_COST_BY128                      :1 / 128
+STR_PARAM_COST_BY64                       :1 / 64
+STR_PARAM_COST_BY32                       :1 / 32
+STR_PARAM_COST_BY16                       :1 / 16
+STR_PARAM_COST_BY8                        :1 / 8
+STR_PARAM_COST_BY4                        :1 / 4
+STR_PARAM_COST_BY2                        :1 / 2
+STR_PARAM_COST_NORMAL                     :normal
+STR_PARAM_COST_TIMES2                     :2x
+STR_PARAM_COST_TIMES4                     :4x
+STR_PARAM_COST_TIMES8                     :8x
+STR_PARAM_COST_TIMES16                    :16x
+STR_PARAM_COST_TIMES32                    :32x
+STR_PARAM_COST_TIMES64                    :64x
+STR_PARAM_COST_TIMES128                   :128x
+STR_PARAM_COST_TIMES256                   :256x
+STR_PARAM_COST_TIMES512                   :512x
