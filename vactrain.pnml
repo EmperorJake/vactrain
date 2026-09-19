@@ -26,4 +26,4 @@
 #include "src/trains/cargo_engine_4.pnml"
 #include "src/trains/pax_mail_wagons.pnml"
 #include "src/trains/cargo_box_wagon.pnml"
-#include "src/trains/cargo_wagon_bulk_wagon.pnml"
+#include "src/trains/cargo_bulk_wagon.pnml"

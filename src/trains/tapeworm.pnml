@@ -54,8 +54,8 @@ switch (FEAT_TRAINS, SELF, switch_tapeworm_speed, current_railtype) {
 }
 
 switch (FEAT_TRAINS, SELF, switch_tapeworm_cost, current_railtype) {
-	VACT: return 70;
-	MGLV: return 35;
+	VACT: return 85;
+	MGLV: return 40;
 	CB_FAILED;
 }
 
@@ -170,8 +170,8 @@ item (FEAT_TRAINS, tapeworm, 154) {
         reliability_decay: 12;
         model_life: VEHICLE_NEVER_EXPIRES;
         vehicle_life: 48;
-        cost_factor: 107;
-        running_cost_factor: 230;
+        cost_factor: 125;
+        running_cost_factor: 85;
         running_cost_base: RUNNING_COST_STEAM;
         badges: ["power/vactrain", "role/passenger"];
     }
@@ -233,8 +233,8 @@ item (FEAT_TRAINS, tapeworm_mail, 254) {
         reliability_decay: 12;
         model_life: VEHICLE_NEVER_EXPIRES;
         vehicle_life: 48;
-        cost_factor: 107;
-        running_cost_factor: 230;
+        cost_factor: 125;
+        running_cost_factor: 85;
         running_cost_base: RUNNING_COST_STEAM;
         variant_group: 154;
         extra_flags: bitmask(VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);

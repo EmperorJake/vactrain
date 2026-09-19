@@ -10,8 +10,8 @@ spriteset(spriteset_cobra_purchase, "gfx/trains/cobra.png") {
 //COBRA
 
 switch (FEAT_TRAINS, SELF, switch_cobra_cost, current_railtype) {
-    VACT: return 20;
-    MGLV: return 10;
+    VACT: return 165;
+    MGLV: return 85;
     CB_FAILED;
 }
 
@@ -42,8 +42,8 @@ item (FEAT_TRAINS, cobra, 138) {
         reliability_decay: 55;
         model_life: 35;
         vehicle_life: 20;
-        cost_factor: 82;
-        // running_cost_factor: 255;
+        cost_factor: 220;
+        running_cost_factor: 165;
         running_cost_base: RUNNING_COST_STEAM;
         badges: ["power/vactrain", "role/universal"];
     }

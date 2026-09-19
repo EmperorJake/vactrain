@@ -47,8 +47,8 @@ switch (FEAT_TRAINS, SELF, switch_spamcan_speed, current_railtype) {
 }
 
 switch (FEAT_TRAINS, SELF, switch_spamcan_cost, current_railtype) {
-	VACT: return 105;
-	MGLV: return 40;
+	VACT: return 155;
+	MGLV: return 75;
 	CB_FAILED;
 }
 
@@ -81,8 +81,8 @@ item (FEAT_TRAINS, spamcan, 158) {
         reliability_decay: 12;
         model_life: VEHICLE_NEVER_EXPIRES;
         vehicle_life: 52;
-        cost_factor: 187;
-        running_cost_factor: 240;
+        cost_factor: 210;
+        running_cost_factor: 155;
         running_cost_base: RUNNING_COST_STEAM;
         badges: ["power/vactrain", "role/passenger"];
     }
@@ -141,8 +141,8 @@ item (FEAT_TRAINS, spamcan_mail, 258) {
         reliability_decay: 12;
         model_life: VEHICLE_NEVER_EXPIRES;
         vehicle_life: 52;
-        cost_factor: 187;
-        running_cost_factor: 240;
+        cost_factor: 210;
+        running_cost_factor: 155;
         running_cost_base: RUNNING_COST_STEAM;
         variant_group: 158;
         extra_flags: bitmask(VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);

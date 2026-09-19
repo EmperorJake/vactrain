@@ -34,8 +34,8 @@ switch (FEAT_TRAINS, SELF, switch_scarab_wagon_capacity, param_vehicle_capacity)
 }
 
 switch (FEAT_TRAINS, SELF, switch_scarab_cost, current_railtype) {
-    VACT: return 12;
-    MGLV: return 4;
+    VACT: return 115;
+    MGLV: return 65;
     CB_FAILED;
 }
 
@@ -79,8 +79,8 @@ item (FEAT_TRAINS, scarab, 136) {
         reliability_decay: 55;
         model_life: 45;
         vehicle_life: 20;
-        cost_factor: 40;
-        // running_cost_factor: 255;
+        cost_factor: 160;
+        running_cost_factor: 115;
         running_cost_base: RUNNING_COST_STEAM;
         length: 6;
         badges: ["power/vactrain", "role/universal"];

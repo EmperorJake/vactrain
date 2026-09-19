@@ -47,8 +47,8 @@ switch (FEAT_TRAINS, SELF, switch_bison_speed, current_railtype) {
 }
 
 switch (FEAT_TRAINS, SELF, switch_bison_cost, current_railtype) {
-    VACT: return 95;
-    MGLV: return 20;
+    VACT: return 90;
+    MGLV: return 40;
     CB_FAILED;
 }
 
@@ -86,8 +86,8 @@ item (FEAT_TRAINS, bison, 164) {
         reliability_decay: 12;
         model_life: VEHICLE_NEVER_EXPIRES;
         vehicle_life: 48;
-        cost_factor: 200;
-        running_cost_factor: 240;
+        cost_factor: 140;
+        running_cost_factor: 90;
         running_cost_base: RUNNING_COST_STEAM;
         badges: ["power/vactrain", "role/passenger"];
     }
@@ -146,8 +146,8 @@ item (FEAT_TRAINS, bison_mail, 264) {
         reliability_decay: 12;
         model_life: VEHICLE_NEVER_EXPIRES;
         vehicle_life: 48;
-        cost_factor: 200;
-        running_cost_factor: 240;
+        cost_factor: 140;
+        running_cost_factor: 90;
         running_cost_base: RUNNING_COST_STEAM;
         variant_group: 164;
         extra_flags: bitmask(VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);

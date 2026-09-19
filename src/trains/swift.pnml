@@ -11,8 +11,8 @@ spriteset(spriteset_swift_purchase, "gfx/trains/swift.png") {
 //SWIFT
 
 switch (FEAT_TRAINS, SELF, switch_swift_cost, current_railtype) {
-	VACT: return 20;
-	MGLV: return 10;
+	VACT: return 65;
+	MGLV: return 30;
 	CB_FAILED;
 }
 
@@ -43,8 +43,8 @@ item (FEAT_TRAINS, swift, 132) {
         reliability_decay: 55;
         model_life: 35;
         vehicle_life: 20;
-        cost_factor: 82;
-        // running_cost_factor: 255;
+        cost_factor: 85;
+        running_cost_factor: 65;
         running_cost_base: RUNNING_COST_STEAM;
         badges: ["power/vactrain", "role/universal"];
     }

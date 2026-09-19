@@ -48,7 +48,7 @@ item (FEAT_TRAINS, vactrain_wagon_pax, 192) {
         cargo_capacity: 60;
         refittable_cargo_classes: bitmask(CC_PASSENGERS);
         weight: 50;
-        cost_factor: 85;
+        cost_factor: 60;
         loading_speed: 20;
         badges: ["power/vactrain", "role/passenger"];
     }
@@ -74,7 +74,7 @@ item (FEAT_TRAINS, vactrain_wagon_exp, 194) {
         refittable_cargo_classes: bitmask(CC_MAIL, CC_EXPRESS, CC_ARMOURED);
         weight: 44;
         loading_speed: 20;
-        cost_factor: 85;
+        cost_factor: 55;
         badges: ["power/vactrain", "role/express_freight"];
     }
     graphics {

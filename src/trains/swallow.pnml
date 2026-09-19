@@ -48,8 +48,8 @@ switch (FEAT_TRAINS, SELF, switch_swallow_speed, current_railtype) {
 }
 
 switch (FEAT_TRAINS, SELF, switch_swallow_cost, current_railtype) {
-	VACT: return 72;
-	MGLV: return 16;
+	VACT: return 70;
+	MGLV: return 30;
 	CB_FAILED;
 }
 
@@ -74,8 +74,8 @@ item (FEAT_TRAINS, swallow, 162) {
         reliability_decay: 12;
         model_life: VEHICLE_NEVER_EXPIRES;
         vehicle_life: 48;
-        cost_factor: 90;
-        running_cost_factor: 230;
+        cost_factor: 110;
+        running_cost_factor: 70;
         running_cost_base: RUNNING_COST_STEAM;
         badges: ["power/vactrain", "role/passenger"];
     }
@@ -133,8 +133,8 @@ item (FEAT_TRAINS, swallow_mail, 262) {
         reliability_decay: 12;
         model_life: VEHICLE_NEVER_EXPIRES;
         vehicle_life: 48;
-        cost_factor: 90;
-        running_cost_factor: 230;
+        cost_factor: 110;
+        running_cost_factor: 70;
         running_cost_base: RUNNING_COST_STEAM;
         variant_group: 162;
         extra_flags: bitmask(VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);
@@ -173,4 +173,3 @@ item (FEAT_TRAINS, swallow_mail, 262) {
         default: spriteset_swallow_mail;
     }
 }
-

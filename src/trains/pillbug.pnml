@@ -46,8 +46,8 @@ switch (FEAT_TRAINS, SELF, switch_pillbug_speed, current_railtype) {
 }
 
 switch (FEAT_TRAINS, SELF, switch_pillbug_cost, current_railtype) {
-    VACT: return 82;
-    MGLV: return 40;
+    VACT: return 125;
+    MGLV: return 55;
     CB_FAILED;
 }
 
@@ -85,8 +85,8 @@ item (FEAT_TRAINS, pillbug, 166) {
         reliability_decay: 12;
         model_life: VEHICLE_NEVER_EXPIRES;
         vehicle_life: 52;
-        cost_factor: 133;
-        running_cost_factor: 240;
+        cost_factor: 190;
+        running_cost_factor: 125;
         running_cost_base: RUNNING_COST_STEAM;
         badges: ["power/vactrain", "role/passenger"];
     }
@@ -145,8 +145,8 @@ item (FEAT_TRAINS, pillbug_mail, 266) {
         reliability_decay: 12;
         model_life: VEHICLE_NEVER_EXPIRES;
         vehicle_life: 52;
-        cost_factor: 133;
-        running_cost_factor: 240;
+        cost_factor: 190;
+        running_cost_factor: 125;
         running_cost_base: RUNNING_COST_STEAM;
         variant_group: 166;
         extra_flags: bitmask(VEHICLE_FLAG_SYNC_VARIANT_EXCLUSIVE_PREVIEW, VEHICLE_FLAG_SYNC_VARIANT_RELIABILITY);

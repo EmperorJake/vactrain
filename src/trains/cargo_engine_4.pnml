@@ -38,8 +38,8 @@ switch (FEAT_TRAINS, SELF, switch_cargo_engine_4_speed, current_railtype) {
 }
 
 switch (FEAT_TRAINS, SELF, switch_cargo_engine_4_cost, current_railtype) {
-	VACT: return 60;
-	MGLV: return 45;
+	VACT: return 110;
+	MGLV: return 60;
 	CB_FAILED;
 }
 
@@ -75,8 +75,8 @@ item (FEAT_TRAINS, cargo_engine_4, 148) {
         reliability_decay: 12;
         model_life: VEHICLE_NEVER_EXPIRES;
         vehicle_life: 48;
-        cost_factor: 229;
-        running_cost_factor: 230;
+        cost_factor: 255;
+        running_cost_factor: 110;
         running_cost_base: RUNNING_COST_STEAM;
         badges: ["power/vactrain", "role/freight"];
     }

@@ -141,7 +141,7 @@ item (FEAT_TRAINS, vactrain_wagon_cargo_0, 200) {
         non_refittable_cargo_classes: bitmask(CC_PASSENGERS);
         weight: 41;
         loading_speed: 30;
-        cost_factor: 25;
+        cost_factor: 45;
         length: 8;
         badges: ["power/vactrain", "role/freight"];
         }
@@ -194,7 +194,7 @@ item (FEAT_TRAINS, vactrain_wagon_cargo_1, 201) {
         non_refittable_cargo_classes: bitmask(CC_PASSENGERS);
         weight: 41;
         loading_speed: 30;
-        cost_factor: 25;
+        cost_factor: 45;
         length: 8;
         badges: ["power/vactrain", "role/freight"];
         variant_group: 200;
@@ -248,7 +248,7 @@ item (FEAT_TRAINS, vactrain_wagon_cargo_2, 202) {
         non_refittable_cargo_classes: bitmask(CC_PASSENGERS);
         weight: 41;
         loading_speed: 30;
-        cost_factor: 25;
+        cost_factor: 45;
         length: 8;
         badges: ["power/vactrain", "role/freight"];
         variant_group: 200;
@@ -300,7 +300,7 @@ item (FEAT_TRAINS, vactrain_wagon_cargo_3, 203) {
         non_refittable_cargo_classes: bitmask(CC_PASSENGERS);
         weight: 41;
         loading_speed: 30;
-        cost_factor: 25;
+        cost_factor: 45;
         length: 8;
         badges: ["power/vactrain", "role/freight"];
         variant_group: 200;
