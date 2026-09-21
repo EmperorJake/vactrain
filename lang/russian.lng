@@ -1,0 +1,90 @@
+##grflangid 0x07
+
+STR_GRF_NAME :Набор вакуумных поездов {VERSION}
+STR_GRF_DESCRIPTION :Вакуумные поезда движутся в вакуумных трубах с невероятной скоростью, но стоят чрезвычайно дорого. Незаменимы для игр в далёком будущем. Графика: Emperor Jake, Voyager One, DJNekkid, Purno, Froix, Erato и Zephyris; код: Emperor Jake и другие, лицензия GPLv2 или новее.
+STR_BADGE_POWER                           :Мощность
+STR_BADGE_POWER_VACTRAIN                  :Вакуумный поезд
+STR_BADGE_ROLE                            :Назначение
+STR_BADGE_ROLE_PAX                        :Пассажирский
+STR_BADGE_ROLE_EXP                        :Экспресс-грузовой
+STR_BADGE_ROLE_CARGO                      :Грузовой
+STR_BADGE_ROLE_UNIV                       :Универсальный
+STR_NAME_SWIFT                            :Swift
+STR_NAME_HYDRA                            :Hydra
+STR_NAME_SCARAB                           :Scarab
+STR_NAME_COBRA                            :Cobra
+STR_NAME_CROSSLEY                         :Crossley
+STR_NAME_SWALLOW                          :Swallow
+STR_NAME_TAPEWORM                         :Tapeworm
+STR_NAME_BISON                            :Bison
+STR_NAME_CHEETAH                          :Cheetah
+STR_NAME_PILLBUG                          :Pillbug
+STR_NAME_SPAMCAN                          :Spamcan
+STR_NAME_ROCKETMAX                        :Rocketmax
+STR_NAME_CARGO_1                          :Coelacanth
+STR_NAME_CARGO_2                          :Juggernaut
+STR_NAME_CARGO_3                          :Capybara
+STR_NAME_CARGO_4                          :Cyber Dragon
+STR_CONCAT_1                              :{STRING}
+STR_CONCAT_2                              :{STRING}{STRING}
+STR_CONCAT_3                              :{STRING}{STRING}{STRING}
+STR_CONCAT_4                              :{STRING}{STRING}{STRING}{STRING}
+STR_DESC_AIRSPEED                         :{BLACK}Скорость вне трубы: {GOLD}{UNSIGNED_WORD} км/ч{}
+STR_DESC_WAGONCAP                         :{BLACK}Дополнительная вместимость для пассажирских/экспресс-вагонов
+STR_NAME_PAX_WAGON                        :Пассажирский вагон
+STR_NAME_EXP_WAGON                        :Экспресс-грузовой вагон
+STR_NAME_CARGO_WAGON                      :Универсальный грузовой вагон
+STR_NAME_BULK_WAGON                       :Вагон для сыпучих грузов
+STR_NEW_ENGINE                            :Локомотив вакуумного поезда
+STR_AUTOREPLACE                           :Вакуумные поезда
+STR_BUILD_CAPTION                         :Новые вакуумные поезда
+STR_TOOLBAR_CAPTION                       :Строительство вакуумных путей
+STR_VAC_RAIL                              :Строить вакуумный путь
+STR_VAC_NAME                              :Вакуумный путь
+STR_PARAM_CAPACITY                        :Изменить вместимость вакуумных поездов
+STR_PARAM_CAPACITY_DESC                   :Изменяет вместимость вакуумных поездов.{}{}Экономная: {WHITE}-20%{BLACK}{}Щедрая: {WHITE}+20%{BLACK}
+STR_PARAM_CAPACITY_LOW                    :Экономная
+STR_PARAM_CAPACITY_MED                    :Обычная
+STR_PARAM_CAPACITY_HIGH                   :Щедрая
+STR_PARAM_LOADSPEED                       :Изменить скорость погрузки
+STR_PARAM_LOADSPEED_DESC                  :Изменяет скорость погрузки вакуумных поездов
+STR_PARAM_LOADSPEED_LOW                   :Низкая
+STR_PARAM_LOADSPEED_MED                   :Обычная
+STR_PARAM_LOADSPEED_HIGH                  :Высокая
+STR_PARAM_STARTING_YEAR                   :Изменить год появления
+STR_PARAM_STARTING_YEAR_DESC              :Задаёт год появления пассажирских и экспресс-вакуумных поездов. Грузовые появятся примерно через 5 лет.
+STR_PARAM_MAGLEVGFX                       :Заменять графику магнитных путей
+STR_PARAM_MAGLEVGFX_DESC                  :Заменяет стандартную графику магнитных путей на графику вакуумных путей. Отключите, чтобы использовать графику базового набора или другого NewGRF.
+STR_PARAM_ALLOWMAGLEV                     :Разрешить магнитные поезда на вакуумных путях
+STR_PARAM_ALLOWMAGLEV_DESC                :Разрешает стандартным и совместимым магнитным поездам ездить по вакуумным путям.
+STR_PARAM_ALLOWVACTRAIN                   :Разрешить вакуумные поезда на магнитных путях
+STR_PARAM_ALLOWVACTRAIN_DESC              :Разрешает вакуумным поездам ездить по стандартным магнитным путям.
+STR_PARAM_SPEED                           :Изменить максимальную скорость
+STR_PARAM_SPEED_DESC                      :Изменяет максимальную скорость самого быстрого поколения вакуумных поездов. Предыдущие поколения изменяются пропорционально.
+STR_PARAM_RUNNING_COST                    :Изменить эксплуатационные расходы
+STR_PARAM_RUNNING_COST_DESC               :Изменяет эксплуатационные расходы вакуумных поездов
+STR_PARAM_PURCHASE_COST                   :Изменить стоимость покупки
+STR_PARAM_PURCHASE_COST_DESC              :Изменяет стоимость покупки вакуумных поездов
+STR_PARAM_RAIL_COST                       :Изменить стоимость строительства путей
+STR_PARAM_RAIL_COST_DESC                  :Изменяет стоимость строительства и демонтажа вакуумных путей.
+STR_PARAM_MAINTENANCE_COST                :Изменить стоимость обслуживания путей
+STR_PARAM_MAINTENANCE_COST_DESC           :Изменяет стоимость обслуживания вакуумных путей. Обслуживание инфраструктуры должно быть включено.
+STR_PARAM_COST_AUTOMATICALLY              :автоматически (по умолчанию)
+STR_PARAM_COST_BY256                      :1 / 256
+STR_PARAM_COST_BY128                      :1 / 128
+STR_PARAM_COST_BY64                       :1 / 64
+STR_PARAM_COST_BY32                       :1 / 32
+STR_PARAM_COST_BY16                       :1 / 16
+STR_PARAM_COST_BY8                        :1 / 8
+STR_PARAM_COST_BY4                        :1 / 4
+STR_PARAM_COST_BY2                        :1 / 2
+STR_PARAM_COST_NORMAL                     :обычная
+STR_PARAM_COST_TIMES2                     :2x
+STR_PARAM_COST_TIMES4                     :4x
+STR_PARAM_COST_TIMES8                     :8x
+STR_PARAM_COST_TIMES16                    :16x
+STR_PARAM_COST_TIMES32                    :32x
+STR_PARAM_COST_TIMES64                    :64x
+STR_PARAM_COST_TIMES128                   :128x
+STR_PARAM_COST_TIMES256                   :256x
+STR_PARAM_COST_TIMES512                   :512x

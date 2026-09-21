@@ -1,0 +1,90 @@
+##grflangid 0x04
+
+STR_GRF_NAME :Conjunto Vactrain {VERSION}
+STR_GRF_DESCRIPTION :Los vactrenes viajan por tubos de vacío a velocidades increíbles, pero a un precio exorbitante. Imprescindible para partidas del futuro lejano. Gráficos de Emperor Jake, Voyager One, DJNekkid, Purno, Froix, Erato y Zephyris; código de Emperor Jake y otros, bajo GPLv2 o posterior.
+STR_BADGE_POWER                           :Potencia
+STR_BADGE_POWER_VACTRAIN                  :Vactrén
+STR_BADGE_ROLE                            :Función
+STR_BADGE_ROLE_PAX                        :Pasajeros
+STR_BADGE_ROLE_EXP                        :Carga exprés
+STR_BADGE_ROLE_CARGO                      :Carga
+STR_BADGE_ROLE_UNIV                       :Universal
+STR_NAME_SWIFT                            :Swift
+STR_NAME_HYDRA                            :Hydra
+STR_NAME_SCARAB                           :Scarab
+STR_NAME_COBRA                            :Cobra
+STR_NAME_CROSSLEY                         :Crossley
+STR_NAME_SWALLOW                          :Swallow
+STR_NAME_TAPEWORM                         :Tapeworm
+STR_NAME_BISON                            :Bison
+STR_NAME_CHEETAH                          :Cheetah
+STR_NAME_PILLBUG                          :Pillbug
+STR_NAME_SPAMCAN                          :Spamcan
+STR_NAME_ROCKETMAX                        :Rocketmax
+STR_NAME_CARGO_1                          :Coelacanth
+STR_NAME_CARGO_2                          :Juggernaut
+STR_NAME_CARGO_3                          :Capybara
+STR_NAME_CARGO_4                          :Cyber Dragon
+STR_CONCAT_1                              :{STRING}
+STR_CONCAT_2                              :{STRING}{STRING}
+STR_CONCAT_3                              :{STRING}{STRING}{STRING}
+STR_CONCAT_4                              :{STRING}{STRING}{STRING}{STRING}
+STR_DESC_AIRSPEED                         :{BLACK}Velocidad atmosférica: {GOLD}{UNSIGNED_WORD} km/h{}
+STR_DESC_WAGONCAP                         :{BLACK}Capacidad adicional para vagones de pasajeros/carga exprés
+STR_NAME_PAX_WAGON                        :Vagón de pasajeros
+STR_NAME_EXP_WAGON                        :Vagón de carga exprés
+STR_NAME_CARGO_WAGON                      :Vagón de carga universal
+STR_NAME_BULK_WAGON                       :Vagón de granel
+STR_NEW_ENGINE                            :Locomotora vactrén
+STR_AUTOREPLACE                           :Vehículos vactrén
+STR_BUILD_CAPTION                         :Nuevos vehículos vactrén
+STR_TOOLBAR_CAPTION                       :Construcción de vía vactrén
+STR_VAC_RAIL                              :Construir vía vactrén
+STR_VAC_NAME                              :Vía vactrén
+STR_PARAM_CAPACITY                        :Cambiar la capacidad de los vactrenes
+STR_PARAM_CAPACITY_DESC                   :Permite cambiar la capacidad de los vehículos vactrén.{}{}Conservadora: {WHITE}-20%{BLACK}{}Generosa: {WHITE}+20%{BLACK}
+STR_PARAM_CAPACITY_LOW                    :Conservadora
+STR_PARAM_CAPACITY_MED                    :Normal
+STR_PARAM_CAPACITY_HIGH                   :Generosa
+STR_PARAM_LOADSPEED                       :Cambiar la velocidad de carga de los vactrenes
+STR_PARAM_LOADSPEED_DESC                  :Permite cambiar la velocidad de carga de los vehículos vactrén
+STR_PARAM_LOADSPEED_LOW                   :Lenta
+STR_PARAM_LOADSPEED_MED                   :Normal
+STR_PARAM_LOADSPEED_HIGH                  :Rápida
+STR_PARAM_STARTING_YEAR                   :Cambiar el año de introducción
+STR_PARAM_STARTING_YEAR_DESC              :Ajusta el año de introducción de los vactrenes de pasajeros y exprés. Los vactrenes de carga aparecerán unos 5 años después.
+STR_PARAM_MAGLEVGFX                       :Reemplazar los gráficos de las vías maglev
+STR_PARAM_MAGLEVGFX_DESC                  :Elige si reemplazar las vías maglev básicas por gráficos que combinen con las vías vactrén. Desactívalo para usar los gráficos de la base u otro NewGRF.
+STR_PARAM_ALLOWMAGLEV                     :Permitir maglevs en vías vactrén
+STR_PARAM_ALLOWMAGLEV_DESC                :Elige si permitir trenes maglev normales en vías vactrén, incluidos los maglevs compatibles de otros NewGRF.
+STR_PARAM_ALLOWVACTRAIN                   :Permitir vactrenes en vías maglev
+STR_PARAM_ALLOWVACTRAIN_DESC              :Elige si permitir vactrenes en vías maglev normales.
+STR_PARAM_SPEED                           :Cambiar la velocidad máxima de los vactrenes
+STR_PARAM_SPEED_DESC                      :Permite cambiar la velocidad máxima de la generación más rápida. Las generaciones anteriores se ajustan proporcionalmente.
+STR_PARAM_RUNNING_COST                    :Ajustar los costes de funcionamiento
+STR_PARAM_RUNNING_COST_DESC               :Permite ajustar los costes de funcionamiento de los vactrenes
+STR_PARAM_PURCHASE_COST                   :Ajustar los costes de compra
+STR_PARAM_PURCHASE_COST_DESC              :Permite ajustar los costes de compra de los vactrenes
+STR_PARAM_RAIL_COST                       :Ajustar los costes de construcción de vías
+STR_PARAM_RAIL_COST_DESC                  :Permite ajustar los costes de construcción y demolición de las vías vactrén.
+STR_PARAM_MAINTENANCE_COST                :Ajustar los costes de mantenimiento de vías
+STR_PARAM_MAINTENANCE_COST_DESC           :Permite ajustar los costes de mantenimiento de las vías vactrén. El mantenimiento de infraestructuras debe estar activado.
+STR_PARAM_COST_AUTOMATICALLY              :automático (predeterminado)
+STR_PARAM_COST_BY256                      :1 / 256
+STR_PARAM_COST_BY128                      :1 / 128
+STR_PARAM_COST_BY64                       :1 / 64
+STR_PARAM_COST_BY32                       :1 / 32
+STR_PARAM_COST_BY16                       :1 / 16
+STR_PARAM_COST_BY8                        :1 / 8
+STR_PARAM_COST_BY4                        :1 / 4
+STR_PARAM_COST_BY2                        :1 / 2
+STR_PARAM_COST_NORMAL                     :normal
+STR_PARAM_COST_TIMES2                     :2x
+STR_PARAM_COST_TIMES4                     :4x
+STR_PARAM_COST_TIMES8                     :8x
+STR_PARAM_COST_TIMES16                    :16x
+STR_PARAM_COST_TIMES32                    :32x
+STR_PARAM_COST_TIMES64                    :64x
+STR_PARAM_COST_TIMES128                   :128x
+STR_PARAM_COST_TIMES256                   :256x
+STR_PARAM_COST_TIMES512                   :512x

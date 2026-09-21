@@ -1,0 +1,90 @@
+##grflangid 0x30
+
+STR_GRF_NAME :Zestaw Vactrain {VERSION}
+STR_GRF_DESCRIPTION :Vactrainy jeżdżą w próżniowych tunelach z ogromnymi prędkościami, lecz za wygórowaną cenę. Niezbędne w rozgrywce dalekiej przyszłości. Grafika: Emperor Jake, Voyager One, DJNekkid, Purno, Froix, Erato i Zephyris; kod: Emperor Jake i inni, na licencji GPLv2 lub nowszej.
+STR_BADGE_POWER                           :Moc
+STR_BADGE_POWER_VACTRAIN                  :Vactrain
+STR_BADGE_ROLE                            :Rola
+STR_BADGE_ROLE_PAX                        :Pasażerski
+STR_BADGE_ROLE_EXP                        :Ekspresowy towarowy
+STR_BADGE_ROLE_CARGO                      :Towarowy
+STR_BADGE_ROLE_UNIV                       :Uniwersalny
+STR_NAME_SWIFT                            :Swift
+STR_NAME_HYDRA                            :Hydra
+STR_NAME_SCARAB                           :Scarab
+STR_NAME_COBRA                            :Cobra
+STR_NAME_CROSSLEY                         :Crossley
+STR_NAME_SWALLOW                          :Swallow
+STR_NAME_TAPEWORM                         :Tapeworm
+STR_NAME_BISON                            :Bison
+STR_NAME_CHEETAH                          :Cheetah
+STR_NAME_PILLBUG                          :Pillbug
+STR_NAME_SPAMCAN                          :Spamcan
+STR_NAME_ROCKETMAX                        :Rocketmax
+STR_NAME_CARGO_1                          :Coelacanth
+STR_NAME_CARGO_2                          :Juggernaut
+STR_NAME_CARGO_3                          :Capybara
+STR_NAME_CARGO_4                          :Cyber Dragon
+STR_CONCAT_1                              :{STRING}
+STR_CONCAT_2                              :{STRING}{STRING}
+STR_CONCAT_3                              :{STRING}{STRING}{STRING}
+STR_CONCAT_4                              :{STRING}{STRING}{STRING}{STRING}
+STR_DESC_AIRSPEED                         :{BLACK}Prędkość atmosferyczna: {GOLD}{UNSIGNED_WORD} km/h{}
+STR_DESC_WAGONCAP                         :{BLACK}Dodatkowa pojemność dla wagonów pasażerskich/ekspresowych
+STR_NAME_PAX_WAGON                        :Wagon pasażerski
+STR_NAME_EXP_WAGON                        :Wagon ekspresowy towarowy
+STR_NAME_CARGO_WAGON                      :Uniwersalny wagon towarowy
+STR_NAME_BULK_WAGON                       :Wagon do ładunków sypkich
+STR_NEW_ENGINE                            :Lokomotywa vactrain
+STR_AUTOREPLACE                           :Pojazdy vactrain
+STR_BUILD_CAPTION                         :Nowe pojazdy vactrain
+STR_TOOLBAR_CAPTION                       :Budowa torów vactrain
+STR_VAC_RAIL                              :Buduj tor vactrain
+STR_VAC_NAME                              :Tor vactrain
+STR_PARAM_CAPACITY                        :Zmień pojemność vactrainów
+STR_PARAM_CAPACITY_DESC                   :Pozwala zmienić pojemność pojazdów vactrain.{}{}Zachowawcza: {WHITE}-20%{BLACK}{}Hojna: {WHITE}+20%{BLACK}
+STR_PARAM_CAPACITY_LOW                    :Zachowawcza
+STR_PARAM_CAPACITY_MED                    :Normalna
+STR_PARAM_CAPACITY_HIGH                   :Hojna
+STR_PARAM_LOADSPEED                       :Zmień prędkość załadunku vactrainów
+STR_PARAM_LOADSPEED_DESC                  :Pozwala zmienić prędkość załadunku pojazdów vactrain
+STR_PARAM_LOADSPEED_LOW                   :Niska
+STR_PARAM_LOADSPEED_MED                   :Normalna
+STR_PARAM_LOADSPEED_HIGH                  :Wysoka
+STR_PARAM_STARTING_YEAR                   :Zmień rok wprowadzenia
+STR_PARAM_STARTING_YEAR_DESC              :Ustawia rok wprowadzenia pasażerskich i ekspresowych vactrainów. Towarowe vactrainy pojawią się około 5 lat później.
+STR_PARAM_MAGLEVGFX                       :Zastąp grafikę torów maglev
+STR_PARAM_MAGLEVGFX_DESC                  :Wybierz zastąpienie standardowych torów maglev grafiką pasującą do torów vactrain. Wyłącz, aby użyć grafiki bazowej lub torów maglev z innego NewGRF.
+STR_PARAM_ALLOWMAGLEV                     :Pozwól maglevom jeździć po torach vactrain
+STR_PARAM_ALLOWMAGLEV_DESC                :Wybierz, czy standardowe pociągi maglev mogą jeździć po torach vactrain, w tym kompatybilne maglevy z innych NewGRF.
+STR_PARAM_ALLOWVACTRAIN                   :Pozwól vactrainom jeździć po torach maglev
+STR_PARAM_ALLOWVACTRAIN_DESC              :Wybierz, czy vactrainy mogą jeździć po standardowych torach maglev.
+STR_PARAM_SPEED                           :Zmień maksymalną prędkość vactrainów
+STR_PARAM_SPEED_DESC                      :Pozwala zmienić maksymalną prędkość najszybszej generacji vactrainów. Starsze generacje zostaną dostosowane proporcjonalnie.
+STR_PARAM_RUNNING_COST                    :Zmień koszty eksploatacji
+STR_PARAM_RUNNING_COST_DESC               :Pozwala zmienić koszty eksploatacji vactrainów
+STR_PARAM_PURCHASE_COST                   :Zmień koszty zakupu
+STR_PARAM_PURCHASE_COST_DESC              :Pozwala zmienić koszty zakupu vactrainów
+STR_PARAM_RAIL_COST                       :Zmień koszty budowy torów
+STR_PARAM_RAIL_COST_DESC                  :Pozwala zmienić koszty budowy i rozbiórki torów vactrain.
+STR_PARAM_MAINTENANCE_COST                :Zmień koszty utrzymania torów
+STR_PARAM_MAINTENANCE_COST_DESC           :Pozwala zmienić koszty utrzymania torów vactrain. Utrzymanie infrastruktury musi być włączone.
+STR_PARAM_COST_AUTOMATICALLY              :automatycznie (domyślnie)
+STR_PARAM_COST_BY256                      :1 / 256
+STR_PARAM_COST_BY128                      :1 / 128
+STR_PARAM_COST_BY64                       :1 / 64
+STR_PARAM_COST_BY32                       :1 / 32
+STR_PARAM_COST_BY16                       :1 / 16
+STR_PARAM_COST_BY8                        :1 / 8
+STR_PARAM_COST_BY4                        :1 / 4
+STR_PARAM_COST_BY2                        :1 / 2
+STR_PARAM_COST_NORMAL                     :normalnie
+STR_PARAM_COST_TIMES2                     :2x
+STR_PARAM_COST_TIMES4                     :4x
+STR_PARAM_COST_TIMES8                     :8x
+STR_PARAM_COST_TIMES16                    :16x
+STR_PARAM_COST_TIMES32                    :32x
+STR_PARAM_COST_TIMES64                    :64x
+STR_PARAM_COST_TIMES128                   :128x
+STR_PARAM_COST_TIMES256                   :256x
+STR_PARAM_COST_TIMES512                   :512x

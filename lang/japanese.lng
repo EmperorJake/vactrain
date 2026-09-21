@@ -1,0 +1,90 @@
+##grflangid 0x39
+
+STR_GRF_NAME :バキュームトレインセット {VERSION}
+STR_GRF_DESCRIPTION :真空チューブを走るバキュームトレインは驚異的な速度を実現しますが、非常に高価です。遠未来のゲームに最適です。グラフィック：Emperor Jake、Voyager One、DJNekkid、Purno、Froix、Erato、Zephyris。コード：Emperor Jakeほか。GPLv2以降で公開。
+STR_BADGE_POWER                           :動力
+STR_BADGE_POWER_VACTRAIN                  :バキュームトレイン
+STR_BADGE_ROLE                            :役割
+STR_BADGE_ROLE_PAX                        :旅客
+STR_BADGE_ROLE_EXP                        :急行貨物
+STR_BADGE_ROLE_CARGO                      :貨物
+STR_BADGE_ROLE_UNIV                       :汎用
+STR_NAME_SWIFT                            :Swift
+STR_NAME_HYDRA                            :Hydra
+STR_NAME_SCARAB                           :Scarab
+STR_NAME_COBRA                            :Cobra
+STR_NAME_CROSSLEY                         :Crossley
+STR_NAME_SWALLOW                          :Swallow
+STR_NAME_TAPEWORM                         :Tapeworm
+STR_NAME_BISON                            :Bison
+STR_NAME_CHEETAH                          :Cheetah
+STR_NAME_PILLBUG                          :Pillbug
+STR_NAME_SPAMCAN                          :Spamcan
+STR_NAME_ROCKETMAX                        :Rocketmax
+STR_NAME_CARGO_1                          :Coelacanth
+STR_NAME_CARGO_2                          :Juggernaut
+STR_NAME_CARGO_3                          :Capybara
+STR_NAME_CARGO_4                          :Cyber Dragon
+STR_CONCAT_1                              :{STRING}
+STR_CONCAT_2                              :{STRING}{STRING}
+STR_CONCAT_3                              :{STRING}{STRING}{STRING}
+STR_CONCAT_4                              :{STRING}{STRING}{STRING}{STRING}
+STR_DESC_AIRSPEED                         :{BLACK}大気速度：{GOLD}{UNSIGNED_WORD} km/h{}
+STR_DESC_WAGONCAP                         :{BLACK}旅客・急行貨車の追加容量
+STR_NAME_PAX_WAGON                        :旅客車
+STR_NAME_EXP_WAGON                        :急行貨車
+STR_NAME_CARGO_WAGON                      :汎用貨車
+STR_NAME_BULK_WAGON                       :ばら積み貨車
+STR_NEW_ENGINE                            :バキュームトレイン機関車
+STR_AUTOREPLACE                           :バキュームトレイン車両
+STR_BUILD_CAPTION                         :新しいバキュームトレイン車両
+STR_TOOLBAR_CAPTION                       :バキューム線建設
+STR_VAC_RAIL                              :バキューム線を建設
+STR_VAC_NAME                              :バキューム線
+STR_PARAM_CAPACITY                        :バキュームトレインの容量を変更
+STR_PARAM_CAPACITY_DESC                   :バキュームトレイン車両の容量を変更します。{}{}控えめ：{WHITE}-20%{BLACK}{}多め：{WHITE}+20%{BLACK}
+STR_PARAM_CAPACITY_LOW                    :控えめ
+STR_PARAM_CAPACITY_MED                    :標準
+STR_PARAM_CAPACITY_HIGH                   :多め
+STR_PARAM_LOADSPEED                       :バキュームトレインの積載速度を変更
+STR_PARAM_LOADSPEED_DESC                  :バキュームトレイン車両の積載速度を変更します
+STR_PARAM_LOADSPEED_LOW                   :低速
+STR_PARAM_LOADSPEED_MED                   :標準
+STR_PARAM_LOADSPEED_HIGH                  :高速
+STR_PARAM_STARTING_YEAR                   :登場年を変更
+STR_PARAM_STARTING_YEAR_DESC              :旅客・急行バキュームトレインの登場年を変更します。貨物車両は約5年後に登場します。
+STR_PARAM_MAGLEVGFX                       :マグレブ線のグラフィックを置換
+STR_PARAM_MAGLEVGFX_DESC                  :標準マグレブ線をバキューム線に合うグラフィックへ置換するか選択します。無効にすると基本セットまたは他のNewGRFのグラフィックを使用します。
+STR_PARAM_ALLOWMAGLEV                     :バキューム線でマグレブを許可
+STR_PARAM_ALLOWMAGLEV_DESC                :標準および互換NewGRFのマグレブ車両をバキューム線で走らせるか選択します。
+STR_PARAM_ALLOWVACTRAIN                   :マグレブ線でバキュームトレインを許可
+STR_PARAM_ALLOWVACTRAIN_DESC              :バキュームトレインを標準マグレブ線で走らせるか選択します。
+STR_PARAM_SPEED                           :バキュームトレインの最高速度を変更
+STR_PARAM_SPEED_DESC                      :最速世代の最高速度を変更します。以前の世代は比例して調整されます。
+STR_PARAM_RUNNING_COST                    :運行費を調整
+STR_PARAM_RUNNING_COST_DESC               :バキュームトレインの運行費を調整します
+STR_PARAM_PURCHASE_COST                   :購入費を調整
+STR_PARAM_PURCHASE_COST_DESC              :バキュームトレインの購入費を調整します
+STR_PARAM_RAIL_COST                       :線路建設費を調整
+STR_PARAM_RAIL_COST_DESC                  :バキューム線の建設・撤去費を調整します。
+STR_PARAM_MAINTENANCE_COST                :線路維持費を調整
+STR_PARAM_MAINTENANCE_COST_DESC           :バキューム線の維持費を調整します。インフラ維持費を有効にする必要があります。
+STR_PARAM_COST_AUTOMATICALLY              :自動（デフォルト）
+STR_PARAM_COST_BY256                      :1 / 256
+STR_PARAM_COST_BY128                      :1 / 128
+STR_PARAM_COST_BY64                       :1 / 64
+STR_PARAM_COST_BY32                       :1 / 32
+STR_PARAM_COST_BY16                       :1 / 16
+STR_PARAM_COST_BY8                        :1 / 8
+STR_PARAM_COST_BY4                        :1 / 4
+STR_PARAM_COST_BY2                        :1 / 2
+STR_PARAM_COST_NORMAL                     :標準
+STR_PARAM_COST_TIMES2                     :2倍
+STR_PARAM_COST_TIMES4                     :4倍
+STR_PARAM_COST_TIMES8                     :8倍
+STR_PARAM_COST_TIMES16                    :16倍
+STR_PARAM_COST_TIMES32                    :32倍
+STR_PARAM_COST_TIMES64                    :64倍
+STR_PARAM_COST_TIMES128                   :128倍
+STR_PARAM_COST_TIMES256                   :256倍
+STR_PARAM_COST_TIMES512                   :512倍

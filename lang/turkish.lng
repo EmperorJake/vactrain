@@ -1,0 +1,90 @@
+##grflangid 0x3E
+
+STR_GRF_NAME :Vactrain Seti {VERSION}
+STR_GRF_DESCRIPTION :Vactrenler vakum tüplerinde çok yüksek hızlara ulaşır, ancak bunun bedeli çok yüksektir. Uzak gelecek oyunları için vazgeçilmezdir. Grafikler Emperor Jake, Voyager One, DJNekkid, Purno, Froix, Erato ve Zephyris; kod Emperor Jake ve diğerleri tarafından, GPLv2 veya sonrası lisansıyla yayımlanmıştır.
+STR_BADGE_POWER                           :Güç
+STR_BADGE_POWER_VACTRAIN                  :Vactren
+STR_BADGE_ROLE                            :Rol
+STR_BADGE_ROLE_PAX                        :Yolcu
+STR_BADGE_ROLE_EXP                        :Ekspres yük
+STR_BADGE_ROLE_CARGO                      :Yük
+STR_BADGE_ROLE_UNIV                       :Üniversal
+STR_NAME_SWIFT                            :Swift
+STR_NAME_HYDRA                            :Hydra
+STR_NAME_SCARAB                           :Scarab
+STR_NAME_COBRA                            :Cobra
+STR_NAME_CROSSLEY                         :Crossley
+STR_NAME_SWALLOW                          :Swallow
+STR_NAME_TAPEWORM                         :Tapeworm
+STR_NAME_BISON                            :Bison
+STR_NAME_CHEETAH                          :Cheetah
+STR_NAME_PILLBUG                          :Pillbug
+STR_NAME_SPAMCAN                          :Spamcan
+STR_NAME_ROCKETMAX                        :Rocketmax
+STR_NAME_CARGO_1                          :Coelacanth
+STR_NAME_CARGO_2                          :Juggernaut
+STR_NAME_CARGO_3                          :Capybara
+STR_NAME_CARGO_4                          :Cyber Dragon
+STR_CONCAT_1                              :{STRING}
+STR_CONCAT_2                              :{STRING}{STRING}
+STR_CONCAT_3                              :{STRING}{STRING}{STRING}
+STR_CONCAT_4                              :{STRING}{STRING}{STRING}{STRING}
+STR_DESC_AIRSPEED                         :{BLACK}Atmosferik hız: {GOLD}{UNSIGNED_WORD} km/sa{}
+STR_DESC_WAGONCAP                         :{BLACK}Yolcu/ekspres vagonları için ek kapasite
+STR_NAME_PAX_WAGON                        :Yolcu vagonu
+STR_NAME_EXP_WAGON                        :Ekspres yük vagonu
+STR_NAME_CARGO_WAGON                      :Üniversal yük vagonu
+STR_NAME_BULK_WAGON                       :Dökme yük vagonu
+STR_NEW_ENGINE                            :Vactren lokomotifi
+STR_AUTOREPLACE                           :Vactren araçları
+STR_BUILD_CAPTION                         :Yeni vactren araçları
+STR_TOOLBAR_CAPTION                       :Vactren hattı inşaatı
+STR_VAC_RAIL                              :Vactren hattı inşa et
+STR_VAC_NAME                              :Vactren hattı
+STR_PARAM_CAPACITY                        :Vactren kapasitesini değiştir
+STR_PARAM_CAPACITY_DESC                   :Vactren araçlarının kapasitesini değiştirir.{}{}Tutumlu: {WHITE}-20%{BLACK}{}Cömert: {WHITE}+20%{BLACK}
+STR_PARAM_CAPACITY_LOW                    :Tutumlu
+STR_PARAM_CAPACITY_MED                    :Normal
+STR_PARAM_CAPACITY_HIGH                   :Cömert
+STR_PARAM_LOADSPEED                       :Vactren yükleme hızını değiştir
+STR_PARAM_LOADSPEED_DESC                  :Vactren araçlarının yükleme hızını değiştirir
+STR_PARAM_LOADSPEED_LOW                   :Yavaş
+STR_PARAM_LOADSPEED_MED                   :Normal
+STR_PARAM_LOADSPEED_HIGH                  :Hızlı
+STR_PARAM_STARTING_YEAR                   :Tanıtım yılını değiştir
+STR_PARAM_STARTING_YEAR_DESC              :Yolcu ve ekspres vactrenlerin tanıtım yılını ayarlar. Yük vactrenleri yaklaşık 5 yıl sonra tanıtılır.
+STR_PARAM_MAGLEVGFX                       :Maglev hattı grafiklerini değiştir
+STR_PARAM_MAGLEVGFX_DESC                  :Standart maglev hatlarının vactren hatlarına uygun grafiklerle değiştirilip değiştirilmeyeceğini seçin. Temel set grafiklerini veya başka bir NewGRF maglev hattını kullanmak için kapatın.
+STR_PARAM_ALLOWMAGLEV                     :Maglevlerin vactren hatlarında çalışmasına izin ver
+STR_PARAM_ALLOWMAGLEV_DESC                :Standart ve uyumlu NewGRF maglevlerinin vactren hatlarında çalışmasına izin verilip verilmeyeceğini seçin.
+STR_PARAM_ALLOWVACTRAIN                   :Vactrenlerin maglev hatlarında çalışmasına izin ver
+STR_PARAM_ALLOWVACTRAIN_DESC              :Vactrenlerin standart maglev hatlarında çalışmasına izin verilip verilmeyeceğini seçin.
+STR_PARAM_SPEED                           :Vactren azami hızını değiştir
+STR_PARAM_SPEED_DESC                      :En hızlı vactren neslinin azami hızını değiştirir. Önceki nesiller orantılı olarak ayarlanır.
+STR_PARAM_RUNNING_COST                    :İşletme maliyetlerini ayarla
+STR_PARAM_RUNNING_COST_DESC               :Vactrenlerin işletme maliyetlerini ayarlar
+STR_PARAM_PURCHASE_COST                   :Satın alma maliyetlerini ayarla
+STR_PARAM_PURCHASE_COST_DESC              :Vactrenlerin satın alma maliyetlerini ayarlar
+STR_PARAM_RAIL_COST                       :Hat inşaat maliyetlerini ayarla
+STR_PARAM_RAIL_COST_DESC                  :Vactren hatlarının inşaat ve söküm maliyetlerini ayarlar.
+STR_PARAM_MAINTENANCE_COST                :Hat bakım maliyetlerini ayarla
+STR_PARAM_MAINTENANCE_COST_DESC           :Vactren hatlarının bakım maliyetlerini ayarlar. Etkili olması için altyapı bakımı açık olmalıdır.
+STR_PARAM_COST_AUTOMATICALLY              :otomatik (varsayılan)
+STR_PARAM_COST_BY256                      :1 / 256
+STR_PARAM_COST_BY128                      :1 / 128
+STR_PARAM_COST_BY64                       :1 / 64
+STR_PARAM_COST_BY32                       :1 / 32
+STR_PARAM_COST_BY16                       :1 / 16
+STR_PARAM_COST_BY8                        :1 / 8
+STR_PARAM_COST_BY4                        :1 / 4
+STR_PARAM_COST_BY2                        :1 / 2
+STR_PARAM_COST_NORMAL                     :normal
+STR_PARAM_COST_TIMES2                     :2x
+STR_PARAM_COST_TIMES4                     :4x
+STR_PARAM_COST_TIMES8                     :8x
+STR_PARAM_COST_TIMES16                    :16x
+STR_PARAM_COST_TIMES32                    :32x
+STR_PARAM_COST_TIMES64                    :64x
+STR_PARAM_COST_TIMES128                   :128x
+STR_PARAM_COST_TIMES256                   :256x
+STR_PARAM_COST_TIMES512                   :512x

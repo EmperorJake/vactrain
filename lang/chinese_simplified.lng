@@ -1,0 +1,90 @@
+##grflangid 0x56
+
+STR_GRF_NAME :真空列车组 {VERSION}
+STR_GRF_DESCRIPTION :真空列车在真空管道中以惊人速度运行，但造价极其昂贵。适合遥远未来的游戏。图形作者：Emperor Jake、Voyager One、DJNekkid、Purno、Froix、Erato 和 Zephyris；代码作者：Emperor Jake 等，采用 GPLv2 或更高版本许可。
+STR_BADGE_POWER                           :动力
+STR_BADGE_POWER_VACTRAIN                  :真空列车
+STR_BADGE_ROLE                            :用途
+STR_BADGE_ROLE_PAX                        :客运
+STR_BADGE_ROLE_EXP                        :快运货运
+STR_BADGE_ROLE_CARGO                      :货运
+STR_BADGE_ROLE_UNIV                       :通用
+STR_NAME_SWIFT                            :Swift
+STR_NAME_HYDRA                            :Hydra
+STR_NAME_SCARAB                           :Scarab
+STR_NAME_COBRA                            :Cobra
+STR_NAME_CROSSLEY                         :Crossley
+STR_NAME_SWALLOW                          :Swallow
+STR_NAME_TAPEWORM                         :Tapeworm
+STR_NAME_BISON                            :Bison
+STR_NAME_CHEETAH                          :Cheetah
+STR_NAME_PILLBUG                          :Pillbug
+STR_NAME_SPAMCAN                          :Spamcan
+STR_NAME_ROCKETMAX                        :Rocketmax
+STR_NAME_CARGO_1                          :Coelacanth
+STR_NAME_CARGO_2                          :Juggernaut
+STR_NAME_CARGO_3                          :Capybara
+STR_NAME_CARGO_4                          :Cyber Dragon
+STR_CONCAT_1                              :{STRING}
+STR_CONCAT_2                              :{STRING}{STRING}
+STR_CONCAT_3                              :{STRING}{STRING}{STRING}
+STR_CONCAT_4                              :{STRING}{STRING}{STRING}{STRING}
+STR_DESC_AIRSPEED                         :{BLACK}大气速度：{GOLD}{UNSIGNED_WORD} km/h{}
+STR_DESC_WAGONCAP                         :{BLACK}客运/快运货车的额外容量
+STR_NAME_PAX_WAGON                        :客车
+STR_NAME_EXP_WAGON                        :快运货车
+STR_NAME_CARGO_WAGON                      :通用货车
+STR_NAME_BULK_WAGON                       :散货车
+STR_NEW_ENGINE                            :真空列车机车
+STR_AUTOREPLACE                           :真空列车车辆
+STR_BUILD_CAPTION                         :新的真空列车车辆
+STR_TOOLBAR_CAPTION                       :真空轨道建设
+STR_VAC_RAIL                              :建造真空轨道
+STR_VAC_NAME                              :真空轨道
+STR_PARAM_CAPACITY                        :调整真空列车容量
+STR_PARAM_CAPACITY_DESC                   :调整真空列车车辆的容量。{}{}保守：{WHITE}-20%{BLACK}{}宽裕：{WHITE}+20%{BLACK}
+STR_PARAM_CAPACITY_LOW                    :保守
+STR_PARAM_CAPACITY_MED                    :正常
+STR_PARAM_CAPACITY_HIGH                   :宽裕
+STR_PARAM_LOADSPEED                       :调整真空列车装载速度
+STR_PARAM_LOADSPEED_DESC                  :调整真空列车车辆的装载速度
+STR_PARAM_LOADSPEED_LOW                   :慢
+STR_PARAM_LOADSPEED_MED                   :正常
+STR_PARAM_LOADSPEED_HIGH                  :快
+STR_PARAM_STARTING_YEAR                   :调整启用年份
+STR_PARAM_STARTING_YEAR_DESC              :调整客运和快运真空列车的启用年份。货运真空列车约在 5 年后启用。
+STR_PARAM_MAGLEVGFX                       :替换磁悬浮轨道图形
+STR_PARAM_MAGLEVGFX_DESC                  :选择是否用匹配真空轨道的图形替换基础磁悬浮轨道。关闭后使用基础图形或其他 NewGRF 提供的磁悬浮轨道。
+STR_PARAM_ALLOWMAGLEV                     :允许磁悬浮列车使用真空轨道
+STR_PARAM_ALLOWMAGLEV_DESC                :选择是否允许标准磁悬浮列车在真空轨道上行驶，包括兼容的 NewGRF 磁悬浮列车。
+STR_PARAM_ALLOWVACTRAIN                   :允许真空列车使用磁悬浮轨道
+STR_PARAM_ALLOWVACTRAIN_DESC              :选择是否允许真空列车在标准磁悬浮轨道上行驶。
+STR_PARAM_SPEED                           :调整真空列车最高速度
+STR_PARAM_SPEED_DESC                      :调整最快一代真空列车的最高速度，早期世代会按比例调整。
+STR_PARAM_RUNNING_COST                    :调整运营成本
+STR_PARAM_RUNNING_COST_DESC               :调整真空列车的运营成本
+STR_PARAM_PURCHASE_COST                   :调整购买成本
+STR_PARAM_PURCHASE_COST_DESC              :调整真空列车的购买成本
+STR_PARAM_RAIL_COST                       :调整轨道建设成本
+STR_PARAM_RAIL_COST_DESC                  :调整真空轨道的建设和拆除成本。
+STR_PARAM_MAINTENANCE_COST                :调整轨道维护成本
+STR_PARAM_MAINTENANCE_COST_DESC           :调整真空轨道的维护成本。必须启用基础设施维护才会生效。
+STR_PARAM_COST_AUTOMATICALLY              :自动（默认）
+STR_PARAM_COST_BY256                      :1 / 256
+STR_PARAM_COST_BY128                      :1 / 128
+STR_PARAM_COST_BY64                       :1 / 64
+STR_PARAM_COST_BY32                       :1 / 32
+STR_PARAM_COST_BY16                       :1 / 16
+STR_PARAM_COST_BY8                        :1 / 8
+STR_PARAM_COST_BY4                        :1 / 4
+STR_PARAM_COST_BY2                        :1 / 2
+STR_PARAM_COST_NORMAL                     :正常
+STR_PARAM_COST_TIMES2                     :2 倍
+STR_PARAM_COST_TIMES4                     :4 倍
+STR_PARAM_COST_TIMES8                     :8 倍
+STR_PARAM_COST_TIMES16                    :16 倍
+STR_PARAM_COST_TIMES32                    :32 倍
+STR_PARAM_COST_TIMES64                    :64 倍
+STR_PARAM_COST_TIMES128                   :128 倍
+STR_PARAM_COST_TIMES256                   :256 倍
+STR_PARAM_COST_TIMES512                   :512 倍

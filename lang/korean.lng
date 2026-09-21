@@ -1,0 +1,90 @@
+##grflangid 0x3A
+
+STR_GRF_NAME :진공열차 세트 {VERSION}
+STR_GRF_DESCRIPTION :진공열차는 진공 튜브에서 엄청난 속도로 달리지만 비용도 매우 비쌉니다. 먼 미래의 게임에 필수적입니다. 그래픽: Emperor Jake, Voyager One, DJNekkid, Purno, Froix, Erato, Zephyris; 코드: Emperor Jake 외, GPLv2 이상.
+STR_BADGE_POWER                           :동력
+STR_BADGE_POWER_VACTRAIN                  :진공열차
+STR_BADGE_ROLE                            :역할
+STR_BADGE_ROLE_PAX                        :승객
+STR_BADGE_ROLE_EXP                        :특급 화물
+STR_BADGE_ROLE_CARGO                      :화물
+STR_BADGE_ROLE_UNIV                       :범용
+STR_NAME_SWIFT                            :Swift
+STR_NAME_HYDRA                            :Hydra
+STR_NAME_SCARAB                           :Scarab
+STR_NAME_COBRA                            :Cobra
+STR_NAME_CROSSLEY                         :Crossley
+STR_NAME_SWALLOW                          :Swallow
+STR_NAME_TAPEWORM                         :Tapeworm
+STR_NAME_BISON                            :Bison
+STR_NAME_CHEETAH                          :Cheetah
+STR_NAME_PILLBUG                          :Pillbug
+STR_NAME_SPAMCAN                          :Spamcan
+STR_NAME_ROCKETMAX                        :Rocketmax
+STR_NAME_CARGO_1                          :Coelacanth
+STR_NAME_CARGO_2                          :Juggernaut
+STR_NAME_CARGO_3                          :Capybara
+STR_NAME_CARGO_4                          :Cyber Dragon
+STR_CONCAT_1                              :{STRING}
+STR_CONCAT_2                              :{STRING}{STRING}
+STR_CONCAT_3                              :{STRING}{STRING}{STRING}
+STR_CONCAT_4                              :{STRING}{STRING}{STRING}{STRING}
+STR_DESC_AIRSPEED                         :{BLACK}대기 속도: {GOLD}{UNSIGNED_WORD} km/h{}
+STR_DESC_WAGONCAP                         :{BLACK}승객/특급 화물 객차 추가 용량
+STR_NAME_PAX_WAGON                        :승객 객차
+STR_NAME_EXP_WAGON                        :특급 화물 객차
+STR_NAME_CARGO_WAGON                      :범용 화물 객차
+STR_NAME_BULK_WAGON                       :벌크 화물 객차
+STR_NEW_ENGINE                            :진공열차 기관차
+STR_AUTOREPLACE                           :진공열차 차량
+STR_BUILD_CAPTION                         :새 진공열차 차량
+STR_TOOLBAR_CAPTION                       :진공철도 건설
+STR_VAC_RAIL                              :진공철도 건설
+STR_VAC_NAME                              :진공철도
+STR_PARAM_CAPACITY                        :진공열차 용량 변경
+STR_PARAM_CAPACITY_DESC                   :진공열차 차량의 용량을 변경합니다.{}{}보수적: {WHITE}-20%{BLACK}{}관대함: {WHITE}+20%{BLACK}
+STR_PARAM_CAPACITY_LOW                    :보수적
+STR_PARAM_CAPACITY_MED                    :보통
+STR_PARAM_CAPACITY_HIGH                   :관대함
+STR_PARAM_LOADSPEED                       :진공열차 적재 속도 변경
+STR_PARAM_LOADSPEED_DESC                  :진공열차 차량의 적재 속도를 변경합니다
+STR_PARAM_LOADSPEED_LOW                   :느림
+STR_PARAM_LOADSPEED_MED                   :보통
+STR_PARAM_LOADSPEED_HIGH                  :빠름
+STR_PARAM_STARTING_YEAR                   :도입 연도 변경
+STR_PARAM_STARTING_YEAR_DESC              :승객 및 특급 진공열차의 도입 연도를 조정합니다. 화물 진공열차는 약 5년 후 도입됩니다.
+STR_PARAM_MAGLEVGFX                       :자기부상 철도 그래픽 교체
+STR_PARAM_MAGLEVGFX_DESC                  :기본 자기부상 철도를 진공철도에 맞는 그래픽으로 교체할지 선택합니다. 끄면 기본 세트나 다른 NewGRF의 그래픽을 사용합니다.
+STR_PARAM_ALLOWMAGLEV                     :진공철도에서 자기부상 열차 허용
+STR_PARAM_ALLOWMAGLEV_DESC                :기본 및 호환 NewGRF 자기부상 열차가 진공철도에서 운행할 수 있게 할지 선택합니다.
+STR_PARAM_ALLOWVACTRAIN                   :자기부상 철도에서 진공열차 허용
+STR_PARAM_ALLOWVACTRAIN_DESC              :진공열차가 기본 자기부상 철도에서 운행할 수 있게 할지 선택합니다.
+STR_PARAM_SPEED                           :진공열차 최고 속도 변경
+STR_PARAM_SPEED_DESC                      :가장 빠른 세대의 최고 속도를 변경합니다. 이전 세대는 비례하여 조정됩니다.
+STR_PARAM_RUNNING_COST                    :운영 비용 조정
+STR_PARAM_RUNNING_COST_DESC               :진공열차의 운영 비용을 조정합니다
+STR_PARAM_PURCHASE_COST                   :구매 비용 조정
+STR_PARAM_PURCHASE_COST_DESC              :진공열차의 구매 비용을 조정합니다
+STR_PARAM_RAIL_COST                       :철도 건설 비용 조정
+STR_PARAM_RAIL_COST_DESC                  :진공철도의 건설 및 철거 비용을 조정합니다.
+STR_PARAM_MAINTENANCE_COST                :철도 유지보수 비용 조정
+STR_PARAM_MAINTENANCE_COST_DESC           :진공철도의 유지보수 비용을 조정합니다. 기반시설 유지보수가 켜져 있어야 적용됩니다.
+STR_PARAM_COST_AUTOMATICALLY              :자동 (기본값)
+STR_PARAM_COST_BY256                      :1 / 256
+STR_PARAM_COST_BY128                      :1 / 128
+STR_PARAM_COST_BY64                       :1 / 64
+STR_PARAM_COST_BY32                       :1 / 32
+STR_PARAM_COST_BY16                       :1 / 16
+STR_PARAM_COST_BY8                        :1 / 8
+STR_PARAM_COST_BY4                        :1 / 4
+STR_PARAM_COST_BY2                        :1 / 2
+STR_PARAM_COST_NORMAL                     :보통
+STR_PARAM_COST_TIMES2                     :2배
+STR_PARAM_COST_TIMES4                     :4배
+STR_PARAM_COST_TIMES8                     :8배
+STR_PARAM_COST_TIMES16                    :16배
+STR_PARAM_COST_TIMES32                    :32배
+STR_PARAM_COST_TIMES64                    :64배
+STR_PARAM_COST_TIMES128                   :128배
+STR_PARAM_COST_TIMES256                   :256배
+STR_PARAM_COST_TIMES512                   :512배
